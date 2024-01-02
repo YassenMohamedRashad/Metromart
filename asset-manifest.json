@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Metromart/static/css/main.eefc237f.css",
+    "main.js": "/Metromart/static/js/main.3eefa4f5.js",
+    "index.html": "/Metromart/index.html",
+    "main.eefc237f.css.map": "/Metromart/static/css/main.eefc237f.css.map",
+    "main.3eefa4f5.js.map": "/Metromart/static/js/main.3eefa4f5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eefc237f.css",
+    "static/js/main.3eefa4f5.js"
+  ]
+}
