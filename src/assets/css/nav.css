@@ -1,0 +1,25 @@
+.search-form {
+	position: relative;
+}
+.search-form input {
+	background-color: #f5f5f5;
+	flex-grow: 1;
+	padding: 10px;
+	border: none;
+	border-radius: 8px;
+	width: 270px !important;
+}
+
+.search-form button {
+	position: absolute;
+	top: 7px;
+	right: 1px;
+	background-color: #f5f5f5;
+	border: none;
+	border-radius: 10px;
+	user-select: none;
+}
+
+.search-form img {
+	height: 20px;
+}
