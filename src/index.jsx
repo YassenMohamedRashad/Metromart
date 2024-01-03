@@ -6,6 +6,7 @@ import Nav from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Login from "./Components/Login";
 import Signup from "./Components/SignUp";
+import AccountDetails from "./Components/AccountDetails";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/nav.css";
 
@@ -19,6 +20,7 @@ root.render(
 				<Route path="/Metromart/" element={<App />} />
 				<Route path="/Metromart/login" element={<Login />} />
 				<Route path="/Metromart/signUp" element={<Signup />} />
+				<Route path="/Metromart/AccountDetails" element={<AccountDetails />} />
 			</Routes>
 
 			<Footer />

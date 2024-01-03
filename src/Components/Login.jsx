@@ -6,7 +6,7 @@ function Login() {
 		<>
 			<div className="row login">
 				<div className="col-lg-6 col-md-5">
-					<img src={loginImage}  />
+					<img src={loginImage} alt=''/>
 				</div>
 				<div className="col-lg-6 col-md-7 align-self-center">
 					<h1 style={{marginLeft:150}}>Log in to Exclusive</h1>

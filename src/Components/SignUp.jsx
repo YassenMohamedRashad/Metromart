@@ -7,7 +7,7 @@ function Login() {
 		<>
 			<div className="row signup">
 				<div className="col-lg-6 col-md-5">
-					<img src={signupImage}/>
+					<img src={signupImage} alt=''/>
 				</div>
 				<div className="col-lg-6 col-md-7 align-self-center">
 					<h1 style={{marginLeft:150}}>Create an account</h1>
