@@ -2,7 +2,7 @@ import React from 'react'
 
 function App() {
   return (
-    <div>Hyman</div>
+    <div>My team app</div>
   )
 }
 
