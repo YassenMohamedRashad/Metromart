@@ -1,0 +1,63 @@
+.container-fluid{
+    padding: 30px;
+  }
+  .card-body{
+    width: 100%; 
+  }
+  .card{
+    width: 18rem;
+    padding: 60px 35px 0px;
+  }
+.wishlist-row{
+    margin-top: 50px;
+}
+  .space{
+    border-radius: 3px;
+  }
+  .sale{
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .trash-icon,.eye-icon{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 10px;
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    padding:3px 4px 2px 7px ;
+    width:35px;
+    height: 35px;
+    border-radius: 50%;
+  }
+  .trash-icon:hover{
+    background-color: rgba(255, 0, 0, 0.733);
+    color: white;
+  }
+  .eye-icon:hover{
+    background-color: rgb(0, 140, 255);
+    color: white;
+  }
+  img{
+    width: 30px;
+    height: 100px;
+  }
+  p{
+    margin-top: 15px;
+    font-size: large;
+  }
+  
+  .wishlist-row,.foryou-row{
+    margin: 20px 0px;
+  }
+  
+  .cart{
+    margin-bottom:3px ;
+  }
+  h4{
+    padding-top: 10px;
+  }
