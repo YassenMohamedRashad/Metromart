@@ -9,7 +9,7 @@ function AccountDetails() {
     const changeLastname = event => {
         setSecondname(event.target.value)
     }
-
+    
     return (
         <>
             <div className="container" style={{ marginTop: 75 }}>
