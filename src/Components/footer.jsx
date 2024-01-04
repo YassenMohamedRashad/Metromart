@@ -59,7 +59,7 @@ function Footer() {
 				<hr />
 				<div className="d-sm-flex justify-content-center py-1 copyright ">
 					<p className="text-center">
-						© Copyright <a className="fw-bold mx-1">MetroMart</a>
+						© Copyright<a className="fw-bold mx-1">MetroMart</a>
 						2023. All right reserved
 					</p>
 				</div>

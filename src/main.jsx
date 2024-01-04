@@ -11,7 +11,9 @@ import Login from "./Components/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/nav.css";
 import "./assets/css/footer.css";
+import "./assets/css/ProductDetails.css";
 import "./assets/css/App.css";
+import ProductDetails from "./Components/productDetails.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,8 +22,9 @@ root.render(
 			<Nav />
 
 			<Routes>
-				<Route path="/e-commerce/" element={<App />} />
-				<Route path="/e-commerce/login" element={<Login />} />
+				<Route path="/" element={<App />} />
+				<Route path="/login" element={<Login />} />
+				<Route path="/product" element={<ProductDetails />} />
 			</Routes>
 
 			<Footer />

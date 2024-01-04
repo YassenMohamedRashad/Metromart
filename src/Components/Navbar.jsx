@@ -6,7 +6,7 @@ function Navigation() {
 	const [expanded, setExpanded] = useState(false);
 
 	return (
-		<Navbar bg="light" expand="lg" className="mb-3" expanded={expanded}>
+		<Navbar expand="lg" className="mb-3" expanded={expanded}>
 			<Container>
 				<Navbar.Brand href="#home" className="fw-bold">
 					MetroMart
