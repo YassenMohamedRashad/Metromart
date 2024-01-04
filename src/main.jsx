@@ -12,7 +12,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/nav.css";
 import "./assets/css/footer.css";
 import "./assets/css/App.css";
-import "./assets/css/index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
