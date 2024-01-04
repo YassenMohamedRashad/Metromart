@@ -1,0 +1,54 @@
+footer {
+	font-family: "Outfit", sans-serif;
+	background-color: black;
+	color: white;
+	width: 100%;
+	overflow-x: hidden;
+}
+.cont {
+	display: flex;
+	justify-content: space-between;
+	gap: 6%;
+	padding-left: 9%;
+	padding-right: 7%;
+	padding-top: 5.5%;
+	padding-bottom: 3.5%;
+}
+.cont .column {
+	flex: 1 0 20%;
+	display: flex;
+	flex-direction: column;
+}
+
+.cont button.send {
+	background-color: black;
+	position: absolute;
+	right: 2px;
+	top: 0;
+	border-radius: 5px;
+	transform: translateY(5%);
+	display: inline-flex;
+	/* place-items: center; */
+	/* place-content: center; */
+}
+
+#FooterEmail {
+	position: relative;
+	border: 1px solid white;
+	border-radius: 5px;
+	background-color: black;
+}
+#FooterEmail::placeholder {
+	color: rgba(255, 255, 255, 0.523);
+}
+
+#FooterEmail:focus {
+	/* box-shadow: none; */
+	border: 1px solid rgb(255 255 255 / 52%);
+	outline: 0;
+	box-shadow: 0 0 0px 2px rgb(255 255 255 / 52%);
+}
+
+.cont form {
+	margin-top: 1rem;
+}

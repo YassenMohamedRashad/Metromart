@@ -1,0 +1,19 @@
+*,
+::after,
+::before {
+	text-transform: capitalize;
+}
+
+body {
+	min-height: 100vh;
+}
+
+nav form,
+footer form {
+	position: relative;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
