@@ -3,7 +3,7 @@ import AccountDetails from './Components/AccountDetails';
 
 function App() {
   return (
-    <div>hyman page</div>
+    <div>main page</div>
   )
 }
 
