@@ -15,8 +15,6 @@ root.render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<Nav />
-
-
 			<Routes>
 				<Route path="/Metromart/" element={ <App /> } />
 				<Route path="/Metromart/login" element={ <Login /> } />
