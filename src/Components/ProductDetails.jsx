@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import Line from "../assets/images/icons/line 13.svg";
+import Line from "../assets/images/icons/Line 13.svg";
 import controller_1 from "../assets/images/controller-1.png";
 import controller_2 from "../assets/images/controller-2.png";
 import controller_3 from "../assets/images/controller-3.png";

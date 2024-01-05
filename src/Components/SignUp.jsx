@@ -1,4 +1,3 @@
-import "../assets/css/signup.css";
 import signupImage from "../assets/images/signup.svg";
 import googleLogo from "../assets/images/google-icon.svg";
 
@@ -27,7 +26,7 @@ function Login() {
 						<br />
 					</form>
 					<button className="btn btn-light border mt-2 " style={{width:386,height:50}}><img src={googleLogo} /> Sign Up with Google</button>
-					<h6 className="text-secondary mt-4">Aleardy have account? <a href="/Metromart/login" className="text-secondary" > Log in</a></h6>
+					<h6 className="text-secondary mt-4">Already have account? <a href="/Metromart/login" className="text-secondary" > Log in</a></h6>
 				</div>
 			</div>
 		</div>

@@ -1,4 +1,3 @@
-import "../assets/css/login.css";
 import loginImage from "../assets/images/signup.svg";
 
 function Login() {
