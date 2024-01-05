@@ -5,6 +5,11 @@ footer {
 	width: 100%;
 	overflow-x: hidden;
 }
+
+footer form {
+	position: relative;
+}
+
 .cont {
 	display: flex;
 	justify-content: space-between;

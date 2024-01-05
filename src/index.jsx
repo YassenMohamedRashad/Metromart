@@ -10,10 +10,14 @@ import Login from "./Components/Login";
 import Signup from "./Components/SignUp";
 import AccountDetails from "./Components/AccountDetails";
 import ProductDetails from "./Components/productDetails.jsx";
+import WishList from "./Components/Wishlist";
 /* css files imports */
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./assets/css/nav.css";
 import "./assets/css/footer.css";
+import "./assets/css/login.css";
+import "./assets/css/nav.css";
+import "./assets/css/signup.css";
+import "./assets/css/Wishlist.css";
 import "./assets/css/ProductDetails.css";
 import "./assets/css/App.css";
 
@@ -22,7 +26,7 @@ root.render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<Nav />
-
+			{/* routes start */}
 			<Routes>
 				<Route path="/Metromart/" element={<App />} />
 				<Route path="/Metromart/signup" element={<Signup />} />
@@ -31,10 +35,13 @@ root.render(
 					path="/Metromart/accountDetails"
 					element={<AccountDetails />}
 				/>
-				<Route path="/Metromart/productDetails" element={<ProductDetails />} />
+				<Route
+					path="/Metromart/productDetails"
+					element={<ProductDetails />}
+				/>
 				<Route path="/Metromart/wishlist" element={<WishList />} />
 			</Routes>
-
+			{/* routes end */}
 			<Footer />
 		</BrowserRouter>
 	</React.StrictMode>
