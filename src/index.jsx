@@ -5,8 +5,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 /* components imports */
 import App from "./App";
 import Nav from "./Components/Navbar";
-import Footer from "./Components/footer.jsx";
+import Footer from "./Components/Footer";
 import Login from "./Components/Login";
+import Signup from "./Components/SignUp";
+import AccountDetails from "./Components/AccountDetails";
 import ProductDetails from "./Components/productDetails.jsx";
 /* css files imports */
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -22,9 +24,15 @@ root.render(
 			<Nav />
 
 			<Routes>
-				<Route path="/" element={<App />} />
-				<Route path="/login" element={<Login />} />
-				<Route path="/product" element={<ProductDetails />} />
+				<Route path="/Metromart/" element={<App />} />
+				<Route path="/Metromart/signup" element={<Signup />} />
+				<Route path="/Metromart/login" element={<Login />} />
+				<Route
+					path="/Metromart/accountDetails"
+					element={<AccountDetails />}
+				/>
+				<Route path="/Metromart/productDetails" element={<ProductDetails />} />
+				<Route path="/Metromart/wishlist" element={<WishList />} />
 			</Routes>
 
 			<Footer />
