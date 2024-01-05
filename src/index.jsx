@@ -19,8 +19,8 @@ root.render(
 			<Routes>
 				<Route path="/Metromart/" element={<App />} />
 				<Route path="/Metromart/login" element={<Login />} />
-				<Route path="/Metromart/signUp" element={<Signup />} />
-				<Route path="/Metromart/AccountDetails" element={<AccountDetails />} />
+				<Route path="/Metromart/signup" element={<Signup />} />
+				<Route path="/Metromart/accountdetails" element={<AccountDetails />} />
 			</Routes>
 
 			<Footer />

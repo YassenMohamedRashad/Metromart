@@ -1,3 +1,6 @@
+body{
+  overflow-x: hidden;
+}
 .signup {
   width: 100%;
 }

@@ -1,8 +1,9 @@
 import React from 'react'
+import AccountDetails from './Components/AccountDetails';
 
 function App() {
   return (
-    <div>Hyman</div>
+    <div>Home page</div>
   )
 }
 
