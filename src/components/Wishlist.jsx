@@ -24,9 +24,9 @@ function WishList(){
     {/* calling navbar component */}
     <Navbar/>
     {/* wishlist and for you list content */}
-    <div className="container-fluid">
+    <div className="container-fluid my-container">
       <div className="row wishlist-row">
-        <h4 className="col-xxl-10 col-xl-10 col-lg-9 col-md-8 col">Wishlist (4)</h4>
+        <h4 className="col-xxl-10 col-xl-10 col-lg-9 col-md-8 col my-h4">Wishlist (4)</h4>
         <button class="col btn btn-outline-dark btn-lg">Move All To Bag</button>
       </div>
       {/* wishlist row */}
@@ -34,7 +34,7 @@ function WishList(){
         {/* first column */}
         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
           {/* the card */}
-          <div className="card">
+          <div className="card my-card">
             <div>
                 {/* sale button */}
               <div>     
@@ -49,9 +49,9 @@ function WishList(){
                 </div>
               </a>
             </div>
-            <img class="card-img-top" src={one} alt="Card image cap"/>
+            <img class="card-img-top image" src={one} alt="Card image cap"/>
             {/* add to cart button */}
-            <div class="card-body">
+            <div class="card-body my-card-body">
               <a href="#" class="btn btn-dark text-light w-100">
                   <svg class="cart" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
@@ -61,12 +61,12 @@ function WishList(){
             </div>
           </div>
           {/* price and sale */}
-          <p> <b> Gucci duffle bag <br/> <span class="text-danger">$960 &nbsp;<span class="text-secondary"> <del> $1160 </del></span></span></b></p>
+          <p className="my-p"> <b> Gucci duffle bag <br/> <span class="text-danger">$960 &nbsp;<span class="text-secondary"> <del> $1160 </del></span></span></b></p>
         </div>
         {/* second column */}
         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
           {/* the card */}
-          <div className="card">
+          <div className="card my-card">
             <div>
                 {/* sale button */}
               <div>     
@@ -81,9 +81,9 @@ function WishList(){
                 </div>
               </a>
             </div>
-            <img class="card-img-top" src={two} alt="Card image cap"/>
+            <img class="card-img-top image" src={two} alt="Card image cap"/>
             {/* add to cart button */}
-            <div class="card-body">
+            <div class="card-body my-card-body">
               <a href="#" class="btn btn-dark text-light w-100">
                   <svg class="cart" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
@@ -93,12 +93,12 @@ function WishList(){
             </div>
           </div>
           {/* price and sale */}
-          <p> <b> Gucci duffle bag <br/> <span class="text-danger">$960 &nbsp;<span class="text-secondary"> <del> $1160 </del></span></span></b></p>
+          <p className="my-p"> <b> Gucci duffle bag <br/> <span class="text-danger">$960 &nbsp;<span class="text-secondary"> <del> $1160 </del></span></span></b></p>
         </div>
         {/* third column */}
         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
           {/* the card */}
-          <div className="card">
+          <div className="card my-card">
             <div>
                 {/* sale button */}
               <div>     
@@ -113,9 +113,9 @@ function WishList(){
                 </div>
               </a>
             </div>
-            <img class="card-img-top" src={three} alt="Card image cap"/>
+            <img class="card-img-top image" src={three} alt="Card image cap"/>
             {/* add to cart button */}
-            <div class="card-body">
+            <div class="card-body my-card-body">
               <a href="#" class="btn btn-dark text-light w-100">
                   <svg class="cart" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
@@ -125,12 +125,12 @@ function WishList(){
             </div>
           </div>
           {/* price and sale */}
-          <p> <b> Gucci duffle bag <br/> <span class="text-danger">$960 &nbsp;<span class="text-secondary"> <del> $1160 </del></span></span></b></p>
+          <p className="my-p"> <b> Gucci duffle bag <br/> <span class="text-danger">$960 &nbsp;<span class="text-secondary"> <del> $1160 </del></span></span></b></p>
         </div>
         {/* fourth column */}
         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
           {/* the card */}
-          <div className="card">
+          <div className="card my-card">
             <div>
                 {/* sale button */}
               <div>     
@@ -145,9 +145,9 @@ function WishList(){
                 </div>
               </a>
             </div>
-            <img class="card-img-top" src={four} alt="Card image cap"/>
+            <img class="card-img-top image" src={four} alt="Card image cap"/>
             {/* add to cart button */}
-            <div class="card-body">
+            <div class="card-body my-card-body">
               <a href="#" class="btn btn-dark text-light w-100">
                   <svg class="cart" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
@@ -157,19 +157,19 @@ function WishList(){
             </div>
           </div>
           {/* price and sale */}
-          <p> <b> Gucci duffle bag <br/> <span class="text-danger">$960 &nbsp;<span class="text-secondary"> <del> $1160 </del></span></span></b></p>
+          <p className="my-p"> <b> Gucci duffle bag <br/> <span class="text-danger">$960 &nbsp;<span class="text-secondary"> <del> $1160 </del></span></span></b></p>
         </div>
       </div>
     {/* for you row */}
       <div className="row foryou-row">
-        <h4 className="col-xxl-10 col-xl-10 col-lg-9 col-md-8 col"><span class="bg-danger space" >&nbsp;&nbsp;</span>    Just For You</h4>
+        <h4 className="col-xxl-10 col-xl-10 col-lg-9 col-md-8 col my-h4"><span class="bg-danger space" >&nbsp;&nbsp;</span>    Just For You</h4>
         <button class="col btn btn-outline-dark btn-lg">See All</button>
       </div>
       <div className="row">
         {/* first column */}
         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
           {/* the card */}
-          <div className="card">
+          <div className="card my-card">
             <div>
                 {/* sale button */}
               <div>     
@@ -185,9 +185,9 @@ function WishList(){
                 </div>
               </a>
             </div>
-            <img class="card-img-top" src={five} alt="Card image cap"/>
+            <img class="card-img-top image" src={five} alt="Card image cap"/>
             {/* add to cart button */}
-            <div class="card-body">
+            <div class="card-body my-card-body">
               <a href="#" class="btn btn-dark text-light w-100">
                   <svg class="cart" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
@@ -197,12 +197,12 @@ function WishList(){
             </div>
           </div>
           {/* price and sale */}
-          <p> <b> Gucci duffle bag <br/> <span class="text-danger">$960 &nbsp;<span class="text-secondary"> <del> $1160 </del></span></span></b></p>
+          <p className="my-p"> <b> Gucci duffle bag <br/> <span class="text-danger">$960 &nbsp;<span class="text-secondary"> <del> $1160 </del></span></span></b></p>
         </div>
         {/* second column */}
         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
           {/* the card */}
-          <div className="card">
+          <div className="card my-card">
             <div>
                 {/* sale button */}
               <div>     
@@ -218,9 +218,9 @@ function WishList(){
                 </div>
               </a>
             </div>
-            <img class="card-img-top" src={six} alt="Card image cap"/>
+            <img class="card-img-top image" src={six} alt="Card image cap"/>
             {/* add to cart button */}
-            <div class="card-body">
+            <div class="card-body my-card-body">
               <a href="#" class="btn btn-dark text-light w-100">
                   <svg class="cart" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
@@ -230,12 +230,12 @@ function WishList(){
             </div>
           </div>
           {/* price and sale */}
-          <p> <b> Gucci duffle bag <br/> <span class="text-danger">$960 &nbsp;<span class="text-secondary"> <del> $1160 </del></span></span></b></p>
+          <p className="my-p"> <b> Gucci duffle bag <br/> <span class="text-danger">$960 &nbsp;<span class="text-secondary"> <del> $1160 </del></span></span></b></p>
         </div>
         {/* third column */}
         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
           {/* the card */}
-          <div className="card">
+          <div className="card my-card">
             <div>
                 {/* New button */}
               <div>     
@@ -251,9 +251,9 @@ function WishList(){
                 </div>
               </a>
             </div>
-            <img class="card-img-top" src={seven} alt="Card image cap"/>
+            <img class="card-img-top image" src={seven} alt="Card image cap"/>
             {/* add to cart button */}
-            <div class="card-body">
+            <div class="card-body my-card-body">
               <a href="#" class="btn btn-dark text-light w-100">
                   <svg class="cart" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
@@ -263,12 +263,12 @@ function WishList(){
             </div>
           </div>
           {/* price and sale */}
-          <p> <b> Gucci duffle bag <br/> <span class="text-danger">$960 &nbsp;<span class="text-secondary"> <del> $1160 </del></span></span></b></p>
+          <p className="my-p"> <b> Gucci duffle bag <br/> <span class="text-danger">$960 &nbsp;<span class="text-secondary"> <del> $1160 </del></span></span></b></p>
         </div>
         {/* fourth column */}
         <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
           {/* the card */}
-          <div className="card">
+          <div className="card my-card">
             <div>
                 {/* sale button */}
               <div>     
@@ -284,9 +284,9 @@ function WishList(){
                 </div>
               </a>
             </div>
-            <img class="card-img-top" src={eight} alt="Card image cap"/>
+            <img class="card-img-top image" src={eight} alt="Card image cap"/>
             {/* add to cart button */}
-            <div class="card-body">
+            <div class="card-body my-card-body">
               <a href="#" class="btn btn-dark text-light w-100">
                   <svg class="cart" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
@@ -296,7 +296,7 @@ function WishList(){
             </div>
           </div>
           {/* price and sale */}
-          <p> <b> Gucci duffle bag <br/> <span class="text-danger">$960 &nbsp;<span class="text-secondary"> <del> $1160 </del></span></span></b></p>
+          <p className="my-p"> <b> Gucci duffle bag <br/> <span class="text-danger">$960 &nbsp;<span class="text-secondary"> <del> $1160 </del></span></span></b></p>
         </div>
       </div>
     </div>
