@@ -1,4 +1,10 @@
+/* eslint-disable no-unused-vars */
 import Line from "../assets/images/icons/line 13.svg";
+import controller_1 from "../assets/images/controller-1.png";
+import controller_2 from "../assets/images/controller-2.png";
+import controller_3 from "../assets/images/controller-3.png";
+import controller_4 from "../assets/images/controller-4.png";
+import controller_5 from "../assets/images/controller-5.png";
 const ProductDetails = () => {
 	return (
 		<>
@@ -21,10 +27,26 @@ const ProductDetails = () => {
 				<div className="row">
 					{/* 4 small images */}
 					<div className="col-4">
-						<div className="row">img1</div>
-						<div className="row">img2</div>
-						<div className="row">img3</div>
-						<div className="row">img4</div>
+						<div className="row">
+							<div className="img-Wrapper">
+								<img className="img-fluid" src={controller_1} />
+							</div>
+						</div>
+						<div className="row">
+							<div className="img-Wrapper">
+								<img className="img-fluid" src={controller_2} />
+							</div>
+						</div>
+						<div className="row">
+							<div className="img-Wrapper">
+								<img className="img-fluid" src={controller_3} />
+							</div>
+						</div>
+						<div className="row">
+							<div className="img-Wrapper">
+								<img className="img-fluid" src={controller_4} />
+							</div>
+						</div>
 					</div>
 					{/* big image for the product */}
 					<div className="col-4">bigImg</div>
