@@ -1,0 +1,39 @@
+.in{
+    height: 50px !important;
+}
+@media screen and (min-width: 1400px) {
+    .in{
+        width: 350px !important;
+    }
+  }
+
+  @media screen and (max-width: 1399px) {
+    .in{
+        width: 300px !important;
+    }
+  }
+  @media screen and (max-width: 1199px) {
+    .in{
+        width: 250px !important;
+    }
+  }
+  @media screen and (max-width: 991px) {
+    .in{
+        width: 175px !important;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .test{
+        width: 100% !important;
+    }
+  }
+  @media screen and (max-width: 575px) {
+    .in{
+        width: 200px !important;
+    }
+  }
+  @media screen and (max-width: 525px) {
+    .in{
+        width: 175px !important;
+    }
+  }
