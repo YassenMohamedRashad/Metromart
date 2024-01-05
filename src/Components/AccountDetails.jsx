@@ -43,27 +43,27 @@ function AccountDetails() {
 
                     </div>
 
-                    <div className='col-8 test mt-5 '>
+                    <div className='col-8 manage-my-account mt-5 '>
                         <form method='post' class="shadow-sm rounded p-5">
                             <h4 className=' text-danger '>Edit Your Profile</h4>
                             <div className="d-flex justify-content-between mt-3">
                                 <div>
                                     <label htmlFor="FirstName" className='fw-bold'>First Name</label>
-                                    <input type="text" name="firstname" className='form-control bg-light text-secondary border-0 mt-2  in ' placeholder='First Name' onChange={changeFirstname} />
+                                    <input type="text" name="firstname" className='form-control bg-light text-secondary border-0 mt-2  account-inputs ' placeholder='First Name' onChange={changeFirstname} />
                                 </div>  
                                 <div>
                                     <label htmlFor="LastName" className='fw-bold'>Last Name</label>
-                                    <input type="text" name="lastname" className='form-control bg-light text-secondary border-0 mt-2 in' placeholder='Second Name' onChange={changeLastname} />
+                                    <input type="text" name="lastname" className='form-control bg-light text-secondary border-0 mt-2 account-inputs' placeholder='Second Name' onChange={changeLastname} />
                                 </div>
                             </div>
                             <div className="d-flex justify-content-between mt-3">
                                 <div>
                                     <label htmlFor="Email" className='fw-bold'>Email</label>
-                                    <input type="email" placeholder='Email' name="email" className='form-control bg-light text-secondary border-0 mt-2 in'/>
+                                    <input type="email" placeholder='Email' name="email" className='form-control bg-light text-secondary border-0 mt-2 account-inputs'/>
                                 </div>
                                 <div>
                                     <label htmlFor="Adress" className='fw-bold'>Address</label>
-                                    <input type="text" placeholder='Address' name="address" className='form-control bg-light text-secondary border-0 mt-2 in'/>
+                                    <input type="text" placeholder='Address' name="address" className='form-control bg-light text-secondary border-0 mt-2 account-inputs'/>
                                 </div>
                             </div>
 

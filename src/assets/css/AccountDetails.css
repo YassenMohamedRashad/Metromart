@@ -1,39 +1,39 @@
-.in{
+.account-inputs{
     height: 50px !important;
 }
-@media screen and (min-width: 1400px) {
-    .in{
+@media screen and (maccount-inputs-width: 1400px) {
+    .account-inputs{
         width: 350px !important;
     }
   }
 
   @media screen and (max-width: 1399px) {
-    .in{
+    .account-inputs{
         width: 300px !important;
     }
   }
   @media screen and (max-width: 1199px) {
-    .in{
+    .account-inputs{
         width: 250px !important;
     }
   }
   @media screen and (max-width: 991px) {
-    .in{
+    .account-inputs{
         width: 175px !important;
     }
   }
   @media screen and (max-width: 767px) {
-    .test{
+    .manage-my-account{
         width: 100% !important;
     }
   }
   @media screen and (max-width: 575px) {
-    .in{
+    .account-inputs{
         width: 200px !important;
     }
   }
   @media screen and (max-width: 525px) {
-    .in{
+    .account-inputs{
         width: 175px !important;
     }
   }
