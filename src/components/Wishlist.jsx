@@ -4,7 +4,7 @@ import React from "react";
 import"../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import"../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 // importing stylesheet
-import "./Wishlist.css"
+import "../assets/css/Wishlist.css"
 // importing navbar and footer
 import Navbar from "./Navbar.jsx"
 import Footer from "./Footer.jsx"
@@ -21,8 +21,6 @@ import eight from "../images/ak-900-01-500x500 1.png"
 function WishList(){
   return(
     <>
-    {/* calling navbar component */}
-    <Navbar/>
     {/* wishlist and for you list content */}
     <div className="container-fluid">
       <div className="row wishlist-row">
@@ -49,7 +47,7 @@ function WishList(){
                 </div>
               </a>
             </div>
-            <img class="card-img-top" src={one} alt="Card image cap"/>
+            <img class="card-img-top img" src={one} alt="Card image cap"/>
             {/* add to cart button */}
             <div class="card-body">
               <a href="#" class="btn btn-dark text-light w-100">
@@ -81,7 +79,7 @@ function WishList(){
                 </div>
               </a>
             </div>
-            <img class="card-img-top" src={two} alt="Card image cap"/>
+            <img class="card-img-top img" src={two} alt="Card image cap"/>
             {/* add to cart button */}
             <div class="card-body">
               <a href="#" class="btn btn-dark text-light w-100">
@@ -113,7 +111,7 @@ function WishList(){
                 </div>
               </a>
             </div>
-            <img class="card-img-top" src={three} alt="Card image cap"/>
+            <img class="card-img-top img img" src={three} alt="Card image cap"/>
             {/* add to cart button */}
             <div class="card-body">
               <a href="#" class="btn btn-dark text-light w-100">
@@ -145,7 +143,7 @@ function WishList(){
                 </div>
               </a>
             </div>
-            <img class="card-img-top" src={four} alt="Card image cap"/>
+            <img class="card-img-top img" src={four} alt="Card image cap"/>
             {/* add to cart button */}
             <div class="card-body">
               <a href="#" class="btn btn-dark text-light w-100">
@@ -185,7 +183,7 @@ function WishList(){
                 </div>
               </a>
             </div>
-            <img class="card-img-top" src={five} alt="Card image cap"/>
+            <img class="card-img-top img" src={five} alt="Card image cap"/>
             {/* add to cart button */}
             <div class="card-body">
               <a href="#" class="btn btn-dark text-light w-100">
@@ -218,7 +216,7 @@ function WishList(){
                 </div>
               </a>
             </div>
-            <img class="card-img-top" src={six} alt="Card image cap"/>
+            <img class="card-img-top img" src={six} alt="Card image cap"/>
             {/* add to cart button */}
             <div class="card-body">
               <a href="#" class="btn btn-dark text-light w-100">
@@ -251,7 +249,7 @@ function WishList(){
                 </div>
               </a>
             </div>
-            <img class="card-img-top" src={seven} alt="Card image cap"/>
+            <img class="card-img-top img" src={seven} alt="Card image cap"/>
             {/* add to cart button */}
             <div class="card-body">
               <a href="#" class="btn btn-dark text-light w-100">
@@ -284,7 +282,7 @@ function WishList(){
                 </div>
               </a>
             </div>
-            <img class="card-img-top" src={eight} alt="Card image cap"/>
+            <img class="card-img-top img" src={eight} alt="Card image cap"/>
             {/* add to cart button */}
             <div class="card-body">
               <a href="#" class="btn btn-dark text-light w-100">
@@ -301,7 +299,6 @@ function WishList(){
       </div>
     </div>
     {/* calling footer component */}
-    <Footer/> 
     </>
   )
 }
