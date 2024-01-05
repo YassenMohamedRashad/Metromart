@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Metromart/static/css/main.eefc237f.css",
-    "main.js": "/Metromart/static/js/main.09093ecb.js",
+    "main.js": "/Metromart/static/js/main.c1cae6f4.js",
     "index.html": "/Metromart/index.html",
     "main.eefc237f.css.map": "/Metromart/static/css/main.eefc237f.css.map",
-    "main.09093ecb.js.map": "/Metromart/static/js/main.09093ecb.js.map"
+    "main.c1cae6f4.js.map": "/Metromart/static/js/main.c1cae6f4.js.map"
   },
   "entrypoints": [
     "static/css/main.eefc237f.css",
-    "static/js/main.09093ecb.js"
+    "static/js/main.c1cae6f4.js"
   ]
 }
