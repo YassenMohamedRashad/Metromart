@@ -9,7 +9,7 @@ function Login() {
 					<img src={loginImage} alt=''/>
 				</div>
 				<div className="col-12 p-5 p-lg-0 col-lg-6 col-md-7 align-self-center">
-					<h1>Log in to Exclusive</h1>
+					<h2 className="fw-bolder">Log in to Exclusive</h2>
 					<form action="post" className="form login-form">
 						<h6>Enter your details below</h6>
 						<input type="text" name="email" className="mt-5 email-input" required/>
