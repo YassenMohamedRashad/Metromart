@@ -4,13 +4,13 @@ import googleLogo from "../assets/images/google-icon.svg";
 
 function Login() {
 	return (
-		<div className="container-fluid ">
+		<div className="container ">
 			<div className="row signup align-items-center">
-				<div className="col-lg-6 d-lg-block d-none">
+				<div className="col d-lg-block d-none">
 					<img src={signupImage} className="w-100" alt='' />
 				</div>
 
-				<div className="col-lg-6 justify-content-center d-flex">
+				<div className="col justify-content-center d-flex">
 					<div className="mt-5 mb-5">
 						<h2 className="fw-bolder">	Create an account</h2>
 						<form action="post" className="form signup-form " >
