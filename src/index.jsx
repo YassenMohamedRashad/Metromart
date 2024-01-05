@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
-import "../node_modules/bootstrap/dist/js/bootstrap.bundle"
-import { BrowserRouter } from 'react-router-dom';
-=======
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -17,19 +10,12 @@ import Signup from "./Components/SignUp";
 import AccountDetails from "./Components/AccountDetails";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/nav.css";
->>>>>>> Hyman
+
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-<<<<<<< HEAD
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
-=======
 	<React.StrictMode>
 		<BrowserRouter>
 			<Nav />
@@ -44,7 +30,6 @@ root.render(
 			<Footer />
 		</BrowserRouter>
 	</React.StrictMode>
->>>>>>> Hyman
 );
 
 // If you want to start measuring performance in your app, pass a function
