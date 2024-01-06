@@ -1,11 +1,20 @@
+require( "dotenv" ).config();
 const express = require( 'express' );
 const mysql = require( 'mysql2' );
-const conn = mysql.createConnection( { host: "sql.freedb.tech", user: "freedb_Yassenmohamed", password: "76nU@nH$Gms%eVZ", database: "freedb_Metromart" } );
+
+const conn = mysql.createConnection( { host: process.env.DB_HOST, user: process.env.DB_USER, password: process.env.DB_PASSWORD, database: process.env.DB_NAME } );
 const cors = require( 'cors' );
 let query = '';
 const app = express();
 app.use( express.json() );
 app.use( cors() );
+
+
+const dbHost = process.env.DB_HOST;
+const dbUser = process.env.DB_USER;
+const dbPassword = process.env.DB_PASSWORD;
+const dbnamea = process.env.DB_NAME;
+
 
 app.get( '/getusers', ( req, res ) =>
 {
@@ -90,4 +99,8 @@ app.delete( '/deleteuser/:id', ( req, res ) =>
 
 
 
-app.listen( 5000, _ => console.log( 'server is running' ) );
+app.listen( 5000, _ =>
+{
+    console.log( 'server is running' );
+    console.log( `Database name is ${ dbHost }` )
+} );
