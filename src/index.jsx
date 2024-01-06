@@ -6,7 +6,7 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 /* components imports */
 import App from "./App";
 import Nav from "./Components/Navbar";
-import Footer from "./Components/Footer";
+import Footer from "./Components/footer";
 import Login from "./Components/Login";
 import Signup from "./Components/SignUp";
 import AccountDetails from "./Components/AccountDetails";
