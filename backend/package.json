@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "metromart backend",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YassenMohamedRashad/Metromart.git"
+  },
+  "author": "Yassenmohamed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YassenMohamedRashad/Metromart/issues"
+  },
+  "homepage": "https://github.com/YassenMohamedRashad/Metromart#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.2"
+  }
+}
