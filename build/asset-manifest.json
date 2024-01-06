@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Metromart/static/css/main.380e12d6.css",
-    "main.js": "/Metromart/static/js/main.7e33e631.js",
+    "main.js": "/Metromart/static/js/main.ad16ad72.js",
     "static/media/Send-icon.png": "/Metromart/static/media/Send-icon.bac975313ce68cec5e3b.png",
     "static/media/signup.svg": "/Metromart/static/media/signup.91b295e6963ca9a8801554b64015dbd6.svg",
     "static/media/g92-2-500x500 1.png": "/Metromart/static/media/g92-2-500x500 1.7619e09507ed5af0346e.png",
@@ -18,10 +18,10 @@
     "static/media/google-icon.svg": "/Metromart/static/media/google-icon.3edf2059c397191dadf3d0ceba824ee4.svg",
     "index.html": "/Metromart/index.html",
     "main.380e12d6.css.map": "/Metromart/static/css/main.380e12d6.css.map",
-    "main.7e33e631.js.map": "/Metromart/static/js/main.7e33e631.js.map"
+    "main.ad16ad72.js.map": "/Metromart/static/js/main.ad16ad72.js.map"
   },
   "entrypoints": [
     "static/css/main.380e12d6.css",
-    "static/js/main.7e33e631.js"
+    "static/js/main.ad16ad72.js"
   ]
 }
