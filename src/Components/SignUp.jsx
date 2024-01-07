@@ -46,13 +46,13 @@ function Login() {
 	};
 
 	return (
-		<div className="container-fluid mb-5">
+		<div className="container mb-5">
 			<div className="row signup align-items-center justify-content-center d-flex">
-				<div className="col-7 col-md-6 d-lg-block d-none ">
+				<div className="col-lg-6 d-lg-block d-none ">
 					<img src={signupImage} className="w-100 signup-image" alt='' />
 				</div>
 
-				<div className="col-5 col-md-6 justify-content-center d-flex">
+				<div className="col-lg-6 justify-content-center d-flex">
 					<div className="mt-5 mb-5">
 						<h1 className="fw-bolder">	Create an Account</h1>
 						<form action="post" className="form signup-form " onSubmit={handleSubmit}>
@@ -117,10 +117,10 @@ function Login() {
 								</div>
 							</div>
 
-							<button className="btn btn-danger mt-4 " type="submit" style={{ width: 500, height: 50 }}>Create Account</button>
+							<button className="btn btn-danger mt-4 w-100" type="submit" style={{height: 50 }}>Create Account</button>
 							<br />
 						</form>
-						<button className="btn btn-light border mt-2 " style={{ width: 500, height: 50 }}><img src={googleLogo} /> Sign Up with Google</button>
+						<button className="btn btn-light border mt-2 w-100 " style={{ height: 50 }}><img src={googleLogo} /> Sign Up with Google</button>
 						<h6 className="text-secondary mt-4">Aleardy have account? <a href="/Metromart/login" className="text-secondary" > Log in</a></h6>
 					</div>
 				</div>
