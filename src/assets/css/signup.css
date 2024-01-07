@@ -1,21 +1,20 @@
-body{
-  overflow-x: hidden;
-}
-.signup {
-  width: 100%;
-  
-}
-
 .form {
   position: relative;
 }
 
-.signup-form input {
+.signup-image {
+  user-select: none;
+}
+
+.signup-form .inputs {
   border: none;
   border-bottom: 1px solid silver;
-  width: 380px;
+  width: 500px;
   outline: none;
 }
+
+
+/* Name input styling */
 .signup-form .name-label {
   position: absolute;
   top: 70px;
@@ -24,13 +23,16 @@ body{
   pointer-events: none;
   transition: all 0.3s ease;
 }
-.signup-form .name-input:focus ~ .name-label,
-.signup-form .name-input:valid ~ .name-label {
+
+.signup-form .name-input:focus~.name-label,
+.signup-form .name-input:valid~.name-label {
   transform: translateY(-20px);
   font-size: 15px;
-  color: #4158d0;
+  color: #81ACCD;
 }
 
+
+/* Email input styling */
 .signup-form .email-label {
   position: absolute;
   top: 145px;
@@ -39,13 +41,16 @@ body{
   pointer-events: none;
   transition: all 0.3s ease;
 }
-.signup-form .email-input:focus ~ .email-label,
-.signup-form .email-input:valid ~ .email-label {
+
+.signup-form .email-input:focus~.email-label,
+.signup-form .email-input:valid~.email-label {
   transform: translateY(-20px);
   font-size: 15px;
-  color: #4158d0;
+  color: #81ACCD;
 }
 
+
+/* Password input styling */
 .signup-form .pass-label {
   position: absolute;
   top: 220PX;
@@ -55,9 +60,118 @@ body{
   transition: all 0.3s ease;
 }
 
-.signup-form .pass-input:focus ~ .pass-label,
-.signup-form .pass-input:valid ~ .pass-label {
+.signup-form .pass-input:focus~.pass-label,
+.signup-form .pass-input:valid~.pass-label {
   transform: translateY(-20px);
   font-size: 15px;
-  color: #4158d0;
+  color: #81ACCD;
+}
+
+
+/* Confirm password input styling */
+.signup-form .confirmpass-label {
+  position: absolute;
+  top: 295PX;
+  left: 0;
+  color: grey;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.signup-form .confirmpass-input:focus~.confirmpass-label,
+.signup-form .confirmpass-input:valid~.confirmpass-label {
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: #81ACCD;
+}
+
+
+/* address one input styling */
+.signup-form .address1-label {
+  position: absolute;
+  top: 370PX;
+  left: 0;
+  color: grey;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.signup-form .address1-input:focus~.address1-label,
+.signup-form .address1-input:valid~.address1-label {
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: #81ACCD;
+}
+
+
+/* address two input styling */
+.signup-form .address2-label {
+  position: absolute;
+  top: 445PX;
+  left: 0;
+  color: gray;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.signup-form .address2-input:focus~.address2-label,
+.signup-form .address2-input:valid~.address2-label.active {
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: #81ACCD;
+}
+
+/* Phonenumber input styling */
+.signup-form .phonenumber-label {
+  position: absolute;
+  top: 520PX;
+  left: 0;
+  color: grey;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.signup-form .phonenumber-input:focus~.phonenumber-label,
+.signup-form .phonenumber-input:valid~.phonenumber-label {
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: #81ACCD;
+}
+
+
+/* Age input styling */
+.signup-form .age-label {
+  position: absolute;
+  top: 590PX;
+  left: 0;
+  color: grey;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.signup-form .age-input:focus~.age-label,
+.signup-form .age-input:valid~.age-label {
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: #81ACCD;
+}
+
+
+/* Gender selection styling */
+.signup-form .male-label {
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.signup-form .male-input:focus~.male-label {
+  color: #81ACCD;
+}
+
+.signup-form .female-label {
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.signup-form .female-input:focus~.female-label {
+  color: #81ACCD;
 }

@@ -7,7 +7,7 @@
     }
   }
 
-  @media screen and (max-width: 1399px) {
+  @media screen and (min-width: 1399px) {
     .account-inputs{
         width: 300px !important;
     }
