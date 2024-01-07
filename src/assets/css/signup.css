@@ -17,7 +17,7 @@
 /* Name input styling */
 .signup-form .name-label {
   position: absolute;
-  top: 70px;
+  top: 9%;
   left: 0;
   color: grey;
   pointer-events: none;
@@ -35,7 +35,7 @@
 /* Email input styling */
 .signup-form .email-label {
   position: absolute;
-  top: 145px;
+  top: 19%;
   left: 0;
   color: grey;
   pointer-events: none;
@@ -53,7 +53,7 @@
 /* Password input styling */
 .signup-form .pass-label {
   position: absolute;
-  top: 220PX;
+  top: 28%;
   left: 0;
   color: grey;
   pointer-events: none;
@@ -71,7 +71,7 @@
 /* Confirm password input styling */
 .signup-form .confirmpass-label {
   position: absolute;
-  top: 295PX;
+  top: 37.5%;
   left: 0;
   color: grey;
   pointer-events: none;
@@ -89,7 +89,7 @@
 /* address one input styling */
 .signup-form .address1-label {
   position: absolute;
-  top: 370PX;
+  top: 47.5%;
   left: 0;
   color: grey;
   pointer-events: none;
@@ -107,7 +107,7 @@
 /* address two input styling */
 .signup-form .address2-label {
   position: absolute;
-  top: 445PX;
+  top: 57%;
   left: 0;
   color: gray;
   pointer-events: none;
@@ -124,7 +124,7 @@
 /* Phonenumber input styling */
 .signup-form .phonenumber-label {
   position: absolute;
-  top: 520PX;
+  top: 66.5%;
   left: 0;
   color: grey;
   pointer-events: none;
@@ -142,7 +142,7 @@
 /* Age input styling */
 .signup-form .age-label {
   position: absolute;
-  top: 590PX;
+  top: 75.5%;
   left: 0;
   color: grey;
   pointer-events: none;
