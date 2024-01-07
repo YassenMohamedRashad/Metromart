@@ -5,6 +5,16 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function Login() {
+	
+	const get = async()=>{
+		const res = await axios.get("https://tryingtodeploy-rton.onrender.com/")
+		console.log(res.data)
+	
+	}
+	useEffect(() => {
+		get()
+	},[])
+
 	const [address2, setAddress2] = useState('')
 	const handleChange = (e) => {
 		setAddress2(e.target.value);
@@ -48,11 +58,11 @@ function Login() {
 	return (
 		<div className="container mb-5">
 			<div className="row signup align-items-center justify-content-center d-flex">
-				<div className="col-lg-6 d-lg-block d-none ">
+				<div className="col d-xl-block d-none ">
 					<img src={signupImage} className="w-100 signup-image" alt='' />
 				</div>
 
-				<div className="col-lg-6 justify-content-center d-flex">
+				<div className="col justify-content-center d-flex">
 					<div className="mt-5 mb-5">
 						<h1 className="fw-bolder">	Create an Account</h1>
 						<form action="post" className="form signup-form " onSubmit={handleSubmit}>
