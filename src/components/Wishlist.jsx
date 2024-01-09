@@ -5,9 +5,6 @@ import"../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import"../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 // importing stylesheet
 import "../assets/css/Wishlist.css"
-// importing navbar and footer
-import Navbar from "./Navbar.jsx"
-import Footer from "./Footer.jsx"
 // importing images
 import one from "../images/Light-Gucci-Savoy-medium-duffle-bag 1.png" 
 import two from "../images/gammaxx-l240-argb-1-500x500 1.png" 
