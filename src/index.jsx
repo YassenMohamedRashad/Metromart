@@ -10,6 +10,7 @@ import AccountDetails from "./Components/AccountDetails";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/nav.css";
 import WishList from "./Components/Wishlist";
+import BillingDetails from "./Components/BillingDetails";
 
 
 
@@ -24,6 +25,7 @@ root.render(
 				<Route path="/Metromart/signup" element={ <Signup /> } />
 				<Route path="/Metromart/accountdetails" element={ <AccountDetails /> } />
 				<Route path="/Metromart/wishlist" element={ <WishList /> } />
+				<Route path="/Metromart/billingdetails" element={ <BillingDetails/> } />
 			</Routes>
 			<Footer />
 		</BrowserRouter>
