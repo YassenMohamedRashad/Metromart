@@ -36,7 +36,7 @@ function WishList() {
 									</button>
 								</div>
 								{/* trash icon */}
-								<a href="" class="trash-icon">
+								<a href="/" class="trash-icon">
 									<div>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +105,7 @@ function WishList() {
 									</button>
 								</div>
 								{/* trash icon */}
-								<a href="" class="trash-icon">
+								<a href="/" class="trash-icon">
 									<div>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -174,7 +174,7 @@ function WishList() {
 									</button>
 								</div>
 								{/* trash icon */}
-								<a href="" class="trash-icon">
+								<a href="/" class="trash-icon">
 									<div>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -243,7 +243,7 @@ function WishList() {
 									</button>
 								</div>
 								{/* trash icon */}
-								<a href="" class="trash-icon">
+								<a href="/" class="trash-icon">
 									<div>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -324,7 +324,7 @@ function WishList() {
 									</button>
 								</div>
 								{/* eye icon */}
-								<a href="" class="eye-icon">
+								<a href="/" class="eye-icon">
 									<div>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -394,7 +394,7 @@ function WishList() {
 									</button>
 								</div>
 								{/* eye icon */}
-								<a href="" class="eye-icon">
+								<a href="/" class="eye-icon">
 									<div>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -469,7 +469,7 @@ function WishList() {
 									</button>
 								</div>
 								{/* eye icon */}
-								<a href="" class="eye-icon">
+								<a href="/" class="eye-icon">
 									<div>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -539,7 +539,7 @@ function WishList() {
 									</button>
 								</div>
 								{/* eye icon */}
-								<a href="" class="eye-icon">
+								<a href="/" class="eye-icon">
 									<div>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
