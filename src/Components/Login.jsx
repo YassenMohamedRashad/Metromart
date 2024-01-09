@@ -1,3 +1,4 @@
+import "../assets/css/login.css";
 import loginImage from "../assets/images/signup.svg";
 
 function Login() {
@@ -11,10 +12,10 @@ function Login() {
 					<h2 className="fw-bolder">Log in to Exclusive</h2>
 					<form action="post" className="form login-form">
 						<h6>Enter your details below</h6>
-						<input type="text" name="email" className="mt-5 email-input" required/>
+						<input type="text" name="email" className="mt-5 email-input w-100" required/>
 						<label className="email-label">Email or Phone Number</label>
 						<br />
-						<input type="password" name="password" className="mt-5 pass-input" required/>
+						<input type="password" name="password" className="mt-5 pass-input w-100" required/>
 						<label className="pass-label">Password</label>
 						<br />
 						<button className="btn btn-danger mt-4 w-50 mb-3" type="submit" style={{height:50}}>Login</button>

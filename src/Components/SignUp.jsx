@@ -1,3 +1,4 @@
+import "../assets/css/signup.css";
 import signupImage from "../assets/images/signup.svg";
 import googleLogo from "../assets/images/google-icon.svg";
 
@@ -5,7 +6,7 @@ function Login() {
 	return (
 		<div className="container">
 			<div className="row signup p-3">
-				<div className="col-md-6">
+				<div className="col-md-6 d-md-block d-none">
 					<img src={signupImage} className="w-100" alt=''/>
 				</div>
 
@@ -22,11 +23,11 @@ function Login() {
 						<input type="password" name="password" className="mt-5 pass-input w-100" required/>
 						<label className="pass-label">Password</label>
 						<br />
-						<button className="btn btn-danger mt-4 w-100 " type="submit" style={{height:50}}>Create Account</button>
+						<button className="btn btn-danger mt-4 w-100" type="submit" style={{height:50}}>Create Account</button>
 						<br />
 					</form>
 					<button className="btn btn-light border mt-2 w-100" style={{height:50}}><img src={googleLogo} /> Sign Up with Google</button>
-					<h6 className="text-secondary mt-4">Already have account? <a href="/Metromart/login" className="text-secondary" > Log in</a></h6>
+					<h6 className="text-secondary mt-4">Aleardy have account? <a href="/Metromart/login" className="text-secondary" > Log in</a></h6>
 				</div>
 			</div>
 		</div>
