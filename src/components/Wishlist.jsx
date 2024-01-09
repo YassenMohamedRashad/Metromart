@@ -22,11 +22,7 @@ function WishList(){
   return(
     <>
     {/* wishlist and for you list content */}
-<<<<<<< HEAD
     <div className="container-fluid my-container">
-=======
-    <div className="container mt-5 mb-5">
->>>>>>> main
       <div className="row wishlist-row">
         <h4 className="col-xxl-10 col-xl-10 col-lg-9 col-md-8 col my-h4">Wishlist (4)</h4>
         <button class="col btn btn-outline-dark btn-lg">Move All To Bag</button>
@@ -51,11 +47,7 @@ function WishList(){
                 </div>
               </a>
             </div>
-<<<<<<< HEAD
             <img class="card-img-top image" src={one} alt="Card image cap"/>
-=======
-            <img class="card-img-top img" src={one} alt="Card image cap"/>
->>>>>>> main
             {/* add to cart button */}
             <div class="card-body my-card-body">
               <a href="#" class="btn btn-dark text-light w-100">
@@ -87,11 +79,7 @@ function WishList(){
                 </div>
               </a>
             </div>
-<<<<<<< HEAD
             <img class="card-img-top image" src={two} alt="Card image cap"/>
-=======
-            <img class="card-img-top img" src={two} alt="Card image cap"/>
->>>>>>> main
             {/* add to cart button */}
             <div class="card-body my-card-body">
               <a href="#" class="btn btn-dark text-light w-100">
@@ -123,11 +111,7 @@ function WishList(){
                 </div>
               </a>
             </div>
-<<<<<<< HEAD
             <img class="card-img-top image" src={three} alt="Card image cap"/>
-=======
-            <img class="card-img-top img img" src={three} alt="Card image cap"/>
->>>>>>> main
             {/* add to cart button */}
             <div class="card-body my-card-body">
               <a href="#" class="btn btn-dark text-light w-100">
@@ -159,11 +143,7 @@ function WishList(){
                 </div>
               </a>
             </div>
-<<<<<<< HEAD
             <img class="card-img-top image" src={four} alt="Card image cap"/>
-=======
-            <img class="card-img-top img" src={four} alt="Card image cap"/>
->>>>>>> main
             {/* add to cart button */}
             <div class="card-body my-card-body">
               <a href="#" class="btn btn-dark text-light w-100">
@@ -203,11 +183,7 @@ function WishList(){
                 </div>
               </a>
             </div>
-<<<<<<< HEAD
             <img class="card-img-top image" src={five} alt="Card image cap"/>
-=======
-            <img class="card-img-top img" src={five} alt="Card image cap"/>
->>>>>>> main
             {/* add to cart button */}
             <div class="card-body my-card-body">
               <a href="#" class="btn btn-dark text-light w-100">
@@ -240,11 +216,7 @@ function WishList(){
                 </div>
               </a>
             </div>
-<<<<<<< HEAD
             <img class="card-img-top image" src={six} alt="Card image cap"/>
-=======
-            <img class="card-img-top img" src={six} alt="Card image cap"/>
->>>>>>> main
             {/* add to cart button */}
             <div class="card-body my-card-body">
               <a href="#" class="btn btn-dark text-light w-100">
@@ -277,11 +249,7 @@ function WishList(){
                 </div>
               </a>
             </div>
-<<<<<<< HEAD
             <img class="card-img-top image" src={seven} alt="Card image cap"/>
-=======
-            <img class="card-img-top img" src={seven} alt="Card image cap"/>
->>>>>>> main
             {/* add to cart button */}
             <div class="card-body my-card-body">
               <a href="#" class="btn btn-dark text-light w-100">
@@ -314,11 +282,7 @@ function WishList(){
                 </div>
               </a>
             </div>
-<<<<<<< HEAD
             <img class="card-img-top image" src={eight} alt="Card image cap"/>
-=======
-            <img class="card-img-top img" src={eight} alt="Card image cap"/>
->>>>>>> main
             {/* add to cart button */}
             <div class="card-body my-card-body">
               <a href="#" class="btn btn-dark text-light w-100">
