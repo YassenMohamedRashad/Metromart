@@ -5,19 +5,6 @@ import axios from 'axios';
 
 function App ()
 {
-  let [ data, setData ] = useState()
-  
-  const getdata = async() =>
-  {
-    const res = await axios.get( "http://localhost:5011/" );
-    console.log( res.data );
-  }
-
-  useEffect( () =>
-  {
-    getdata()
-  },[])
-  
   return (
     <>
       app
