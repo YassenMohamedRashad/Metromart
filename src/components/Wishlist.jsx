@@ -2,7 +2,7 @@
 import React from "react";
 // importing bootstrap files
 import"../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import"../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+import"bootstrap/dist/js/bootstrap.bundle.min.js";
 // importing stylesheet
 import "../assets/css/Wishlist.css"
 // importing navbar and footer
@@ -22,7 +22,7 @@ function WishList(){
   return(
     <>
     {/* wishlist and for you list content */}
-    <div className="container-fluid">
+    <div className="container mt-5 mb-5">
       <div className="row wishlist-row">
         <h4 className="col-xxl-10 col-xl-10 col-lg-9 col-md-8 col">Wishlist (4)</h4>
         <button class="col btn btn-outline-dark btn-lg">Move All To Bag</button>

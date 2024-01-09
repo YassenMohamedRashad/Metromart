@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/Metromart/static/css/main.380e12d6.css",
-    "main.js": "/Metromart/static/js/main.a2c14284.js",
+    "main.css": "/Metromart/static/css/main.2272d3a7.css",
+    "main.js": "/Metromart/static/js/main.f3d184c5.js",
     "static/media/Send-icon.png": "/Metromart/static/media/Send-icon.bac975313ce68cec5e3b.png",
     "static/media/signup.svg": "/Metromart/static/media/signup.91b295e6963ca9a8801554b64015dbd6.svg",
+    "static/media/login.svg": "/Metromart/static/media/login.0a0c694577c672b9440dab587b36ad70.svg",
     "static/media/g92-2-500x500 1.png": "/Metromart/static/media/g92-2-500x500 1.7619e09507ed5af0346e.png",
     "static/media/698717_Z8A1X_3475_001_100_0000_Light-Reversible-quilted-satin-jacket 1.png": "/Metromart/static/media/698717_Z8A1X_3475_001_100_0000_Light-Reversible-quilted-satin-jacket 1.55e90b78332f98597713.png",
     "static/media/Light-Gucci-Savoy-medium-duffle-bag 1.png": "/Metromart/static/media/Light-Gucci-Savoy-medium-duffle-bag 1.d10fc4bde149f99dc74d.png",
@@ -17,11 +18,11 @@
     "static/media/cart-icon.svg": "/Metromart/static/media/cart-icon.3124b5b1df69e0fd5a1d161e33888711.svg",
     "static/media/google-icon.svg": "/Metromart/static/media/google-icon.3edf2059c397191dadf3d0ceba824ee4.svg",
     "index.html": "/Metromart/index.html",
-    "main.380e12d6.css.map": "/Metromart/static/css/main.380e12d6.css.map",
-    "main.a2c14284.js.map": "/Metromart/static/js/main.a2c14284.js.map"
+    "main.2272d3a7.css.map": "/Metromart/static/css/main.2272d3a7.css.map",
+    "main.f3d184c5.js.map": "/Metromart/static/js/main.f3d184c5.js.map"
   },
   "entrypoints": [
-    "static/css/main.380e12d6.css",
-    "static/js/main.a2c14284.js"
+    "static/css/main.2272d3a7.css",
+    "static/js/main.f3d184c5.js"
   ]
 }
