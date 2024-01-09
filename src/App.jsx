@@ -1,9 +1,11 @@
-import React from 'react'
-import AccountDetails from './Components/AccountDetails';
+import React, { useEffect, useState } from 'react'
 
-function App() {
+function App ()
+{
   return (
-    <div>hyman page</div>
+    <>
+      app
+    </>
   )
 }
 

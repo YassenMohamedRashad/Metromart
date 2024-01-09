@@ -8,7 +8,7 @@ function nav() {
 		<>
 			<Navbar expand="lg mt-3">
 				<Container>
-					<Navbar.Brand href="/Metromart/" className="fw-bold">MetroMart</Navbar.Brand>
+					<Navbar.Brand href="/Metromart/" className="fw-bolder">MetroMart</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="m-auto">
@@ -31,7 +31,7 @@ function nav() {
 							</button>
 						</Form>
 						<div className="d-flex ">
-							<a href="#" className="ms-4"><img src={Favourite} alt='' style={{width:25}} /></a>
+							<a href="wishlist" className="ms-4"><img src={Favourite} alt='' style={{width:25}} /></a>
 							<a href="#" className="ms-4"><img src={Cart} alt='' style={{width:25}} /></a>
 						</div>
 					</Navbar.Collapse>
