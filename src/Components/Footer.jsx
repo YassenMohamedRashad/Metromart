@@ -1,6 +1,6 @@
 import "../assets/css/footer.css";
 import sendIcon from "../assets/images/Send-icon.png";
-function footer() {
+function Footer() {
 	return (
 		<>
 			<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -169,4 +169,4 @@ function footer() {
 	);
 }
 
-export default footer;
+export default Footer;
