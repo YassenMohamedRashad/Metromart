@@ -1,22 +1,16 @@
-// importing react
-import React from "react";
 // importing bootstrap files
-import"../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import"bootstrap/dist/js/bootstrap.bundle.min.js";
 // importing stylesheet
 import "../assets/css/Wishlist.css"
-// importing navbar and footer
-import Navbar from "./Navbar.jsx"
-import Footer from "./Footer.jsx"
 // importing images
-import one from "../images/Light-Gucci-Savoy-medium-duffle-bag 1.png" 
-import two from "../images/gammaxx-l240-argb-1-500x500 1.png" 
-import three from "../images/GP11_PRD3 1.png" 
-import four from "../images/698717_Z8A1X_3475_001_100_0000_Light-Reversible-quilted-satin-jacket 1.png" 
-import five from "../images/ideapad-gaming.png" 
-import six from "../images/g27cq4-500x500 1.png" 
-import seven from "../images/g92-2-500x500 1.png" 
-import eight from "../images/ak-900-01-500x500 1.png" 
+import one from "../assets/images/Light-Gucci-Savoy-medium-duffle-bag 1.png" 
+import two from "../assets/images/gammaxx-l240-argb-1-500x500 1.png" 
+import three from "../assets/images/GP11_PRD3 1.png" 
+import four from "../assets/images/698717_Z8A1X_3475_001_100_0000_Light-Reversible-quilted-satin-jacket 1.png" 
+import five from "../assets/images/ideapad-gaming.png" 
+import six from "../assets/images/g27cq4-500x500 1.png" 
+import seven from "../assets/images/g92-2-500x500 1.png" 
+import eight from "../assets/images/ak-900-01-500x500 1.png" 
 // wishlist component
 function WishList(){
   return(
