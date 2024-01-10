@@ -6,7 +6,7 @@ function BillingDetails() {
         <div className='container'>
             <div className="row">
                 <h6><a href="#1">Account</a> / <a href="#2">My Account</a> / <a href="#3">Product</a> / <a href="#4">View Cart</a> / <a href="#5">ChechOut</a></h6><br /><br />
-                <div className="col-md-4 col-lg-6 col-sm-12">
+                <div className="col-md-6 col-lg-6 col-sm-12">
                     <h2>Billing Details</h2>
 
                     <div className="row mt-3 label">
@@ -54,7 +54,7 @@ function BillingDetails() {
                     </div> <br />
                 </div>
 
-                <div className='col-md-4 col-lg-6 col-sm-12 text-center'>
+                <div className='col-md-6 col-lg-6 col-sm-12 text-center'>
 
                     <div className='row mt-5'>
                         <div className='col-md-2 col-sm-12'>
@@ -127,10 +127,10 @@ function BillingDetails() {
                         </div>
                     </div>
 
-                    <div className='row mt-3'>
+                    <form method='post' className='row mt-3'>
                         <input className='w-50 form-control col-6' placeholder='Coupon Code' type="text" />
                         <button className='btn btn-danger col-4 text-light m-auto'>Apply Coupon</button>
-                    </div>
+                    </form>
 
                     <div className='row'>
                         <button className='btn btn-danger text-light mt-4 w-25'>Place Order</button>
