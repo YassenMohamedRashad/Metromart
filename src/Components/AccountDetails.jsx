@@ -3,14 +3,11 @@ import "../assets/css/AccountDetails.css";
 
 
 function AccountDetails() {
-    const [firstname, setFirstname] = useState('');
-    const changeFirstname = event => {
-        setFirstname(event.target.value);
-    };
-    const [secondname, setSecondname] = useState('');
-    const changeLastname = event => {
-        setSecondname(event.target.value);
-    };
+    const [name, setName] = useState('');
+    const changeName = event => {
+        setName(event.target.value);
+    };  
+
 
     return (
         <>
@@ -22,7 +19,7 @@ function AccountDetails() {
                             <a href="/Metromart/AccountDetails" className='text-black text-decoration-none'>My Account</a>
                         </div>
                         <div>
-                            <p>Welcome! <span className='text-danger'>{firstname} {secondname}</span></p>
+                            <p>Welcome! <span className='text-danger'>{name}</span></p>
                         </div>
                     </div>
                 </div>
@@ -45,27 +42,30 @@ function AccountDetails() {
 
                     <div className='col-8 manage-my-account mt-5 '>
                         <form method='post' class="shadow rounded p-5">
-                            <h4 className=' text-danger '>Edit Your Profile</h4>
-                            <div className="d-flex justify-content-between mt-3">
+                            <h3 className=' text-danger '>Edit Your Profile</h3>
+                            <div className="d-flex justify-content-between mt-5">
                                 <div>
-                                    <label htmlFor="FirstName" className='fw-bold'>First Name</label>
-                                    <input type="text" name="firstname" className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2  account-inputs ' placeholder='First Name' onChange={changeFirstname} />
-                                </div>  
-                                <div>
-                                    <label htmlFor="LastName" className='fw-bold'>Last Name</label>
-                                    <input type="text" name="lastname" className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2 account-inputs' placeholder='Second Name' onChange={changeLastname} />
+                                    <label htmlFor="Name" className='fw-bold'>Name</label>
+                                    <input type="text" name="name" className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2  account-inputs ' placeholder='Name' onChange={changeName} />
                                 </div>
-                            </div>
-                            <div className="d-flex justify-content-between mt-3">
                                 <div>
                                     <label htmlFor="Email" className='fw-bold'>Email</label>
-                                    <input type="email" placeholder='Email' name="email" className='form-control shadow-sm text-black bg-light text-secondary border-0 mt-2 account-inputs'/>
-                                </div>
-                                <div>
-                                    <label htmlFor="Adress" className='fw-bold'>Address</label>
-                                    <input type="text" placeholder='Address' name="address" className='form-control shadow-sm text-black bg-light text-secondary border-0 mt-2 account-inputs'/>
+                                    <input type="email" placeholder='Email' name="email" className='form-control shadow-sm text-black bg-light text-secondary border-0 mt-2 account-inputs' />
                                 </div>
                             </div>
+                            <div className="d-flex justify-content-between mt-3">
+                                <div>
+                                    <label htmlFor="PhoneNumber" className='fw-bold'>Phone Number</label>
+                                    <input type="text" name="phonenumber" className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2 account-inputs' placeholder='Phone Number' />
+                                </div>
+                                <div>
+                                    <label htmlFor="Adress1" className='fw-bold'>Address One</label>
+                                    <input type="text" placeholder='Address One' name="address1" className='form-control shadow-sm text-black bg-light text-secondary border-0 mt-2 account-inputs' />
+                                </div>
+                            </div>
+
+                            <label htmlFor="Adress2" className='fw-bold mt-4'>Address Two</label>
+                            <input type="text" placeholder='Address Two' name="address2" className='form-control shadow-sm text-black bg-light text-secondary border-0 mt-2 address2-input' />
 
                             <label htmlFor="PasswordChanges" className='fw-bold mt-4'>Password Changes</label>
                             <input type="password" name="currentPassword" placeholder='Current Password' className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2' style={{ height: 50 }} />
