@@ -7,9 +7,9 @@ import Footer from "./Components/Footer";
 import Login from "./Components/Login";
 import Signup from "./Components/SignUp";
 import AccountDetails from "./Components/AccountDetails";
+import WishList from "./Components/Wishlist";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/nav.css";
-import WishList from "./Components/Wishlist";
 
 
 
