@@ -23,14 +23,16 @@ function Login() {
 	// Validatoin
 	const [error_pass, setError_pass] = useState("")
 	const [error_email, setError_email] = useState("")
-	const [error_phonenumber, setError_phonenumber] = useState("")
+	const [ error_phonenumber, setError_phonenumber ] = useState( "" )
+	
 	const handleSubmit = (e) => {
-		e.preventDefault();
+		
 		// password validation
 		const password = e.target.password.value;
 		const confirmPassword = e.target.confirmpassword.value;
 		if (password !== confirmPassword) {
-			setError_pass("Password not matched")
+			e.preventDefault();
+			setError_pass( "Password not matched" )
 		} else{
 			setError_pass("")
 		}
@@ -38,7 +40,9 @@ function Login() {
 		// email validation
 		const email = e.target.email.value;
 		const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-		if (!emailRegex.test(email)) {
+		if ( !emailRegex.test( email ) )
+		{
+			e.preventDefault();
 			setError_email("Enter Valid Email")
 		} else {
 			setError_email("")
@@ -65,7 +69,7 @@ function Login() {
 				<div className="col justify-content-center d-flex">
 					<div className="mt-5 mb-5">
 						<h1 className="fw-bolder">	Create an Account</h1>
-						<form action="post" className="form signup-form " onSubmit={handleSubmit}>
+						<form className="form signup-form " onSubmit={handleSubmit}>
 							<h5>Enter your Details Below</h5>
 							{/* Name input */}
 
