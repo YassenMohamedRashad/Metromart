@@ -60,7 +60,7 @@ function SignUp() {
 		e.preventDefault();
 
 		// password validation
-		if (password != confirmPassword) {
+		if (password !== confirmPassword) {
 			setError_pass("Passwords don't match");
 		} else {
 			setError_pass(false);
