@@ -1,21 +1,14 @@
 import "../assets/css/signup.css";
 import signupImage from "../assets/images/signup.svg";
 import googleLogo from "../assets/images/google-icon.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-// const link = "https://tryingtodeploy-rton.onrender.com/";
 function SignUp() {
-	/* Requests to the backend */
-	// const get = async () => {
-	// 	const res = await axios.get("http://localhost:5011/user");
-	// 	console.log(res.data.data);
-	// };
-	/* updating the state of the component */
-	// useEffect(() => {
-	// 	get();
-	// }, []);
-
 	/* setting the states of the app */
+	const [MaleChecked, setMaleChecked] = useState(false);
+	const [FemaleChecked, setFemaleChecked] = useState(false);
+	const [formErrors, setFormErrors] = useState({});
+	/* input fields values */
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -28,37 +21,30 @@ function SignUp() {
 
 	/* handling changes */
 	const handleChange = (e) => {
-		/**
-		 * Updates the state variables based on the user's input in the form fields.
-		 * @param {Object} e - The event object triggered by the user's input.
-		 */
+		/* Updates the state variables based on the user's input in the form fields. */
 		const { name, value } = e.target;
 		const updateStateVariable = (setter) => setter(value);
 		const stateVariableMap = {
-			gender: setGender,
-			age: setAge,
-			address1: setAddress1,
-			address2: setAddress2,
 			username: setUsername,
 			email: setEmail,
 			password: setPassword,
 			confirmPassword: setConfirmPassword,
+			address1: setAddress1,
+			address2: setAddress2,
 			phoneNumber: setPhoneNumber,
+			age: setAge,
+			gender: setGender,
 		};
 		const setter = stateVariableMap[name];
 		if (setter) updateStateVariable(setter);
 	};
-
-	// Validation
-	const [formErrors, setFormErrors] = useState({});
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		let errors = {};
 
 		// password validation
-		/* 
-		regex explanation
+		/* regex explanation:
 		^: Start of the string, 
 		(?=.*[a-z]): at least one lowercase, 
 		(?=.*[A-Z]): at least one uppercase, 
@@ -79,11 +65,12 @@ function SignUp() {
 		const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 		if (!emailRegex.test(email)) errors.email = "Enter a Valid Email";
 
-		// phonenumber validation
+		// phoneNumber validation
 		const phoneNumberRegex = /^01[0125]\d{8}$/g;
 		if (!phoneNumberRegex.test(phoneNumber))
 			errors.phoneNumber = "Enter a Valid Phone Number";
 
+		// age validation
 		if (age < 1 || age > 100) errors.age = "Enter a Valid Age";
 
 		// Update formErrors state with all errors at once
@@ -99,12 +86,26 @@ function SignUp() {
 				gender: gender,
 				age: age,
 			};
-			// Send a POST request to your API endpoint
+
+			/* Send a POST Request To create a New User */
 			const request = await axios
 				.post("http://localhost:5011/user/signup", userData)
 				.then((response) => {
 					errors = {};
 					console.log(response.data.status);
+					if (response.data.status === "success") {
+						setGender("");
+						setAge("");
+						setAddress1("");
+						setAddress2("");
+						setUsername("");
+						setEmail("");
+						setPassword("");
+						setConfirmPassword("");
+						setPhoneNumber("");
+						setFemaleChecked(false);
+						setMaleChecked(false);
+					}
 				})
 				.catch((error) => {
 					console.log(error.response.data.status);
@@ -114,7 +115,6 @@ function SignUp() {
 						setFormErrors(errors);
 						setPassword("");
 						setConfirmPassword("");
-						return;
 					}
 				});
 		}
@@ -157,6 +157,7 @@ function SignUp() {
 							<input
 								type="text"
 								name="email"
+								value={email}
 								className="mt-5 email-input inputs"
 								required
 								onChange={handleChange}
@@ -210,6 +211,7 @@ function SignUp() {
 								name="address1"
 								className="mt-4 address1-input inputs"
 								required
+								value={address1}
 								onChange={handleChange}
 							/>
 							<label className="address1-label">
@@ -222,6 +224,7 @@ function SignUp() {
 								ype="text"
 								name="address2"
 								className="mt-4 address2-input inputs"
+								value={address2}
 								onChange={handleChange}
 							/>
 							<label
@@ -239,6 +242,7 @@ function SignUp() {
 								name="phoneNumber"
 								className="mt-5 phonenumber-input inputs"
 								required
+								value={phoneNumber}
 								onChange={handleChange}
 							/>
 							<label className="phonenumber-label">
@@ -259,6 +263,7 @@ function SignUp() {
 								name="age"
 								className="mt-4 age-input inputs"
 								required
+								value={age}
 								onChange={handleChange}
 							/>
 							<label className="age-label">Age</label>
@@ -280,7 +285,12 @@ function SignUp() {
 										type="radio"
 										name="gender"
 										value={"male"}
+										checked={MaleChecked}
 										onChange={handleChange}
+										onClick={() => {
+											setMaleChecked(true);
+											setFemaleChecked(false);
+										}}
 									/>
 									<label className="form-check-label male-label">
 										Male
@@ -292,7 +302,12 @@ function SignUp() {
 										type="radio"
 										name="gender"
 										value={"female"}
+										checked={FemaleChecked}
 										onChange={handleChange}
+										onClick={() => {
+											setMaleChecked(false);
+											setFemaleChecked(true);
+										}}
 									/>
 									<label className="form-check-label female-label">
 										Female
