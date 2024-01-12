@@ -49,6 +49,7 @@
 .my-p{
   margin-top: 15px;
   font-size: large;
+  width: 80%;
 } 
 .wishlist-row,.foryou-row{
   margin: 20px 0px;
