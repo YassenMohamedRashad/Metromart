@@ -47,7 +47,6 @@ function SignUp() {
 		const setter = stateVariableMap[name];
 		if (setter) {
 			updateStateVariable(setter);
-			console.log(name, value);
 		}
 	};
 
@@ -92,7 +91,6 @@ function SignUp() {
 				gender: gender,
 				age: age,
 			};
-			console.log(userData);
 			// Send a POST request to your API endpoint
 			const res = await axios.post(
 				"http://localhost:5011/user/signup",
