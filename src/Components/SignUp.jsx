@@ -49,12 +49,14 @@ function SignUp() {
 	};
 
 	// Validation
+	const [formErrors, setFormErrors] = useState({});
 	const [error_pass, setError_pass] = useState(false);
 	const [error_email, setError_email] = useState(false);
 	const [error_phonenumber, setError_phonenumber] = useState(false);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		let errors = {};
 
 		// password validation
 		const strongPassRegex =
@@ -71,22 +73,22 @@ function SignUp() {
 		$: End of string
 		*/
 
-		if (!strongPassRegex.test(password)) setError_pass("Weak Password");
+		if (!strongPassRegex.test(password)) errors.password = "Weak Password";
 		if (password !== confirmPassword)
-			setError_pass("Passwords don't match");
+			errors.password = "Passwords don't match";
 
 		// email validation
 		const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-		if (!emailRegex.test(email)) {
-			setError_email("Enter a Valid Email");
-		}
+		if (!emailRegex.test(email)) errors.email = "Enter a Valid Email";
 
 		// phonenumber validation
 		const phoneNumberRegex = /^01[0125]\d{8}$/g;
-		if (!phoneNumberRegex.test(phoneNumber)) {
-			setError_phonenumber("Enter a Valid Phone Number");
-		}
-		if (!error_pass && !error_email && !error_phonenumber) {
+		if (!phoneNumberRegex.test(phoneNumber))
+			errors.phoneNumber = "Enter a Valid Phone Number";
+
+		// Update formErrors state with all errors at once
+		setFormErrors(errors);
+		if (Object.keys(formErrors).length === 0) {
 			const userData = {
 				name: username,
 				email: email,
@@ -98,15 +100,24 @@ function SignUp() {
 				age: age,
 			};
 			// Send a POST request to your API endpoint
-			const res = await axios.post(
-				"http://localhost:5011/user/signup",
-				userData
-			);
-			if (res.data.status === "fail") {
-				setError_email("Email Is Already Taken");
-				setPassword("");
-				setConfirmPassword("");
-			}
+			const request = await axios
+				.post("http://localhost:5011/user/signup", userData)
+				.then((response) => {
+					setError_pass(false);
+					setError_email(false);
+					setError_phonenumber(false);
+					console.log(response.data.status);
+				})
+				.catch((error) => {
+					console.log(error.response.data.status);
+					// The request was made and the server responded with an error
+					if (error.response.data.status === "fail") {
+						setError_email("Email Is Already Taken");
+						setPassword("");
+						setConfirmPassword("");
+						return;
+					}
+				});
 		}
 	};
 
