@@ -1,39 +1,43 @@
-.account-inputs{
-    height: 50px !important;
+.account-inputs {
+  height: 50px !important;
 }
-@media screen and (maccount-inputs-width: 1400px) {
-    .account-inputs{
-        width: 350px !important;
-    }
-  }
+.address2-input{
+  height: 50px !important;
+  width: 100% !important;
+}
 
-  @media screen and (min-width: 1399px) {
-    .account-inputs{
-        width: 300px !important;
-    }
+@media screen and (min-width: 1399px) {
+  .account-inputs {
+    width: 300px !important;
   }
-  @media screen and (max-width: 1199px) {
-    .account-inputs{
-        width: 250px !important;
-    }
+}
+
+@media screen and (max-width: 1199px) {
+  .account-inputs {
+    width: 250px !important;
   }
-  @media screen and (max-width: 991px) {
-    .account-inputs{
-        width: 175px !important;
-    }
+}
+
+@media screen and (max-width: 991px) {
+  .account-inputs {
+    width: 175px !important;
   }
-  @media screen and (max-width: 767px) {
-    .manage-my-account{
-        width: 100% !important;
-    }
+}
+
+@media screen and (max-width: 767px) {
+  .manage-my-account {
+    width: 100% !important;
   }
-  @media screen and (max-width: 575px) {
-    .account-inputs{
-        width: 200px !important;
-    }
+}
+
+@media screen and (max-width: 575px) {
+  .account-inputs {
+    width: 200px !important;
   }
-  @media screen and (max-width: 525px) {
-    .account-inputs{
-        width: 175px !important;
-    }
+}
+
+@media screen and (max-width: 525px) {
+  .account-inputs {
+    width: 175px !important;
   }
+}
