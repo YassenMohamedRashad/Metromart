@@ -6,24 +6,24 @@ import axios from "axios";
 // const link = "https://tryingtodeploy-rton.onrender.com/";
 function SignUp() {
 	/* Requests to the backend */
-	const get = async () => {
-		const res = await axios.get("http://localhost:5011");
-		console.log(res.data);
-	};
+	// const get = async () => {
+	// 	const res = await axios.get("http://localhost:5011");
+	// 	console.log(res.data);
+	// };
 	/* updating the state of the component */
-	useEffect(() => {
-		get();
-	}, []);
+	// useEffect(() => {
+	// 	get();
+	// }, []);
 	/* setting the states of the app */
-	const [gender, setGender] = useState("");
-	const [address1, setAddress1] = useState("");
-	const [address2, setAddress2] = useState("");
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [age, setAge] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
+	const [address1, setAddress1] = useState("");
+	const [address2, setAddress2] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
+	const [age, setAge] = useState("");
+	const [gender, setGender] = useState("");
 
 	/* handling changes */
 	const handleChange = (e) => {
