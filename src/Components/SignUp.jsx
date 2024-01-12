@@ -14,6 +14,7 @@ function SignUp() {
 	// useEffect(() => {
 	// 	get();
 	// }, []);
+
 	/* setting the states of the app */
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
@@ -50,19 +51,14 @@ function SignUp() {
 
 	// Validation
 	const [formErrors, setFormErrors] = useState({});
-	const [error_pass, setError_pass] = useState(false);
-	const [error_email, setError_email] = useState(false);
-	const [error_phonenumber, setError_phonenumber] = useState(false);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		let errors = {};
 
 		// password validation
-		const strongPassRegex =
-			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-		/* regex explanation
-		
+		/* 
+		regex explanation
 		^: Start of the string, 
 		(?=.*[a-z]): at least one lowercase, 
 		(?=.*[A-Z]): at least one uppercase, 
@@ -72,6 +68,8 @@ function SignUp() {
 		{8,}: at least 8 chars long, 
 		$: End of string
 		*/
+		const strongPassRegex =
+			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
 		if (!strongPassRegex.test(password)) errors.password = "Weak Password";
 		if (password !== confirmPassword)
@@ -86,9 +84,11 @@ function SignUp() {
 		if (!phoneNumberRegex.test(phoneNumber))
 			errors.phoneNumber = "Enter a Valid Phone Number";
 
+		if (age < 1 || age > 100) errors.age = "Enter a Valid Age";
+
 		// Update formErrors state with all errors at once
 		setFormErrors(errors);
-		if (Object.keys(formErrors).length === 0) {
+		if (Object.keys(errors).length === 0) {
 			const userData = {
 				name: username,
 				email: email,
@@ -103,16 +103,15 @@ function SignUp() {
 			const request = await axios
 				.post("http://localhost:5011/user/signup", userData)
 				.then((response) => {
-					setError_pass(false);
-					setError_email(false);
-					setError_phonenumber(false);
+					errors = {};
 					console.log(response.data.status);
 				})
 				.catch((error) => {
 					console.log(error.response.data.status);
 					// The request was made and the server responded with an error
 					if (error.response.data.status === "fail") {
-						setError_email("Email Is Already Taken");
+						errors.email = "Email Is Already Taken";
+						setFormErrors(errors);
 						setPassword("");
 						setConfirmPassword("");
 						return;
@@ -168,7 +167,7 @@ function SignUp() {
 								className="text-danger mt-2 "
 								style={{ marginLeft: 366 }}
 							>
-								{error_email}
+								{formErrors.email}
 							</span>
 							<br />
 
@@ -201,7 +200,7 @@ function SignUp() {
 								className="text-danger mt-2"
 								style={{ marginLeft: 320 }}
 							>
-								{error_pass}
+								{formErrors.password}
 							</span>
 							<br />
 
@@ -250,7 +249,7 @@ function SignUp() {
 								className="text-danger mt-2"
 								style={{ marginLeft: 295 }}
 							>
-								{error_phonenumber}
+								{formErrors.phoneNumber}
 							</span>
 							<br />
 
@@ -263,7 +262,12 @@ function SignUp() {
 								onChange={handleChange}
 							/>
 							<label className="age-label">Age</label>
-							<br />
+							<span
+								className="text-danger mt-2 d-block"
+								style={{ marginLeft: 366 }}
+							>
+								{formErrors.age}
+							</span>
 
 							{/* Gender input */}
 							<label className="mt-4 text-secondary">
