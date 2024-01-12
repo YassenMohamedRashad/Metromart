@@ -99,7 +99,9 @@ function SignUp() {
 				userData
 			);
 			if (res.data === "ERROR: this email is exists") {
-				throw new Error("duplicated Entry");
+				setError_email("Email Is Already Taken");
+				setPassword("");
+				setConfirmPassword("");
 			}
 		}
 	};
@@ -130,6 +132,7 @@ function SignUp() {
 								type="text"
 								name="username"
 								className="mt-5 name-input inputs"
+								value={username}
 								required
 								onChange={handleChange}
 							/>
@@ -160,6 +163,7 @@ function SignUp() {
 								name="password"
 								className="mt-4 pass-input inputs"
 								required
+								value={password}
 								onChange={handleChange}
 							/>
 							<label className="pass-label">Password</label>
@@ -171,6 +175,7 @@ function SignUp() {
 								name="confirmPassword"
 								className="mt-5 confirmpass-input inputs"
 								required
+								value={confirmPassword}
 								onChange={handleChange}
 							/>
 							<label className="confirmpass-label">
