@@ -45,9 +45,7 @@ function SignUp() {
 			phoneNumber: setPhoneNumber,
 		};
 		const setter = stateVariableMap[name];
-		if (setter) {
-			updateStateVariable(setter);
-		}
+		if (setter) updateStateVariable(setter);
 	};
 
 	// Validation
@@ -59,26 +57,34 @@ function SignUp() {
 		e.preventDefault();
 
 		// password validation
-		if (password !== confirmPassword) {
+		const strongPassRegex =
+			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+		/* regex explanation
+		
+		^: Start of the string, 
+		(?=.*[a-z]): at least one lowercase, 
+		(?=.*[A-Z]): at least one uppercase, 
+		(?=.*\d): at least one digit, 
+		(?=.*[@$!%*?&]): at least one symbol, 
+		[A-Za-z\d@$!%*?&]: Match any upper, lower, digit, or symbol, 
+		{8,}: at least 8 chars long, 
+		$: End of string
+		*/
+
+		if (!strongPassRegex.test(password)) setError_pass("Weak Password");
+		if (password !== confirmPassword)
 			setError_pass("Passwords don't match");
-		} else {
-			setError_pass(false);
-		}
 
 		// email validation
 		const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 		if (!emailRegex.test(email)) {
 			setError_email("Enter a Valid Email");
-		} else {
-			setError_email(false);
 		}
 
 		// phonenumber validation
 		const phoneNumberRegex = /^0\d{10}$/g;
 		if (!phoneNumberRegex.test(phoneNumber)) {
 			setError_phonenumber("Enter a Valid Phone Number");
-		} else {
-			setError_phonenumber(false);
 		}
 		if (!error_pass && !error_email && !error_phonenumber) {
 			const userData = {
