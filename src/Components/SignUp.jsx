@@ -7,8 +7,8 @@ import axios from "axios";
 function SignUp() {
 	/* Requests to the backend */
 	// const get = async () => {
-	// 	const res = await axios.get("http://localhost:5011");
-	// 	console.log(res.data);
+	// 	const res = await axios.get("http://localhost:5011/user");
+	// 	console.log(res.data.data);
 	// };
 	/* updating the state of the component */
 	// useEffect(() => {
@@ -82,7 +82,7 @@ function SignUp() {
 		}
 
 		// phonenumber validation
-		const phoneNumberRegex = /^0\d{10}$/g;
+		const phoneNumberRegex = /^01[0125]\d{8}$/g;
 		if (!phoneNumberRegex.test(phoneNumber)) {
 			setError_phonenumber("Enter a Valid Phone Number");
 		}
@@ -102,7 +102,7 @@ function SignUp() {
 				"http://localhost:5011/user/signup",
 				userData
 			);
-			if (res.data === "ERROR: this email is exists") {
+			if (res.data.status === "fail") {
 				setError_email("Email Is Already Taken");
 				setPassword("");
 				setConfirmPassword("");
