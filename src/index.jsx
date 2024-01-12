@@ -8,9 +8,9 @@ import Login from "./Components/Login";
 import Signup from "./Components/SignUp";
 import AccountDetails from "./Components/AccountDetails";
 import WishList from "./Components/Wishlist";
+import BillingDetails from "./Components/BillingDetails";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/nav.css";
-
 
 
 const root = ReactDOM.createRoot( document.getElementById( "root" ) );
