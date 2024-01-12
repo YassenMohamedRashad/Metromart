@@ -4,8 +4,18 @@ import googleLogo from "../assets/images/google-icon.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function Login() {
-	const [address2, setAddress2] = useState('')
+function SignUp() {	
+	
+	const get = async()=>{
+		const res = await axios.get("https://tryingtodeploy-rton.onrender.com/")
+		console.log(res.data)
+	
+	}
+	useEffect(() => {
+		get()
+	},[])
+
+	const [address2, setAddress2] = useState('')	
 	const handleChange = (e) => {
 		setAddress2(e.target.value);
 	}
@@ -40,10 +50,8 @@ function Login() {
 
 		// phonenumber validation
 		const phoneNumber = e.target.phonenumber.value;
-		const phoneNumberRegex = /^(?:(?:\+?20)|0)?(10|11|12|15)([0-9]{8})$/;
-		if ( !phoneNumberRegex.test( phoneNumber ) )
-		{
-			e.preventDefault();
+		const phoneNumberRegex = /^0\d{10}$/;
+		if (!phoneNumberRegex.test(phoneNumber)) {
 			setError_phonenumber("Enter Valid Phone Number")
 		} else {
 			setError_phonenumber("")
@@ -134,4 +142,4 @@ function Login() {
 		</div>
 	);
 }
-export default Login;
+export default SignUp;

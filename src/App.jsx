@@ -3,18 +3,23 @@ import React, { useEffect, useState } from 'react'
 
 function App ()
 {
-  const [ data, setData ] = useState( [] );
-  const getData = async() =>
-  {
-    const res = await axios.get( "http://localhost:5011" )
-    console.log( res.data );
-  }
-  
+
+    const [ data, setData ] = useState( [] );
+    const getData = async () =>
+    {
+      try {
+        const res = await axios.get( "http://localhost:5011" );
+        console.log( res.data );
+      } catch (error) {
+        console.log(error)
+      }
+    };
+
+
   useEffect( () =>
   {
-    getData()
-  },[])
-
+    getData();
+  }, [] )
 
   return (
     <>
