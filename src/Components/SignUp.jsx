@@ -98,7 +98,6 @@ function SignUp() {
 				"http://localhost:5011/user/signup",
 				userData
 			);
-			console.log(res.data);
 			if (res.data === "ERROR: this email is exists") {
 				throw new Error("duplicated Entry");
 			}
