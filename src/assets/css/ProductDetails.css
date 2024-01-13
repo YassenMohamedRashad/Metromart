@@ -12,12 +12,101 @@
 	text-decoration: line-through;
 }
 
-
 .slider-Container {
 	display: flex;
+	flex-direction: column; /* Add this */
 	justify-content: center;
-	align-items: center; 
+	align-items: center;
 	margin: 0;
 	width: 800px;
 	height: auto; /* the height adjusts based on content */
+}
+
+/* global styles */
+
+.label {
+	height: auto;
+	width: fit-content;
+}
+
+.label .text-wrapper {
+	white-space: nowrap;
+}
+
+.frame {
+	display: flex;
+	gap: 8px;
+}
+
+/* ratingFrame */
+
+.ratingFrame .four-star {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+/* stockFrame */
+
+.stockFrame .text-wrapper {
+	font-family: var(--title-14px-regular-font-family);
+	font-size: var(--title-14px-regular-font-size);
+	opacity: 0.5;
+	white-space: nowrap;
+	width: fit-content;
+}
+
+/* descriptionFrame */
+
+.descriptionFrame .label .productDescription {
+	font-family: var(--title-14px-regular-font-family);
+	font-size: var(--title-14px-regular-font-size);
+}
+
+/* line frame */
+
+.lineFrame .Line {
+	width: 100%;
+	display: block;
+	border: 1px solid rgba(0, 0, 0, 0.6);
+	height: auto;
+}
+
+/* quantityFrame */
+
+.quantityFrame {
+	align-items: stretch;
+}
+.quantity {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.quantityCont {
+	width: 24px;
+	position: relative;
+	display: flex;
+	place-content: center;
+}
+.quantityFrame .icon-screen {
+	height: 24px;
+	position: relative;
+	width: 24px;
+}
+
+.quantityFrame .minus {
+	border-radius: 4px 0px 0px 4px;
+	height: 44px;
+	overflow: hidden;
+}
+
+.quantityFrame .plus {
+	border-radius: 0px 4px 4px 0px;
+	height: 44px;
+	overflow: hidden;
+	background-color: var(--secondary-2);
+}
+.quantityFrame .plus:hover{
+	background: var(--hover-button);
 }
