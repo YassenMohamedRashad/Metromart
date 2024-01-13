@@ -124,6 +124,15 @@
   .hero h1 {
     font-size: 51px !important;
   }
+
+  .swiper-slide .cardBody h5 {
+    font-size: 15px !important;
+  }
+  .swiper-slide .cardBody p,h6 {
+    font-size: 15px !important;
+    top: 26px !important;
+    left: 73px !important;
+  }
 }
 
 @media screen and (max-width:991px) {
