@@ -10,6 +10,7 @@ import AccountDetails from "./Components/AccountDetails";
 import WishList from "./Components/Wishlist";
 import BillingDetails from "./Components/BillingDetails";
 import ProductDetails from "./Components/ProductDetails";
+import FirstSection from "./Components/FirstSection";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/nav.css";
 
@@ -34,6 +35,11 @@ root.render(
 				<Route
 					path="/Metromart/productDetails"
 					element={<ProductDetails />}
+				/>
+				{/* // test first Section (Hyman) */}
+				<Route
+					path="/Metromart/firstsection"
+					element={<FirstSection />}
 				/>
 			</Routes>
 			<Footer />
