@@ -148,9 +148,9 @@
 	border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-.quantityFrame .minus:hover {
-	color: var(--bs-btn-hover-color);
-	background-color: var(--secondary);
+.quantityFrame .minus:hover,
+.btn-light:hover {
+	color: var(--bs-btn-hover-color) !important;
 	border-color: rgba(0, 0, 0, 0.3) !important;
 }
 
@@ -171,31 +171,25 @@
 
 /***** favFrame *****/
 
-.favoriteBtn {
-	border-radius: 4px !important;
-	padding: 0 10px !important;
-	margin: 0 !important;
-	border: 1px solid rgba(0, 0, 0, 0.3) !important;
-}
-
-.favoriteBtn:hover {
-	border-radius: 4px !important;
-	padding: 0 10px !important;
-	margin: 0 !important;
-	border: 1px solid rgba(0, 0, 0, 0.3) !important;
-	fill: red;
-}
-
-.favoriteCont {
-	width: 1.7rem;
+.favFrame {
 	display: flex;
-	align-items: center;
+	align-items: stretch;
 }
 
-.favoriteCont .favIcon {
-	max-width: 100%;
-	object-fit: scale-down;
-	fill: inherit;
+.favoriteBtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 4px !important;
+	padding: 0 20% !important;
+	margin: 0 !important;
+	border: 1px solid rgba(0, 0, 0, 0.3) !important;
+	transition: all 400ms ease-in-out;
+}
+
+.favoriteBtn:hover path {
+	fill: var(--secondary-2);
+	stroke: none;
 }
 
 /***** End favFrame *****/
