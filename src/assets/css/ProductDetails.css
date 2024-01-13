@@ -1,3 +1,5 @@
+/***** card *****/
+
 .card img {
 	width: 100%;
 	height: 100%;
@@ -12,6 +14,10 @@
 	text-decoration: line-through;
 }
 
+/***** End card *****/
+
+/***** slider *****/
+
 .slider-Container {
 	display: flex;
 	flex-direction: column; /* Add this */
@@ -22,7 +28,9 @@
 	height: auto; /* the height adjusts based on content */
 }
 
-/* global styles */
+/***** End slider *****/
+
+/***** global styles *****/
 
 .label {
 	height: auto;
@@ -37,8 +45,19 @@
 	display: flex;
 	gap: 8px;
 }
+.btn-second {
+	background-color: var(--secondary-2) !important;
+	color: white !important;
+}
 
-/* ratingFrame */
+.btn-second:hover {
+	background-color: rgba(199, 48, 48, 1) !important;
+	color: white !important;
+}
+
+/***** End global styles *****/
+
+/***** ratingFrame *****/
 
 .ratingFrame .four-star {
 	flex: 0 0 auto;
@@ -47,7 +66,9 @@
 	cursor: pointer;
 }
 
-/* stockFrame */
+/***** End ratingFrame *****/
+
+/***** stockFrame *****/
 
 .stockFrame .text-wrapper {
 	font-family: var(--title-14px-regular-font-family);
@@ -57,14 +78,18 @@
 	width: fit-content;
 }
 
-/* descriptionFrame */
+/***** End stockFrame *****/
+
+/***** descriptionFrame *****/
 
 .descriptionFrame .label .productDescription {
 	font-family: var(--title-14px-regular-font-family);
 	font-size: var(--title-14px-regular-font-size);
 }
 
-/* line frame */
+/***** End descriptionFrame *****/
+
+/***** line frame *****/
 
 .lineFrame .Line {
 	width: 100%;
@@ -73,40 +98,106 @@
 	height: auto;
 }
 
-/* quantityFrame */
+/***** End line frame *****/
+
+/***** formFrame *****/
+
+.formFrame {
+	display: flex;
+	align-items: stretch;
+	gap: 0.5rem;
+}
+
+/***** End formFrame *****/
+
+/***** quantityFrame *****/
 
 .quantityFrame {
 	align-items: stretch;
+	border-radius: 4px;
+	width: fit-content;
+	gap: 0;
 }
+
 .quantity {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 }
+
 .quantityCont {
-	width: 24px;
+	padding: 0 20px;
+	flex: 1;
 	position: relative;
 	display: flex;
 	place-content: center;
+	border-top: solid 1px;
+	border-bottom: solid 1px;
+	border-color: rgba(0, 0, 0, 0.3);
 }
+
 .quantityFrame .icon-screen {
-	height: 24px;
-	position: relative;
-	width: 24px;
+	flex: 1;
 }
 
 .quantityFrame .minus {
+	background: var(--primary);
 	border-radius: 4px 0px 0px 4px;
 	height: 44px;
 	overflow: hidden;
+	border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-.quantityFrame .plus {
-	border-radius: 0px 4px 4px 0px;
-	height: 44px;
+.quantityFrame .minus:hover {
+	color: var(--bs-btn-hover-color);
+	background-color: var(--secondary);
+	border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.plus {
+	border-radius: 0px 4px 4px 0px !important;
 	overflow: hidden;
-	background-color: var(--secondary-2);
 }
-.quantityFrame .plus:hover{
-	background: var(--hover-button);
+
+/***** End quantityFrame *****/
+
+/***** buttonsFrame *****/
+
+.BuyNow {
+	width: fit-content;
+	padding: 0 20px !important;
+	display: block;
 }
+
+/***** favFrame *****/
+
+.favoriteBtn {
+	border-radius: 4px !important;
+	padding: 0 10px !important;
+	margin: 0 !important;
+	border: 1px solid rgba(0, 0, 0, 0.3) !important;
+}
+
+.favoriteBtn:hover {
+	border-radius: 4px !important;
+	padding: 0 10px !important;
+	margin: 0 !important;
+	border: 1px solid rgba(0, 0, 0, 0.3) !important;
+	fill: red;
+}
+
+.favoriteCont {
+	width: 1.7rem;
+	display: flex;
+	align-items: center;
+}
+
+.favoriteCont .favIcon {
+	max-width: 100%;
+	object-fit: scale-down;
+	fill: inherit;
+}
+
+/***** End favFrame *****/
+
+/***** End buttonsFrame *****/

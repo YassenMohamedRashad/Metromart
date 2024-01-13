@@ -9,6 +9,7 @@ import star from "../assets/images/y-star.svg";
 import whiteStar from "../assets/images/w-star.svg";
 import MinusIcon from "../assets/images/icon-minus.svg";
 import PlusIcon from "../assets/images/icon-plus.svg";
+import favIcon from "../assets/images/Wishlist.svg";
 import "../assets/css/ProductDetails.css";
 
 const ProductDetails = () => {
@@ -35,7 +36,7 @@ const ProductDetails = () => {
 		<>
 			<div className="container-fluid">
 				<Roadmap />
-				<div className="row d-flex justify-content-between">
+				<div className="row flex-nowrap">
 					<div className="col">
 						<div className="slider-Container mb-5">
 							{data && <Slider images={data.images} />}
@@ -43,13 +44,13 @@ const ProductDetails = () => {
 						</div>
 					</div>
 					<div className="col">
-						<div className="details-container">
+						<div className="details-container w-75">
 							<div className="label">
 								<div className="text-wrapper">
 									{data && data.title}
 								</div>
 							</div>
-							{/* frame 1 ratingFrame*/}
+							{/* ratingFrame start */}
 							<div className="frame ratingFrame">
 								<div className="four-star">
 									<img className="vector" src={star} />
@@ -73,7 +74,9 @@ const ProductDetails = () => {
 							<div className="label">
 								<div className="text-wrapper">$192.00</div>
 							</div>
-							{/* frame 2 descriptionFrame */}
+							{/* ratingFrame end */}
+
+							{/* descriptionFrame start */}
 							<div className="frame descriptionFrame my-2">
 								<div className="label">
 									<p className="productDescription">
@@ -81,19 +84,24 @@ const ProductDetails = () => {
 									</p>
 								</div>
 							</div>
-							{/* frame 3 lineFrame */}
+							{/* descriptionFrame end */}
+
+							{/* lineFrame start */}
 							<div className="frame lineFrame">
 								<span className="Line"></span>
 							</div>
-							{/* frame 4 formFrame */}
+							{/* lineFrame end */}
+
+							{/* formFrame start */}
 							<div className="formFrame">
+								{/* quantityFrame start */}
 								<div className="frame quantityFrame mt-4">
 									{/* minus button */}
 									<button
 										type="button"
 										className="btn btn-light minus"
 										onClick={() => {
-											if (quantity > 0)
+											if (quantity > 1)
 												setQuantity(quantity - 1);
 										}}
 									>
@@ -111,7 +119,7 @@ const ProductDetails = () => {
 									{/* plus button */}
 									<button
 										type="button"
-										className="btn plus"
+										className="btn plus btn-second"
 										onClick={() =>
 											setQuantity(quantity + 1)
 										}
@@ -123,8 +131,30 @@ const ProductDetails = () => {
 											/>
 										</div>
 									</button>
+									{/* buttonsFrame start */}
+									<div className="frame buttonsFrame mx-3">
+										<button className="btn btn-second BuyNow">
+											Buy Now
+										</button>
+									</div>
+									{/* favFrame start */}
+									<div className="frame favFrame">
+										<button className="btn favoriteBtn">
+											<div className="favoriteCont">
+												<img
+													className="favIcon"
+													src={favIcon}
+												/>
+											</div>
+										</button>
+									</div>
+									{/* favFrame end */}
+
+									{/* buttonsFrame end */}
 								</div>
+								{/* quantityFrame end */}
 							</div>
+							{/* formFrame end */}
 						</div>
 					</div>
 				</div>
