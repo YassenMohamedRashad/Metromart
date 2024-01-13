@@ -49,13 +49,13 @@ function SignUp() {
 		(?=.*[a-z]): at least one lowercase, 
 		(?=.*[A-Z]): at least one uppercase, 
 		(?=.*\d): at least one digit, 
-		(?=.*[@$!%*?&]): at least one symbol, 
-		[A-Za-z\d@$!%*?&]: Match any upper, lower, digit, or symbol, 
-		{8,}: at least 8 chars long, 
+		(?=.*[^a-zA-Z\d\s]): at least one symbol, 
+		(?!.*\s): no whitespace allowed,
+		.{8,}: at least 8 chars long, 
 		$: End of string
 		*/
 		const strongPassRegex =
-			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s])(?!.*\s).{8,}$/;
 
 		if (!strongPassRegex.test(password)) errors.password = "Weak Password";
 		if (password !== confirmPassword)
