@@ -1,0 +1,49 @@
+.applelogo{
+    height: 70px;
+    user-select: none;
+    margin-top: 40px;
+}
+.iphone{
+    height: 350px;
+    user-select: none;
+}
+
+.firstSlide{
+    position: relative;
+}
+.firstSlideText{
+    position: absolute;
+    top: 65px;
+    left: 100px;
+}
+
+
+.secondSlide{
+    position: relative;
+}
+.secondSlideText{
+    position: absolute;
+    top: 65px;
+    right: 120px;
+}
+
+
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }

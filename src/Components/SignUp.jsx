@@ -1,11 +1,20 @@
 import "../assets/css/signup.css";
 import signupImage from "../assets/images/signup.svg";
 import googleLogo from "../assets/images/google-icon.svg";
-import { useState } from "react";
-
+import { useEffect,useState } from "react";
+import axios from "axios";
 
 function SignUp() {	
 	
+	const get = async()=>{
+		const res = await axios.get("https://tryingtodeploy-rton.onrender.com/")
+		console.log(res.data)
+	
+	}
+	useEffect(() => {
+		get()
+	},[])
+
 	const [address2, setAddress2] = useState('')	
 	const handleChange = (e) => {
 		setAddress2(e.target.value);
@@ -52,9 +61,8 @@ function SignUp() {
 
 		// phonenumber validation
 		const phoneNumber = e.target.phonenumber.value;
-		const phoneNumberRegex = /^(011|010|012|015)\d{8}$/;
+		const phoneNumberRegex = /^0\d{10}$/;
 		if (!phoneNumberRegex.test(phoneNumber)) {
-			e.preventDefault();
 			setError_phonenumber("Enter Valid Phone Number")
 		} else {	
 			setError_phonenumber("")

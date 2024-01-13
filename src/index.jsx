@@ -7,11 +7,13 @@ import Footer from "./Components/Footer";
 import Login from "./Components/Login";
 import Signup from "./Components/SignUp";
 import AccountDetails from "./Components/AccountDetails";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./assets/css/nav.css";
 import WishList from "./Components/Wishlist";
 import BillingDetails from "./Components/BillingDetails";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./assets/css/nav.css";
 
+// test first Section (Hyman)
+import FirstSection from "./Components/FirstSection";
 
 
 const root = ReactDOM.createRoot( document.getElementById( "root" ) );
@@ -26,6 +28,8 @@ root.render(
 				<Route path="/Metromart/accountdetails" element={ <AccountDetails /> } />
 				<Route path="/Metromart/wishlist" element={ <WishList /> } />
 				<Route path="/Metromart/billingdetails" element={ <BillingDetails/> } />
+				{/* // test first Section (Hyman) */}
+				<Route path="/Metromart/firstsection" element={ <FirstSection/> } />
 			</Routes>
 			<Footer />
 		</BrowserRouter>
