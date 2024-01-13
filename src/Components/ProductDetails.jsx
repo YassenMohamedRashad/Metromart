@@ -1,12 +1,14 @@
-import img1 from "../assets/images/gammaxx-l240-argb-1-500x500 1.png";
-import "../assets/css/ProductDetails.css";
+/* assets */
 import { Roadmap } from "./Roadmap";
+import { Slider } from "./Slider";
+import "../assets/css/ProductDetails.css";
 const ProductDetails = () => {
 	return (
 		<>
 			<Roadmap />
-				<img src={img1} className="card-img-top" alt="" />
-			
+			<div className="slider-container">
+				<Slider />
+			</div>
 		</>
 	);
 };
