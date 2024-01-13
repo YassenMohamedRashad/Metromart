@@ -1,0 +1,13 @@
+.card img {
+	width: 100%; /* your required size */
+	height: 100%; /* your required size */
+	object-fit: scale-down; /* scale down will take the necessary specified space without stretching the image */
+}
+
+.card {
+	width: 18rem;
+}
+
+.discount {
+	text-decoration: line-through;
+}

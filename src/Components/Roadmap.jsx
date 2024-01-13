@@ -1,0 +1,17 @@
+import React from "react";
+import "../assets/css/Roadmap.css";
+import pipeLine from "../assets/images/Line 13.svg";
+export const Roadmap = () => {
+	return (
+		<>
+			<div className="tabs px-2">
+				<p className="tab">text1</p>
+				{/* <img src={pipeLine} className="img-fluid rounded-top" alt="" /> */}
+				<span className="pipeline"></span>
+
+				<p className="tab">text2</p>
+				<p className="tab">text3</p>
+			</div>
+		</>
+	);
+};
