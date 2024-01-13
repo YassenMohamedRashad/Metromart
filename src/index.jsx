@@ -11,7 +11,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/nav.css";
 import WishList from "./Components/Wishlist";
 import BillingDetails from "./Components/BillingDetails";
-
+import Error from "./Components/Error";
+import Aboutus from "./Components/Aboutus";
+import "../src/assets/css/Aboutus.css"
 
 
 const root = ReactDOM.createRoot( document.getElementById( "root" ) );
@@ -26,6 +28,8 @@ root.render(
 				<Route path="/Metromart/accountdetails" element={ <AccountDetails /> } />
 				<Route path="/Metromart/wishlist" element={ <WishList /> } />
 				<Route path="/Metromart/billingdetails" element={ <BillingDetails/> } />
+				<Route path="/Metromart/error" element={ <Error/> } />
+				<Route path="/Metromart/aboutus" element={ <Aboutus/> } />
 			</Routes>
 			<Footer />
 		</BrowserRouter>
