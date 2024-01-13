@@ -1,4 +1,5 @@
 .tabs {
+	cursor: pointer;
 	display: flex;
 	justify-content: space-between;
 	max-width: fit-content;
@@ -7,37 +8,14 @@
 }
 
 .tab {
-	margin: initial;
+	color: rgba(125, 129, 132, 1) !important;
+	text-decoration: inherit !important;
 }
 
-.pipeline {
-	/* margin: 0;
-	padding: 0;
-	width: fit-content;
-	height: fit-content; */
-	border: 1px solid peru;
-	display: inline-block;
-	width: 0;
-	height: 0;
-	position: relative;
+.tab:last-child {
+	color: black !important;
 }
 
-.pipeline::before {
-	border: 1px solid purple;
-	content: "/";
-	position: absolute;
-	transform: translate(-50%, -50%);
-    /* transform-origin: 50% 0%; */
-
-	rotate: 45deg;
-	color: cadetblue;
-	/* width: 4px; */
-	/* height: 1rem; */
-	aspect-ratio: 1/1;
-	background-color: cadetblue;
-
-	/* max-height: 66.666667%; 24px/36px */
-	display: inline-block;
-	margin: 0;
-	padding: 0;
+.tab:hover {
+	color: inherit;
 }
