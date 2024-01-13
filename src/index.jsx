@@ -13,7 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/nav.css";
 
 // test first Section (Hyman)
-// import FirstSection from "./Components/FirstSection";
+import FirstSection from "./Components/FirstSection";
 
 
 const root = ReactDOM.createRoot( document.getElementById( "root" ) );
@@ -29,7 +29,7 @@ root.render(
 				<Route path="/Metromart/wishlist" element={ <WishList /> } />
 				<Route path="/Metromart/billingdetails" element={ <BillingDetails/> } />
 				{/* // test first Section (Hyman) */}
-				{/* <Route path="/Metromart/firstsection" element={ <FirstSection/> } /> */}
+				<Route path="/Metromart/firstsection" element={ <FirstSection/> } />
 			</Routes>
 			<Footer />
 		</BrowserRouter>
