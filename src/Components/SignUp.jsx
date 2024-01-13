@@ -58,20 +58,25 @@ function SignUp() {
 			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s])(?!.*\s).{8,}$/;
 
 		if (!strongPassRegex.test(password)) errors.password = "Weak Password";
+		else delete errors.password;
 		if (password !== confirmPassword)
 			errors.password = "Passwords don't match";
+		else delete errors.password;
 
 		// email validation
 		const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 		if (!emailRegex.test(email)) errors.email = "Enter a Valid Email";
+		else delete errors.email;
 
 		// phoneNumber validation
 		const phoneNumberRegex = /^01[0125]\d{8}$/g;
 		if (!phoneNumberRegex.test(phoneNumber))
 			errors.phoneNumber = "Enter a Valid Phone Number";
+		else delete errors.phoneNumber;
 
 		// age validation
 		if (age < 1 || age > 100) errors.age = "Enter a Valid Age";
+		else delete errors.age;
 
 		// Update formErrors state with all errors at once
 		setFormErrors(errors);
@@ -91,8 +96,8 @@ function SignUp() {
 			const request = await axios
 				.post("http://localhost:5011/user/signup", userData)
 				.then((response) => {
-					errors = {};
-					console.log(response.data.status);
+					setFormErrors({});
+					console.log("then=>", response.data.status);
 					if (response.data.status === "success") {
 						setGender("");
 						setAge("");
@@ -108,11 +113,10 @@ function SignUp() {
 					}
 				})
 				.catch((error) => {
-					console.log(error.response.data.status);
+					console.log("catch=>", error.response.data);
 					// The request was made and the server responded with an error
 					if (error.response.data.status === "fail") {
-						errors.email = "Email Is Already Taken";
-						setFormErrors(errors);
+						setFormErrors({ email: "Email Is Already Taken" });
 						setPassword("");
 						setConfirmPassword("");
 					}
@@ -164,12 +168,8 @@ function SignUp() {
 							/>
 							<label className="email-label">Email</label>
 							<br />
-							<small
-								className="text-danger mt-2"
-							>
-								
+							<small className="text-danger mt-2">
 								{formErrors.email}
-								
 							</small>
 							<br />
 
@@ -198,12 +198,8 @@ function SignUp() {
 								Confirm Password
 							</label>
 							<br />
-							<small
-								className="text-danger mt-2"
-							>
-								
+							<small className="text-danger mt-2">
 								{formErrors.password}
-								
 							</small>
 							<br />
 
@@ -251,13 +247,8 @@ function SignUp() {
 								Phone Number
 							</label>
 							<br />
-							<small
-								className="text-danger mt-2"
-								
-							>
-								
+							<small className="text-danger mt-2">
 								{formErrors.phoneNumber}
-								
 							</small>
 							<br />
 
@@ -271,12 +262,8 @@ function SignUp() {
 								onChange={handleChange}
 							/>
 							<label className="age-label">Age</label>
-							<small
-								className="text-danger mt-2 d-block"
-							>
-								
+							<small className="text-danger mt-2 d-block">
 								{formErrors.age}
-								
 							</small>
 
 							{/* Gender input */}
@@ -323,16 +310,12 @@ function SignUp() {
 							<button
 								className="btn btn-danger mt-4 w-100"
 								type="submit"
-								
 							>
 								Create Account
 							</button>
 							<br />
 						</form>
-						<button
-							className="btn btn-light border mt-2 w-100 "
-							
-						>
+						<button className="btn btn-light border mt-2 w-100 ">
 							<img src={googleLogo} /> Sign Up with Google
 						</button>
 						<h6 className="text-secondary mt-4">
