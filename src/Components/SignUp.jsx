@@ -183,8 +183,6 @@ function SignUp() {
 							/>
 							<label className="pass-label">Password</label>
 							<br />
-							<span className="text-danger mt-2" style={{ marginLeft: 320 }}>{error_strongPass}</span>
-							<br />
 
 							{/* Confirm Password input */}
 							<input
