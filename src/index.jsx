@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
-import Nav from "./Components/Navbar";	
+import Nav from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Login from "./Components/Login";
 import Signup from "./Components/SignUp";
