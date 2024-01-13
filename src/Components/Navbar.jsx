@@ -32,7 +32,7 @@ function nav() {
 						</Form>
 						<div className="d-flex ">
 							<a href="wishlist" className="ms-4"><img src={Favourite} alt='' style={{width:25}} /></a>
-							<a href="/Metromart/" className="ms-4"><img src={Cart} alt='' style={{width:25}} /></a>
+							<a href="#" className="ms-4"><img src={Cart} alt='' style={{width:25}} /></a>
 						</div>
 					</Navbar.Collapse>
 				</Container>
