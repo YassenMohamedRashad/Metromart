@@ -28,7 +28,8 @@ root.render(
 				<Route path="/Metromart/wishlist" element={ <WishList /> } />
 				<Route path="/Metromart/billingdetails" element={ <BillingDetails /> } />
 				<Route path="/Metromart/firstsection" element={ <FirstSection /> } />
-				<Route path="/Metromart/productsDetails" element={ <ProductDetails /> } />
+				<Route path="/Metromart/productDetails" element={ <ProductDetails /> } />
+				<Route path="/Metromart/*" element={ <h1>Error</h1> }></Route>
 			</Routes>
 			<Footer />
 		</BrowserRouter>
