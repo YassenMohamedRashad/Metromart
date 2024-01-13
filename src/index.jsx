@@ -27,9 +27,9 @@ root.render(
 				<Route path="/Metromart/signup" element={ <Signup /> } />
 				<Route path="/Metromart/accountdetails" element={ <AccountDetails /> } />
 				<Route path="/Metromart/wishlist" element={ <WishList /> } />
-				<Route path="/Metromart/billingdetails" element={ <BillingDetails/> } />
-				{/* // test first Section (Hyman) */}
-				<Route path="/Metromart/firstsection" element={ <FirstSection/> } />
+				<Route path="/Metromart/billingdetails" element={ <BillingDetails /> } />
+				{/* // test first Section (Hyman) */ }
+				<Route path="/Metromart/firstsection" element={ <FirstSection /> } />
 			</Routes>
 			<Footer />
 		</BrowserRouter>
