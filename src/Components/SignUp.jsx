@@ -164,12 +164,13 @@ function SignUp() {
 							/>
 							<label className="email-label">Email</label>
 							<br />
-							<span
-								className="text-danger mt-2 "
-								style={{ marginLeft: 366 }}
+							<small
+								className="text-danger mt-2"
 							>
+								
 								{formErrors.email}
-							</span>
+								
+							</small>
 							<br />
 
 							{/* Password input */}
@@ -197,12 +198,13 @@ function SignUp() {
 								Confirm Password
 							</label>
 							<br />
-							<span
+							<small
 								className="text-danger mt-2"
-								style={{ marginLeft: 320 }}
 							>
+								
 								{formErrors.password}
-							</span>
+								
+							</small>
 							<br />
 
 							{/* Address one input */}
@@ -249,12 +251,14 @@ function SignUp() {
 								Phone Number
 							</label>
 							<br />
-							<span
+							<small
 								className="text-danger mt-2"
-								style={{ marginLeft: 295 }}
+								
 							>
+								
 								{formErrors.phoneNumber}
-							</span>
+								
+							</small>
 							<br />
 
 							{/* Age input */}
@@ -267,12 +271,13 @@ function SignUp() {
 								onChange={handleChange}
 							/>
 							<label className="age-label">Age</label>
-							<span
+							<small
 								className="text-danger mt-2 d-block"
-								style={{ marginLeft: 366 }}
 							>
+								
 								{formErrors.age}
-							</span>
+								
+							</small>
 
 							{/* Gender input */}
 							<label className="mt-4 text-secondary">
@@ -318,7 +323,7 @@ function SignUp() {
 							<button
 								className="btn btn-danger mt-4 w-100"
 								type="submit"
-								style={{ height: 50 }}
+								
 							>
 								Create Account
 							</button>
@@ -326,7 +331,7 @@ function SignUp() {
 						</form>
 						<button
 							className="btn btn-light border mt-2 w-100 "
-							style={{ height: 50 }}
+							
 						>
 							<img src={googleLogo} /> Sign Up with Google
 						</button>

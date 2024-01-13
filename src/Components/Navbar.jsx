@@ -8,14 +8,14 @@ function nav() {
 		<>
 			<Navbar expand="lg mt-3">
 				<Container>
-					<Navbar.Brand href="/Metromart/" className="fw-bold" style={{fontSize:30}}>MetroMart</Navbar.Brand>
+					<Navbar.Brand href="/Metromart/" className="fw-bold">MetroMart</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="m-auto">
-							<Nav.Link href="/Metromart/" className="me-4 fw-bold" style={{fontSize:18}}>Home</Nav.Link>
-							<Nav.Link href="#contact" className="me-4 fw-bold" style={{fontSize:18}}>Contact</Nav.Link>
-							<Nav.Link href="#contact" className="me-4 fw-bold" style={{fontSize:18}}>About</Nav.Link>
-							<Nav.Link href="/Metromart/signUp" className="me-4 fw-bold" style={{fontSize:18}}>Sign Up</Nav.Link>
+							<Nav.Link href="/Metromart/" className="me-4 fw-bold" >Home</Nav.Link>
+							<Nav.Link href="#contact" className="me-4 fw-bold" >Contact</Nav.Link>
+							<Nav.Link href="#contact" className="me-4 fw-bold" >About</Nav.Link>
+							<Nav.Link href="/Metromart/signUp" className="me-4 fw-bold" >Sign Up</Nav.Link>
 						</Nav>
 						<Form className="d-flex search-form">
 							<FormControl
