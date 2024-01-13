@@ -12,11 +12,9 @@
 	text-decoration: line-through;
 }
 
-.slider-container {
+.slider-Container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
 	margin: 0;
-	background-color: #f5f5f5;
 }

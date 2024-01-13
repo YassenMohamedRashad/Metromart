@@ -5,9 +5,18 @@ import "../assets/css/ProductDetails.css";
 const ProductDetails = () => {
 	return (
 		<>
-			<Roadmap />
-			<div className="slider-container">
-				<Slider />
+			<div className="container-fluid">
+				<Roadmap />
+				<div className="row d-flex justify-content-between">
+					<div className="col">
+						<div className="slider-Container mb-5">
+							<Slider />
+						</div>
+					</div>
+					<div className="col">
+						<div className="details-container">hello</div>
+					</div>
+				</div>
 			</div>
 		</>
 	);
