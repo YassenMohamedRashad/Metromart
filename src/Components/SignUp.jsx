@@ -1,20 +1,11 @@
 import "../assets/css/signup.css";
 import signupImage from "../assets/images/signup.svg";
 import googleLogo from "../assets/images/google-icon.svg";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
+
 
 function SignUp() {	
 	
-	const get = async()=>{
-		const res = await axios.get("https://tryingtodeploy-rton.onrender.com/")
-		console.log(res.data)
-	
-	}
-	useEffect(() => {
-		get()
-	},[])
-
 	const [address2, setAddress2] = useState('')	
 	const handleChange = (e) => {
 		setAddress2(e.target.value);
@@ -22,6 +13,7 @@ function SignUp() {
 
 	// Validatoin
 	const [error_pass, setError_pass] = useState("")
+	const [error_strongPass, setError_strongPass] = useState("")
 	const [error_email, setError_email] = useState("")
 	const [ error_phonenumber, setError_phonenumber ] = useState( "" )
 	
@@ -29,10 +21,20 @@ function SignUp() {
 		
 		// password validation
 		const password = e.target.password.value;
+		const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/
+		if ( !passwordRegex.test( password ) )	
+		{
+			e.preventDefault();
+			setError_strongPass("Enter Strong Password")
+		} else {
+			setError_strongPass("")
+		}
+
+		// match password and confirm password validation
 		const confirmPassword = e.target.confirmpassword.value;
 		if (password !== confirmPassword) {
-			e.preventDefault();
-			setError_pass( "Password not matched" )
+			e.preventDefault();	
+			setError_pass( "Password not Matched" )
 		} else{
 			setError_pass("")
 		}
@@ -50,10 +52,11 @@ function SignUp() {
 
 		// phonenumber validation
 		const phoneNumber = e.target.phonenumber.value;
-		const phoneNumberRegex = /^0\d{10}$/;
+		const phoneNumberRegex = /^(011|010|012|015)\d{8}$/;
 		if (!phoneNumberRegex.test(phoneNumber)) {
+			e.preventDefault();
 			setError_phonenumber("Enter Valid Phone Number")
-		} else {
+		} else {	
 			setError_phonenumber("")
 		}
 		
@@ -69,7 +72,7 @@ function SignUp() {
 				<div className="col justify-content-center d-flex">
 					<div className="mt-5 mb-5">
 						<h1 className="fw-bolder">	Create an Account</h1>
-						<form className="form signup-form " onSubmit={handleSubmit}>
+						<form className="form signup-form " onSubmit={handleSubmit} action="/Metromart/" method="post">
 							<h5>Enter your Details Below</h5>
 							{/* Name input */}
 
@@ -80,7 +83,7 @@ function SignUp() {
 							{/* Email input */}
 							<input type="text" name="email" className="mt-5 email-input inputs" required />
 							<label className="email-label">Email</label>
-							<br />
+							<br />	
 							<span className="text-danger mt-2 " style={{ marginLeft: 366 }}>{error_email}</span>
 							<br />
 
@@ -88,9 +91,11 @@ function SignUp() {
 							<input type="password" name="password" className="mt-4 pass-input inputs" required />
 							<label className="pass-label">Password</label>
 							<br />
+							<span className="text-danger mt-2" style={{ marginLeft: 320 }}>{error_strongPass}</span>
+							<br />
 
 							{/* Confirm Password input */}
-							<input type="password" name="confirmpassword" className="mt-5 confirmpass-input inputs" required />
+							<input type="password" name="confirmpassword" className="mt-4 confirmpass-input inputs" required />
 							<label className="confirmpass-label">Confirm Password</label>
 							<br />
 							<span className="text-danger mt-2" style={{ marginLeft: 320 }}>{error_pass}</span>
