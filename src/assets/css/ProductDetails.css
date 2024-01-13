@@ -12,9 +12,12 @@
 	text-decoration: line-through;
 }
 
+
 .slider-Container {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: center; 
 	margin: 0;
+	width: 800px;
+	height: auto; /* the height adjusts based on content */
 }

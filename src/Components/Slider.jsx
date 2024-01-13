@@ -44,7 +44,7 @@ export const Slider = () => {
 							<img key={index} src={path} onClick={handleClick} />
 						))}
 			</div>
-			<div className="img-container">
+			<div className="big-img-container">
 				<img ref={bigImageRef} src={data && data.images[0]} />
 			</div>
 		</div>

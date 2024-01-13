@@ -13,6 +13,7 @@ import FirstSection from "./Components/FirstSection";
 import ProductDetails from "./Components/ProductDetails";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/nav.css";
+import "./assets/css/variables.css";
 
 
 const root = ReactDOM.createRoot( document.getElementById( "root" ) );
