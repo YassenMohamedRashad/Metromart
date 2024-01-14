@@ -8,7 +8,7 @@ function nav() {
 		<>
 			<Navbar expand="lg mt-3">
 				<Container>
-					<Navbar.Brand href="/Metromart/" ><h3 className="fw-bold">MetroMart</h3></Navbar.Brand>
+					<Navbar.Brand href="/Metromart/" ><h4 className="fw-bold">MetroMart</h4></Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="m-auto">
