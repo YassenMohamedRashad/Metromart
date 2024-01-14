@@ -14,6 +14,9 @@ import "./assets/css/nav.css";
 
 // test first Section (Hyman)
 import FirstSection from "./Components/FirstSection";
+import Error from "./Components/Error";
+import Aboutus from "./Components/Aboutus";
+import "../src/assets/css/Aboutus.css"
 
 
 const root = ReactDOM.createRoot( document.getElementById( "root" ) );
