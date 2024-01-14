@@ -33,6 +33,9 @@ root.render(
 				<Route path="/Metromart/billingdetails" element={ <BillingDetails /> } />
 				{/* // test first Section (Hyman) */ }
 				<Route path="/Metromart/firstsection" element={ <FirstSection /> } />
+				<Route path="/Metromart/billingdetails" element={ <BillingDetails/> } />
+				<Route path="/Metromart/error" element={ <Error/> } />
+				<Route path="/Metromart/aboutus" element={ <Aboutus/> } />
 			</Routes>
 			<Footer />
 		</BrowserRouter>
