@@ -57,17 +57,6 @@
 
 /***** End global styles *****/
 
-/***** ratingFrame *****/
-
-.ratingFrame .four-star {
-	flex: 0 0 auto;
-	display: flex;
-	align-items: center;
-	cursor: pointer;
-}
-
-/***** End ratingFrame *****/
-
 /***** stockFrame *****/
 
 .stockFrame .text-wrapper {
@@ -91,7 +80,7 @@
 
 /***** line frame *****/
 
-.lineFrame .Line {
+.Line {
 	width: 100%;
 	display: block;
 	border: 1px solid rgba(0, 0, 0, 0.6);

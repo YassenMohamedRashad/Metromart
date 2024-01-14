@@ -1,20 +1,19 @@
 /* dependencies */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-/* assets */
+/* components */
 import { Roadmap } from "./Roadmap";
-import { Slider } from "./Slider";
-import "../assets/css/ProductDetails.css";
-import star from "../assets/images/y-star.svg";
-import whiteStar from "../assets/images/w-star.svg";
+import { StarRating } from "./productDetails/StarRating";
+import { Slider } from "./productDetails/Slider";
+import { Delivery } from "./productDetails/Delivery";
+/* assets */
 import MinusIcon from "../assets/images/icon-minus.svg";
 import PlusIcon from "../assets/images/icon-plus.svg";
-import favIcon from "../assets/images/Wishlist.svg";
 import "../assets/css/ProductDetails.css";
 
 const ProductDetails = () => {
 	const [data, setData] = useState(null);
-	const [quantity, setQuantity] = useState(2);
+	const [quantity, setQuantity] = useState(1);
 	/* Request to the Actual Database
 		axios
 			.get("http://localhost:5011/products/5")
@@ -24,6 +23,18 @@ const ProductDetails = () => {
 			})
 			.catch((error) => console.log(error)); 
 			*/
+
+	/* add to cart request */
+	const handleBuying = async (quantity) => {
+		/* data = {
+					userId, userId,
+					productId: productId
+					quantity: quantity
+				};
+				await axios.post("http://localhost:5011/carts/addProductToCart", data)
+				*/
+	};
+
 	/* Request for testing */
 	useEffect(() => {
 		axios
@@ -52,12 +63,8 @@ const ProductDetails = () => {
 							</div>
 							{/* ratingFrame start */}
 							<div className="frame ratingFrame">
-								<div className="four-star">
-									<img className="vector" src={star} />
-									<img className="vector" src={star} />
-									<img className="vector" src={star} />
-									<img className="vector" src={star} />
-									<img className="vector" src={whiteStar} />
+								<div className="five-star">
+									<StarRating />
 								</div>
 								<div className="frame stockFrame">
 									<div className="text-wrapper">
@@ -133,7 +140,12 @@ const ProductDetails = () => {
 									</button>
 									{/* buttonsFrame start */}
 									<div className="frame buttonsFrame mx-3">
-										<button className="btn btn-second BuyNow">
+										<button
+											className="btn btn-second BuyNow"
+											onClick={() =>
+												handleBuying(quantity)
+											}
+										>
 											Buy Now
 										</button>
 									</div>
@@ -167,6 +179,9 @@ const ProductDetails = () => {
 								{/* quantityFrame end */}
 							</div>
 							{/* formFrame end */}
+							{/* deliveryFrame start */}
+							<Delivery />
+							{/* deliveryFrame end */}
 						</div>
 					</div>
 				</div>

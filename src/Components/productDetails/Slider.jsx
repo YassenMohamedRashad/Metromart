@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import "../assets/css/Slider.css";
+import "../../assets/css/Slider.css";
 
 export const Slider = ({ images }) => {
 	const bigImageRef = useRef(); // Create a ref for the big image

@@ -75,7 +75,7 @@ function SignUp() {
 		else delete errors.phoneNumber;
 
 		// age validation
-		if (age < 1 || age > 100) errors.age = "Enter a Valid Age";
+		if (age < 18 || age > 100) errors.age = "Enter a Valid Age";
 		else delete errors.age;
 
 		// Update formErrors state with all errors at once

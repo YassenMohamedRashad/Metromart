@@ -1,0 +1,35 @@
+.deliveryFrame {
+	border: 1px solid #00000080;
+	border-radius: 4px;
+	overflow: hidden;
+	width: fit-content;
+	display: flex;
+	flex-direction: column;
+}
+
+.deliveryFrame .deliveryCont {
+	align-items: center;
+	display: flex;
+	gap: 16px;
+	padding: 1rem;
+}
+
+.deliveryFrame .textCont {
+	align-items: flex-start;
+	display: inline-flex;
+	flex: 0 0 auto;
+	flex-direction: column;
+	gap: 8px;
+	position: relative;
+}
+
+.deliveryFrame p {
+	font-size: 0.75rem;
+	white-space: nowrap;
+}
+
+.deliveryFrame .details {
+	text-decoration: underline;
+	cursor: pointer;
+	margin-left: 0.3rem;
+}
