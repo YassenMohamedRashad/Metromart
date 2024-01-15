@@ -3,11 +3,14 @@ import signupImage from "../assets/images/signup.svg";
 import googleLogo from "../assets/images/google-icon.svg";
 import { useState } from "react";
 import axios from "axios";
+import { Loader, Fail, Success } from "./SweetAlert";
+
 function SignUp() {
 	/* setting the states of the app */
 	const [MaleChecked, setMaleChecked] = useState(false);
 	const [FemaleChecked, setFemaleChecked] = useState(false);
 	const [formErrors, setFormErrors] = useState({});
+	const [loading, setLoading] = useState(true);
 	/* input fields values */
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
@@ -42,7 +45,8 @@ function SignUp() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		let errors = {};
-
+		if (loading) Loader();
+		setLoading(!loading);
 		// password validation
 		/* regex explanation:
 		^: Start of the string, 
@@ -99,6 +103,7 @@ function SignUp() {
 					setFormErrors({});
 					console.log("then=>", response.data.status);
 					if (response.data.status === "success") {
+						Success("<i>Your account is all set up 👌</i>");
 						setGender("");
 						setAge("");
 						setAddress1("");
@@ -116,7 +121,8 @@ function SignUp() {
 					console.log("catch=>", error.response.data);
 					// The request was made and the server responded with an error
 					if (error.response.data.status === "fail") {
-						setFormErrors({ email: "Email Is Already Taken" });
+						Fail("Failed To Create Account", "This Email Is Already Taken!");
+						// setFormErrors({ email: "Email Is Already Taken" });
 						setPassword("");
 						setConfirmPassword("");
 					}

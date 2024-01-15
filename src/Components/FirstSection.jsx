@@ -18,7 +18,7 @@ function FirstSection() {
 					<div className="carousel-inner">
 						<div className="carousel-item active">
 							<div className="d-flex justify-content-between">
-								<div class="firstSlide">
+								<div className="firstSlide">
 									<img src={appleLogo} alt="Slide 1" className="applelogo" />
 									<h5 className="text-white firstSlideText" >iphone 15 Series</h5>
 									<h1 className="text-white mt-4" style={{ fontSize: 70 }}>Up to 10% <br />off	Voucher</h1>
@@ -45,7 +45,7 @@ function FirstSection() {
 						</div>
 						<div className="carousel-item">
 							<div className="d-flex justify-content-between">
-								<div class="firstSlide">
+								<div className="firstSlide">
 									<img src={appleLogo} alt="Slide 3" className="applelogo" />
 									<h5 className="text-white firstSlideText" >iphone 17 Series</h5>
 									<h1 className="text-white mt-4" style={{ fontSize: 70 }}>Up to 10% <br />off Voucher</h1>
@@ -74,96 +74,96 @@ function FirstSection() {
 					<h1 className="text-black mb-4">Flash Sales <span className="ms-5">03 <span className="text-danger" style={{fontSize:35}}>:</span> 23 <span className="text-danger" style={{fontSize:35}}>:</span> 19 <span className="text-danger" style={{fontSize:35}}>:</span> 56</span></h1>
 					<Swiper slidesPerView={3.5} spaceBetween={100} freeMode={true} pagination={{ clickable: true, }} modules={[FreeMode]} className="mySwiper" >
 						<SwiperSlide>
-							<div class="card bg-light border-0 shadow-sm">
-								<img class="card-img-top position-relative w-75 ms-4" src={iphone15} alt="Title" />
-								<button class="btn position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top:30, left:50   }}>
+							<div className="card bg-light border-0 shadow-sm">
+								<img className="card-img-top position-relative w-75 ms-4" src={iphone15} alt="Title" />
+								<button className="btn position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top:30, left:50   }}>
 									- 40%
 								</button>
-								<button class="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top:30, right:-5   }}>
+								<button className="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top:30, right:-5   }}>
 									<img src={heart_icon} style={{height:20}} alt="" />
 								</button>
-								<button class="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top:70, right:-5   }}>
+								<button className="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top:70, right:-5   }}>
 									<img src={eye_icon} style={{height:20}} alt="" />
 								</button>	
-								<div class="card-body">
-									<h4 class="card-title">Title</h4>
-									<p class="card-text">Text</p>
+								<div className="card-body">
+									<h4 className="card-title">Title</h4>
+									<p className="card-text">Text</p>
 								</div>
 							</div>
 
 						</SwiperSlide>
 						<SwiperSlide>
-							<div class="card bg-light border-0 shadow-sm">
-								<img class="card-img-top position-relative w-75 ms-4" src={iphone15} alt="Title" />
-								<button class="btn position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top:30, left:50   }}>
+							<div className="card bg-light border-0 shadow-sm">
+								<img className="card-img-top position-relative w-75 ms-4" src={iphone15} alt="Title" />
+								<button className="btn position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top:30, left:50   }}>
 									- 40%
 								</button>
-								<button class="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top:30, right:-5   }}>
+								<button className="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top:30, right:-5   }}>
 									<img src={heart_icon} style={{height:20}} alt="" />
 								</button>
-								<button class="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top:70, right:-5   }}>
+								<button className="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top:70, right:-5   }}>
 									<img src={eye_icon} style={{height:20}} alt="" />
 								</button>
-								<div class="card-body">
-									<h4 class="card-title">Title</h4>
-									<p class="card-text">Text</p>
+								<div className="card-body">
+									<h4 className="card-title">Title</h4>
+									<p className="card-text">Text</p>
 								</div>
 							</div>
 
 						</SwiperSlide>
 						<SwiperSlide>
-							<div class="card bg-light border-0 shadow-sm">
-								<img class="card-img-top position-relative w-75 ms-4" src={iphone15} alt="Title" />
-								<button class="btn position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top:30, left:50   }}>
+							<div className="card bg-light border-0 shadow-sm">
+								<img className="card-img-top position-relative w-75 ms-4" src={iphone15} alt="Title" />
+								<button className="btn position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top:30, left:50   }}>
 									- 40%
 								</button>
-								<button class="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top:30, right:-5   }}>
+								<button className="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top:30, right:-5   }}>
 									<img src={heart_icon} style={{height:20}} alt="" />
 								</button>
-								<button class="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top:70, right:-5   }}>
+								<button className="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top:70, right:-5   }}>
 									<img src={eye_icon} style={{height:20}} alt="" />
 								</button>
-								<div class="card-body">
-									<h4 class="card-title">Title</h4>
-									<p class="card-text">Text</p>
+								<div className="card-body">
+									<h4 className="card-title">Title</h4>
+									<p className="card-text">Text</p>
 								</div>
 							</div>
 
 						</SwiperSlide>
 						<SwiperSlide>
-							<div class="card bg-light border-0 shadow-sm">
-								<img class="card-img-top position-relative w-75 ms-4" src={iphone15} alt="Title" />
-								<button class="btn position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top:30, left:50   }}>
+							<div className="card bg-light border-0 shadow-sm">
+								<img className="card-img-top position-relative w-75 ms-4" src={iphone15} alt="Title" />
+								<button className="btn position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top:30, left:50   }}>
 									- 40%
 								</button>
-								<button class="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top:30, right:-5   }}>
+								<button className="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top:30, right:-5   }}>
 									<img src={heart_icon} style={{height:20}} alt="" />
 								</button>
-								<button class="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top:70, right:-5   }}>
+								<button className="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top:70, right:-5   }}>
 									<img src={eye_icon} style={{height:20}} alt="" />
 								</button>
-								<div class="card-body">
-									<h4 class="card-title">Title</h4>
-									<p class="card-text">Text</p>
+								<div className="card-body">
+									<h4 className="card-title">Title</h4>
+									<p className="card-text">Text</p>
 								</div>
 							</div>
 
 						</SwiperSlide>
 						<SwiperSlide>
-							<div class="card bg-light border-0 shadow-sm">
-								<img class="card-img-top position-relative w-75 ms-4" src={iphone15} alt="Title" />
-								<button class="btn position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top:30, left:50   }}>
+							<div className="card bg-light border-0 shadow-sm">
+								<img className="card-img-top position-relative w-75 ms-4" src={iphone15} alt="Title" />
+								<button className="btn position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top:30, left:50   }}>
 									- 40%
 								</button>
-								<button class="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top:30, right:-5   }}>
+								<button className="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top:30, right:-5   }}>
 									<img src={heart_icon} style={{height:20}} alt="" />
 								</button>
-								<button class="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top:70, right:-5   }}>
+								<button className="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top:70, right:-5   }}>
 									<img src={eye_icon} style={{height:20}} alt="" />
 								</button>
-								<div class="card-body">
-									<h4 class="card-title">Title</h4>
-									<p class="card-text">Text</p>
+								<div className="card-body">
+									<h4 className="card-title">Title</h4>
+									<p className="card-text">Text</p>
 								</div>
 							</div>
 
