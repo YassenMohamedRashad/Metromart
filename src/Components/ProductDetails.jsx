@@ -10,10 +10,14 @@ import { Delivery } from "./productDetailsComponents/Delivery";
 import MinusIcon from "../assets/images/icon-minus.svg";
 import PlusIcon from "../assets/images/icon-plus.svg";
 import "../assets/css/ProductDetails.css";
+import { RelatedItems } from "./productDetailsComponents/RelatedItems";
 
 const ProductDetails = () => {
 	const [data, setData] = useState(null);
 	const [quantity, setQuantity] = useState(1);
+	const [fav, setFav] = useState(false);
+	const handleClick = () => setFav(!fav);
+
 	/* Request to the Actual Database
 		axios
 			.get("http://localhost:5011/products/5")
@@ -32,7 +36,7 @@ const ProductDetails = () => {
 					quantity: quantity
 				};
 				await axios.post("http://localhost:5011/carts/addProductToCart", data)
-				*/
+		*/
 	};
 
 	/* Request for testing */
@@ -151,7 +155,14 @@ const ProductDetails = () => {
 									</div>
 									{/* favFrame start */}
 									<div className="frame favFrame">
-										<button className="btn btn-light favoriteBtn">
+										<button
+											onClick={handleClick}
+											className={
+												fav
+													? "btn btn-light favoriteBtn fav"
+													: "btn btn-light favoriteBtn"
+											}
+										>
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
 												width="32"
@@ -179,10 +190,13 @@ const ProductDetails = () => {
 								{/* quantityFrame end */}
 							</div>
 							{/* formFrame end */}
-							{/* deliveryFrame start */}
 							<Delivery />
-							{/* deliveryFrame end */}
 						</div>
+					</div>
+				</div>
+				<div className="row my-5">
+					<div className="col RelatedItems-col mb-5">
+						<RelatedItems />
 					</div>
 				</div>
 			</div>
