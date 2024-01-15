@@ -4,7 +4,7 @@ import Yassen from "../assets/images/yassen.jpeg"
 import Othman from "../assets/images/othman.jpeg"
 import Fo2sh from "../assets/images/FO2SH.jpeg"
 import Zeyad from "../assets/images/Zeyad.jpeg"
-import Basmala from "../assets/images/Basmala.png"
+import Basmala from "../assets/images/Basmala.jpg"
 
 
 function Aboutus() {
@@ -20,93 +20,90 @@ function Aboutus() {
 
                         <p className="section-subtitle">
                             <b>we are here for your happy</b>
-                            
+
                             <br />
-                            <span className="text-secondary"><span className="text-danger">!</span> The linkedin link in the Photo <span className="text-danger">!</span></span>
+                            <span className="text-secondary"><span className="text-danger">!</span> The linkedin link in the card <span className="text-danger">!</span></span>
                         </p>
                     </div>
 
                     <div className="col-sm-6 col-md-4">
-                        <div className="team-item">
+                        <a href="https://eg.linkedin.com/in/ahmed-ali-othman-5b503324a">
 
-                            <a href="https://eg.linkedin.com/in/ahmed-ali-othman-5b503324a">
+                            <div className="team-item ho">
+
                                 <img className="team-img" src={Othman} alt="" />
-                            </a>
 
-                            <h3>Ahmed</h3>
+                                <h3>Ahmed</h3><br />
 
-                            <div className="team-info">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia nesciunt iure esse culpa suscipit minus earum neque, veritatis doloribus rem unde ex praesentium architecto ad vel vitae aut magni facere!</p>
+                                <div className="team-info">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia nesciunt iure esse culpa suscipit minus earum neque, veritatis doloribus rem unde ex praesentium architecto ad vel vitae aut magni facere!</p>
+                                </div>
+
                             </div>
-
-                        </div>
+                        </a>
                     </div>
 
                     <div className="col-sm-6 col-md-4">
-                        <div className="team-item">
-
-                            <a href="https://www.linkedin.com/in/yassenmohamedrashad?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+                        <a href="https://www.linkedin.com/in/yassenmohamedrashad?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+                            <div className="team-item ho">
                                 <img className="team-img" src={Yassen} alt="" />
-                            </a>
 
-                            <h3>Yassen</h3>
+                                <h3>Yassen</h3>
+                                <h6>Team Leader</h6>
 
-                            <div className="team-info">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia nesciunt iure esse culpa suscipit minus earum neque, veritatis doloribus rem unde ex praesentium architecto ad vel vitae aut magni facere!</p>
+                                <div className="team-info">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia nesciunt iure esse culpa suscipit minus earum neque, veritatis doloribus rem unde ex praesentium architecto ad vel vitae aut magni facere!</p>
+                                </div>
+
                             </div>
-
-                        </div>
+                        </a>
                     </div>
 
                     <div className="col-sm-6 col-md-4">
-                        <div className="team-item">
-
-                            <a href="https://www.linkedin.com/in/yousef-ahmed-fouad-abdullatif-95b7ba288/">
+                        <a href="https://www.linkedin.com/in/yousef-ahmed-fouad-abdullatif-95b7ba288/">
+                            <div className="team-item ho">
                                 <img className="team-img" src={Fo2sh} alt="" />
-                            </a>
 
-                            <h3>Yousef</h3>
+                                <h3>Yousef</h3><br />
 
-                            <div className="team-info">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia nesciunt iure esse culpa suscipit minus earum neque, veritatis doloribus rem unde ex praesentium architecto ad vel vitae aut magni facere!</p>
+                                <div className="team-info">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia nesciunt iure esse culpa suscipit minus earum neque, veritatis doloribus rem unde ex praesentium architecto ad vel vitae aut magni facere!</p>
+                                </div>
                             </div>
-
-                        </div>
+                        </a>
                     </div>
                 </div>
 
                 <div className="row">
+
                     <div className="col-2"></div>
+
                     <div className="col-sm-6 col-md-4">
-                        <div className="team-item">
-
-                            <a href="http://www.linkedin.com/in/zeyad-hyman-227746297">
+                        <a href="http://www.linkedin.com/in/zeyad-hyman-227746297">
+                            <div className="team-item ho">
                                 <img className="team-img" src={Zeyad} alt="" />
-                            </a>
 
-                            <h3>Zeyad</h3>
+                                <h3>Zeyad</h3><br />
 
-                            <div className="team-info">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia nesciunt iure esse culpa suscipit minus earum neque, veritatis doloribus rem unde ex praesentium architecto ad vel vitae aut magni facere!</p>
+                                <div className="team-info">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia nesciunt iure esse culpa suscipit minus earum neque, veritatis doloribus rem unde ex praesentium architecto ad vel vitae aut magni facere!</p>
+                                </div>
                             </div>
-
-                        </div>
+                        </a>
                     </div>
 
                     <div className="col-sm-6 col-md-4">
-                        <div className="team-item">
-
-                            <a href="https://www.linkedin.com/in/yassenmohamedrashad?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+                        <a href="https://www.linkedin.com/in/basmala-magdy-993869230">
+                            <div className="team-item ho">
                                 <img className="team-img" src={Basmala} alt="" />
-                            </a>
 
-                            <h3>Basmala</h3>
+                                <h3>Basmala</h3><br />
 
-                            <div className="team-info">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia nesciunt iure esse culpa suscipit minus earum neque, veritatis doloribus rem unde ex praesentium architecto ad vel vitae aut magni facere!</p>
+                                <div className="team-info">
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia nesciunt iure esse culpa suscipit minus earum neque, veritatis doloribus rem unde ex praesentium architecto ad vel vitae aut magni facere!</p>
+                                </div>
                             </div>
-
-                        </div>
+                        </a>
                     </div>
                 </div>
 
