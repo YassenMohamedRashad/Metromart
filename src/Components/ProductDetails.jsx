@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 /* components */
 import { Roadmap } from "./Roadmap";
-import { StarRating } from "./productDetails/StarRating";
-import { Slider } from "./productDetails/Slider";
-import { Delivery } from "./productDetails/Delivery";
+import { StarRating } from "./productDetailsComponents/StarRating";
+import { Slider } from "./productDetailsComponents/Slider";
+import { Delivery } from "./productDetailsComponents/Delivery";
 /* assets */
 import MinusIcon from "../assets/images/icon-minus.svg";
 import PlusIcon from "../assets/images/icon-plus.svg";
