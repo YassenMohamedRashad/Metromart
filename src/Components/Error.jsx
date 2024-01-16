@@ -6,7 +6,7 @@ function Error() {
             <center>
                 <h1>404 Not Found</h1>
                 <p>your visited page not found, you may go home page.</p>
-                <button className=' btn-danger btn'>Back to home page</button>
+                <a href='/Metromart' className=' btn-danger btn'>Back to home page</a>
             </center><br />
         </div>
     );

@@ -11,6 +11,7 @@ import WishList from "./Components/Wishlist";
 import BillingDetails from "./Components/BillingDetails";
 import ProductDetails from "./Components/ProductDetails";
 import { Home } from "./Components/Home";
+import Error from "./Components/Error"
 
 function App() {
 	const [userData, setUserData] = useState(null);
@@ -46,7 +47,7 @@ function App() {
 					path="/Metromart/productDetails"
 					element={<ProductDetails />}
 				/>
-				<Route path="/Metromart/*" element={<h1>Error</h1>}></Route>
+				<Route path="/Metromart/*" element={ <Error />}></Route>
 			</Routes>
 			<Footer />
 		</>
