@@ -1,9 +1,11 @@
 import React from "react";
 import FirstSection from "./FirstSection";
-export const Home = () => {
+const Home = () => {
 	return (
 		<>
 			<FirstSection />
 		</>
 	);
 };
+
+export default Home;

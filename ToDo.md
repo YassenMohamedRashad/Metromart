@@ -1,13 +1,14 @@
 # ToDo:
 
 1. ## Create a Google Client ID: 
-I need to create a project in the Google Developer Console, enable the Google+ API, and obtain a client ID
+    I need to create a project in the Google Developer Console, enable the Google+
+    API, and obtain a client ID
 
 2. ## Install a Google Login Component:
-npm i react-google-login
+    npm i react-google-login
 
 3. ## Import the GoogleLogin component
-import { GoogleLogin } from 'react-google-login';
+    import { GoogleLogin } from 'react-google-login';
 
 4. ## Use the GoogleLogin component in your app
 <!-- <GoogleLogin
@@ -17,6 +18,12 @@ import { GoogleLogin } from 'react-google-login';
     onFailure={responseGoogle}
 /> -->
 
-5. ## install this extension
-Error Lens
-VSCode Essentials
+5. ## ~~install these extensions~~ (done)
+    ~~Error Lens~~
+    ~~VSCode Essentials~~
+
+6. ## pass user's data using useContext hook
+
+7. ## add protected routes with token
+
+8. ## when signup or login successfully redirect user to home page 
