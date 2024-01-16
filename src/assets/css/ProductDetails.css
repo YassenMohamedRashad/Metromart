@@ -6,9 +6,9 @@
 	object-fit: scale-down; /* take specified space without stretching the image */
 }
 
-.card {
+/* .card {
 	width: 18rem;
-}
+} */
 
 .discount {
 	text-decoration: line-through;
