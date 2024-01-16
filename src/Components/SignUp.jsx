@@ -3,11 +3,14 @@ import signupImage from "../assets/images/signup.svg";
 import googleLogo from "../assets/images/google-icon.svg";
 import { useState } from "react";
 import axios from "axios";
+import { Loader, Fail, Success } from "./SweetAlert";
+
 function SignUp() {
 	/* setting the states of the app */
 	const [MaleChecked, setMaleChecked] = useState(false);
 	const [FemaleChecked, setFemaleChecked] = useState(false);
 	const [formErrors, setFormErrors] = useState({});
+	const [loading, setLoading] = useState(true);
 	/* input fields values */
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
@@ -42,36 +45,42 @@ function SignUp() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		let errors = {};
-
+		if (loading) Loader();
+		setLoading(!loading);
 		// password validation
 		/* regex explanation:
 		^: Start of the string, 
 		(?=.*[a-z]): at least one lowercase, 
 		(?=.*[A-Z]): at least one uppercase, 
 		(?=.*\d): at least one digit, 
-		(?=.*[@$!%*?&]): at least one symbol, 
-		[A-Za-z\d@$!%*?&]: Match any upper, lower, digit, or symbol, 
-		{8,}: at least 8 chars long, 
+		(?=.*[^a-zA-Z\d\s]): at least one symbol, 
+		(?!.*\s): no whitespace allowed,
+		.{8,}: at least 8 chars long, 
 		$: End of string
 		*/
 		const strongPassRegex =
-			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s])(?!.*\s).{8,}$/;
 
 		if (!strongPassRegex.test(password)) errors.password = "Weak Password";
+		else delete errors.password;
 		if (password !== confirmPassword)
 			errors.password = "Passwords don't match";
+		else delete errors.password;
 
 		// email validation
 		const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 		if (!emailRegex.test(email)) errors.email = "Enter a Valid Email";
+		else delete errors.email;
 
 		// phoneNumber validation
 		const phoneNumberRegex = /^01[0125]\d{8}$/g;
 		if (!phoneNumberRegex.test(phoneNumber))
 			errors.phoneNumber = "Enter a Valid Phone Number";
+		else delete errors.phoneNumber;
 
 		// age validation
-		if (age < 1 || age > 100) errors.age = "Enter a Valid Age";
+		if (age < 18 || age > 100) errors.age = "Enter a Valid Age";
+		else delete errors.age;
 
 		// Update formErrors state with all errors at once
 		setFormErrors(errors);
@@ -91,9 +100,10 @@ function SignUp() {
 			const request = await axios
 				.post("http://localhost:5011/user/signup", userData)
 				.then((response) => {
-					errors = {};
-					console.log(response.data.status);
+					setFormErrors({});
+					console.log("then=>", response.data.status);
 					if (response.data.status === "success") {
+						Success("<i>Your account is all set up 👌</i>");
 						setGender("");
 						setAge("");
 						setAddress1("");
@@ -108,11 +118,11 @@ function SignUp() {
 					}
 				})
 				.catch((error) => {
-					console.log(error.response.data.status);
+					console.log("catch=>", error.response.data);
 					// The request was made and the server responded with an error
 					if (error.response.data.status === "fail") {
-						errors.email = "Email Is Already Taken";
-						setFormErrors(errors);
+						Fail("Failed To Create Account", "This Email Is Already Taken!");
+						// setFormErrors({ email: "Email Is Already Taken" });
 						setPassword("");
 						setConfirmPassword("");
 					}
@@ -164,12 +174,8 @@ function SignUp() {
 							/>
 							<label className="email-label">Email</label>
 							<br />
-							<small
-								className="text-danger mt-2"
-							>
-								
+							<small className="text-danger mt-2">
 								{formErrors.email}
-								
 							</small>
 							<br />
 
@@ -198,12 +204,8 @@ function SignUp() {
 								Confirm Password
 							</label>
 							<br />
-							<small
-								className="text-danger mt-2"
-							>
-								
+							<small className="text-danger mt-2">
 								{formErrors.password}
-								
 							</small>
 							<br />
 
@@ -251,13 +253,8 @@ function SignUp() {
 								Phone Number
 							</label>
 							<br />
-							<small
-								className="text-danger mt-2"
-								
-							>
-								
+							<small className="text-danger mt-2">
 								{formErrors.phoneNumber}
-								
 							</small>
 							<br />
 
@@ -271,12 +268,8 @@ function SignUp() {
 								onChange={handleChange}
 							/>
 							<label className="age-label">Age</label>
-							<small
-								className="text-danger mt-2 d-block"
-							>
-								
+							<small className="text-danger mt-2 d-block">
 								{formErrors.age}
-								
 							</small>
 
 							{/* Gender input */}
@@ -323,16 +316,12 @@ function SignUp() {
 							<button
 								className="btn btn-danger mt-4 w-100"
 								type="submit"
-								
 							>
 								Create Account
 							</button>
 							<br />
 						</form>
-						<button
-							className="btn btn-light border mt-2 w-100 "
-							
-						>
+						<button className="btn btn-light border mt-2 w-100 ">
 							<img src={googleLogo} /> Sign Up with Google
 						</button>
 						<h6 className="text-secondary mt-4">
