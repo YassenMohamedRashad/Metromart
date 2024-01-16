@@ -29,24 +29,8 @@ function App() {
 				<Route path="/Metromart/aboutUs" element={<AboutUs />} />
 				<Route path="/Metromart/shop" element={<Shop />} />
 				<Route path="/Metromart/" element={<Home />} />
-				<Route
-					path="/Metromart/login"
-					element={
-						<Login
-							handleUserData={handleUserData}
-							handleToken={handleToken}
-						/>
-					}
-				/>
-				<Route
-					path="/Metromart/signup"
-					element={
-						<Signup
-							handleUserData={handleUserData}
-							handleToken={handleToken}
-						/>
-					}
-				/>
+				<Route path="/Metromart/login" element={<Login />} />
+				<Route path="/Metromart/signup" element={<Signup />} />
 				<Route
 					path="/Metromart/accountdetails"
 					element={<AccountDetails />}

@@ -7,9 +7,11 @@ import { Loader, Fail, Success, Close } from "./SweetAlert";
 import "../assets/css/signup.css";
 import signupImage from "../assets/images/signup.svg";
 import googleLogo from "../assets/images/google-icon.svg";
+import { useAuth } from "../Hooks/useAuth";
 
-function SignUp({ handleUserData, handleToken }) {
+function SignUp() {
 	const navigate = useNavigate();
+	const { dispatch } = useAuth();
 	/* setting the states of the app */
 	const [formErrors, setFormErrors] = useState({});
 	const [loading, setLoading] = useState(true);
@@ -82,12 +84,12 @@ function SignUp({ handleUserData, handleToken }) {
 		setFormErrors(errors);
 		if (Object.keys(errors).length === 0) {
 			if (loading) Loader();
-			const userData = {
+			const Data = {
 				name: formData.username,
 				email: formData.email,
 				password: formData.password,
 				address1: formData.address1,
-				address2: formData.address1,
+				address2: formData.address2 || null,
 				phone_number: formData.phoneNumber,
 				gender: formData.gender,
 				age: formData.age,
@@ -97,7 +99,7 @@ function SignUp({ handleUserData, handleToken }) {
 			try {
 				const response = await axios.post(
 					"http://localhost:5011/user/signup",
-					userData
+					Data
 				);
 
 				// Assuming the response data has a status property indicating success
@@ -119,17 +121,16 @@ function SignUp({ handleUserData, handleToken }) {
 					setFemaleChecked(false);
 					setMaleChecked(false);
 					/* store user's data */
+					const { user_token, ...userData } = response.data.data;
 					localStorage.setItem(
 						"user",
 						JSON.stringify({ ...userData })
 					);
-					localStorage.setItem(
-						"user_token",
-						response.data.data.user_token
-					);
-					const storedUser = JSON.parse(localStorage.getItem("user"));
-					handleUserData(storedUser);
-					handleToken(localStorage.token);
+					localStorage.setItem("user_token", user_token);
+					dispatch({
+						type: "Login",
+						payload: [userData, user_token],
+					});
 					Success(
 						"<i>Your account is all set up 👌</i>",
 						`/Metromart/`,

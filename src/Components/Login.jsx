@@ -3,15 +3,17 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Loader, Fail, Success } from "./SweetAlert";
+import { useAuth } from "../Hooks/useAuth";
 /* assets */
 import loginImage from "../assets/images/login.svg";
 import "../assets/css/login.css";
 
-function Login({ handleUserData, handleToken }) {
+function Login() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [loading, setLoading] = useState(true);
 	const navigate = useNavigate();
+	const { dispatch } = useAuth();
 
 	/* handling changes */
 	const handleChange = (e) => {
@@ -50,21 +52,17 @@ function Login({ handleUserData, handleToken }) {
 						`/Metromart/`,
 						navigate
 					);
-					localStorage.setItem(
-						"user",
-						JSON.stringify(response.data.data)
-					);
-					localStorage.setItem("user_token", response.data.token);
-					const storedUser = JSON.parse(localStorage.getItem("user"));
-					handleUserData(storedUser);
-					handleToken(localStorage.token);
+					const { data, token } = response.data;
+					localStorage.setItem("user", JSON.stringify(data));
+					localStorage.setItem("user_token", token);
+					dispatch({
+						type: "Login",
+						payload: [data, token],
+					});
 				})
 				.catch((error) => {
-					// if (error) {
-						setLoading(!loading);
-						Fail("Wrong Email Or Password!");
-						console.log(error);
-					// } else console.log(error);
+					setLoading(!loading);
+					Fail("Wrong Email Or Password!");
 				});
 		}
 	};
