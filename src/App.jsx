@@ -26,7 +26,7 @@ function App() {
         <>
             <Nav />
             <Routes>
-                <Route path="/Metromart/aboutus" element={<AboutUs />} />
+                <Route path="/Metromart/aboutUs" element={<AboutUs />} />
                 <Route path="/Metromart/shop" element={<Shop />} />
                 <Route path="/Metromart/" element={<Home />} />
                 <Route
