@@ -1,6 +1,7 @@
 /* dependencies */
-import { useState } from "react";
 import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Loader, Fail, Success } from "./SweetAlert";
 /* assets */
 import loginImage from "../assets/images/login.svg";
@@ -10,6 +11,7 @@ function Login({ handleUserData, handleToken }) {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [loading, setLoading] = useState(true);
+	const navigate = useNavigate();
 
 	/* handling changes */
 	const handleChange = (e) => {
@@ -43,25 +45,26 @@ function Login({ handleUserData, handleToken }) {
 				.post("http://localhost:5011/user/login", data)
 				.then((response) => {
 					setLoading(!loading);
-					Success("<i>You Have Logged In Successfully. 👌</i>");
+					Success(
+						"<i>You Have Logged In Successfully. 👌</i>",
+						`/Metromart/`,
+						navigate
+					);
 					localStorage.setItem(
 						"user",
 						JSON.stringify(response.data.data)
 					);
-					localStorage.setItem("token", response.data.token);
+					localStorage.setItem("user_token", response.data.token);
 					const storedUser = JSON.parse(localStorage.getItem("user"));
 					handleUserData(storedUser);
 					handleToken(localStorage.token);
 				})
 				.catch((error) => {
-					if (
-						error.response &&
-						error.response.data &&
-						error.response.data.msg
-					) {
+					// if (error) {
 						setLoading(!loading);
 						Fail("Wrong Email Or Password!");
-					} else console.log(error.response);
+						console.log(error);
+					// } else console.log(error);
 				});
 		}
 	};

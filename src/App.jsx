@@ -38,7 +38,15 @@ function App() {
 						/>
 					}
 				/>
-				<Route path="/Metromart/signup" element={<Signup />} />
+				<Route
+					path="/Metromart/signup"
+					element={
+						<Signup
+							handleUserData={handleUserData}
+							handleToken={handleToken}
+						/>
+					}
+				/>
 				<Route
 					path="/Metromart/accountdetails"
 					element={<AccountDetails />}

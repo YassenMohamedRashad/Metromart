@@ -1,11 +1,15 @@
+/* dependencies */
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Loader, Fail, Success, Close } from "./SweetAlert";
+/* assets */
 import "../assets/css/signup.css";
 import signupImage from "../assets/images/signup.svg";
 import googleLogo from "../assets/images/google-icon.svg";
-import { useState } from "react";
-import axios from "axios";
-import { Loader, Fail, Success } from "./SweetAlert";
 
-function SignUp() {
+function SignUp({ handleUserData, handleToken }) {
+	const navigate = useNavigate();
 	/* setting the states of the app */
 	const [formErrors, setFormErrors] = useState({});
 	const [loading, setLoading] = useState(true);
@@ -21,23 +25,21 @@ function SignUp() {
 		age: "",
 		gender: "",
 	});
-	
+
 	const [MaleChecked, setMaleChecked] = useState(false);
 	const [FemaleChecked, setFemaleChecked] = useState(false);
-	
+
 	/* handling changes */
 	const handleChange = (e) => {
 		/* Updates the formData based on the user's input in the form fields. */
 		const { name, value } = e.target;
-		setFormData(prevState => ({ ...prevState, [name]: value }));
+		setFormData((prevState) => ({ ...prevState, [name]: value }));
 	};
-	
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		let errors = {};
-		if (loading) Loader();
-		setLoading(!loading);
+		setLoading((prev) => !prev);
 		// password validation
 		/* regex explanation:
 		^: Start of the string, 
@@ -52,7 +54,8 @@ function SignUp() {
 		const strongPassRegex =
 			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s])(?!.*\s).{8,}$/;
 
-		if (!strongPassRegex.test(formData.password)) errors.password = "Weak Password";
+		if (!strongPassRegex.test(formData.password))
+			errors.password = "Weak Password";
 		else delete errors.password;
 		if (formData.password !== formData.confirmPassword)
 			errors.password = "Passwords don't match";
@@ -60,7 +63,8 @@ function SignUp() {
 
 		// email validation
 		const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-		if (!emailRegex.test(formData.email)) errors.email = "Enter a Valid Email";
+		if (!emailRegex.test(formData.email))
+			errors.email = "Enter a Valid Email";
 		else delete errors.email;
 
 		// phoneNumber validation
@@ -70,12 +74,14 @@ function SignUp() {
 		else delete errors.phoneNumber;
 
 		// age validation
-		if (formData.age < 18 || formData.age > 100) errors.age = "Enter a Valid Age";
+		if (formData.age < 18 || formData.age > 100)
+			errors.age = "Enter a Valid Age";
 		else delete errors.age;
 
 		// Update formErrors state with all errors at once
 		setFormErrors(errors);
 		if (Object.keys(errors).length === 0) {
+			if (loading) Loader();
 			const userData = {
 				name: formData.username,
 				email: formData.email,
@@ -88,37 +94,65 @@ function SignUp() {
 			};
 
 			/* Send a POST Request To create a New User */
-			const request = await axios
-				.post("http://localhost:5011/user/signup", userData)
-				.then((response) => {
+			try {
+				const response = await axios.post(
+					"http://localhost:5011/user/signup",
+					userData
+				);
+
+				// Assuming the response data has a status property indicating success
+				if (response.data.status === "success") {
 					setFormErrors({});
 					console.log("then=>", response.data.status);
-					if (response.data.status === "success") {
-						Success("<i>Your account is all set up 👌</i>");
-						setFormData({
-							username: "",
-							email: "",
-							password: "",
-							confirmPassword: "",
-							address1: "",
-							address2: "",
-							phoneNumber: "",
-							age: "",
-							gender: "",
-						})
-						setFemaleChecked(false);
-						setMaleChecked(false);
-					}
-				})
-				.catch((error) => {
-					console.log("catch=>", error.response.data);
-					// The request was made and the server responded with an error
-					if (error.response.data.status === "fail") {
-						Fail("Failed To Create Account", "This Email Is Already Taken!");
-						// setFormErrors({ email: "Email Is Already Taken" });
-						setFormData(prevState => ({ ...prevState, password: "", confirmPassword: "" }));
-					}
-				});
+					/* clear out the form */
+					setFormData({
+						username: "",
+						email: "",
+						password: "",
+						confirmPassword: "",
+						address1: "",
+						address2: "",
+						phoneNumber: "",
+						age: "",
+						gender: "",
+					});
+					setFemaleChecked(false);
+					setMaleChecked(false);
+					/* store user's data */
+					localStorage.setItem(
+						"user",
+						JSON.stringify({ ...userData })
+					);
+					localStorage.setItem(
+						"user_token",
+						response.data.data.user_token
+					);
+					const storedUser = JSON.parse(localStorage.getItem("user"));
+					handleUserData(storedUser);
+					handleToken(localStorage.token);
+					Success(
+						"<i>Your account is all set up 👌</i>",
+						`/Metromart/`,
+						navigate
+					);
+				} else {
+					Fail(
+						"Failed To Create Account",
+						"This Email Is Already Taken!"
+					);
+					setFormData((prevState) => ({
+						...prevState,
+						password: "",
+						confirmPassword: "",
+					}));
+				}
+			} catch (error) {
+				// Handle network errors or other issues
+				console.log("Error: ", error);
+			}
+		} else {
+			setLoading((prev) => !prev);
+			Close();
 		}
 	};
 
@@ -166,9 +200,9 @@ function SignUp() {
 							/>
 							<label className="email-label">Email</label>
 							<br />
-							{/* <small className="text-danger mt-2">
+							<small className="text-danger mt-2">
 								{formErrors.email}
-							</small> */}
+							</small>
 							<br />
 
 							{/* Password input */}
@@ -225,7 +259,7 @@ function SignUp() {
 							/>
 							<label
 								className={`address2-label ${
-									address2 ? "active" : ""
+									formData.address2 ? "active" : ""
 								}`}
 							>
 								Address Two

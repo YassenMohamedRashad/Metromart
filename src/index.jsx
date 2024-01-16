@@ -6,13 +6,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/nav.css";
 import "./assets/css/variables.css";
 import "./assets/css/Loader.css";
-
+import { AuthContextProvider } from "./Context/AuthContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<BrowserRouter>
-			<App />
+			<AuthContextProvider>
+				<App />
+			</AuthContextProvider>
 		</BrowserRouter>
 	</React.StrictMode>
 );
