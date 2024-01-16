@@ -142,7 +142,7 @@ function FirstSection() {
 
 			{/* Today's Part */}
 			<div className="row position-relative mb-4">
-				<div className="rounded	today" style={{ width: 25, height: 50, backgroundColor: "#DC4345" }}></div>
+				<div className="rounded	today" ></div>
 				<h5 className="text-danger position-absolute mt-3 ms-4 fw-bold today-text"> Today's</h5>
 
 				{/* CountDown Part */}

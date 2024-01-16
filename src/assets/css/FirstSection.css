@@ -30,6 +30,14 @@
 
 /* End of Hero Styling */
 
+.today{
+    width: 20px;
+    height: 60px;
+    border-radius: 7px;
+    background-color: #DC4345;
+}
+
+
 /* Products Carousel Styling */
 .swiper {
   width: 100%;
@@ -187,7 +195,8 @@
   }
 
   .today {
-    width: 1px !important;
+    width: 10px !important;
+    height: 50px !important;
   }
 
   .today-text {
