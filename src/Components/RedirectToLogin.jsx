@@ -4,11 +4,13 @@ import { InfoAC } from "./SweetAlert";
 
 const RedirectToLogin = () => {
 	const [shouldRedirect, setShouldRedirect] = useState(false);
+
 	useEffect(() => {
 		InfoAC("You Have To Login To Access This Page").then(() => {
 			setShouldRedirect(true);
 		});
 	}, []);
+
 	return shouldRedirect ? <Navigate to="/Metromart/login" /> : null;
 };
 

@@ -122,6 +122,7 @@ function SignUp() {
 					setMaleChecked(false);
 					/* store user's data */
 					const { user_token, ...userData } = response.data.data;
+
 					localStorage.setItem(
 						"user",
 						JSON.stringify({ ...userData })
@@ -129,7 +130,10 @@ function SignUp() {
 					localStorage.setItem("user_token", user_token);
 					dispatch({
 						type: "Login",
-						payload: [userData, user_token],
+						payload: [
+							JSON.parse(localStorage.getItem("user")),
+							localStorage.getItem("user_token"),
+						],
 					});
 					Success(
 						"<i>Your account is all set up 👌</i>",
