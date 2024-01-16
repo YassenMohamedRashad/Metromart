@@ -3,7 +3,7 @@ import "../assets/css/Shop.css"
 
 function Shop() {
     return (
-        <div className="container-fluid">
+        <div className="container">
 
             {/* category word */}
             <div className="row">
@@ -19,7 +19,7 @@ function Shop() {
 
 
             {/* cards of category */}
-            <div className="row m-5">
+            <div className="row m-5 justify-content-center">
                 {/* phone category */}
                 <div className="card-category card m-3">
                     <a href="#1">
