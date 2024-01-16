@@ -8,8 +8,6 @@ import { Loader, Fail, Success } from "./SweetAlert";
 function SignUp() {
 	/* setting the states of the app */
 	const [formErrors, setFormErrors] = useState({});
-	const [MaleChecked, setMaleChecked] = useState(false);
-	const [FemaleChecked, setFemaleChecked] = useState(false);
 	const [loading, setLoading] = useState(true);
 	/* input fields values */
 	const [formData, setFormData] = useState({
@@ -23,6 +21,9 @@ function SignUp() {
 		age: "",
 		gender: "",
 	});
+	
+	const [MaleChecked, setMaleChecked] = useState(false);
+	const [FemaleChecked, setFemaleChecked] = useState(false);
 	
 	/* handling changes */
 	const handleChange = (e) => {
@@ -115,8 +116,7 @@ function SignUp() {
 					if (error.response.data.status === "fail") {
 						Fail("Failed To Create Account", "This Email Is Already Taken!");
 						// setFormErrors({ email: "Email Is Already Taken" });
-						setPassword("");
-						setConfirmPassword("");
+						setFormData(prevState => ({ ...prevState, password: "", confirmPassword: "" }));
 					}
 				});
 		}
@@ -166,9 +166,9 @@ function SignUp() {
 							/>
 							<label className="email-label">Email</label>
 							<br />
-							<small className="text-danger mt-2">
+							{/* <small className="text-danger mt-2">
 								{formErrors.email}
-							</small>
+							</small> */}
 							<br />
 
 							{/* Password input */}
