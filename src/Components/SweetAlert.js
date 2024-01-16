@@ -38,3 +38,14 @@ export const Fail = (title = null, text) => {
 export const Close = () => {
 	MySwal.close();
 };
+
+export const InfoAC = (msg) => {
+	return MySwal.fire({
+		title: msg,
+		icon: "info",
+		timer: 2500,
+		allowOutsideClick: false,
+		allowEscapeKey: false,
+		showConfirmButton: false,
+	});
+};

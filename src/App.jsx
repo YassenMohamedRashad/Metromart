@@ -1,6 +1,6 @@
 /* dependencies */
-import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { useAuth } from "./Hooks/useAuth";
 /* components */
 import Nav from "./Components/Navbar";
 import Footer from "./Components/Footer";
@@ -11,34 +11,41 @@ import WishList from "./Components/Wishlist";
 import BillingDetails from "./Components/BillingDetails";
 import ProductDetails from "./Components/ProductDetails";
 import Home from "./Components/Home";
-
 import Error from "./Components/Error";
 import AboutUs from "./Components/Aboutus";
-import Shop from "./Components/Shop";
+import RedirectToLogin from "./Components/RedirectToLogin";
 
 function App() {
-	const [userData, setUserData] = useState(null);
-	const [token, setToken] = useState(null);
-
-	const handleUserData = (data) => setUserData(data);
-	const handleToken = (data) => setToken(data);
+	const { user, user_token } = useAuth();
 	return (
 		<>
 			<Nav />
 			<Routes>
 				<Route path="/Metromart/aboutUs" element={<AboutUs />} />
-				<Route path="/Metromart/shop" element={<Shop />} />
-				<Route path="/Metromart/" element={<Home />} />
-				<Route path="/Metromart/login" element={<Login />} />
-				<Route path="/Metromart/signup" element={<Signup />} />
+				<Route path={"/Metromart/"} element={<Home />} />
+				<Route
+					path="/Metromart/login"
+					element={
+						!user ? <Login /> : <Navigate to={"/Metromart/"} />
+					}
+				/>
+				<Route
+					path="/Metromart/signup"
+					element={
+						!user ? <Signup /> : <Navigate to={"/Metromart/"} />
+					}
+				/>
 				<Route
 					path="/Metromart/accountdetails"
-					element={<AccountDetails />}
+					element={user ? <AccountDetails /> : <RedirectToLogin />}
 				/>
-				<Route path="/Metromart/wishlist" element={<WishList />} />
+				<Route
+					path="/Metromart/wishlist"
+					element={user ? <WishList /> : <RedirectToLogin />}
+				/>
 				<Route
 					path="/Metromart/billingdetails"
-					element={<BillingDetails />}
+					element={user ? <BillingDetails /> : <RedirectToLogin />}
 				/>
 				<Route
 					path="/Metromart/productDetails"
