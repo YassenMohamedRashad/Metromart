@@ -13,6 +13,8 @@ import unchecked_star_icon from "../assets/images/unchecked-star-icon.png";
 import checked_star_icon from "../assets/images/checked-star-icon.png";
 
 
+import Products from "./Products.json"
+
 function FirstSection() {
 
 	// CountDown Function
@@ -46,48 +48,6 @@ function FirstSection() {
 	},);
 
 
-	//  For testing the products part dynamically 
-	const products = [
-		{
-			name: "HAVIT HV-G92 Gamepad",
-			rate: 4.5,
-			reviews: 120,
-			price: 49.99,
-			discountPercent: 10,
-			image: "https://www.pngall.com/wp-content/uploads/4/USB-Gamepad-PNG-Free-Image.png",
-		},
-		{
-			name: "IPS LCD Gaming Monitor",
-			rate: 4.0,
-			reviews: 95,
-			price: 399.99,
-			discountPercent: 5,
-			image: "https://storage.aoc.com/assets/10935/AOC_AG405UXC_BK_PV_-HERO1-large.png",
-		},
-		{
-			name: "S-Series Comfort Chair",
-			rate: 4.2,
-			reviews: 150,
-			price: 199.99,
-			discountPercent: 12,
-			image: "https://www.kindpng.com/picc/m/381-3818681_transparent-computer-chair-png-gaming-chair-png-download.png",
-		},
-		{
-			name: "Wireless Gaming Mouse",	
-			rate: 4.7,
-			reviews: 80,
-			price: 39.99,
-			discountPercent: 20,
-			image: "https://www.vhv.rs/dpng/f/72-720542_razer-mouse-png-transparent-png.png",
-		}
-	];
-
-	// Calculate the price after discount for each product
-	products.forEach((product) => {
-		const discountAmount = (product.price * product.discountPercent) / 100;
-		product.priceAfterDiscount = (product.price - discountAmount).toFixed(2);
-	});
-
 	return (
 		<div className="container">
 			{/* Hero Part */}
@@ -107,7 +67,7 @@ function FirstSection() {
 								</div>
 							</div>
 						</div>
-						
+
 						<div className="carousel-item">
 							<div className="d-flex justify-content-between">
 								<div>
@@ -133,7 +93,7 @@ function FirstSection() {
 								</div>
 							</div>
 						</div>
-						
+
 					</div>
 
 
@@ -150,43 +110,32 @@ function FirstSection() {
 					<h2 className='text-black mb-4 mt-4 fw-bold'>Flash Sales</h2>
 
 					<div className="days ms-5 position-relative">
-						<p style={{fontSize:17}}>Days</p>
-						<span className='fw-bold me-5 position-absolute' style={{fontSize:35, left:0, top:19}}>{timeRemaining.days}</span>
+						<p style={{ fontSize: 17 }}>Days</p>
+						<span className='fw-bold me-5 position-absolute' style={{ fontSize: 35, left: 0, top: 19 }}>{timeRemaining.days}</span>
 					</div>
 
 					<div className="hours position-relative">
-						<p className="ms-4" style={{fontSize:17}}>Hours</p>
-						<span className='fw-bold me-5 position-absolute' style={{fontSize:35, left:15, top:19}}><span className='me-2' style={{color:"#DC4345"}}>:</span>{timeRemaining.hours} </span>
+						<p className="ms-4" style={{ fontSize: 17 }}>Hours</p>
+						<span className='fw-bold me-5 position-absolute' style={{ fontSize: 35, left: 15, top: 19 }}><span className='me-2' style={{ color: "#DC4345" }}>:</span>{timeRemaining.hours} </span>
 					</div>
-					
+
 					<div className="minutes position-relative">
-						<p className="ms-4" style={{fontSize:17}}>Minutes</p>
-						<span className='fw-bold me-5 position-absolute' style={{fontSize:35, left:14, top:19}}><span className='me-2' style={{color:"#DC4345"}}>:</span>{timeRemaining.minutes} </span>
+						<p className="ms-4" style={{ fontSize: 17 }}>Minutes</p>
+						<span className='fw-bold me-5 position-absolute' style={{ fontSize: 35, left: 14, top: 19 }}><span className='me-2' style={{ color: "#DC4345" }}>:</span>{timeRemaining.minutes} </span>
 					</div>
 
 					<div className="seconds position-relative">
-						<p className="ms-3	" style={{fontSize:17}}>Seconds</p>
-						<span className='fw-bold me-5 position-absolute' style={{fontSize:35, left:1, top:19}}><span className='me-2' style={{color:"#DC4345"}}>:</span>{timeRemaining.seconds} </span>
+						<p className="ms-3	" style={{ fontSize: 17 }}>Seconds</p>
+						<span className='fw-bold me-5 position-absolute' style={{ fontSize: 35, left: 1, top: 19 }}><span className='me-2' style={{ color: "#DC4345" }}>:</span>{timeRemaining.seconds} </span>
 					</div>
 				</div>
-				{/* <h6 className="position-absolute fw-bold" style={{ top: 60, left: 220, fontSize: 12 }}>
-					<span className="position-absolute" style={{ left: 25 }}>Days</span>
-					<span className="position-absolute" style={{ left: 100 }}>Hours</span>
-					<span className="position-absolute" style={{ left: 170 }}>Minutes</span>
-					<span className="position-absolute" style={{ left: 240 }}>Seconds</span>
-				</h6>
-				<h2 className="text-black mb-4 mt-4 fw-bold">Flash Sales
-					<span className="ms-5"> {timeRemaining.days}
-						<span className="text-danger ms-2 me-2" style={{ fontSize: 35 }}>:</span> {timeRemaining.hours}
-						<span className="text-danger ms-2 me-2" style={{ fontSize: 35 }}>:</span> {timeRemaining.minutes}
-						<span className="text-danger ms-2 me-2" style={{ fontSize: 35 }}>:</span> {timeRemaining.seconds}
-					</span>
-				</h2> */}
 
 				{/* Products Carousel */}
-				<Swiper slidesPerView={3.5} spaceBetween={60} freeMode={true} pagination={{ clickable: true, }} modules={[FreeMode]} className="mySwiper" >
+
+				<Swiper slidesPerView={3.5} spaceBetween={60} className="mySwiper" >
 					{
-						products.map((item) => {
+						Products && Products.map((item) => {
+
 							return (
 								<SwiperSlide >
 									<div className="card border-0 rounded-2 shadow-sm position-relative product-card " style={{ height: 250 }}	>
@@ -203,69 +152,15 @@ function FirstSection() {
 											<img className="card-img-top w-75 product-img align-self-center " src={item.image} alt="Title" />
 										</div>
 										<div className="overlay">
-											<button className="btn text">Add to Cart</button>
+											<button className="btn text-white	">Add to Cart</button>
 										</div>
+									</div>
+								</SwiperSlide>
 
-						</SwiperSlide>
-						<SwiperSlide>
-							<div className="card bg-light border-0 shadow-sm">
-								<img className="card-img-top position-relative w-75 ms-4" src={iphone15} alt="Title" />
-								<button className="btn position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top:30, left:50   }}>
-									- 40%
-								</button>
-								<button className="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top:30, right:-5   }}>
-									<img src={heart_icon} style={{height:20}} alt="" />
-								</button>
-								<button className="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top:70, right:-5   }}>
-									<img src={eye_icon} style={{height:20}} alt="" />
-								</button>
-								<div className="card-body">
-									<h4 className="card-title">Title</h4>
-									<p className="card-text">Text</p>
-								</div>
-							</div>
+							)
+						})}
+				</Swiper>
 
-						</SwiperSlide>
-						<SwiperSlide>
-							<div className="card bg-light border-0 shadow-sm">
-								<img className="card-img-top position-relative w-75 ms-4" src={iphone15} alt="Title" />
-								<button className="btn position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top:30, left:50   }}>
-									- 40%
-								</button>
-								<button className="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top:30, right:-5   }}>
-									<img src={heart_icon} style={{height:20}} alt="" />
-								</button>
-								<button className="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top:70, right:-5   }}>
-									<img src={eye_icon} style={{height:20}} alt="" />
-								</button>
-								<div className="card-body">
-									<h4 className="card-title">Title</h4>
-									<p className="card-text">Text</p>
-								</div>
-							</div>
-
-						</SwiperSlide>
-						<SwiperSlide>
-							<div className="card bg-light border-0 shadow-sm">
-								<img className="card-img-top position-relative w-75 ms-4" src={iphone15} alt="Title" />
-								<button className="btn position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top:30, left:50   }}>
-									- 40%
-								</button>
-								<button className="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top:30, right:-5   }}>
-									<img src={heart_icon} style={{height:20}} alt="" />
-								</button>
-								<button className="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top:70, right:-5   }}>
-									<img src={eye_icon} style={{height:20}} alt="" />
-								</button>
-								<div className="card-body">
-									<h4 className="card-title">Title</h4>
-									<p className="card-text">Text</p>
-								</div>
-							</div>
-
-						</SwiperSlide>
-					</Swiper>
-				</div>
 			</div>
 
 			<div className="d-flex justify-content-center mt-5 mb-5 ">

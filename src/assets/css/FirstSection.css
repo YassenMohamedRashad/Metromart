@@ -31,7 +31,7 @@
 /* End of Hero Styling */
 
 .today{
-    width: 20px;
+    width: 20px !important;
     height: 60px;
     border-radius: 7px;
     background-color: #DC4345;
@@ -78,7 +78,7 @@
 }
 
 .card:hover .overlay {
-  height: 30px;
+  height: 40px;
 }
 
 .text {
