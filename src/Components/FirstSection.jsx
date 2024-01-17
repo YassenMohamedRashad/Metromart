@@ -74,10 +74,10 @@ function FirstSection() {
 	  };
 	
 	return (
-		<div className="container">
+		<div className="container p-5 pt-0" >
 			{/* Hero Part */}
 
-			<div className="row" style={{ marginBottom: 90 }}>
+			<div className="row " style={{ marginBottom: 90 }}>
 				<Slider {...settings} className='bg-black hero'>
 					<img src={iphone15} alt="Slide 1" />
 					<img src={iphone26} alt="Slide 2" />
@@ -168,7 +168,7 @@ function FirstSection() {
 											<img src={item.image1} className=' border-0 rounded-2' alt="Title" />
 										</div>
 										<div className="overlay">
-											<button className="btn text-white ">Add to Cart</button>
+											<button className="btn text-white" >Add to Cart</button>
 										</div>
 
 
@@ -176,9 +176,9 @@ function FirstSection() {
 									<div className='mt-4 position-relative cardBody' style={{ height: 140 }}>
 										<div className="d-flex justify-content-between">
 
-											<h5 className="card-title fw-bold text-start">{item.title}</h5>
+											<h4 className="card-title fw-bold text-start">{item.title}</h4>
 
-											<div>
+											<div className='price'>
 												<h5 className="card-text me-2  d-inline" style={{ color: "#DC4345" }}>${item.discountedPrice}</h5>
 												<h6 className="text-secondary d-inline" >
 													<del>${item.price}</del>

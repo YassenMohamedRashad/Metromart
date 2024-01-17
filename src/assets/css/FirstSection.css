@@ -117,6 +117,9 @@
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
+.hero img{
+  height: 15rem !important;
+}
 
 /* End Products Carousel Styling */
 
@@ -126,27 +129,6 @@
   }
 }
 
-@media screen and (max-width: 1199px) {
-  /* Hero Styling */
-
-
-
-  /* End of Hero Styling */
-
-  /* Products Carousel Styling */
-
-  .product-card {
-    height: 200px !important;
-  }
-
-  .swiper-slide .cardBody h5 {
-    font-size: 15px !important;
-  }
-
-
-
-  /* End Products Carousel Styling */
-}
 
 @media screen and (max-width: 991px) {
   /* Hero Styling */
@@ -265,9 +247,7 @@
     top: 15px !important;
   }
 
-  .swiper-slide .product-card button img {
-    height: 5px !important;
-  }
+
   .heart_icon_container {
     top: 15px !important;
   }
@@ -283,13 +263,10 @@
   .swiper-slide .cardBody p,
   h6 {
     font-size: 11px !important;
-    top: 32px !important;
-    left: 50px !important;
+
   }
 
-  .swiper-slide .cardBody img {
-    width: 10px !important;
-  }
+
 
   .card:hover .overlay {
     height: 15px;
@@ -305,11 +282,17 @@
 }
 
 
-@media screen and (max-width: 575px) {
 
+
+
+@media (max-width: 576px) {
   /* Hero Styling */
-
-
+  
+    .hero{
+      padding-left: 20px  ;
+      padding-right: 6px  ;
+    }
+  
   /* End of Hero Styling */
 
   /* CountDown Styling */
@@ -330,11 +313,14 @@
     left: -25px;
   }
   
-
   /* End ofCountDown Styling */
 
   /* Products Carousel Styling */
 
+  .swiper{
+    margin: 0 !important;
+    padding:  0 !important;
+  }
   .product-card {
     height: 90px !important;
   }
@@ -343,44 +329,48 @@
   }
 
   .swiper-slide .product-card span {
+    padding: 5px !important;
     font-size: 5px !important;
-    left: 20px !important;
-    top: 15px !important;
+    left: 15px !important;
+    top: 10px !important;
   }
 
-  .swiper-slide .product-card button img {
-    height: 5px !important;
-  }
+
   .heart_icon_container {
     top: 15px !important;
+    padding: 0 7px !important;
   }
   .eye_icon_container {
-    top: 35px !important;
+    top: 36px !important;
+    padding: 0 7px !important;
+  }
+  .eye_icon, .heart_icon{
+    width: 7px;
   }
 
+  .swiper-slide .cardBody h4 {
+    font-size: 8px !important;
+  }
 
-  .swiper-slide .cardBody h5 {
+  .swiper-slide .cardBody h5,h6 {
     font-size: 10px !important;
   }
-
-  .swiper-slide .cardBody p,
-  h6 {
-    font-size: 11px !important;
-    top: 32px !important;
-    left: 50px !important;
+  .swiper-slide .cardBody .rate{
+    top: -20px !important;
   }
 
-  .swiper-slide .cardBody img {
-    width: 10px !important;
-  }
 
   .card:hover .overlay {
-    height: 15px;
+    height: 18px;
+  }
+  .card .overlay button {
+    font-size: 7px !important;
   }
 
   .view-all-product {
     font-size: 10px !important;
-    padding: 10px 20px !important;
+
+    
   }
 
   /* End of Products Carousel Styling */
