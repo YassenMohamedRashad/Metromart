@@ -1,4 +1,4 @@
-import DeliveryIcon from "../../assets/images/icon-delivery.svg";
+// import DeliveryIcon from "../../assets/images/icon-delivery.svg";
 import ReturnIcon from "../../assets/images/Icon-return.svg";
 import "../../assets/css/Delivery.css";
 
@@ -7,7 +7,7 @@ export const Delivery = () => {
 		<>
 			<div className="frame deliveryFrame mt-4">
 				<div className="deliveryCont">
-					<img src={DeliveryIcon} alt="" />
+					<img alt="" />
 					<div className="textCont">
 						<div className="text-wrapper">Free Delivery</div>
 						<p>Enter your postal code for Delivery Availability</p>
