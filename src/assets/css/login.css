@@ -1,0 +1,44 @@
+.login {
+  width: 100%;
+}
+
+.form {
+  position: relative;
+}
+
+.login-form input {
+  border: none;
+  border-bottom: 1px solid silver;
+  width: 380px;
+  outline: none;
+}
+.login-form .email-label {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  color: grey;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.login-form .email-input:focus ~ .email-label,
+.login-form .email-input:valid ~ .email-label {
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: #4158d0;
+}
+
+.login-form .pass-label {
+  position: absolute;
+  top: 120px;
+  left: 0;
+  color: grey;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.login-form .pass-input:focus ~ .pass-label,
+.login-form .pass-input:valid ~ .pass-label {
+  transform: translateY(-15px);
+  font-size: 15px;
+  color: #4158d0;
+}
