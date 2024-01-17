@@ -1,0 +1,191 @@
+/***** card *****/
+
+.card img {
+	width: 100%;
+	height: 100%;
+	object-fit: scale-down; /* take specified space without stretching the image */
+}
+
+/* .card {
+	width: 18rem;
+} */
+
+.discount {
+	text-decoration: line-through;
+}
+
+/***** End card *****/
+
+/***** slider *****/
+
+.slider-Container {
+	display: flex;
+	flex-direction: column; /* Add this */
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	width: 800px;
+	height: auto; /* the height adjusts based on content */
+}
+
+/***** End slider *****/
+
+/***** global styles *****/
+
+.label {
+	height: auto;
+	width: fit-content;
+}
+
+.label .text-wrapper {
+	white-space: nowrap;
+}
+
+.frame {
+	display: flex;
+	gap: 8px;
+}
+.btn-second {
+	background-color: var(--secondary-2) !important;
+	color: white !important;
+}
+
+.btn-second:hover {
+	background-color: rgba(199, 48, 48, 1) !important;
+	color: white !important;
+}
+
+/***** End global styles *****/
+
+/***** stockFrame *****/
+
+.stockFrame .text-wrapper {
+	font-family: var(--title-14px-regular-font-family);
+	font-size: var(--title-14px-regular-font-size);
+	opacity: 0.5;
+	white-space: nowrap;
+	width: fit-content;
+}
+
+/***** End stockFrame *****/
+
+/***** descriptionFrame *****/
+
+.descriptionFrame .label .productDescription {
+	font-family: var(--title-14px-regular-font-family);
+	font-size: var(--title-14px-regular-font-size);
+}
+
+/***** End descriptionFrame *****/
+
+/***** line frame *****/
+
+.Line {
+	width: 100%;
+	display: block;
+	border: 1px solid rgba(0, 0, 0, 0.6);
+	height: auto;
+}
+
+/***** End line frame *****/
+
+/***** formFrame *****/
+
+.formFrame {
+	display: flex;
+	align-items: stretch;
+	gap: 0.5rem;
+}
+
+/***** End formFrame *****/
+
+/***** quantityFrame *****/
+
+.quantityFrame {
+	align-items: stretch;
+	border-radius: 4px;
+	width: fit-content;
+	gap: 0;
+}
+
+.quantity {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.quantityCont {
+	padding: 0 20px;
+	flex: 1;
+	position: relative;
+	display: flex;
+	place-content: center;
+	border-top: solid 1px;
+	border-bottom: solid 1px;
+	border-color: rgba(0, 0, 0, 0.3);
+}
+
+.quantityFrame .icon-screen {
+	flex: 1;
+}
+
+.quantityFrame .minus {
+	background: var(--primary);
+	border-radius: 4px 0px 0px 4px;
+	height: 44px;
+	overflow: hidden;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.quantityFrame .minus:hover,
+.btn-light:hover {
+	color: var(--bs-btn-hover-color) !important;
+	border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.plus {
+	border-radius: 0px 4px 4px 0px !important;
+	overflow: hidden;
+}
+
+/***** End quantityFrame *****/
+
+/***** buttonsFrame *****/
+
+.BuyNow {
+	width: fit-content;
+	padding: 0 20px !important;
+	display: block;
+}
+
+/***** favFrame *****/
+
+.favFrame {
+	display: flex;
+	align-items: stretch;
+}
+
+.favoriteBtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 4px;
+	padding: 0 20% !important;
+	margin: 0;
+	border: 1px solid rgba(0, 0, 0, 0.3) !important;
+	background-color: white !important;
+	transition: all 400ms ease;
+}
+
+.favoriteBtn:hover {
+	background: #f5f5f5 !important;
+}
+.favoriteBtn:hover path,
+.favoriteBtn.fav path {
+	fill: var(--secondary-2);
+	stroke: none;
+}
+
+/***** End favFrame *****/
+
+/***** End buttonsFrame *****/

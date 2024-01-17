@@ -9,15 +9,6 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 // importing axios
 import axios from "axios";
-// importing images
-import one from "../assets/images/Light-Gucci-Savoy-medium-duffle-bag 1.png"
-import two from "../assets/images/gammaxx-l240-argb-1-500x500 1.png"
-import three from "../assets/images/GP11_PRD3 1.png"
-import four from "../assets/images/698717_Z8A1X_3475_001_100_0000_Light-Reversible-quilted-satin-jacket 1.png"
-import five from "../assets/images/ideapad-gaming.png"
-import six from "../assets/images/g27cq4-500x500 1.png"
-import seven from "../assets/images/g92-2-500x500 1.png"
-import eight from "../assets/images/ak-900-01-500x500 1.png"
 // wishlist component
 function WishList() {
   // responsibility of the slider
