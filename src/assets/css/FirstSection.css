@@ -1,37 +1,40 @@
 /* Hero Styling */
 
-.applelogo {
-  height: 70px;
-  user-select: none;
-  margin-top: 40px;
-}
-
-.iphone {
-  height: 360px;
-  user-select: none;
-}
-
-.firstSlide,
-.secondSlide {
-  position: relative;
-}
-
-.firstSlideText {
+.slick-dots {
   position: absolute;
-  top: 65px;
-  left: 80px;
+  bottom: 10px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+.slick-dots li {
+  margin: 0 5px;
+  display: inline-block;
+}
+.slick-dots li button {
+  font-size: 12px;
+  line-height: 1;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  background-color: #bbb;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.secondSlideText {
-  position: absolute;
-  top: 65px;
-  right: 95px;
+.slick-dots li.slick-active button {
+  background-color: #333;
 }
 
 /* End of Hero Styling */
 
 .today{
-    width: 20px;
+    width: 20px !important; 
     height: 60px;
     border-radius: 7px;
     background-color: #DC4345;
@@ -56,6 +59,28 @@
   background-color: rgb(245, 242, 242);
 }
 
+.swiper-slide .product-img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.swiper-slide .eye_icon_container,.eye_icon {
+  transition: 0.5s ease;
+}.swiper-slide .eye_icon_container:hover{
+  background-color: rgb(70, 70, 199)!important;
+}.swiper-slide .eye_icon:hover{
+  fill: white;
+}
+
+.swiper-slide .heart_icon_container,.heart_icon {
+  transition: 0.5s ease;
+}.swiper-slide .heart_icon_container:hover{
+  background-color: #DC4345 !important;
+  .heart_icon{
+    fill: #db7274;
+  }
+}
+
 .swiper-slide img {
   display: block;
   width: 100%;
@@ -66,7 +91,7 @@
 .overlay {
   position: absolute;
   bottom: 0px;
-  background-color: black;
+  background-color: rgb(52, 52, 52);
   color: white;
   overflow: hidden;
   width: 100%;
@@ -78,7 +103,7 @@
 }
 
 .card:hover .overlay {
-  height: 30px;
+  height: 35px;
 }
 
 .text {
@@ -87,10 +112,13 @@
   font-size: 20px;
   position: absolute;
   overflow: hidden;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+}
+.hero img{
+  height: 19rem !important;
 }
 
 /* End Products Carousel Styling */
@@ -101,85 +129,9 @@
   }
 }
 
-@media screen and (max-width: 1199px) {
-  /* Hero Styling */
-
-  .hero {
-    padding: 30px 40px 0px 70px !important;
-  }
-
-  .hero .applelogo {
-    height: 50px !important;
-  }
-
-  .hero .iphone {
-    height: 300px;
-  }
-
-  .hero .firstSlideText {
-    font-size: 18px;
-    top: 55px;
-    left: 65px;
-  }
-
-  .hero .secondSlideText {
-    font-size: 18px;
-    top: 55px;
-    right: 75px;
-  }
-
-  .hero h1 {
-    font-size: 51px !important;
-  }
-
-  /* End of Hero Styling */
-
-  /* Products Carousel Styling */
-
-  .product-card {
-    height: 200px !important;
-  }
-
-  .swiper-slide .cardBody h5 {
-    font-size: 15px !important;
-  }
-
-  .swiper-slide .cardBody p,
-  h6 {
-    font-size: 15px !important;
-    top: 26px !important;
-    left: 73px !important;
-  }
-
-  /* End Products Carousel Styling */
-}
 
 @media screen and (max-width: 991px) {
   /* Hero Styling */
-
-  .hero .applelogo {
-    height: 30px !important;
-  }
-
-  .hero .iphone {
-    height: 200px !important;
-  }
-
-  .hero .firstSlideText {
-    font-size: 11px;
-    top: 50px;
-    left: 50px;
-  }
-
-  .hero .secondSlideText {
-    font-size: 10px;
-    top: 50px;
-    right: 55px;
-  }
-
-  .hero h1 {
-    font-size: 31px !important;
-  }
 
   /* End of Hero Styling */
 
@@ -220,10 +172,10 @@
   .swiper-slide .product-card button img {
     height: 10px !important;
   }
-  .heart-badge{
+  .heart_icon_container {
     top: 20px !important;
   }
-  .eye-badge{
+  .eye_icon_container {
     top: 45px !important;
   }
 
@@ -261,33 +213,6 @@
 @media screen and (max-width: 767px) {
   /* Hero Styling */
 
-  .hero {
-    padding: 10px 40px 0px 40px !important;
-  }
-
-  .hero .applelogo {
-    height: 30px !important;
-  }
-
-  .hero .iphone {
-    height: 170px !important;
-  }
-
-  .hero .firstSlideText {
-    font-size: 10px;
-    top: 50px;
-    left: 40px;
-  }
-
-  .hero .secondSlideText {
-    font-size: 8px;
-    top: 50px;
-    right: 70px;
-  }
-
-  .hero h1 {
-    font-size: 31px !important;
-  }
 
   /* End of Hero Styling */
 
@@ -322,13 +247,11 @@
     top: 15px !important;
   }
 
-  .swiper-slide .product-card button img {
-    height: 5px !important;
-  }
-  .heart-badge{
+
+  .heart_icon_container {
     top: 15px !important;
   }
-  .eye-badge{
+  .eye_icon_container {
     top: 35px !important;
   }
 
@@ -340,13 +263,10 @@
   .swiper-slide .cardBody p,
   h6 {
     font-size: 11px !important;
-    top: 32px !important;
-    left: 50px !important;
+
   }
 
-  .swiper-slide .cardBody img {
-    width: 10px !important;
-  }
+
 
   .card:hover .overlay {
     height: 15px;
@@ -362,38 +282,17 @@
 }
 
 
-@media screen and (max-width: 575px) {
 
+
+
+@media (max-width: 576px) {
   /* Hero Styling */
-
-  .hero {
-    padding: 10px 40px 0px 40px !important;
-  }
-
-  .hero .applelogo {
-    height: 30px !important;
-  }
-
-  .hero .iphone {
-    height: 170px !important;
-  }
-
-  .hero .firstSlideText {
-    font-size: 10px;
-    top: 50px;
-    left: 40px;
-  }
-
-  .hero .secondSlideText {
-    font-size: 8px;
-    top: 50px;
-    right: 70px;
-  }
-
-  .hero h1 {
-    font-size: 31px !important;
-  }
-
+  
+    .hero{
+      padding-left: 20px  ;
+      padding-right: 6px  ;
+    }
+  
   /* End of Hero Styling */
 
   /* CountDown Styling */
@@ -414,11 +313,14 @@
     left: -25px;
   }
   
-
   /* End ofCountDown Styling */
 
   /* Products Carousel Styling */
 
+  .swiper{
+    margin: 0 !important;
+    padding:  0 !important;
+  }
   .product-card {
     height: 90px !important;
   }
@@ -427,44 +329,48 @@
   }
 
   .swiper-slide .product-card span {
+    padding: 5px !important;
     font-size: 5px !important;
-    left: 20px !important;
+    left: 15px !important;
+    top: 10px !important;
+  }
+
+
+  .heart_icon_container {
     top: 15px !important;
+    padding: 0 7px !important;
+  }
+  .eye_icon_container {
+    top: 36px !important;
+    padding: 0 7px !important;
+  }
+  .eye_icon, .heart_icon{
+    width: 7px;
   }
 
-  .swiper-slide .product-card button img {
-    height: 5px !important;
-  }
-  .heart-badge{
-    top: 15px !important;
-  }
-  .eye-badge{
-    top: 35px !important;
+  .swiper-slide .cardBody h4 {
+    font-size: 8px !important;
   }
 
-
-  .swiper-slide .cardBody h5 {
+  .swiper-slide .cardBody h5,h6 {
     font-size: 10px !important;
   }
-
-  .swiper-slide .cardBody p,
-  h6 {
-    font-size: 11px !important;
-    top: 32px !important;
-    left: 50px !important;
+  .swiper-slide .cardBody .rate{
+    top: -20px !important;
   }
 
-  .swiper-slide .cardBody img {
-    width: 10px !important;
-  }
 
   .card:hover .overlay {
-    height: 15px;
+    height: 18px;
+  }
+  .card .overlay button {
+    font-size: 7px !important;
   }
 
   .view-all-product {
     font-size: 10px !important;
-    padding: 10px 20px !important;
+
+    
   }
 
   /* End of Products Carousel Styling */

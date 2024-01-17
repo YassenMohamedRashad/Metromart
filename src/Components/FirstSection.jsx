@@ -1,17 +1,22 @@
+
 import React, { useState, useEffect } from 'react';
 import "../assets/css/FirstSection.css";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/free-mode';
-import iphone15 from "../assets/images/Iphone-15.png";
+import iphone15 from "../assets/images/iphone15.png";
 import iphone16 from "../assets/images/Iphone-16.png";
 import iphone26 from "../assets/images/Iphone-26.png";
-import appleLogo from "../assets/images/apple-logo.png";
-import heart_icon from "../assets/images/love.png";
-import eye_icon from "../assets/images/eye-icon.png";
+
+
 import unchecked_star_icon from "../assets/images/unchecked-star-icon.png";
 import checked_star_icon from "../assets/images/checked-star-icon.png";
 
+
+import Products from "./Products.json"
+import Slider from 'react-slick';
+
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 function FirstSection() {
 
@@ -46,98 +51,38 @@ function FirstSection() {
 	},);
 
 
-	//  For testing the products part dynamically 
-	const products = [
-		{
-			name: "HAVIT HV-G92 Gamepad",
-			rate: 4.5,
-			reviews: 120,
-			price: 49.99,
-			discountPercent: 10,
-			image: "https://www.pngall.com/wp-content/uploads/4/USB-Gamepad-PNG-Free-Image.png",
-		},
-		{
-			name: "IPS LCD Gaming Monitor",
-			rate: 4.0,
-			reviews: 95,
-			price: 399.99,
-			discountPercent: 5,
-			image: "https://storage.aoc.com/assets/10935/AOC_AG405UXC_BK_PV_-HERO1-large.png",
-		},
-		{
-			name: "S-Series Comfort Chair",
-			rate: 4.2,
-			reviews: 150,
-			price: 199.99,
-			discountPercent: 12,
-			image: "https://www.kindpng.com/picc/m/381-3818681_transparent-computer-chair-png-gaming-chair-png-download.png",
-		},
-		{
-			name: "Wireless Gaming Mouse",	
-			rate: 4.7,
-			reviews: 80,
-			price: 39.99,
-			discountPercent: 20,
-			image: "https://www.vhv.rs/dpng/f/72-720542_razer-mouse-png-transparent-png.png",
-		}
-	];
+	// Function to calculate discounted price and add it to the product
+	function calculateDiscountedPrice(Products) {
+		const price = parseFloat(Products.price);
+		const discountPercentage = parseFloat(Products.discountPercentage);
+		const discountedPrice = price - (price * discountPercentage / 100).toFixed(0);
+		Products.discountedPrice = discountedPrice;
+	}
+	Products.forEach(calculateDiscountedPrice);
 
-	// Calculate the price after discount for each product
-	products.forEach((product) => {
-		const discountAmount = (product.price * product.discountPercent) / 100;
-		product.priceAfterDiscount = (product.price - discountAmount).toFixed(2);
-	});
 
+	const settings = {
+		dots: true,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		autoplay: true,
+		autoplaySpeed: 3000, 
+		prevArrow: <button className="slick-prev">Previous</button>,
+		nextArrow: <button className="slick-next">Next</button>,
+	  };
+	
 	return (
-		<div className="container">
+		<div className="container p-5 pt-0" >
 			{/* Hero Part */}
-			<div className="row" style={{ marginBottom: 100 }}>
-				<div id="heroCarousel" className="carousel slide bg-black hero" style={{ paddingRight: 100, paddingLeft: 100, paddingTop: 50 }} data-bs-ride="carousel">
-					<div className="carousel-inner">
 
-						<div className="carousel-item active">
-							<div className="d-flex justify-content-between">
-								<div className="firstSlide">
-									<img src={appleLogo} alt="Slide 1" className="applelogo" />
-									<h5 className="text-white firstSlideText" >iphone 15 Series</h5>
-									<h1 className="text-white mt-4" style={{ fontSize: 60 }}>Up to 10% <br />off	Voucher</h1>
-								</div>
-								<div>
-									<img src={iphone15} className="w-75 iphone mt-2" alt="Slide 1" />
-								</div>
-							</div>
-						</div>
-						
-						<div className="carousel-item">
-							<div className="d-flex justify-content-between">
-								<div>
-									<img src={iphone16} className="w-100 iphone mt-2" alt="Slide 2" />
-								</div>
-								<div className="secondSlide">
-									<img src={appleLogo} alt="Slide 2" className="applelogo" />
-									<h5 className="text-white secondSlideText" >iphone 26 Series</h5>
-									<h1 className="text-white mt-4" style={{ fontSize: 60 }}>Up to 90% <br />off Voucher</h1>
-								</div>
-							</div>
-						</div>
+			<div className="row " style={{ marginBottom: 90 }}>
+				<Slider {...settings} className='bg-black hero'>
+					<img src={iphone15} alt="Slide 1" />
+					<img src={iphone26} alt="Slide 2" />
+				</Slider>
 
-						<div className="carousel-item">
-							<div className="d-flex justify-content-between">
-								<div className="firstSlide">
-									<img src={appleLogo} alt="Slide 3" className="applelogo" />
-									<h5 className="text-white firstSlideText" >iphone 17 Series</h5>
-									<h1 className="text-white mt-4" style={{ fontSize: 60 }}>Up to -10% <br />off Voucher</h1>
-								</div>
-								<div>
-									<img src={iphone26} className="w-100 iphone mt-2" alt="Slide 3" />
-								</div>
-							</div>
-						</div>
-						
-					</div>
-
-
-				</div>
 			</div>
 
 			{/* Today's Part */}
@@ -150,23 +95,23 @@ function FirstSection() {
 					<h2 className='text-black mb-4 mt-4 fw-bold'>Flash Sales</h2>
 
 					<div className="days ms-5 position-relative">
-						<p style={{fontSize:17}}>Days</p>
-						<span className='fw-bold me-5 position-absolute' style={{fontSize:35, left:0, top:19}}>{timeRemaining.days}</span>
+						<p style={{ fontSize: 17 }}>Days</p>
+						<span className='fw-bold me-5 position-absolute' style={{ fontSize: 35, left: 0, top: 19 }}>{timeRemaining.days}</span>
 					</div>
 
 					<div className="hours position-relative">
-						<p className="ms-4" style={{fontSize:17}}>Hours</p>
-						<span className='fw-bold me-5 position-absolute' style={{fontSize:35, left:15, top:19}}><span className='me-2' style={{color:"#DC4345"}}>:</span>{timeRemaining.hours} </span>
+						<p className="ms-4" style={{ fontSize: 17 }}>Hours</p>
+						<span className='fw-bold me-5 position-absolute' style={{ fontSize: 35, left: 15, top: 19 }}><span className='me-2' style={{ color: "#DC4345" }}>:</span>{timeRemaining.hours} </span>
 					</div>
-					
+
 					<div className="minutes position-relative">
-						<p className="ms-4" style={{fontSize:17}}>Minutes</p>
-						<span className='fw-bold me-5 position-absolute' style={{fontSize:35, left:14, top:19}}><span className='me-2' style={{color:"#DC4345"}}>:</span>{timeRemaining.minutes} </span>
+						<p className="ms-4" style={{ fontSize: 17 }}>Minutes</p>
+						<span className='fw-bold me-5 position-absolute' style={{ fontSize: 35, left: 14, top: 19 }}><span className='me-2' style={{ color: "#DC4345" }}>:</span>{timeRemaining.minutes} </span>
 					</div>
 
 					<div className="seconds position-relative">
-						<p className="ms-3	" style={{fontSize:17}}>Seconds</p>
-						<span className='fw-bold me-5 position-absolute' style={{fontSize:35, left:1, top:19}}><span className='me-2' style={{color:"#DC4345"}}>:</span>{timeRemaining.seconds} </span>
+						<p className="ms-3	" style={{ fontSize: 17 }}>Seconds</p>
+						<span className='fw-bold me-5 position-absolute' style={{ fontSize: 35, left: 1, top: 19 }}><span className='me-2' style={{ color: "#DC4345" }}>:</span>{timeRemaining.seconds} </span>
 					</div>
 				</div>
 				{/* <h6 className="position-absolute fw-bold" style={{ top: 60, left: 220, fontSize: 12 }}>
@@ -184,43 +129,69 @@ function FirstSection() {
 				</h2> */}
 
 				{/* Products Carousel */}
+
 				<Swiper slidesPerView={3.5} spaceBetween={60} className="mySwiper" >
 					{
-						products.map((item) => {
+						Products && Products.map((item) => {
+
 							return (
 								<SwiperSlide >
-									<div className="card border-0 rounded-2 shadow-sm position-relative product-card " style={{ height: 250 }}	>
-										<span className="position-absolute translate-middle badge rounded product-badge p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top: 30, left: 50 }}>
-											{item.discountPercent}%
+									<div className="card shadow-sm position-relative product-card " style={{ height: 250 }}	>
+										<span className="position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top: 30, left: 50 }}>
+											{item.discountPercentage}%
 										</span>
-										<button className="btn position-absolute translate-middle badge rounded-pill heart-badge bg-white " style={{ top: 30, right: -5 }}>
-											<img src={heart_icon} style={{ height: 20 }} alt="" />
+
+										<button className="btn position-absolute translate-middle badge rounded-pill bg-white heart_icon_container " style={{ top: 30, right: -5 }}>
+											<svg width="22" height="18" viewBox="0 0 24 21" fill="none" className='heart_icon ' xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="nonzero" clip-rule="evenodd" d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+											</svg>
 										</button>
-										<button className="btn position-absolute translate-middle badge rounded-pill eye-badge bg-white	" style={{ top: 70, right: -5 }}>
-											<img src={eye_icon} style={{ height: 20 }} alt="" />
+
+										<button className="btn position-absolute translate-middle badge rounded-pill bg-white eye_icon_container " style={{ top: 70, right: -5 }}>
+
+											<svg fill="#000000" className='eye_icon' version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" XMLHttpRequest="http://www.w3.org/1999/xlink" width="23px" height="20px" viewBox="0 0 442.04 442.04" xmlSpace="preserve">
+												<g>
+													<g>
+														<path d="M221.02,341.304c-49.708,0-103.206-19.44-154.71-56.22C27.808,257.59,4.044,230.351,3.051,229.203c-4.068-4.697-4.068-11.669,0-16.367c0.993-1.146,24.756-28.387,63.259-55.881c51.505-36.777,105.003-56.219,154.71-56.219c49.708,0,103.207,19.441,154.71,56.219c38.502,27.494,62.266,54.734,63.259,55.881c4.068,4.697,4.068,11.669,0,16.367c-0.993,1.146-24.756,28.387-63.259,55.881C324.227,321.863,270.729,341.304,221.02,341.304z M29.638,221.021c9.61,9.799,27.747,27.03,51.694,44.071c32.83,23.361,83.714,51.212,139.688,51.212s106.859-27.851,139.688-51.212c23.944-17.038,42.082-34.271,51.694-44.071c-9.609-9.799-27.747-27.03-51.694-44.071c-32.829-23.362-83.714-51.212-139.688-51.212s-106.858,27.85-139.688,51.212C57.388,193.988,39.25,211.219,29.638,221.021z" />
+													</g>
+													<g>
+														<path d="M221.02,298.521c-42.734,0-77.5-34.767-77.5-77.5c0-42.733,34.766-77.5,77.5-77.5c18.794,0,36.924,6.814,51.048,19.188c5.193,4.549,5.715,12.446,1.166,17.639c-4.549,5.193-12.447,5.714-17.639,1.166c-9.564-8.379-21.844-12.993-34.576-12.993c-28.949,0-52.5,23.552-52.5,52.5s23.551,52.5,52.5,52.5c28.95,0,52.5-23.552,52.5-52.5c0-6.903,5.597-12.5,12.5-12.5s12.5,5.597,12.5,12.5C298.521,263.754,263.754,298.521,221.02,298.521z" />
+													</g>
+													<g>
+														<path d="M221.02,246.021c-13.785,0-25-11.215-25-25s11.215-25,25-25c13.786,0,25,11.215,25,25S234.806,246.021,221.02,246.021z" />
+													</g>
+												</g>
+											</svg>
 										</button>
-										<div className="d-flex justify-content-center">
-											<img className="card-img-top w-75 product-img align-self-center " src={item.image} alt="Title" />
+
+										<div className="d-flex justify-content-center product-img">
+											<img src={item.image1} className=' border-0 rounded-2' alt="Title" />
 										</div>
 										<div className="overlay">
-											<button className="btn text">Add to Cart</button>
+											<button className="btn text-white" >Add to Cart</button>
 										</div>
 
 
 									</div>
-									<div className='mt-4 position-relative cardBody'>
-										<h5 className="card-title fw-bold text-start">{item.name}</h5>
-										<p className="card-text text-start mt-2" style={{ color: "#DC4345" }}>${item.priceAfterDiscount}</p>
-										<p className="text-secondary position-absolute" style={{ top: 31, left: 80 }}>
-											<del>${item.priceAfterDiscount}</del>
-										</p>
-										<div className='d-flex'>
+									<div className='mt-4 position-relative cardBody' style={{ height: 140 }}>
+										<div className="d-flex justify-content-between">
+
+											<h4 className="card-title fw-bold text-start">{item.title}</h4>
+
+											<div className='price'>
+												<h5 className="card-text me-2  d-inline" style={{ color: "#DC4345" }}>${item.discountedPrice}</h5>
+												<h6 className="text-secondary d-inline" >
+													<del>${item.price}</del>
+												</h6>
+											</div>
+										</div>
+										<div className='d-flex position-absolute top-50'>
 											<img style={{ width: 20 }} src={checked_star_icon} alt="alt" />
 											<img style={{ width: 20 }} src={checked_star_icon} alt="alt" />
 											<img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
 											<img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
 											<img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
-											<h6 className='text-secondary ms-2'>({item.reviews})</h6>
+											<h6 className='text-secondary ms-2'>({item.stock})</h6>
 										</div>
 									</div>
 								</SwiperSlide>
@@ -231,7 +202,7 @@ function FirstSection() {
 
 			</div>
 
-			<div className="d-flex justify-content-center mt-5 mb-5 ">
+			<div className="d-flex justify-content-center mt-4 mb-5 ">
 				<a href="#" className='btn text-white pt-3 pb-3 ps-5 pe-5 view-all-product' style={{ backgroundColor: "#DC4345" }} >View All Products</a>
 			</div>
 
