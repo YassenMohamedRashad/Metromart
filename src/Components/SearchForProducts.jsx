@@ -6,7 +6,7 @@ import Card from './utils/Card';
 function SearchForProducts ()
 {
     let [ products, setProducts ] = useState( [] );
-    const searchKey = useParams().key;
+    const searchKey = useParams().key
 
     const getProducts = async () =>
     {

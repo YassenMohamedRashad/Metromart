@@ -2,14 +2,14 @@
 * {
   font-family: 'Noto Sans', sans-serif;}
 footer {
-  background-color: black !important;
+  background-color: #181818 !important;
 }
 .order-form {
   position: relative;
 }
 .order-form input {
   border: 2px solid #f5f5f5 !important;
-  background-color: black;
+  background-color: #181818;
   color: white;
   flex-grow: 1;
   padding: 10px;
@@ -19,7 +19,7 @@ footer {
 }
 
 .order-form button {
-  background-color: black;
+  background-color: #181818;
   position: absolute;
   top: 8px;
   right: 3px;

@@ -1,0 +1,30 @@
+@media(min-width : 700px) {
+    .HeroPart {
+        height: 90vh;
+        background-image: url("../images/home/arrangement-black-friday-shopping-carts-with-copy-space.jpg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .HeroPart h1 {
+        font-size: 50px;
+    }
+}
+@media(max-width : 699px) {
+    .HeroPart {
+        height: 80vh;
+        background-image: url("../images/home/arrangement-black-friday-shopping-carts-with-copy-space.jpg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .HeroPart h1 {
+        font-size: 30px;
+    }
+}
