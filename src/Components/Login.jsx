@@ -1,15 +1,19 @@
 /* dependencies */
-import { useState } from "react";
 import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Loader, Fail, Success } from "./SweetAlert";
+import { useAuth } from "../Hooks/useAuth";
 /* assets */
 import loginImage from "../assets/images/login.svg";
 import "../assets/css/login.css";
 
-function Login({ handleUserData, handleToken }) {
+function Login() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [loading, setLoading] = useState(true);
+	const navigate = useNavigate();
+	const { dispatch } = useAuth();
 
 	/* handling changes */
 	const handleChange = (e) => {
@@ -42,26 +46,28 @@ function Login({ handleUserData, handleToken }) {
 			axios
 				.post("http://localhost:5011/user/login", data)
 				.then((response) => {
-					setLoading(!loading);
-					Success("<i>You Have Logged In Successfully. 👌</i>");
-					localStorage.setItem(
-						"user",
-						JSON.stringify(response.data.data)
+					setLoading((prev) => !prev);
+					Success(
+						"<i>You Have Logged In Successfully. 👌</i>",
+						`/Metromart/`,
+						navigate
 					);
-					localStorage.setItem("token", response.data.token);
-					const storedUser = JSON.parse(localStorage.getItem("user"));
-					handleUserData(storedUser);
-					handleToken(localStorage.token);
+					const { data, token } = response.data;
+					localStorage.clear();
+					localStorage.setItem("user", JSON.stringify(data));
+					localStorage.setItem("user_token", token);
+					dispatch({
+						type: "Login",
+						payload: [
+							JSON.parse(localStorage.getItem("user")),
+							localStorage.getItem("user_token"),
+						],
+					});
 				})
 				.catch((error) => {
-					if (
-						error.response &&
-						error.response.data &&
-						error.response.data.msg
-					) {
-						setLoading(!loading);
-						Fail("Wrong Email Or Password!");
-					} else console.log(error.response);
+					setLoading((prev) => !prev);
+					Fail("Wrong Email Or Password!");
+					console.log(error);
 				});
 		}
 	};

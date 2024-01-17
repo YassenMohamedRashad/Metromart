@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
@@ -12,17 +13,17 @@ export const Loader = () => {
 		allowOutsideClick: false,
 		allowEscapeKey: false,
 		showConfirmButton: false,
-		onBeforeOpen: () => {
-			MySwal.showLoading();
-		},
 	});
 };
 
-export const Success = (html) => {
+export const Success = (html, link = null, navigate) => {
 	MySwal.fire({
-		title: <strong>Succeed!</strong>,
+		title: "Succeed!",
 		html: html,
 		icon: "success",
+		didClose: () => {
+			if (link) navigate(link);
+		},
 	});
 };
 
@@ -31,5 +32,20 @@ export const Fail = (title = null, text) => {
 		icon: "error",
 		title: title || "Oops...",
 		text: text,
+	});
+};
+
+export const Close = () => {
+	MySwal.close();
+};
+
+export const InfoAC = (msg) => {
+	return MySwal.fire({
+		title: msg,
+		icon: "info",
+		timer: 2500,
+		allowOutsideClick: false,
+		allowEscapeKey: false,
+		showConfirmButton: false,
 	});
 };

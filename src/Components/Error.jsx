@@ -1,14 +1,25 @@
-import React from 'react';
-import "../assets/css/Error.css"
+import React from "react";
+import "../assets/css/Error.css";
+import { useNavigate } from "react-router-dom";
 
 function Error() {
+    const navigate = useNavigate();
+    const handleClick = () => navigate("/Metromart/");
+
     return (
-        <div className='container d-flex justify-content-center hal'>
-            <div className=' align-self-center'>
-                <div className='col-12 text-center '>
-                    <h1>404 Not Found</h1>
-                    <p>your visited page not found, you may go home page.</p>
-                    <button className=' btn-danger btn w-50'>Back to home page</button>
+        <div className="container hal">
+            <div>
+                <div className="col-12 text-center Error">
+                    <h1 className="display-1">404 Not Found</h1>
+                    <p className="display-5">
+                        your visited page not found, you may go home page.
+                    </p>
+                    <button
+                        className="d-block btn-danger btn w-25 p-3"
+                        onClick={handleClick}
+                    >
+                        Back to home page
+                    </button>
                 </div>
             </div>
         </div>
