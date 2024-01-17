@@ -15,7 +15,6 @@ import Error from "./Components/Error"
 import SearchForProducts from "./Components/SearchForProducts"
 import AboutUs from "./Components/Aboutus";
 import RedirectToLogin from "./Components/RedirectToLogin";
-import { useEffect } from "react";
 
 function App() {
 	const { user, user_token } = useAuth();
