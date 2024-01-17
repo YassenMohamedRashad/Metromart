@@ -1,8 +1,6 @@
-TODOs:
+TODO: ~~ install extensions ~~ (Done) {cm:2024-01-17}
 
-TODO: ~~ install extensions ~~ (Done)
-
-TODO: pass user's data using useContext hook
+TODO: pass user's data to all components
 
 TODO: ~~ add protected routes with token ~~ (Done)
 
