@@ -1,31 +1,34 @@
 /* Hero Styling */
 
-.applelogo {
-  height: 70px;
-  user-select: none;
-  margin-top: 40px;
-}
-
-.iphone {
-  height: 34vh;
-  user-select: none;
-}
-
-.firstSlide,
-.secondSlide {
-  position: relative;
-}
-
-.firstSlideText {
+.slick-dots {
   position: absolute;
-  top: 65px;
-  left: 80px;
+  bottom: 10px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+.slick-dots li {
+  margin: 0 5px;
+  display: inline-block;
+}
+.slick-dots li button {
+  font-size: 12px;
+  line-height: 1;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  background-color: #bbb;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.secondSlideText {
-  position: absolute;
-  top: 65px;
-  right: 95px;
+.slick-dots li.slick-active button {
+  background-color: #333;
 }
 
 /* End of Hero Styling */
@@ -126,33 +129,7 @@
 @media screen and (max-width: 1199px) {
   /* Hero Styling */
 
-  .hero {
-    padding: 30px 40px 0px 70px !important;
-  }
 
-  .hero .applelogo {
-    height: 50px !important;
-  }
-
-  .hero .iphone {
-    height: 300px;
-  }
-
-  .hero .firstSlideText {
-    font-size: 18px;
-    top: 55px;
-    left: 65px;
-  }
-
-  .hero .secondSlideText {
-    font-size: 18px;
-    top: 55px;
-    right: 75px;
-  }
-
-  .hero h1 {
-    font-size: 51px !important;
-  }
 
   /* End of Hero Styling */
 
@@ -173,30 +150,6 @@
 
 @media screen and (max-width: 991px) {
   /* Hero Styling */
-
-  .hero .applelogo {
-    height: 30px !important;
-  }
-
-  .hero .iphone {
-    height: 200px !important;
-  }
-
-  .hero .firstSlideText {
-    font-size: 11px;
-    top: 50px;
-    left: 50px;
-  }
-
-  .hero .secondSlideText {
-    font-size: 10px;
-    top: 50px;
-    right: 55px;
-  }
-
-  .hero h1 {
-    font-size: 31px !important;
-  }
 
   /* End of Hero Styling */
 
@@ -278,33 +231,6 @@
 @media screen and (max-width: 767px) {
   /* Hero Styling */
 
-  .hero {
-    padding: 10px 40px 0px 40px !important;
-  }
-
-  .hero .applelogo {
-    height: 30px !important;
-  }
-
-  .hero .iphone {
-    height: 170px !important;
-  }
-
-  .hero .firstSlideText {
-    font-size: 10px;
-    top: 50px;
-    left: 40px;
-  }
-
-  .hero .secondSlideText {
-    font-size: 8px;
-    top: 50px;
-    right: 70px;
-  }
-
-  .hero h1 {
-    font-size: 31px !important;
-  }
 
   /* End of Hero Styling */
 
@@ -383,33 +309,6 @@
 
   /* Hero Styling */
 
-  .hero {
-    padding: 10px 40px 0px 40px !important;
-  }
-
-  .hero .applelogo {
-    height: 30px !important;
-  }
-
-  .hero .iphone {
-    height: 170px !important;
-  }
-
-  .hero .firstSlideText {
-    font-size: 10px;
-    top: 50px;
-    left: 40px;
-  }
-
-  .hero .secondSlideText {
-    font-size: 8px;
-    top: 50px;
-    right: 70px;
-  }
-
-  .hero h1 {
-    font-size: 31px !important;
-  }
 
   /* End of Hero Styling */
 
