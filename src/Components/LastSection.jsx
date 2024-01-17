@@ -3,8 +3,8 @@ import React from "react";
 // importing css file
 import "../assets/css/LastSection.css";
 // importing bootstrap files
-// import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-// import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 // importing images
 import img1 from "../assets/images/ps5-slim-goedkope-playstation_large 1.png";
 import img2 from "../assets/images/attractive-woman-wearing-hat-posing-black-background 1.png";
@@ -30,7 +30,7 @@ function LastSection(){
         <div className="col-sm-12 col-md-12 col-lg-6">
           <img src={img1} className="big"/>
           {/* the text info on the image */}
-          <div className="img-info">
+          <div className="img-info1">
             <h2>PlayStation 5</h2>
             <p>Black and White version of the PS5<br/> coming out on sale.</p>
             {/* the shop now link */}
@@ -44,7 +44,7 @@ function LastSection(){
             <div className="col">
               <img src={img2} className="medium"/>
               {/* the text info on the image */}
-              <div className="img-info">
+              <div className="img-info2">
                 <h2>Women's Collections</h2>
                 <p>Featured women's collections that<br/>give you another vibe.</p>
                 {/* the shop now link */}
@@ -57,7 +57,7 @@ function LastSection(){
             <div className="col-sm-12 col-md-6">
               <img src={img3} className="small"/>
               {/* the text info on the image */}
-              <div className="img-info">
+              <div className="img-info3">
                 <h2>Speakers</h2>
                 <p>Amazon wireless speakers</p>
                 {/* the shop now link */}
@@ -67,7 +67,7 @@ function LastSection(){
             <div className="col-sm-12 col-md-6">
               <img src={img4} className="small"/>
               {/* the text info on the image */}
-              <div className="img-info">
+              <div className="img-info4">
                 <h2>Perfume</h2>
                 <p>GUCCI INTENSE OUD EDP</p>
                 {/* the shop now link */}
