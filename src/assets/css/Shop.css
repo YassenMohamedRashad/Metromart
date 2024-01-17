@@ -1,9 +1,7 @@
-
-.red-label::before{
-    content: "|";
-    margin-right: 5px;
-    background-color: #dc3545;
-    border-radius: 5px;
+.redSide{
+    width: 20px;
+    border-radius: 7px;
+    height: 45px;
 }
 
 .card-category:hover{
@@ -12,12 +10,13 @@
 
 .card-category{
     text-align: center;
+    width: 250px;
     border-radius: 8px 8px;
-}
-.card-category a{
-    text-decoration: none;
-    color: black;
-    padding: 10px;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 
 .card-category:hover{

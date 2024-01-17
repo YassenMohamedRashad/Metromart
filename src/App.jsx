@@ -1,6 +1,6 @@
 /* dependencies */
-import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { useAuth } from "./Hooks/useAuth";
 /* components */
 import Nav from "./Components/Navbar";
 import Footer from "./Components/Footer";
@@ -16,41 +16,54 @@ import Shop from "./Components/Shop"
 import LastSection from "./Components/LastSection"
 
 function App() {
-	const [userData, setUserData] = useState(null);
-	const [token, setToken] = useState(null);
-
-	const handleUserData = (data) => setUserData(data);
-	const handleToken = (data) => setToken(data);
+	const { user, user_token } = useAuth();
+	const userIsFound = user ? true : false;
+	
 	return (
 		<>
 			<Nav />
 			<Routes>
-				<Route path="/Metromart/" element={<Home />} />
+				<Route path="/Metromart/aboutUs/" element={<AboutUs />} />
+				<Route path={"/Metromart/"} element={<Home />} />
 				<Route
-					path="/Metromart/login"
+					path="/Metromart/login/"
 					element={
-						<Login
-							handleUserData={handleUserData}
-							handleToken={handleToken}
-						/>
+						!userIsFound ? (
+							<Login />
+						) : (
+							<Navigate to={"/Metromart/"} />
+						)
 					}
 				/>
-				<Route path="/Metromart/signup" element={<Signup />} />
 				<Route
-					path="/Metromart/accountdetails"
-					element={<AccountDetails />}
-				/>
-				<Route path="/Metromart/wishlist" element={<WishList />} />
-				<Route
-					path="/Metromart/billingdetails"
-					element={<BillingDetails />}
-				/>
-				<Route
-					path="/Metromart/shop"
-					element={<Shop />}
+					path="/Metromart/signup/"
+					element={
+						!userIsFound ? (
+							<Signup />
+						) : (
+							<Navigate to={"/Metromart/"} />
+						)
+					}
 				/>
 				<Route
-					path="/Metromart/productDetails"
+					path="/Metromart/accountDetails/"
+					element={
+						userIsFound ? <AccountDetails /> : <RedirectToLogin />
+					}
+				/>
+				<Route
+					path="/Metromart/wishlist/"
+					element={userIsFound ? <WishList /> : <RedirectToLogin />}
+				/>
+				<Route
+					path="/Metromart/billingDetails/"
+					element={
+						userIsFound ? <BillingDetails /> : <RedirectToLogin />
+					}
+				/>
+
+				<Route
+					path="/Metromart/productDetails/:id"
 					element={<ProductDetails />}
 				/>
 				<Route path="/Metromart/*" element={ <Error /> }></Route>
