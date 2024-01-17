@@ -184,19 +184,19 @@ function FirstSection() {
 				</h2> */}
 
 				{/* Products Carousel */}
-				<Swiper slidesPerView={3.5} spaceBetween={60} freeMode={true} pagination={{ clickable: true, }} modules={[FreeMode]} className="mySwiper" >
+				<Swiper slidesPerView={3.5} spaceBetween={60} className="mySwiper" >
 					{
 						products.map((item) => {
 							return (
 								<SwiperSlide >
 									<div className="card border-0 rounded-2 shadow-sm position-relative product-card " style={{ height: 250 }}	>
-										<span className="position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top: 30, left: 50 }}>
+										<span className="position-absolute translate-middle badge rounded product-badge p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top: 30, left: 50 }}>
 											{item.discountPercent}%
 										</span>
-										<button className="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top: 30, right: -5 }}>
+										<button className="btn position-absolute translate-middle badge rounded-pill heart-badge bg-white " style={{ top: 30, right: -5 }}>
 											<img src={heart_icon} style={{ height: 20 }} alt="" />
 										</button>
-										<button className="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top: 70, right: -5 }}>
+										<button className="btn position-absolute translate-middle badge rounded-pill eye-badge bg-white	" style={{ top: 70, right: -5 }}>
 											<img src={eye_icon} style={{ height: 20 }} alt="" />
 										</button>
 										<div className="d-flex justify-content-center">
@@ -206,66 +206,29 @@ function FirstSection() {
 											<button className="btn text">Add to Cart</button>
 										</div>
 
-						</SwiperSlide>
-						<SwiperSlide>
-							<div className="card bg-light border-0 shadow-sm">
-								<img className="card-img-top position-relative w-75 ms-4" src={iphone15} alt="Title" />
-								<button className="btn position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top:30, left:50   }}>
-									- 40%
-								</button>
-								<button className="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top:30, right:-5   }}>
-									<img src={heart_icon} style={{height:20}} alt="" />
-								</button>
-								<button className="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top:70, right:-5   }}>
-									<img src={eye_icon} style={{height:20}} alt="" />
-								</button>
-								<div className="card-body">
-									<h4 className="card-title">Title</h4>
-									<p className="card-text">Text</p>
-								</div>
-							</div>
 
-						</SwiperSlide>
-						<SwiperSlide>
-							<div className="card bg-light border-0 shadow-sm">
-								<img className="card-img-top position-relative w-75 ms-4" src={iphone15} alt="Title" />
-								<button className="btn position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top:30, left:50   }}>
-									- 40%
-								</button>
-								<button className="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top:30, right:-5   }}>
-									<img src={heart_icon} style={{height:20}} alt="" />
-								</button>
-								<button className="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top:70, right:-5   }}>
-									<img src={eye_icon} style={{height:20}} alt="" />
-								</button>
-								<div className="card-body">
-									<h4 className="card-title">Title</h4>
-									<p className="card-text">Text</p>
-								</div>
-							</div>
+									</div>
+									<div className='mt-4 position-relative cardBody'>
+										<h5 className="card-title fw-bold text-start">{item.name}</h5>
+										<p className="card-text text-start mt-2" style={{ color: "#DC4345" }}>${item.priceAfterDiscount}</p>
+										<p className="text-secondary position-absolute" style={{ top: 31, left: 80 }}>
+											<del>${item.priceAfterDiscount}</del>
+										</p>
+										<div className='d-flex'>
+											<img style={{ width: 20 }} src={checked_star_icon} alt="alt" />
+											<img style={{ width: 20 }} src={checked_star_icon} alt="alt" />
+											<img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
+											<img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
+											<img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
+											<h6 className='text-secondary ms-2'>({item.reviews})</h6>
+										</div>
+									</div>
+								</SwiperSlide>
+							)
+						})
+					}
+				</Swiper>
 
-						</SwiperSlide>
-						<SwiperSlide>
-							<div className="card bg-light border-0 shadow-sm">
-								<img className="card-img-top position-relative w-75 ms-4" src={iphone15} alt="Title" />
-								<button className="btn position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top:30, left:50   }}>
-									- 40%
-								</button>
-								<button className="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top:30, right:-5   }}>
-									<img src={heart_icon} style={{height:20}} alt="" />
-								</button>
-								<button className="btn position-absolute translate-middle badge rounded-pill bg-white	" style={{ top:70, right:-5   }}>
-									<img src={eye_icon} style={{height:20}} alt="" />
-								</button>
-								<div className="card-body">
-									<h4 className="card-title">Title</h4>
-									<p className="card-text">Text</p>
-								</div>
-							</div>
-
-						</SwiperSlide>
-					</Swiper>
-				</div>
 			</div>
 
 			<div className="d-flex justify-content-center mt-5 mb-5 ">
