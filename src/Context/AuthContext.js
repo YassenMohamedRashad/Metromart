@@ -7,18 +7,27 @@ export const authReducer = (state, action) => {
 		case "Login":
 			return { user: action.payload[0], user_token: action.payload[1] };
 		case "Logout":
-			return { user: null, user_token: null };
+			localStorage.clear();
+			return null;
 		default:
 			return state;
 	}
 };
 
+function isObjectEmpty(obj) {
+	return Object.keys(obj).every((key) => obj[key] === null);
+}
+
 export const AuthContextProvider = ({ children }) => {
-	const [state, dispatch] = useReducer(authReducer, {
-		user: null,
-		user_token: null,
-	});
-	console.table("AuthContext state: ", state);
+	const initState = {
+		user: JSON.parse(localStorage.getItem("user")) || null,
+		user_token: localStorage.getItem("user_token") || null,
+	};
+	const [state, dispatch] = useReducer(
+		authReducer,
+		isObjectEmpty(initState) ? null : initState
+	);
+	console.table(state);
 	return (
 		<AuthContext.Provider value={{ ...state, dispatch }}>
 			{children}

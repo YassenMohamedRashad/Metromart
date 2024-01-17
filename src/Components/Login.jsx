@@ -46,23 +46,28 @@ function Login() {
 			axios
 				.post("http://localhost:5011/user/login", data)
 				.then((response) => {
-					setLoading(!loading);
+					setLoading((prev) => !prev);
 					Success(
 						"<i>You Have Logged In Successfully. 👌</i>",
 						`/Metromart/`,
 						navigate
 					);
 					const { data, token } = response.data;
+					localStorage.clear();
 					localStorage.setItem("user", JSON.stringify(data));
 					localStorage.setItem("user_token", token);
 					dispatch({
 						type: "Login",
-						payload: [data, token],
+						payload: [
+							JSON.parse(localStorage.getItem("user")),
+							localStorage.getItem("user_token"),
+						],
 					});
 				})
 				.catch((error) => {
-					setLoading(!loading);
+					setLoading((prev) => !prev);
 					Fail("Wrong Email Or Password!");
+					console.log(error);
 				});
 		}
 	};

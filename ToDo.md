@@ -1,9 +1,9 @@
-# ToDo:
+TODOs:
 
-## 1. ~~install extensions~~ (Done)
+$done install extensions
 
-## 2. pass user's data using useContext hook
+TODO: pass user's data using useContext hook
 
-## 3. add protected routes with token
+TODO: add protected routes with token (Done) 2024-01-17 14:11
 
-## 4. ~~when signup or login successfully redirect user to home page~~ (Done)
+TODO: when signup or login successfully redirect user to home page (Done)

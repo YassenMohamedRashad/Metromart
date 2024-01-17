@@ -14,11 +14,12 @@ import Home from "./Components/Home";
 import Error from "./Components/Error";
 import AboutUs from "./Components/Aboutus";
 import RedirectToLogin from "./Components/RedirectToLogin";
+import { useEffect } from "react";
 
 function App() {
 	const { user, user_token } = useAuth();
-
-	const userIsFound = localStorage.getItem( 'user' ) ? true : false;
+	const userIsFound = user ? true : false;
+	// localStorage.clear();
 	return (
 		<>
 			<Nav />
@@ -28,26 +29,38 @@ function App() {
 				<Route
 					path="/Metromart/login"
 					element={
-						!userIsFound ? <Login /> : <Navigate to={"/Metromart/"} />
+						!userIsFound ? (
+							<Login />
+						) : (
+							<Navigate to={"/Metromart/"} />
+						)
 					}
 				/>
 				<Route
 					path="/Metromart/signup"
 					element={
-						!userIsFound ? <Signup /> : <Navigate to={"/Metromart/"} />
+						!userIsFound ? (
+							<Signup />
+						) : (
+							<Navigate to={"/Metromart/"} />
+						)
 					}
 				/>
 				<Route
 					path="/Metromart/accountdetails"
-					element={ userIsFound ? <AccountDetails /> : <RedirectToLogin />}
+					element={
+						userIsFound ? <AccountDetails /> : <RedirectToLogin />
+					}
 				/>
 				<Route
 					path="/Metromart/wishlist/"
-					element={ userIsFound ? <WishList /> : <RedirectToLogin />}
+					element={userIsFound ? <WishList /> : <RedirectToLogin />}
 				/>
 				<Route
 					path="/Metromart/billingdetails"
-					element={ userIsFound ? <BillingDetails /> : <RedirectToLogin />}
+					element={
+						userIsFound ? <BillingDetails /> : <RedirectToLogin />
+					}
 				/>
 				<Route
 					path="/Metromart/productDetails"

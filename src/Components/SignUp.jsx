@@ -122,7 +122,7 @@ function SignUp() {
 					setMaleChecked(false);
 					/* store user's data */
 					const { user_token, ...userData } = response.data.data;
-
+					localStorage.clear();
 					localStorage.setItem(
 						"user",
 						JSON.stringify({ ...userData })

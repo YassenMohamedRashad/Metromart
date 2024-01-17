@@ -13,7 +13,7 @@ function nav() {
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="m-auto">
 							<Nav.Link href="/Metromart/" className="me-4 fw-bold" >Home</Nav.Link>
-							<Nav.Link href="#contact" className="me-4 fw-bold" >Contact</Nav.Link>
+							<Nav.Link href="/Metromart" className="me-4 fw-bold" >Contact</Nav.Link>
 							<Nav.Link href="/Metromart/aboutUs" className="me-4 fw-bold" >About</Nav.Link>
 							<Nav.Link href="/Metromart/signUp" className="me-4 fw-bold" >Sign Up</Nav.Link>
 						</Nav>
@@ -31,8 +31,8 @@ function nav() {
 							</button>
 						</Form>
 						<div className="d-flex ">
-							<a href="wishlist" className="ms-4"><img src={Favourite} alt='' style={{width:25}} /></a>
-							<a href="#" className="ms-4"><img src={Cart} alt='' style={{width:25}} /></a>
+							<a href="/Metromart/wishlist" className="ms-4"><img src={Favourite} alt='' style={{width:25}} /></a>
+							<a href="/Metromart/cart" className="ms-4"><img src={Cart} alt='' style={{width:25}} /></a>
 						</div>
 					</Navbar.Collapse>
 				</Container>
