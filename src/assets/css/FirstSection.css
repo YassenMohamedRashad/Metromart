@@ -7,7 +7,7 @@
 }
 
 .iphone {
-  height: 360px;
+  height: 300px;
   user-select: none;
 }
 
@@ -31,7 +31,7 @@
 /* End of Hero Styling */
 
 .today{
-    width: 20px;
+    width: 20px !important; 
     height: 60px;
     border-radius: 7px;
     background-color: #DC4345;
@@ -56,6 +56,28 @@
   background-color: rgb(245, 242, 242);
 }
 
+.swiper-slide .product-img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.swiper-slide .eye_icon_container,.eye_icon {
+  transition: 0.5s ease;
+}.swiper-slide .eye_icon_container:hover{
+  background-color: rgb(70, 70, 199)!important;
+}.swiper-slide .eye_icon:hover{
+  fill: white;
+}
+
+.swiper-slide .heart_icon_container,.heart_icon {
+  transition: 0.5s ease;
+}.swiper-slide .heart_icon_container:hover{
+  background-color: #DC4345 !important;
+  .heart_icon{
+    fill: #db7274;
+  }
+}
+
 .swiper-slide img {
   display: block;
   width: 100%;
@@ -66,7 +88,7 @@
 .overlay {
   position: absolute;
   bottom: 0px;
-  background-color: black;
+  background-color: rgb(52, 52, 52);
   color: white;
   overflow: hidden;
   width: 100%;
@@ -78,7 +100,7 @@
 }
 
 .card:hover .overlay {
-  height: 30px;
+  height: 35px;
 }
 
 .text {
@@ -87,7 +109,7 @@
   font-size: 20px;
   position: absolute;
   overflow: hidden;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -144,12 +166,7 @@
     font-size: 15px !important;
   }
 
-  .swiper-slide .cardBody p,
-  h6 {
-    font-size: 15px !important;
-    top: 26px !important;
-    left: 73px !important;
-  }
+
 
   /* End Products Carousel Styling */
 }
@@ -220,10 +237,10 @@
   .swiper-slide .product-card button img {
     height: 10px !important;
   }
-  .heart-badge{
+  .heart_icon_container {
     top: 20px !important;
   }
-  .eye-badge{
+  .eye_icon_container {
     top: 45px !important;
   }
 
@@ -325,10 +342,10 @@
   .swiper-slide .product-card button img {
     height: 5px !important;
   }
-  .heart-badge{
+  .heart_icon_container {
     top: 15px !important;
   }
-  .eye-badge{
+  .eye_icon_container {
     top: 35px !important;
   }
 
@@ -435,10 +452,10 @@
   .swiper-slide .product-card button img {
     height: 5px !important;
   }
-  .heart-badge{
+  .heart_icon_container {
     top: 15px !important;
   }
-  .eye-badge{
+  .eye_icon_container {
     top: 35px !important;
   }
 
