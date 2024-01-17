@@ -6,22 +6,19 @@ import 'swiper/css';
 import iphone15 from "../assets/images/iphone15.png";
 import iphone16 from "../assets/images/Iphone-16.png";
 import iphone26 from "../assets/images/Iphone-26.png";
-
-
 import unchecked_star_icon from "../assets/images/unchecked-star-icon.png";
 import checked_star_icon from "../assets/images/checked-star-icon.png";
 
+import Products from "./Products_With_saleas.json"
 
-import Products from "./Products.json"
 import Slider from 'react-slick';
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 function FirstSection() {
 
 	// CountDown Function
-	const targetDate = new Date('2024-04-23');
+	const targetDate = new Date('2024-04-26');
 	const calculateTimeRemaining = () => {
 		const now = new Date();
 		const difference = targetDate - now;
@@ -176,7 +173,7 @@ function FirstSection() {
 									<div className='mt-4 position-relative cardBody' style={{ height: 140 }}>
 										<div className="d-flex justify-content-between">
 
-											<h4 className="card-title fw-bold text-start">{item.title}</h4>
+											<h5 className="card-title fw-bold text-start">{item.title}</h5>
 
 											<div className='price'>
 												<h5 className="card-text me-2  d-inline" style={{ color: "#DC4345" }}>${item.discountedPrice}</h5>
@@ -188,8 +185,8 @@ function FirstSection() {
 										<div className='d-flex position-absolute top-50'>
 											<img style={{ width: 20 }} src={checked_star_icon} alt="alt" />
 											<img style={{ width: 20 }} src={checked_star_icon} alt="alt" />
-											<img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
-											<img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
+											<img style={{ width: 20 }} src={checked_star_icon} alt="alt" />
+											<img style={{ width: 20 }} src={checked_star_icon} alt="alt" />
 											<img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
 											<h6 className='text-secondary ms-2'>({item.stock})</h6>
 										</div>
