@@ -17,6 +17,8 @@ import RedirectToLogin from "./Components/RedirectToLogin";
 
 function App() {
 	const { user, user_token } = useAuth();
+
+	const userIsFound = localStorage.getItem( 'user' ) ? true : false;
 	return (
 		<>
 			<Nav />
@@ -26,26 +28,26 @@ function App() {
 				<Route
 					path="/Metromart/login"
 					element={
-						!user ? <Login /> : <Navigate to={"/Metromart/"} />
+						!userIsFound ? <Login /> : <Navigate to={"/Metromart/"} />
 					}
 				/>
 				<Route
 					path="/Metromart/signup"
 					element={
-						!user ? <Signup /> : <Navigate to={"/Metromart/"} />
+						!userIsFound ? <Signup /> : <Navigate to={"/Metromart/"} />
 					}
 				/>
 				<Route
 					path="/Metromart/accountdetails"
-					element={user ? <AccountDetails /> : <RedirectToLogin />}
+					element={ userIsFound ? <AccountDetails /> : <RedirectToLogin />}
 				/>
 				<Route
-					path="/Metromart/wishlist"
-					element={user ? <WishList /> : <RedirectToLogin />}
+					path="/Metromart/wishlist/"
+					element={ userIsFound ? <WishList /> : <RedirectToLogin />}
 				/>
 				<Route
 					path="/Metromart/billingdetails"
-					element={user ? <BillingDetails /> : <RedirectToLogin />}
+					element={ userIsFound ? <BillingDetails /> : <RedirectToLogin />}
 				/>
 				<Route
 					path="/Metromart/productDetails"
