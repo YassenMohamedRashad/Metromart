@@ -28,7 +28,8 @@
     "sweetalert2": "^11.10.3",
     "sweetalert2-react-content": "^5.0.7",
     "swiper": "^11.0.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webpack-cli": "^5.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,52 +1,47 @@
+/* dependencies */
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Loader, Fail, Success, Close } from "./SweetAlert";
+/* assets */
 import "../assets/css/signup.css";
 import signupImage from "../assets/images/signup.svg";
 import googleLogo from "../assets/images/google-icon.svg";
-import { useState } from "react";
-import axios from "axios";
-import { Loader, Fail, Success } from "./SweetAlert";
+import { useAuth } from "../Hooks/useAuth";
 
 function SignUp() {
+	const navigate = useNavigate();
+	const { dispatch } = useAuth();
 	/* setting the states of the app */
-	const [MaleChecked, setMaleChecked] = useState(false);
-	const [FemaleChecked, setFemaleChecked] = useState(false);
 	const [formErrors, setFormErrors] = useState({});
 	const [loading, setLoading] = useState(true);
 	/* input fields values */
-	const [username, setUsername] = useState("");
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [confirmPassword, setConfirmPassword] = useState("");
-	const [address1, setAddress1] = useState("");
-	const [address2, setAddress2] = useState("");
-	const [phoneNumber, setPhoneNumber] = useState("");
-	const [age, setAge] = useState("");
-	const [gender, setGender] = useState("");
+	const [formData, setFormData] = useState({
+		username: "",
+		email: "",
+		password: "",
+		confirmPassword: "",
+		address1: "",
+		address2: "",
+		phoneNumber: "",
+		age: "",
+		gender: "",
+	});
+
+	const [MaleChecked, setMaleChecked] = useState(false);
+	const [FemaleChecked, setFemaleChecked] = useState(false);
 
 	/* handling changes */
 	const handleChange = (e) => {
-		/* Updates the state variables based on the user's input in the form fields. */
+		/* Updates the formData based on the user's input in the form fields. */
 		const { name, value } = e.target;
-		const updateStateVariable = (setter) => setter(value);
-		const stateVariableMap = {
-			username: setUsername,
-			email: setEmail,
-			password: setPassword,
-			confirmPassword: setConfirmPassword,
-			address1: setAddress1,
-			address2: setAddress2,
-			phoneNumber: setPhoneNumber,
-			age: setAge,
-			gender: setGender,
-		};
-		const setter = stateVariableMap[name];
-		if (setter) updateStateVariable(setter);
+		setFormData((prevState) => ({ ...prevState, [name]: value }));
 	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		let errors = {};
-		if (loading) Loader();
-		setLoading(!loading);
+		setLoading((prev) => !prev);
 		// password validation
 		/* regex explanation:
 		^: Start of the string, 
@@ -61,72 +56,108 @@ function SignUp() {
 		const strongPassRegex =
 			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s])(?!.*\s).{8,}$/;
 
-		if (!strongPassRegex.test(password)) errors.password = "Weak Password";
+		if (!strongPassRegex.test(formData.password))
+			errors.password = "Weak Password";
 		else delete errors.password;
-		if (password !== confirmPassword)
+		if (formData.password !== formData.confirmPassword)
 			errors.password = "Passwords don't match";
 		else delete errors.password;
 
 		// email validation
 		const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-		if (!emailRegex.test(email)) errors.email = "Enter a Valid Email";
+		if (!emailRegex.test(formData.email))
+			errors.email = "Enter a Valid Email";
 		else delete errors.email;
 
 		// phoneNumber validation
 		const phoneNumberRegex = /^01[0125]\d{8}$/g;
-		if (!phoneNumberRegex.test(phoneNumber))
+		if (!phoneNumberRegex.test(formData.phoneNumber))
 			errors.phoneNumber = "Enter a Valid Phone Number";
 		else delete errors.phoneNumber;
 
 		// age validation
-		if (age < 18 || age > 100) errors.age = "Enter a Valid Age";
+		if (formData.age < 18 || formData.age > 100)
+			errors.age = "Enter a Valid Age";
 		else delete errors.age;
 
 		// Update formErrors state with all errors at once
 		setFormErrors(errors);
 		if (Object.keys(errors).length === 0) {
-			const userData = {
-				name: username,
-				email: email,
-				password: password,
-				address1: address1,
-				address2: address1,
-				phone_number: phoneNumber,
-				gender: gender,
-				age: age,
+			if (loading) Loader();
+			const Data = {
+				name: formData.username,
+				email: formData.email,
+				password: formData.password,
+				address1: formData.address1,
+				address2: formData.address2 || null,
+				phone_number: formData.phoneNumber,
+				gender: formData.gender,
+				age: formData.age,
 			};
 
 			/* Send a POST Request To create a New User */
-			const request = await axios
-				.post("http://localhost:5011/user/signup", userData)
-				.then((response) => {
+			try {
+				const response = await axios.post(
+					"http://localhost:5011/user/signup",
+					Data
+				);
+
+				// Assuming the response data has a status property indicating success
+				if (response.data.status === "success") {
 					setFormErrors({});
 					console.log("then=>", response.data.status);
-					if (response.data.status === "success") {
-						Success("<i>Your account is all set up 👌</i>");
-						setGender("");
-						setAge("");
-						setAddress1("");
-						setAddress2("");
-						setUsername("");
-						setEmail("");
-						setPassword("");
-						setConfirmPassword("");
-						setPhoneNumber("");
-						setFemaleChecked(false);
-						setMaleChecked(false);
-					}
-				})
-				.catch((error) => {
-					console.log("catch=>", error.response.data);
-					// The request was made and the server responded with an error
-					if (error.response.data.status === "fail") {
-						Fail("Failed To Create Account", "This Email Is Already Taken!");
-						// setFormErrors({ email: "Email Is Already Taken" });
-						setPassword("");
-						setConfirmPassword("");
-					}
-				});
+					/* clear out the form */
+					setFormData({
+						username: "",
+						email: "",
+						password: "",
+						confirmPassword: "",
+						address1: "",
+						address2: "",
+						phoneNumber: "",
+						age: "",
+						gender: "",
+					});
+					setFemaleChecked(false);
+					setMaleChecked(false);
+					/* store user's data */
+					const { user_token, ...userData } = response.data.data;
+					localStorage.clear();
+					localStorage.setItem(
+						"user",
+						JSON.stringify({ ...userData })
+					);
+					localStorage.setItem("user_token", user_token);
+					dispatch({
+						type: "Login",
+						payload: [
+							JSON.parse(localStorage.getItem("user")),
+							localStorage.getItem("user_token"),
+						],
+					});
+					Success(
+						"<i>Your account is all set up 👌</i>",
+						`/Metromart/`,
+						navigate
+					);
+				} else {
+					Fail(
+						"Failed To Create Account",
+						"This Email Is Already Taken!"
+					);
+					setFormData((prevState) => ({
+						...prevState,
+						password: "",
+						confirmPassword: "",
+					}));
+				}
+			} catch (error) {
+				// Handle network errors or other issues
+				console.log("Error: ", error);
+			}
+		} else {
+			setLoading((prev) => !prev);
+			Close();
 		}
 	};
 
@@ -156,7 +187,7 @@ function SignUp() {
 								type="text"
 								name="username"
 								className="mt-5 name-input inputs"
-								value={username}
+								value={formData.username}
 								required
 								onChange={handleChange}
 							/>
@@ -167,7 +198,7 @@ function SignUp() {
 							<input
 								type="text"
 								name="email"
-								value={email}
+								value={formData.email}
 								className="mt-5 email-input inputs"
 								required
 								onChange={handleChange}
@@ -185,7 +216,7 @@ function SignUp() {
 								name="password"
 								className="mt-4 pass-input inputs"
 								required
-								value={password}
+								value={formData.password}
 								onChange={handleChange}
 							/>
 							<label className="pass-label">Password</label>
@@ -197,7 +228,7 @@ function SignUp() {
 								name="confirmPassword"
 								className="mt-5 confirmpass-input inputs"
 								required
-								value={confirmPassword}
+								value={formData.confirmPassword}
 								onChange={handleChange}
 							/>
 							<label className="confirmpass-label">
@@ -215,7 +246,7 @@ function SignUp() {
 								name="address1"
 								className="mt-4 address1-input inputs"
 								required
-								value={address1}
+								value={formData.address1}
 								onChange={handleChange}
 							/>
 							<label className="address1-label">
@@ -228,12 +259,12 @@ function SignUp() {
 								ype="text"
 								name="address2"
 								className="mt-4 address2-input inputs"
-								value={address2}
+								value={formData.address2}
 								onChange={handleChange}
 							/>
 							<label
 								className={`address2-label ${
-									address2 ? "active" : ""
+									formData.address2 ? "active" : ""
 								}`}
 							>
 								Address Two
@@ -246,7 +277,7 @@ function SignUp() {
 								name="phoneNumber"
 								className="mt-5 phonenumber-input inputs"
 								required
-								value={phoneNumber}
+								value={formData.phoneNumber}
 								onChange={handleChange}
 							/>
 							<label className="phonenumber-label">
@@ -264,7 +295,7 @@ function SignUp() {
 								name="age"
 								className="mt-4 age-input inputs"
 								required
-								value={age}
+								value={formData.age}
 								onChange={handleChange}
 							/>
 							<label className="age-label">Age</label>
