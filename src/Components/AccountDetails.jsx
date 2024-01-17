@@ -7,8 +7,7 @@ function AccountDetails() {
     const changeName = event => {
         setName(event.target.value);
     };  
-
-
+    
     return (
         <>
             <div className="container mt-5 mb-5" style={{ marginTop: 75 }}>
@@ -59,12 +58,12 @@ function AccountDetails() {
                                     <input type="text" name="phonenumber" className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2 account-inputs' placeholder='Phone Number' />
                                 </div>
                                 <div>
-                                    <label htmlFor="Adress1" className='fw-bold'>Address One</label>
+                                    <label htmlFor="Address1" className='fw-bold'>Address One</label>
                                     <input type="text" placeholder='Address One' name="address1" className='form-control shadow-sm text-black bg-light text-secondary border-0 mt-2 account-inputs' />
                                 </div>
                             </div>
 
-                            <label htmlFor="Adress2" className='fw-bold mt-4'>Address Two</label>
+                            <label htmlFor="Address2" className='fw-bold mt-4'>Address Two</label>
                             <input type="text" placeholder='Address Two' name="address2" className='form-control shadow-sm text-black bg-light text-secondary border-0 mt-2 address2-input' />
 
                             <label htmlFor="PasswordChanges" className='fw-bold mt-4'>Password Changes</label>
