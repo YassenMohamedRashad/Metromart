@@ -15,7 +15,6 @@ import Error from "./Components/Error"
 import SearchForProducts from "./Components/SearchForProducts"
 import AboutUs from "./Components/Aboutus";
 import RedirectToLogin from "./Components/RedirectToLogin";
-import { useEffect } from "react";
 
 function App() {
 	const { user, user_token } = useAuth();
@@ -25,10 +24,10 @@ function App() {
 		<>
 			<Nav />
 			<Routes>
-				<Route path="/Metromart/aboutUs" element={<AboutUs />} />
+				<Route path="/Metromart/aboutUs/" element={<AboutUs />} />
 				<Route path={"/Metromart/"} element={<Home />} />
 				<Route
-					path="/Metromart/login"
+					path="/Metromart/login/"
 					element={
 						!userIsFound ? (
 							<Login />
@@ -38,7 +37,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/Metromart/signup"
+					path="/Metromart/signup/"
 					element={
 						!userIsFound ? (
 							<Signup />
@@ -48,7 +47,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/Metromart/accountdetails"
+					path="/Metromart/accountDetails/"
 					element={
 						userIsFound ? <AccountDetails /> : <RedirectToLogin />
 					}
@@ -58,14 +57,14 @@ function App() {
 					element={userIsFound ? <WishList /> : <RedirectToLogin />}
 				/>
 				<Route
-					path="/Metromart/billingdetails"
+					path="/Metromart/billingDetails/"
 					element={
 						userIsFound ? <BillingDetails /> : <RedirectToLogin />
 					}
 				/>
 
 				<Route
-					path="/Metromart/productDetails"
+					path="/Metromart/productDetails/:id"
 					element={<ProductDetails />}
 				/>
 				<Route path="/Metromart/SearchForProducts/:key" element={ <SearchForProducts /> }></Route>

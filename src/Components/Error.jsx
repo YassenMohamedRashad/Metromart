@@ -2,26 +2,28 @@ import React from "react";
 import "../assets/css/Error.css";
 import { useNavigate } from "react-router-dom";
 
-function Error() {
-    const navigate = useNavigate();
-    const handleClick = () => navigate("/Metromart/");
-
+function Error ()
+{
+    const ErrorStyle = {
+        height: "80vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+    }
+    const heading = {
+        fontSize:"70px"
+    }
     return (
-        <div className="container hal">
-            <div>
-                <div className="col-12 text-center Error">
-                    <h1 className="display-1">404 Not Found</h1>
-                    <p className="display-5">
+        <div className="container" style={ErrorStyle}>
+                <div className="text-center">
+                <h1 className="" style={ heading }>404 Not Found</h1>
+                    <p className="">
                         your visited page not found, you may go home page.
                     </p>
-                    <button
-                        className="d-block btn-danger btn w-25 p-3"
-                        onClick={handleClick}
-                    >
+                    <a href="/Metromart/" className="btn-danger btn">
                         Back to home page
-                    </button>
+                    </a>
                 </div>
-            </div>
         </div>
     );
 }

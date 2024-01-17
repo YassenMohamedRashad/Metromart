@@ -58,8 +58,7 @@ function SignUp() {
 
 		if (!strongPassRegex.test(formData.password))
 			errors.password = "Weak Password";
-		else delete errors.password;
-		if (formData.password !== formData.confirmPassword)
+		else if (formData.password !== formData.confirmPassword)
 			errors.password = "Passwords don't match";
 		else delete errors.password;
 

@@ -1,9 +1,7 @@
-TODOs:
+TODO: install extensions (Done) {cm:2024-01-17}
 
-TODO: ~~ install extensions ~~ (Done)
+TODO: pass user's data to all components
 
-TODO: pass user's data using useContext hook
+TODO: add protected routes with token (Done) {cm:2024-01-17}
 
-TODO: ~~ add protected routes with token ~~ (Done)
-
-TODO: ~~ when signup or login successfully redirect user to home page ~~ (Done)
+TODO: when signup or login successfully redirect user to home page (Done) {cm:2024-01-17}

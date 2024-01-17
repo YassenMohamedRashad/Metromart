@@ -40,7 +40,7 @@ function AccountDetails() {
                     </div>
 
                     <div className='col-8 manage-my-account mt-5 '>
-                        <form method='post' class="shadow rounded p-5">
+                        <form method='post' className="shadow rounded p-5">
                             <h3 className=' text-danger '>Edit Your Profile</h3>
                             <div className="d-flex justify-content-between mt-5">
                                 <div>

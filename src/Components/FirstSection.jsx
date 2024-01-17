@@ -12,8 +12,10 @@ import checked_star_icon from "../assets/images/checked-star-icon.png";
 import Products from "./Products_With_saleas.json"
 
 import Slider from 'react-slick';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Hero from './Hero';
 
 function FirstSection() {
 
@@ -68,7 +70,7 @@ function FirstSection() {
 		autoplaySpeed: 3000, 
 		prevArrow: <button className="slick-prev">Previous</button>,
 		nextArrow: <button className="slick-next">Next</button>,
-	  };
+	};
 	
 	return (
 		<div className="container p-5 pt-0" >
@@ -173,7 +175,7 @@ function FirstSection() {
 									<div className='mt-4 position-relative cardBody' style={{ height: 140 }}>
 										<div className="d-flex justify-content-between">
 
-											<h5 className="card-title fw-bold text-start">{item.title}</h5>
+											<h4 className="card-title fw-bold text-start">{item.title}</h4>
 
 											<div className='price'>
 												<h5 className="card-text me-2  d-inline" style={{ color: "#DC4345" }}>${item.discountedPrice}</h5>
@@ -185,8 +187,8 @@ function FirstSection() {
 										<div className='d-flex position-absolute top-50'>
 											<img style={{ width: 20 }} src={checked_star_icon} alt="alt" />
 											<img style={{ width: 20 }} src={checked_star_icon} alt="alt" />
-											<img style={{ width: 20 }} src={checked_star_icon} alt="alt" />
-											<img style={{ width: 20 }} src={checked_star_icon} alt="alt" />
+											<img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
+											<img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
 											<img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
 											<h6 className='text-secondary ms-2'>({item.stock})</h6>
 										</div>
@@ -203,7 +205,6 @@ function FirstSection() {
 				<a href="#" className='btn text-white pt-3 pb-3 ps-5 pe-5 view-all-product' style={{ backgroundColor: "#DC4345" }} >View All Products</a>
 			</div>
 
-		</div >
 	);
 }
 export default FirstSection;
