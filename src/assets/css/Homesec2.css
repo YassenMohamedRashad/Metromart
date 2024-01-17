@@ -1,0 +1,30 @@
+
+.red-label::before{
+    content: "|";
+    margin-right: 5px;
+    background-color: #dc3545;
+    border-radius: 5px;
+}
+
+.card-category:hover{
+    background-color:#dc3545;
+    color: white !important;
+}
+
+.card-category{
+    text-align: center;
+    border-radius: 8px 8px;
+    padding: 5px;
+    transition: 0.5s ease;
+}
+.card-category a{
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    transition: 0.5s ease;
+}
+.card-category a :hover{
+    color: white;
+}
+
+

@@ -10,8 +10,9 @@ import AccountDetails from "./Components/AccountDetails";
 import WishList from "./Components/Wishlist";
 import BillingDetails from "./Components/BillingDetails";
 import ProductDetails from "./Components/ProductDetails";
-import Home from "./Components/Home";
-import Error from "./Components/Error";
+import { Home } from "./Components/Home";
+import Error from "./Components/Error"
+import SearchForProducts from "./Components/SearchForProducts"
 import AboutUs from "./Components/Aboutus";
 import RedirectToLogin from "./Components/RedirectToLogin";
 import { useEffect } from "react";
@@ -62,10 +63,13 @@ function App() {
 						userIsFound ? <BillingDetails /> : <RedirectToLogin />
 					}
 				/>
+
 				<Route
 					path="/Metromart/productDetails"
 					element={<ProductDetails />}
 				/>
+				<Route path="/Metromart/SearchForProducts/:key" element={ <SearchForProducts /> }></Route>
+				
 				<Route path="/Metromart/*" element={<Error />} />
 			</Routes>
 			<Footer />

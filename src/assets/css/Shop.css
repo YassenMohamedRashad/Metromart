@@ -1,7 +1,7 @@
 .redSide{
     width: 20px;
     border-radius: 7px;
-    height: 55px;
+    height: 45px;
 }
 
 .card-category:hover{
@@ -10,7 +10,7 @@
 
 .card-category{
     text-align: center;
-    width: 180px;
+    width: 250px;
     border-radius: 8px 8px;
     -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
