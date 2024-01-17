@@ -129,6 +129,19 @@ function FirstSection() {
 						<span className='fw-bold me-5 position-absolute' style={{ fontSize: 35, left: 1, top: 19 }}><span className='me-2' style={{ color: "#DC4345" }}>:</span>{timeRemaining.seconds} </span>
 					</div>
 				</div>
+				{/* <h6 className="position-absolute fw-bold" style={{ top: 60, left: 220, fontSize: 12 }}>
+					<span className="position-absolute" style={{ left: 25 }}>Days</span>
+					<span className="position-absolute" style={{ left: 100 }}>Hours</span>
+					<span className="position-absolute" style={{ left: 170 }}>Minutes</span>
+					<span className="position-absolute" style={{ left: 240 }}>Seconds</span>
+				</h6>
+				<h2 className="text-black mb-4 mt-4 fw-bold">Flash Sales
+					<span className="ms-5"> {timeRemaining.days}
+						<span className="text-danger ms-2 me-2" style={{ fontSize: 35 }}>:</span> {timeRemaining.hours}
+						<span className="text-danger ms-2 me-2" style={{ fontSize: 35 }}>:</span> {timeRemaining.minutes}
+						<span className="text-danger ms-2 me-2" style={{ fontSize: 35 }}>:</span> {timeRemaining.seconds}
+					</span>
+				</h2> */}
 
 				{/* Products Carousel */}
 
@@ -140,7 +153,7 @@ function FirstSection() {
 								<SwiperSlide >
 									<div className="card border-0 rounded-2 shadow-sm position-relative product-card " style={{ height: 250 }}	>
 										<span className="position-absolute translate-middle badge rounded p-3 pt-2 pb-2" style={{ backgroundColor: "#DC4345", top: 30, left: 50 }}>
-											{item.discountPercent}%
+											{item.discountPercentage}%
 										</span>
 										<button className="btn position-absolute translate-middle badge rounded-pill bg-white " style={{ top: 30, right: -5 }}>
 											<img src={heart_icon} style={{ height: 20 }} alt="" />
@@ -149,16 +162,33 @@ function FirstSection() {
 											<img src={eye_icon} style={{ height: 20 }} alt="" />
 										</button>
 										<div className="d-flex justify-content-center">
-											<img className="card-img-top w-75 product-img align-self-center " src={item.image} alt="Title" />
+											<img className="card-img-top w-75 product-img align-self-center " src={item.image1} alt="Title" />
 										</div>
 										<div className="overlay">
 											<button className="btn text-white	">Add to Cart</button>
 										</div>
+
+
+									</div>
+									<div className='mt-4 position-relative cardBody'>
+										<h5 className="card-title fw-bold text-start">{item.title}</h5>
+										<p className="card-text text-start mt-2" style={{ color: "#DC4345" }}>${item.price}</p>
+										<p className="text-secondary position-absolute" style={{ top: 31, left: 80 }}>
+											<del>${item.priceAfterDiscount}</del>
+										</p>
+										<div className='d-flex'>
+											<img style={{ width: 20 }} src={checked_star_icon} alt="alt" />
+											<img style={{ width: 20 }} src={checked_star_icon} alt="alt" />
+											<img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
+											<img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
+											<img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
+											<h6 className='text-secondary ms-2'>({item.stock})</h6>
+										</div>
 									</div>
 								</SwiperSlide>
-
 							)
-						})}
+						})
+					}
 				</Swiper>
 
 			</div>
