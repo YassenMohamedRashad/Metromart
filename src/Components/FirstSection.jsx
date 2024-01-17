@@ -59,7 +59,7 @@ function FirstSection() {
 	return (
 		<div className="container">
 			{/* Hero Part */}
-			<div className="row" style={{ marginBottom: 90 }}>
+			<div className="row" style={{ marginBottom: 90, }}>
 				<div id="heroCarousel" className="carousel slide bg-black hero" style={{ paddingRight: 100, paddingLeft: 100, paddingTop: 50 }} data-bs-ride="carousel">
 					<div className="carousel-inner">
 
@@ -193,7 +193,7 @@ function FirstSection() {
 										<div className="overlay">
 											<button className="btn text-white ">Add to Cart</button>
 										</div>
-										
+
 
 									</div>
 									<div className='mt-4 position-relative cardBody' style={{ height: 140 }}>
