@@ -19,7 +19,7 @@ import RedirectToLogin from "./Components/RedirectToLogin";
 function App() {
 	const { user, user_token } = useAuth();
 	const userIsFound = user ? true : false;
-	// localStorage.clear();
+	
 	return (
 		<>
 			<Nav />
