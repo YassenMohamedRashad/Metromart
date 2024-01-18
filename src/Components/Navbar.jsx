@@ -18,7 +18,7 @@ function nav ()
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="m-auto">
 							<Nav.Link href="/Metromart/" className="me-4 fw-bold" >Home</Nav.Link>
-							<Nav.Link href="/Metromart" className="me-4 fw-bold" >Contact</Nav.Link>
+							<Nav.Link href="/Metromart/contactUs" className="me-4 fw-bold" >Contact</Nav.Link>
 							<Nav.Link href="/Metromart/aboutUs" className="me-4 fw-bold" >About us</Nav.Link> 
 							{!isLogin&&<Nav.Link href="/Metromart/signUp" className="me-4 fw-bold" >Sign Up</Nav.Link>}
 						</Nav>
@@ -36,15 +36,15 @@ function nav ()
 							</button>
 						</Form>
 						<div className="text-dark fs-4">
-							<a href="/Metromart/wishlist"><i class="bi bi-heart text-white me-2 ms-2"></i></a>
+							<a href="/Metromart/wishlist"><i className="bi bi-heart text-white me-2 ms-2"></i></a>
 							<a href="/Metromart/cart">
-								<i class="bi bi-cart text-white me-2 ms-2 position-relative">
-									<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style={CartIconStyle}>2<span class="visually-hidden">unread messages</span></span>
+								<i className="bi bi-cart text-white me-2 ms-2 position-relative">
+									<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style={CartIconStyle}>2<span className="visually-hidden">unread messages</span></span>
 
 								</i>
 							</a>
 							{
-								isLogin&&<a href="/Metromart/accountdetails"><i class="bi bi-person-circle text-danger me-2 ms-2"></i></a>
+								isLogin&&<a href="/Metromart/accountdetails"><i className="bi bi-person-circle text-danger me-2 ms-2"></i></a>
 							}
 						</div>
 					</Navbar.Collapse>
