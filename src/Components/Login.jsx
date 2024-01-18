@@ -61,6 +61,7 @@ function Login() {
 						payload: [
 							JSON.parse(localStorage.getItem("user")),
 							localStorage.getItem("user_token"),
+							JSON.parse(localStorage.getItem("wishlist")),
 						],
 					});
 				})
