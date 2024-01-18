@@ -1,177 +1,169 @@
 .form {
-  position: relative;
+	position: relative;
 }
 
 .signup-image {
-  user-select: none;
+	user-select: none;
 }
 
 .signup-form .inputs {
-  border: none;
-  border-bottom: 1px solid silver;
-  width: 100%;
-  outline: none;
+	border: none;
+	border-bottom: 1px solid silver;
+	width: 100%;
+	outline: none;
 }
-
 
 /* Name input styling */
 .signup-form .name-label {
-  position: absolute;
-  top: 9%;
-  left: 0;
-  color: grey;
-  pointer-events: none;
-  transition: all 0.3s ease;
+	position: absolute;
+	top: 9%;
+	left: 0;
+	color: grey;
+	pointer-events: none;
+	transition: all 0.3s ease;
 }
 
-.signup-form .name-input:focus~.name-label,
-.signup-form .name-input:valid~.name-label {
-  transform: translateY(-20px);
-  font-size: 15px;
-  color: #81ACCD;
+.signup-form .name-input:focus ~ .name-label,
+.signup-form .name-input:valid ~ .name-label {
+	transform: translateY(-20px);
+	font-size: 15px;
+	color: #81accd;
 }
-
 
 /* Email input styling */
 .signup-form .email-label {
-  position: absolute;
-  top: 19%;
-  left: 0;
-  color: grey;
-  pointer-events: none;
-  transition: all 0.3s ease;
+	position: absolute;
+	top: 19%;
+	left: 0;
+	color: grey;
+	pointer-events: none;
+	transition: all 0.3s ease;
 }
 
-.signup-form .email-input:focus~.email-label,
-.signup-form .email-input:valid~.email-label {
-  transform: translateY(-20px);
-  font-size: 15px;
-  color: #81ACCD;
+.signup-form .email-input:focus ~ .email-label,
+.signup-form .email-input:valid ~ .email-label {
+	transform: translateY(-20px);
+	font-size: 15px;
+	color: #81accd;
 }
-
 
 /* Password input styling */
 .signup-form .pass-label {
-  position: absolute;
-  top: 28%;
-  left: 0;
-  color: grey;
-  pointer-events: none;
-  transition: all 0.3s ease;
+	position: absolute;
+	top: 28%;
+	left: 0;
+	color: grey;
+	pointer-events: none;
+	transition: all 0.3s ease;
 }
 
-.signup-form .pass-input:focus~.pass-label,
-.signup-form .pass-input:valid~.pass-label {
-  transform: translateY(-20px);
-  font-size: 15px;
-  color: #81ACCD;
+.signup-form .pass-input:focus ~ .pass-label,
+.signup-form .pass-input:valid ~ .pass-label {
+	transform: translateY(-20px);
+	font-size: 15px;
+	color: #81accd;
 }
-
 
 /* Confirm password input styling */
 .signup-form .confirmpass-label {
-  position: absolute;
-  top: 37.5%;
-  left: 0;
-  color: grey;
-  pointer-events: none;
-  transition: all 0.3s ease;
+	position: absolute;
+	top: 37.5%;
+	left: 0;
+	color: grey;
+	pointer-events: none;
+	transition: all 0.3s ease;
 }
 
-.signup-form .confirmpass-input:focus~.confirmpass-label,
-.signup-form .confirmpass-input:valid~.confirmpass-label {
-  transform: translateY(-20px);
-  font-size: 15px;
-  color: #81ACCD;
+.signup-form .confirmpass-input:focus ~ .confirmpass-label,
+.signup-form .confirmpass-input:valid ~ .confirmpass-label {
+	transform: translateY(-20px);
+	font-size: 15px;
+	color: #81accd;
 }
-
 
 /* address one input styling */
 .signup-form .address1-label {
-  position: absolute;
-  top: 47.5%;
-  left: 0;
-  color: grey;
-  pointer-events: none;
-  transition: all 0.3s ease;
+	position: absolute;
+	top: 47.5%;
+	left: 0;
+	color: grey;
+	pointer-events: none;
+	transition: all 0.3s ease;
 }
 
-.signup-form .address1-input:focus~.address1-label,
-.signup-form .address1-input:valid~.address1-label {
-  transform: translateY(-20px);
-  font-size: 15px;
-  color: #81ACCD;
+.signup-form .address1-input:focus ~ .address1-label,
+.signup-form .address1-input:valid ~ .address1-label {
+	transform: translateY(-20px);
+	font-size: 15px;
+	color: #81accd;
 }
-
 
 /* address two input styling */
 .signup-form .address2-label {
-  position: absolute;
-  top: 57%;
-  left: 0;
-  color: gray;
-  pointer-events: none;
-  transition: all 0.3s ease;
+	position: absolute;
+	top: 57%;
+	left: 0;
+	color: gray;
+	pointer-events: none;
+	transition: all 0.3s ease;
 }
 
-.signup-form .address2-input:focus~.address2-label,
-.signup-form .address2-input:valid~.address2-label.active {
-  transform: translateY(-20px);
-  font-size: 15px;
-  color: #81ACCD;
+.signup-form .address2-input:focus ~ .address2-label,
+.signup-form .address2-input:valid ~ .address2-label.active {
+	transform: translateY(-20px);
+	font-size: 15px;
+	color: #81accd;
 }
 
 /* Phonenumber input styling */
 .signup-form .phonenumber-label {
-  position: absolute;
-  top: 66.5%;
-  left: 0;
-  color: grey;
-  pointer-events: none;
-  transition: all 0.3s ease;
+	position: absolute;
+	top: 66.5%;
+	left: 0;
+	color: grey;
+	pointer-events: none;
+	transition: all 0.3s ease;
 }
 
-.signup-form .phonenumber-input:focus~.phonenumber-label,
-.signup-form .phonenumber-input:valid~.phonenumber-label {
-  transform: translateY(-20px);
-  font-size: 15px;
-  color: #81ACCD;
+.signup-form .phonenumber-input:focus ~ .phonenumber-label,
+.signup-form .phonenumber-input:valid ~ .phonenumber-label {
+	transform: translateY(-20px);
+	font-size: 15px;
+	color: #81accd;
 }
-
 
 /* Age input styling */
 .signup-form .age-label {
-  position: absolute;
-  top: 75.5%;
-  left: 0;
-  color: grey;
-  pointer-events: none;
-  transition: all 0.3s ease;
+	position: absolute;
+	top: 75.5%;
+	left: 0;
+	color: grey;
+	pointer-events: none;
+	transition: all 0.3s ease;
 }
 
-.signup-form .age-input:focus~.age-label,
-.signup-form .age-input:valid~.age-label {
-  transform: translateY(-20px);
-  font-size: 15px;
-  color: #81ACCD;
+.signup-form .age-input:focus ~ .age-label,
+.signup-form .age-input:valid ~ .age-label {
+	transform: translateY(-20px);
+	font-size: 15px;
+	color: #81accd;
 }
-
 
 /* Gender selection styling */
 .signup-form .male-label {
-  pointer-events: none;
-  transition: all 0.3s ease;
+	pointer-events: none;
+	transition: all 0.3s ease;
 }
 
-.signup-form .male-input:focus~.male-label {
-  color: #81ACCD;
+.signup-form .male-input:focus ~ .male-label {
+	color: #81accd;
 }
 
 .signup-form .female-label {
-  pointer-events: none;
-  transition: all 0.3s ease;
+	pointer-events: none;
+	transition: all 0.3s ease;
 }
 
-.signup-form .female-input:focus~.female-label {
-  color: #81ACCD;
+.signup-form .female-input:focus ~ .female-label {
+	color: #81accd;
 }
