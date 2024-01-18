@@ -84,7 +84,7 @@ function WishList() {
 										{/* Sale button */}
 										<div>
 											<button className="sale btn btn-danger align-self-end">
-												-35%
+												-{item.price}%
 											</button>
 										</div>
 										{/* Trash icon */}
@@ -140,7 +140,13 @@ function WishList() {
 												${item.price} &nbsp;
 												<span className="text-secondary">
 													{" "}
-													<del> ${item.price * item.discountPercentage / 100} </del>
+													<del>
+														{" "}
+														$
+														{(item.price *
+															item.discountPercentage) /
+															100}{" "}
+													</del>
 												</span>
 											</span>
 										</b>
@@ -174,7 +180,7 @@ function WishList() {
 											{/* Sale button */}
 											<div>
 												<button className="sale btn btn-danger align-self-end">
-													-35%
+													-{item.price}%
 												</button>
 											</div>
 											{/* Eye icon */}
@@ -231,7 +237,13 @@ function WishList() {
 													${item.price} &nbsp;
 													<span className="text-secondary">
 														{" "}
-														<del> ${item.price * item.discountPercentage / 100} </del>
+														<del>
+															{" "}
+															$
+															{(item.price *
+																item.discountPercentage) /
+																100}{" "}
+														</del>
 													</span>
 												</span>
 											</b>
