@@ -2,13 +2,26 @@ import { createContext, useReducer } from "react";
 
 export const AuthContext = createContext(null);
 
+const wishlist = [
+	{
+		id: "",
+		title: "",
+		description: "",
+		price: "",
+		discountPercentage: "",
+		rate: "",
+		stock: "",
+		category: "",
+		images: [],
+	},
+];
 export const authReducer = (state, action) => {
 	switch (action.type) {
 		case "Login":
 			return {
 				user: action.payload[0],
 				user_token: action.payload[1],
-				wishlist: action.payload[2] || null,
+				wishlist: [...action.payload[2]] || wishlist,
 			};
 		case "Logout":
 			localStorage.clear();
@@ -26,7 +39,7 @@ export const AuthContextProvider = ({ children }) => {
 	const initState = {
 		user: JSON.parse(localStorage.getItem("user")) || null,
 		user_token: localStorage.getItem("user_token") || null,
-		wishlist: localStorage.getItem("Wishlist") || null,
+		wishlist: localStorage.getItem("Wishlist") || [...wishlist],
 	};
 	const [state, dispatch] = useReducer(
 		authReducer,
