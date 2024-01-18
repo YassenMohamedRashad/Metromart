@@ -11,15 +11,15 @@ import WishList from "./Components/Wishlist";
 import BillingDetails from "./Components/BillingDetails";
 import ProductDetails from "./Components/ProductDetails";
 import { Home } from "./Components/Home";
-import Error from "./Components/Error"
-import SearchForProducts from "./Components/SearchForProducts"
+import Error from "./Components/Error";
+import SearchForProducts from "./Components/SearchForProducts";
 import AboutUs from "./Components/Aboutus";
 import RedirectToLogin from "./Components/RedirectToLogin";
 
 function App() {
-	const { user, user_token } = useAuth();
+	const { user, user_token, wishList } = useAuth();
 	const userIsFound = user ? true : false;
-	
+
 	return (
 		<>
 			<Nav />
@@ -67,8 +67,11 @@ function App() {
 					path="/Metromart/productDetails/:id"
 					element={<ProductDetails />}
 				/>
-				<Route path="/Metromart/SearchForProducts/:key" element={ <SearchForProducts /> }></Route>
-				
+				<Route
+					path="/Metromart/SearchForProducts/:key"
+					element={<SearchForProducts />}
+				></Route>
+
 				<Route path="/Metromart/*" element={<Error />} />
 			</Routes>
 			<Footer />

@@ -10,45 +10,46 @@ import "react-multi-carousel/lib/styles.css";
 // Importing axios
 import axios from "axios";
 
+// Responsiveness settings for the slider
+const responsive = {
+	hugeScreens: {
+		breakpoint: { max: 5000, min: 3000 },
+		items: 6,
+	},
+	superLargeDesktop: {
+		breakpoint: { max: 3000, min: 1024 },
+		items: 4,
+	},
+	desktop: {
+		breakpoint: { max: 1024, min: 800 },
+		items: 3,
+	},
+	tablet: {
+		breakpoint: { max: 800, min: 464 },
+		items: 2,
+	},
+	mobile: {
+		breakpoint: { max: 464, min: 0 },
+		items: 1,
+	},
+};
+
 // Wishlist component
 function WishList() {
-	// Responsiveness settings for the slider
-	const responsive = {
-		hugeScreens: {
-			breakpoint: { max: 5000, min: 3000 },
-			items: 6,
-		},
-		superLargeDesktop: {
-			breakpoint: { max: 3000, min: 1024 },
-			items: 4,
-		},
-		desktop: {
-			breakpoint: { max: 1024, min: 800 },
-			items: 3,
-		},
-		tablet: {
-			breakpoint: { max: 800, min: 464 },
-			items: 2,
-		},
-		mobile: {
-			breakpoint: { max: 464, min: 0 },
-			items: 1,
-		},
-	};
-
 	// State to store the products from the API
 	const [products, setProducts] = useState([]);
 
+	setProducts([...products, JSON.parse(localStorage.getItem("wishlist"))]);
 	// Function to fetch data from the API
-	const getData = async () => {
-		const response = await axios.get("https://fakestoreapi.com/products");
-		setProducts(response.data);
-	};
+	// const getData = async () => {
+	// 	const response = await axios.get("https://fakestoreapi.com/products");
+	// 	setProducts(response.data);
+	// };
 
 	// useEffect hook to fetch data when the component mounts
-	useEffect(() => {
-		getData();
-	}, []);
+	// useEffect(() => {
+	// 	getData();
+	// }, []);
 
 	// Render the component
 	return (
@@ -57,7 +58,7 @@ function WishList() {
 			<div className="container my-container">
 				<div className="row wishlist-row">
 					<h4 className="col-xxl-10 col-xl-10 col-lg-9 col-md-8 col my-h4 ">
-						Wishlist ({products&&products.length})
+						Wishlist ({products && products.length})
 					</h4>
 					<button className="col btn btn-outline-dark btn-lg">
 						Move All To Cart
