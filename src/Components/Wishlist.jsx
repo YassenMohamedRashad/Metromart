@@ -45,7 +45,7 @@ function WishList() {
 		let wishlistProducts = products.filter((item) => {
 			if (wishlist.includes(item.id)) return item;
 		});
-		setProducts([...wishlistProducts]); // <-- Correct this line
+		setProducts([...wishlistProducts]);
 	}, [wishlist]);
 
 	// Render the component
