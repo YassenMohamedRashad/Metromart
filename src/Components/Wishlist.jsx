@@ -9,6 +9,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 // Importing axios
 import axios from "axios";
+import Products from "./Products.json";
 
 // Responsiveness settings for the slider
 const responsive = {
@@ -36,13 +37,16 @@ const responsive = {
 
 // Wishlist component
 function WishList() {
-	// State to store the products from the API
-	const [products, setProducts] = useState([]);
+	// State to store the Products from the API
+	// const [Products, setProducts] = useState(null);
 
-	setProducts([...products, JSON.parse(localStorage.getItem("wishlist"))]);
+	// setProducts([...Products, JSON.parse(localStorage.getItem("wishlist"))]);
+    // useEffect(() => {
+	// 	setProducts(Products);
+	// }, []);
 	// Function to fetch data from the API
 	// const getData = async () => {
-	// 	const response = await axios.get("https://fakestoreapi.com/products");
+	// 	const response = await axios.get("https://fakestoreapi.com/Products");
 	// 	setProducts(response.data);
 	// };
 
@@ -58,7 +62,7 @@ function WishList() {
 			<div className="container my-container">
 				<div className="row wishlist-row">
 					<h4 className="col-xxl-10 col-xl-10 col-lg-9 col-md-8 col my-h4 ">
-						Wishlist ({products && products.length})
+						Wishlist ({Products && Object.keys(Products).length})
 					</h4>
 					<button className="col btn btn-outline-dark btn-lg">
 						Move All To Cart
@@ -68,8 +72,8 @@ function WishList() {
 				{/* Wishlist row */}
 				<div className="row">
 					{/* Dynamic cards from API */}
-					{products &&
-						products.map((item) => (
+					{Products &&
+						Products.map((item) => (
 							<div
 								className="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-5"
 								key={item.id}
@@ -103,7 +107,7 @@ function WishList() {
 									{/* Image */}
 									<img
 										className="card-img-top image"
-										src={item.image}
+										src={item.images[0]}
 										alt="Card image cap"
 									/>
 
@@ -133,10 +137,10 @@ function WishList() {
 											{item.title}
 											<br />
 											<span className="text-danger">
-												$960 &nbsp;
+												${item.price} &nbsp;
 												<span className="text-secondary">
 													{" "}
-													<del> $1160 </del>
+													<del> ${item.price * item.discountPercentage / 100} </del>
 												</span>
 											</span>
 										</b>
@@ -161,8 +165,8 @@ function WishList() {
 					{/* Slider */}
 					<Carousel responsive={responsive}>
 						{/* Dynamic cards from API */}
-						{products &&
-							products.map((item) => (
+						{Products &&
+							Products.map((item) => (
 								<div className="col-10" key={item.id}>
 									{/* Card */}
 									<div className="card my-card">
@@ -194,7 +198,7 @@ function WishList() {
 										{/* Image */}
 										<img
 											className="card-img-top image"
-											src={item.image}
+											src={item.images[1]}
 											alt="Card image cap"
 										/>
 
@@ -224,10 +228,10 @@ function WishList() {
 												{item.title}
 												<br />
 												<span className="text-danger">
-													$960 &nbsp;
+													${item.price} &nbsp;
 													<span className="text-secondary">
 														{" "}
-														<del> $1160 </del>
+														<del> ${item.price * item.discountPercentage / 100} </del>
 													</span>
 												</span>
 											</b>
