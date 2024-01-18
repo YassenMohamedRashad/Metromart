@@ -2,7 +2,7 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import { useAuth } from "./Hooks/useAuth";
 /* components */
-import Nav from "./Components/Navbar";
+import NavbarComponent from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Login from "./Components/Login";
 import Signup from "./Components/SignUp";
@@ -16,13 +16,15 @@ import SearchForProducts from "./Components/SearchForProducts"
 import AboutUs from "./Components/Aboutus";
 import RedirectToLogin from "./Components/RedirectToLogin";
 
+import Card from "./Components/utils/Card";
+
 function App() {
 	const { user, user_token } = useAuth();
 	const userIsFound = user ? true : false;
 	
 	return (
 		<>
-			<Nav />
+			<NavbarComponent />
 			<Routes>
 				<Route path="/Metromart/aboutUs/" element={<AboutUs />} />
 				<Route path={"/Metromart/"} element={<Home />} />
@@ -70,6 +72,7 @@ function App() {
 				<Route path="/Metromart/SearchForProducts/:key" element={ <SearchForProducts /> }></Route>
 				
 				<Route path="/Metromart/*" element={<Error />} />
+				<Route path="/Metromart/card" element={<Card />} />
 			</Routes>
 			<Footer />
 		</>

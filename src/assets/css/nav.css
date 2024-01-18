@@ -24,6 +24,13 @@
 	height: 20px;
 }
 
-.Navbar-background-color{
+.Navbar-background-color {
+	background-color: transparent !important;
+	transition: background-color 0.5s ease;
+  }
+  
+  .scrolled {
 	background-color: #181818 !important;
-}
+	transition: background-color 0.5s ease;
+  }
+  
