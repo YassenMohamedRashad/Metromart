@@ -9,7 +9,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 // Importing axios
 import axios from "axios";
-import Products from "./Products.json";
+import products from "./Products.json";
+import { useAuth } from "../Hooks/useAuth.jsx";
 
 // Responsiveness settings for the slider
 const responsive = {
@@ -37,23 +38,15 @@ const responsive = {
 
 // Wishlist component
 function WishList() {
+	const { wishlist } = useAuth();
 	// State to store the Products from the API
-	// const [Products, setProducts] = useState(null);
-
-	// setProducts([...Products, JSON.parse(localStorage.getItem("wishlist"))]);
-    // useEffect(() => {
-	// 	setProducts(Products);
-	// }, []);
-	// Function to fetch data from the API
-	// const getData = async () => {
-	// 	const response = await axios.get("https://fakestoreapi.com/Products");
-	// 	setProducts(response.data);
-	// };
-
-	// useEffect hook to fetch data when the component mounts
-	// useEffect(() => {
-	// 	getData();
-	// }, []);
+	const [Products, setProducts] = useState([]);
+	useEffect(() => {
+		let wishlistProducts = products.filter((item) => {
+			if (wishlist.includes(item.id)) return item;
+		});
+		setProducts([...wishlistProducts]); // <-- Correct this line
+	}, [wishlist]);
 
 	// Render the component
 	return (
@@ -62,7 +55,7 @@ function WishList() {
 			<div className="container my-container">
 				<div className="row wishlist-row">
 					<h4 className="col-xxl-10 col-xl-10 col-lg-9 col-md-8 col my-h4 ">
-						Wishlist ({Products && Object.keys(Products).length})
+						Wishlist ({Products && Products.length})
 					</h4>
 					<button className="col btn btn-outline-dark btn-lg">
 						Move All To Cart
@@ -84,7 +77,7 @@ function WishList() {
 										{/* Sale button */}
 										<div>
 											<button className="sale btn btn-danger align-self-end">
-												-{item.price}%
+												-{item.discountPercentage}%
 											</button>
 										</div>
 										{/* Trash icon */}
@@ -114,7 +107,7 @@ function WishList() {
 									{/* Add to cart button */}
 									<div className="card-body my-card-body">
 										<a
-											href="#"
+											href="javascript:void(0)"
 											className="btn btn-dark text-light w-100"
 										>
 											<svg
@@ -141,11 +134,7 @@ function WishList() {
 												<span className="text-secondary">
 													{" "}
 													<del>
-														{" "}
-														$
-														{(item.price *
-															item.discountPercentage) /
-															100}{" "}
+														${(item.price - item.price * (item.discountPercentage / 100)).toFixed(2)}
 													</del>
 												</span>
 											</span>
@@ -180,7 +169,7 @@ function WishList() {
 											{/* Sale button */}
 											<div>
 												<button className="sale btn btn-danger align-self-end">
-													-{item.price}%
+													-{item.discountPercentage}%
 												</button>
 											</div>
 											{/* Eye icon */}
@@ -211,7 +200,7 @@ function WishList() {
 										{/* Add to cart button */}
 										<div className="card-body my-card-body">
 											<a
-												href="#"
+												href="javascript:void(0)"
 												className="btn btn-dark text-light w-100"
 											>
 												<svg
@@ -238,11 +227,7 @@ function WishList() {
 													<span className="text-secondary">
 														{" "}
 														<del>
-															{" "}
-															$
-															{(item.price *
-																item.discountPercentage) /
-																100}{" "}
+															${(item.price - item.price * (item.discountPercentage / 100)).toFixed(2)}
 														</del>
 													</span>
 												</span>
