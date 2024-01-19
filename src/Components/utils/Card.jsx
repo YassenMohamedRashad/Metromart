@@ -28,7 +28,7 @@ function Card() {
                                     <img class="card-img-top rounded-2" src={item.images[0]} alt="Title" />
 
                                     {/* Add To Cart Button */}
-                                    <div className="overlay text-center position-absolute" style={{ bottom: 115 }}>
+                                    <div className="overlay text-center position-absolute" style={{ top: 270 }}>
                                         <button className="btn text-white">Add to Cart</button>
                                     </div>
 

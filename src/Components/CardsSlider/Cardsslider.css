@@ -48,7 +48,6 @@
 
 .overlay {
   position: absolute;
-  bottom: 0px;
   background-color: rgb(52, 52, 52);
   color: white;
   overflow: hidden;
