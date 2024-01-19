@@ -1,9 +1,9 @@
 import React from 'react';
-// import Products from "../Products.json";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import unchecked_star_icon from "../../assets/images/unchecked-star-icon.png";
 import checked_star_icon from "../../assets/images/checked-star-icon.png";
-import './Cardsslider.css';
+
+
 
 function Cardsslider({Products}) {
     return (
@@ -41,7 +41,7 @@ function Cardsslider({Products}) {
 
                         return (
                             <SwiperSlide >
-                                <div className="card border-0 rounded-2 shadow-sm position-relative product-card " style={{ height: 250 }}	>
+                                <div className="card border-0 rounded-2 shadow-sm position-relative " style={{ height: 250 }}	>
 
                                     <button className="btn position-absolute translate-middle badge rounded-pill bg-white heart_icon_container " style={{ top: 30, right: -5 }}>
                                         <svg width="22" height="18" viewBox="0 0 24 21" fill="none" className='heart_icon ' xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +65,7 @@ function Cardsslider({Products}) {
                                             </g>
                                         </svg>
                                     </button>
-                                    <div className="d-flex justify-content-center product-img">
+                                    <div className="d-flex justify-content-center product-swiper-img">
                                         <img src={item.images[0]} className=' border-0 rounded-2 shadow' alt="Title" />
                                     </div>
                                     <div className="overlay">
