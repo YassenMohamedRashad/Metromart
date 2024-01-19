@@ -26,7 +26,7 @@ export const AuthContextProvider = ({ children }) => {
 	const initState = {
 		user: JSON.parse(localStorage.getItem("user")) || null,
 		user_token: localStorage.getItem("user_token") || null,
-		wishlist: JSON.parse(localStorage.getItem("wishlist")) || null,
+		wishlist: JSON.parse(localStorage.getItem("wishlist")) || [],
 	};
 
 	const [state, dispatch] = useReducer(
