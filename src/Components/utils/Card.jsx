@@ -2,33 +2,37 @@ import unchecked_star_icon from "../../assets/images/unchecked-star-icon.png";
 import checked_star_icon from "../../assets/images/checked-star-icon.png";
 import axios from "axios";
 import { useAuth } from "../../Hooks/useAuth";
-import { Success } from "../SweetAlert";
+import { Success, Fail, InfoAC } from "../SweetAlert";
 
 function Card({ item }) {
-	const { user, user_token, dispatch } = useAuth();
+	const { user, user_token, wishlist, dispatch } = useAuth();
 	const headers = {
 		"Content-Type": "application/json",
-		"Authorization": `Bearer ${user_token}`,
+		Authorization: `Bearer ${user_token}`,
 	};
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
-		let res = axios
-			.post(
-				"http://localhost:5011/Carts/addProductToCart",
-				{
-					user_id: user.id,
-					product_id: item.id,
-					quantity: 1,
-				},
-				{ headers }
-			)
-			.then(() => {
+		if (item.id in wishlist)
+			InfoAC("<h2>This Product Is Already In Wishlist</h2>");
+		else {
+        }
+        let res = axios
+            .post(
+                "http://localhost:5011/Carts/addProductToCart",
+                {
+                    user_id: user.id,
+                    product_id: item.id,
+                    quantity: 1,
+                },
+                { headers }
+            )
+            .then(() => {
                 dispatch({ type: "addToWishlist", payload: +item.id });
-				Success("<i>Product Added to Cart successfully ✔</i>");
-			})
-			.catch((error) => {
-				console.log(error);
-			});
+                Success("<i>Product Added to Cart successfully ✔</i>");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
 	};
 
 	return (
