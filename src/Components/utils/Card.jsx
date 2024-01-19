@@ -44,7 +44,7 @@ function Card({Products}) {
                                         <img src={item.images[0]} className=' border-0 rounded-2 shadow' alt="Title" />
                                     </div>
                                     <div className="overlay">
-                                        <button className="btn text-white	">Add to Cart</button>
+                                        <button className="btn text-white">Add to Cart</button>
                                     </div>
 
 
