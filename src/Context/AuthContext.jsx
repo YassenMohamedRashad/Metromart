@@ -8,7 +8,7 @@ export const authReducer = (state, action) => {
 			return {
 				user: action.payload[0],
 				user_token: action.payload[1],
-				wishlist: JSON.parse(action.payload[2]),
+				wishlist: [...state.wishlist, JSON.parse(action.payload[2])],
 			};
 		case "Logout":
 			localStorage.clear();
@@ -28,7 +28,7 @@ export const AuthContextProvider = ({ children }) => {
 		user_token: localStorage.getItem("user_token") || null,
 		wishlist: JSON.parse(localStorage.getItem("wishlist")) || null,
 	};
-	
+
 	const [state, dispatch] = useReducer(
 		authReducer,
 		isObjectEmpty(initState) ? null : initState
