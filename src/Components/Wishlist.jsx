@@ -9,6 +9,7 @@ import "react-multi-carousel/lib/styles.css";
 import axios from "axios";
 // import products from "./Products.json";
 import { useAuth } from "../Hooks/useAuth.jsx";
+import { Loader, Close } from "./SweetAlert.jsx";
 
 // Responsiveness settings for the slider
 const responsive = {
@@ -37,38 +38,43 @@ const responsive = {
 // Wishlist component
 function WishList() {
 	const { wishlist } = useAuth();
-	const [Products, setProducts] = useState(null);
+	const [Products, setProducts] = useState([]);
+	const [loading, setLoading] = useState(true);
 
 	async function getProducts(ids = []) {
 		try {
-			let products = [];
-			ids.forEach((id) => {
-				const res = axios.get(`http://localhost:5011/products/${id}`);
-				console.log(res.data.data);
-				products = [...res.data.data];
-				console.log(products);
-			});
-			console.log(products);
-			return products;
+			const requests = ids.map((id) =>
+				axios.get(`http://localhost:5011/products/${id}`)
+			);
+			const responses = await Promise.all(requests);
+			const productsData = responses.map((res) => res.data.data);
+			console.log(productsData);
+			setLoading((prev) => false);
+			Close()
+			return productsData;
 		} catch (error) {
-			console.log(error);
+			console.warn(error);
 		}
 	}
 
 	useEffect(() => {
-		const fetchData = async (ids) => {
+		const fetchData = async () => {
 			try {
-				const products = await getProducts(wishlist);
-				let wishlistProducts = products.map((item) => {
+				// if (loading) Loader();
+				const wishlistProducts = await getProducts(wishlist);
+				// If you need to do additional processing on each product, you can do it here
+				const formattedProducts = wishlistProducts.map((item) => {
 					item.images = JSON.parse(item.image_path);
 					return item;
 				});
-				setProducts(wishlistProducts);
+				setProducts(formattedProducts);
 			} catch (error) {
 				console.log(error);
 			}
 		};
-		fetchData(wishlist);
+
+		if (wishlist.length > 0) fetchData();
+		else setProducts([]);
 	}, [wishlist]);
 
 	return (
