@@ -1,11 +1,11 @@
 import React from 'react';
-import Products from "../Products.json";
+// import Products from "../Products.json";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import unchecked_star_icon from "../../assets/images/unchecked-star-icon.png";
 import checked_star_icon from "../../assets/images/checked-star-icon.png";
 import './Cardsslider.css';
 
-function Cardsslider() {
+function Cardsslider({Products}) {
     return (
         <div className="container mt-5 mb-5">
             <div className="row mt-5 mb-4 position-relative">
@@ -69,14 +69,14 @@ function Cardsslider() {
                                         <img src={item.images[0]} className=' border-0 rounded-2 shadow' alt="Title" />
                                     </div>
                                     <div className="overlay">
-                                        <button className="btn text-white	">Add to Cart</button>
+                                        <button className="btn text-white">Add to Cart</button>
                                     </div>
 
 
                                 </div>
                                 <div className='mt-4 position-relative cardBody' style={{ height: 140 }}>
                                     <div className="d-flex justify-content-between">
-                                        <h5 className="card-title fw-bold text-start">{item.title}</h5>
+                                        <h5 className="card-title fw-bold text-start">{(item.title).slice(0,20)}</h5>
                                         <div>
                                             <h5 className="card-text me-2  d-inline" style={{ color: "#DC4345" }}>${item.price}</h5>
                                         </div>

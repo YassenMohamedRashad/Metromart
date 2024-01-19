@@ -2,10 +2,10 @@ import React from 'react';
 import unchecked_star_icon from "../../assets/images/unchecked-star-icon.png";
 import checked_star_icon from "../../assets/images/checked-star-icon.png";
 import "../../assets/css/Card.css"
-import Products from "../Products.json";
+// import Products from "../Products.json";
 
 
-function Card() {
+function Card({Products}) {
 
     return (
         <div className="container">
@@ -14,7 +14,6 @@ function Card() {
         <div className="row">
                 {
                     Products && Products.map((item) => {
-                        
                         return (
                             <div className='col-3'>
                                 <div className="card border-0 rounded-2 shadow-sm position-relative product-card " style={{ height: 250 }}	>
@@ -52,7 +51,7 @@ function Card() {
                                 </div>
                                 <div className='mt-4 position-relative cardBody' style={{ height: 140 }}>
                                     <div className="d-flex justify-content-between">
-                                        <h5 className="card-title fw-bold text-start">{item.title}</h5>
+                                        <h5 className="card-title fw-bold text-start">{(item.title).slice(0,3)}</h5>
                                         <div>
                                             <h5 className="card-text me-2  d-inline" style={{ color: "#DC4345" }}>${item.price}</h5>
                                         </div>
