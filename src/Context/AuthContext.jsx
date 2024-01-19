@@ -9,11 +9,14 @@ export const authReducer = (state, action) => {
 				...state,
 				wishlist: [...new Set([...state.wishlist, action.payload])],
 			};
+
 		case "Login":
 			return {
 				user: action.payload[0],
 				user_token: action.payload[1],
-				wishlist: [...new Set([...state.wishlist, JSON.parse(action.payload[2])])],
+				wishlist: action.payload[2] ? [...action.payload[2]] : [],
+				// checks if action.payload[2] is not null before updating the
+				// wishlist
 			};
 		case "Logout":
 			localStorage.clear();
@@ -28,10 +31,20 @@ function isObjectEmpty(obj) {
 }
 
 export const AuthContextProvider = ({ children }) => {
+	// Add a function to parse the wishlist data
+	const parseWishlist = (wishlistData) => {
+		try {
+			return JSON.parse(wishlistData) || [];
+		} catch (error) {
+			console.error("Error parsing wishlist data:", error);
+			return [];
+		}
+	};
+
 	const initState = {
 		user: JSON.parse(localStorage.getItem("user")) || null,
 		user_token: localStorage.getItem("user_token") || null,
-		wishlist: JSON.parse(localStorage.getItem("wishlist")) || [],
+		wishlist: parseWishlist(localStorage.getItem("wishlist")) || [],
 	};
 
 	const [state, dispatch] = useReducer(
@@ -39,7 +52,7 @@ export const AuthContextProvider = ({ children }) => {
 		isObjectEmpty(initState) ? null : initState
 	);
 	useEffect(() => {
-		if (state) {
+		if (!isObjectEmpty(initState)) {
 			localStorage.setItem("user", JSON.stringify(state.user));
 			localStorage.setItem("user_token", state.user_token);
 			localStorage.setItem("wishlist", JSON.stringify(state.wishlist));
