@@ -1,9 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import unchecked_star_icon from "../../assets/images/unchecked-star-icon.png";
 import checked_star_icon from "../../assets/images/checked-star-icon.png";
+import axios from 'axios';
+import { useAuth } from '../../Hooks/useAuth';
+import {Success,Fail} from "../SweetAlert"
+import { useNavigate } from 'react-router';
+
+
 
 function Card ({item})
 {
+    const { user,user_token } = useAuth()
+
+    const headers = {
+        'Content-Type': 'application/json',
+        "Authorization": `Bearer ${user_token}`
+    }
+    const handleFormSubmit = (e) =>
+    {
+        e.preventDefault()
+        let res = axios.post( "http://localhost:5011/Carts/addProductToCart", {
+            "user_id": user.id,
+            "product_id": item.id,
+            "quantity" : 1
+        },{headers}).then( () =>
+        {
+            Success(
+                "<i>Product Added to Cart successfuly ✔</i>"
+                )
+        } ).catch( (error) =>
+        {
+            console.log(error)
+        })
+    }
+
+
+
     return (
         <div className="col-8 col-sm-6 col-md-4 col-lg-3 .col-xl-2">
             <div class="card border-0 ">
@@ -20,14 +52,18 @@ function Card ({item})
                 <div className="d-flex justify-content-center product-img">
                     <img src={ item.images[ 0 ] } className=' border-0 rounded-2 shadow' alt="Title" />
                 </div>
-                <div className="overlay" style={{bottom:110}}>
-                    <button className="btn text-white">Add to Cart</button>
+
+                <div className="overlay" style={ { bottom: 115 } }>
+                    <form className='text-center' action="" method='post' onSubmit={handleFormSubmit}>
+                        <input type="submit" className='btn text-white-50' value={"Add to cart"} />
+                    </form>
                 </div>
+
 
                 {/* Product Body */ }
                 <div class="card-body ps-0">
                     <div className="d-flex justify-content-between">
-                        <h5 className="card-title fw-bold text-start product-card-title">{ ( item.title ) } </h5>
+                        <h5 className="card-title fw-bold text-start product-card-title">{ ( item.title ).slice(0,25) } </h5>
                         <div>
                             <h6 className="card-text product-card-price " style={ { color: "#DC4345" } }>${ item.price }</h6>
                         </div>
