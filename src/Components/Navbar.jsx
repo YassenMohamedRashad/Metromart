@@ -18,7 +18,7 @@ function nav ()
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="m-auto">
 							<Nav.Link href="/Metromart/" className="me-4 fw-bold" >Home</Nav.Link>
-							<Nav.Link href="/Metromart/contactUs" className="me-4 fw-bold" >Contact</Nav.Link>
+							<Nav.Link href="/Metromart" className="me-4 fw-bold" >Contact</Nav.Link>
 							<Nav.Link href="/Metromart/aboutUs" className="me-4 fw-bold" >About us</Nav.Link> 
 							{!isLogin&&<Nav.Link href="/Metromart/signUp" className="me-4 fw-bold" >Sign Up</Nav.Link>}
 						</Nav>
