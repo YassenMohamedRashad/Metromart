@@ -60,7 +60,7 @@ function WishList() {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				// if (loading) Loader();
+				if (loading) Loader();
 				const wishlistProducts = await getProducts(wishlist);
 				// If you need to do additional processing on each product, you can do it here
 				const formattedProducts = wishlistProducts.map((item) => {
