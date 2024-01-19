@@ -5,14 +5,15 @@ import Cardsslider from "./CardsSlider/Cardsslider"
 import Hero from './Hero';
 import "../assets/css/FirstSection.css";
 import "../assets/css/Cardsslider.css";
-import ProductsContainer from './utils/ProductsContainer';
+import ProductsContainer from "./utils/ProductsContainer"
+
 
 function FirstSection() {
 	return (
 		<div>
 			<Hero />
-			{/* <Cardsslider Products={Products}/> */ }
-			<ProductsContainer Products={Products}/>
+			{/* <Cardsslider Products={ Products } /> */}
+			<ProductsContainer Products={ Products } />
 		</div>
 
 	);

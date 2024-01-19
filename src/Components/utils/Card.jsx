@@ -20,7 +20,7 @@ function Card ({item})
                 <div className="d-flex justify-content-center product-img">
                     <img src={ item.images[ 0 ] } className=' border-0 rounded-2 shadow' alt="Title" />
                 </div>
-                <div className="overlay">
+                <div className="overlay" style={{bottom:110}}>
                     <button className="btn text-white">Add to Cart</button>
                 </div>
 

@@ -61,5 +61,5 @@
 }
 
 .card:hover .overlay {
-  height: 35px;
+  height: 35px !important;
 }
