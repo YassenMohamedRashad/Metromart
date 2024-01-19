@@ -16,7 +16,7 @@ import SearchForProducts from "./Components/SearchForProducts";
 import AboutUs from "./Components/Aboutus";
 import RedirectToLogin from "./Components/RedirectToLogin";
 
-import Card from "./Components/utils/Card";
+
 
 function App() {
 	const { user, user_token, wishList } = useAuth();
@@ -75,7 +75,6 @@ function App() {
 				></Route>
 
 				<Route path="/Metromart/*" element={<Error />} />
-				<Route path="/Metromart/card" element={<Card />} />
 			</Routes>
 			<Footer />
 		</>

@@ -5,7 +5,7 @@ import "../../assets/css/Card.css"
 // import Products from "../Products.json";
 
 
-function Card({Products}) {
+function ProductsContainer({Products}) {
 
     return (
         <div className="container">
@@ -74,4 +74,4 @@ function Card({Products}) {
     );
 }
 
-export default Card;
+export default ProductsContainer;
