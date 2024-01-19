@@ -3,7 +3,8 @@ import Products from "../Products.json";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import unchecked_star_icon from "../../assets/images/unchecked-star-icon.png";
 import checked_star_icon from "../../assets/images/checked-star-icon.png";
-
+import { StarRating } from "../productDetailsComponents/StarRating";
+import "./Cardsslider.css";
 function Cardsslider ()
 {
     return (
@@ -23,8 +24,8 @@ function Cardsslider ()
                     {
 
                         return (
-                            <SwiperSlide >
-                                <div className="card border-0 rounded-2 shadow-sm position-relative product-card " style={ { height: 250 } }	>
+                            <SwiperSlide>
+                                <div className="card border-0 rounded-2 shadow-sm position-relative product-card" style={ { height: 250 } }	>
 
                                     <button className="btn position-absolute translate-middle badge rounded-pill bg-white heart_icon_container " style={ { top: 30, right: -5 } }>
                                         <svg width="22" height="18" viewBox="0 0 24 21" fill="none" className='heart_icon ' xmlns="http://www.w3.org/2000/svg">
@@ -52,26 +53,19 @@ function Cardsslider ()
                                         <img src={ item.images[0] } className=' border-0 rounded-2 shadow' alt="Title" />
                                     </div>
                                     <div className="overlay">
-                                        <button className="btn text-white	">Add to Cart</button>
+                                        <button className="btn text-white">Add to Cart</button>
                                     </div>
 
 
                                 </div>
                                 <div className='mt-4 position-relative cardBody' style={ { height: 140 } }>
                                     <div className="d-flex justify-content-between">
-                                        <h5 className="card-title fw-bold text-start">{ item.title }</h5>
+                                        <h5 className="card-title fw-bold text-start overflowing-text">{ item.title }</h5>
                                         <div>
                                             <h5 className="card-text me-2  d-inline" style={ { color: "#DC4345" } }>${ item.price }</h5>
                                         </div>
                                     </div>
-                                    <div className='d-flex position-absolute top-50'>
-                                        <img style={ { width: 20 } } src={ checked_star_icon } alt="alt" />
-                                        <img style={ { width: 20 } } src={ checked_star_icon } alt="alt" />
-                                        <img style={ { width: 20 } } src={ unchecked_star_icon } alt="alt" />
-                                        <img style={ { width: 20 } } src={ unchecked_star_icon } alt="alt" />
-                                        <img style={ { width: 20 } } src={ unchecked_star_icon } alt="alt" />
-                                        <h6 className='text-secondary ms-2'>({ item.stock })</h6>
-                                    </div>
+                                        <StarRating/>
                                 </div>
                             </SwiperSlide>
                         );
