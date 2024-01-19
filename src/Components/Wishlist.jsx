@@ -39,32 +39,36 @@ function WishList() {
 	const { wishlist } = useAuth();
 	const [Products, setProducts] = useState(null);
 
-	async function getProducts() {
+	async function getProducts(ids = []) {
 		try {
-			const res = await axios.get("http://localhost:5011/products/");
-			console.log(res.data.data);
-			return res.data.data;
+			let products = [];
+			ids.forEach((id) => {
+				const res = axios.get(`http://localhost:5011/products/${id}`);
+				console.log(res.data.data);
+				products = [...res.data.data];
+				console.log(products);
+			});
+			console.log(products);
+			return products;
 		} catch (error) {
 			console.log(error);
 		}
 	}
 
 	useEffect(() => {
-		const fetchData = async () => {
+		const fetchData = async (ids) => {
 			try {
-				const products = await getProducts();
-				let wishlistProducts = products.filter((item) => {
-					if (wishlist.includes(item.id)) {
-						item.images = JSON.parse(item.image_path);
-						return item;
-					}
+				const products = await getProducts(wishlist);
+				let wishlistProducts = products.map((item) => {
+					item.images = JSON.parse(item.image_path);
+					return item;
 				});
 				setProducts(wishlistProducts);
 			} catch (error) {
 				console.log(error);
 			}
 		};
-		fetchData();
+		fetchData(wishlist);
 	}, [wishlist]);
 
 	return (
