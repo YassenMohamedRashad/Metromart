@@ -67,9 +67,8 @@ const ProductDetails = () => {
 							</div>
 							{/* ratingFrame start */}
 							<div className="frame ratingFrame">
-								<div className="five-star">
-									<StarRating />
-								</div>
+								{/* ratings stars */}
+								<StarRating />
 								<div className="frame stockFrame">
 									<div className="text-wrapper">
 										(150 Reviews)
