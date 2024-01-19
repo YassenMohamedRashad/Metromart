@@ -3,11 +3,11 @@ import star from "../../assets/images/y-star.svg";
 import whiteStar from "../../assets/images/w-star.svg"; // replace with your whiteStar image path
 import "../../assets/css/StarRating.css";
 
-export const StarRating = () => {
-	const [rating, setRating] = useState(4);
+export const StarRating = ({rate}) => {
+	const [rating, setRating] = useState(rate);
 	const [hover, setHover] = useState(null);
 	const handleClick = (rate) => setRating(rate);
-
+	
 	return (
 		<>
 			<div className="five-star">

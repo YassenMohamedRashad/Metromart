@@ -65,7 +65,7 @@ function Cardsslider ()
                                             <h5 className="card-text me-2  d-inline" style={ { color: "#DC4345" } }>${ item.price }</h5>
                                         </div>
                                     </div>
-                                        <StarRating/>
+                                        <StarRating rate={item.rate}/>
                                 </div>
                             </SwiperSlide>
                         );
