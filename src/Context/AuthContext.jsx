@@ -28,6 +28,7 @@ export const AuthContextProvider = ({ children }) => {
 		user_token: localStorage.getItem("user_token") || null,
 		wishlist: JSON.parse(localStorage.getItem("wishlist")) || null,
 	};
+	
 	const [state, dispatch] = useReducer(
 		authReducer,
 		isObjectEmpty(initState) ? null : initState
