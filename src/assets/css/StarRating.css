@@ -8,6 +8,6 @@
 }
 .ratingFrame .five-star label {
 	display: flex;
-    cursor: pointer;
+	cursor: pointer;
 }
 /***** End ratingFrame *****/

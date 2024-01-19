@@ -27,34 +27,33 @@
 
 .discount-num span {
 	margin-top: -2.5px;
-    padding-right: 2px;
+	padding-right: 2px;
 }
 
-.RelatedItems-col{
-    display: flex;
-    place-content: center;
-    place-items: center;
-    gap: 4rem;
-    flex-direction: column;
+.RelatedItems-col {
+	display: flex;
+	place-content: center;
+	place-items: center;
+	gap: 4rem;
+	flex-direction: column;
 }
 
-.icon-holder a.favoriteBtn, 
-.icon-holder button{
-    border-radius: 100%;
-    cursor: pointer;
-    aspect-ratio: 1/1;
-    width: fit-content;
-    display: flex;
-    place-content: center;
-    place-items: center;
-    gap: 1rem;
+.icon-holder a.favoriteBtn,
+.icon-holder button {
+	border-radius: 100%;
+	cursor: pointer;
+	aspect-ratio: 1/1;
+	width: fit-content;
+	display: flex;
+	place-content: center;
+	place-items: center;
+	gap: 1rem;
 }
 
-.icon-holder:has(.favoriteBtn){
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 100%;
-    width: fit-content;
-
+.icon-holder:has(.favoriteBtn) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100%;
+	width: fit-content;
 }
