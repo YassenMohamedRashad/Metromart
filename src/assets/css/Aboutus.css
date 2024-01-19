@@ -15,7 +15,7 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #b30000;
+    background: #cf0d20;
 }
 .section-white{
     background: #fff;
@@ -32,11 +32,12 @@
     -moz-transition: all 0.25s ease-in-out;
     -ms-transition: all 0.25s ease-in-out;
     -o-transition: all 0.25s ease-in-out;
-    transition: all 0.25s ease-in-out;
+    transition: all 0.5s ease-in-out;   
 }
 
+
 .team-item:hover{
-    background: black;
+    background: #444444;
     color: white;
 }
 
@@ -48,7 +49,7 @@
     text-transform: uppercase;
     -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
-    transition: all 0.25s ease-in-out;
+    transition: all 0.6s ease-in-out;
 }
 
 .section-subtitle{
@@ -73,14 +74,14 @@
 }
 
 .ho{
-    height: 510px;
+    height: 450px;
 }
 
 .he{
-    height: 400px;
+    height: 200px;
 }
 
-a{
-    text-decoration: none;
-    color: #000;
+.team-description{
+    color: #444444 !important   ;
+    font-weight: bold;
 }

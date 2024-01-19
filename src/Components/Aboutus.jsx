@@ -29,7 +29,7 @@ function Aboutus() {
 					</div>
 
 					<div className="col-sm-6 col-md-4">
-						<a href="https://eg.linkedin.com/in/ahmed-ali-othman-5b503324a">
+						<a href="https://eg.linkedin.com/in/ahmed-ali-othman-5b503324a" className="text-decoration-none team-description">
 							<div className="team-item ho">
 								<img className="team-img" src={Othman} alt="" />
 
@@ -37,7 +37,7 @@ function Aboutus() {
 								<br />
 
 								<div className="team-info">
-									<p>
+									<p className="text-start">
 										Lorem ipsum dolor, sit amet consectetur
 										adipisicing elit. Quia nesciunt iure
 										esse culpa suscipit minus earum neque,
@@ -51,7 +51,7 @@ function Aboutus() {
 					</div>
 
 					<div className="col-sm-6 col-md-4">
-						<a href="https://www.linkedin.com/in/yassenmohamedrashad?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+						<a href="https://www.linkedin.com/in/yassenmohamedrashad?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="text-decoration-none team-description">
 							<div className="team-item ho">
 								<img className="team-img" src={Yassen} alt="" />
 
@@ -59,7 +59,7 @@ function Aboutus() {
 								<h6>Team Leader</h6>
 
 								<div className="team-info">
-									<p>
+									<p className="text-start">
 										Lorem ipsum dolor, sit amet consectetur
 										adipisicing elit. Quia nesciunt iure
 										esse culpa suscipit minus earum neque,
@@ -73,7 +73,7 @@ function Aboutus() {
 					</div>
 
 					<div className="col-sm-6 col-md-4">
-						<a href="https://www.linkedin.com/in/yousef-ahmed-fouad-abdullatif-95b7ba288/">
+						<a href="https://www.linkedin.com/in/yousef-ahmed-fouad-abdullatif-95b7ba288/" className="text-decoration-none team-description">
 							<div className="team-item ho">
 								<img className="team-img" src={Fo2sh} alt="" />
 
@@ -81,7 +81,7 @@ function Aboutus() {
 								<br />
 
 								<div className="team-info">
-									<p>
+									<p className="text-start">
 										Lorem ipsum dolor, sit amet consectetur
 										adipisicing elit. Quia nesciunt iure
 										esse culpa suscipit minus earum neque,
@@ -99,7 +99,7 @@ function Aboutus() {
 					<div className="col-2"></div>
 
 					<div className="col-sm-6 col-md-4">
-						<a href="http://www.linkedin.com/in/zeyad-hyman-227746297">
+						<a href="http://www.linkedin.com/in/zeyad-hyman-227746297" className="text-decoration-none team-description">
 							<div className="team-item ho">
 								<img className="team-img" src={Zeyad} alt="" />
 
@@ -107,7 +107,7 @@ function Aboutus() {
 								<br />
 
 								<div className="team-info">
-									<p>
+									<p className="text-start">
 										Lorem ipsum dolor, sit amet consectetur
 										adipisicing elit. Quia nesciunt iure
 										esse culpa suscipit minus earum neque,
@@ -121,7 +121,7 @@ function Aboutus() {
 					</div>
 
 					<div className="col-sm-6 col-md-4">
-						<a href="https://www.linkedin.com/in/basmala-magdy-993869230">
+						<a href="https://www.linkedin.com/in/basmala-magdy-993869230" className="text-decoration-none team-description">
 							<div className="team-item ho">
 								<img
 									className="team-img"
@@ -130,10 +130,10 @@ function Aboutus() {
 								/>
 
 								<h3>Basmala</h3>
-								<br />
+								<br /> 
 
 								<div className="team-info">
-									<p>
+									<p className="text-start">
 										Lorem ipsum dolor, sit amet consectetur
 										adipisicing elit. Quia nesciunt iure
 										esse culpa suscipit minus earum neque,
