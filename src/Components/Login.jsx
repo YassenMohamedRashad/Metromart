@@ -56,11 +56,13 @@ function Login() {
 					localStorage.clear();
 					localStorage.setItem("user", JSON.stringify(data));
 					localStorage.setItem("user_token", token);
+					localStorage.setItem("wishlist", [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 					dispatch({
 						type: "Login",
 						payload: [
 							JSON.parse(localStorage.getItem("user")),
 							localStorage.getItem("user_token"),
+							JSON.parse(localStorage.getItem("wishlist")),
 						],
 					});
 				})
