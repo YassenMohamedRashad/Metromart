@@ -1,17 +1,14 @@
-import React, { useState } from "react";
 import unchecked_star_icon from "../../assets/images/unchecked-star-icon.png";
 import checked_star_icon from "../../assets/images/checked-star-icon.png";
 import axios from "axios";
 import { useAuth } from "../../Hooks/useAuth";
-import { Success, Fail } from "../SweetAlert";
-import { useNavigate } from "react-router";
+import { Success } from "../SweetAlert";
 
 function Card({ item }) {
-	const { user, user_token } = useAuth();
-
+	const { user, user_token, dispatch } = useAuth();
 	const headers = {
 		"Content-Type": "application/json",
-		Authorization: `Bearer ${user_token}`,
+		"Authorization": `Bearer ${user_token}`,
 	};
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
@@ -26,6 +23,7 @@ function Card({ item }) {
 				{ headers }
 			)
 			.then(() => {
+                dispatch({ type: "addToWishlist", payload: +item.id });
 				Success("<i>Product Added to Cart successfully ✔</i>");
 			})
 			.catch((error) => {

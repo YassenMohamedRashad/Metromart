@@ -1,14 +1,19 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useEffect } from "react";
 
 export const AuthContext = createContext(null);
 
 export const authReducer = (state, action) => {
 	switch (action.type) {
+		case "addToWishlist":
+			return {
+				...state,
+				wishlist: [...new Set([...state.wishlist, action.payload])],
+			};
 		case "Login":
 			return {
 				user: action.payload[0],
 				user_token: action.payload[1],
-				wishlist: [...state.wishlist, JSON.parse(action.payload[2])],
+				wishlist: [...new Set([...state.wishlist, JSON.parse(action.payload[2])])],
 			};
 		case "Logout":
 			localStorage.clear();
@@ -33,6 +38,13 @@ export const AuthContextProvider = ({ children }) => {
 		authReducer,
 		isObjectEmpty(initState) ? null : initState
 	);
+	useEffect(() => {
+		if (state) {
+			localStorage.setItem("user", JSON.stringify(state.user));
+			localStorage.setItem("user_token", state.user_token);
+			localStorage.setItem("wishlist", JSON.stringify(state.wishlist));
+		} else localStorage.clear();
+	}, [state]);
 	console.table(state);
 	return (
 		<AuthContext.Provider value={{ ...state, dispatch }}>
