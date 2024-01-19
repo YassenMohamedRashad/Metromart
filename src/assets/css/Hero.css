@@ -1,6 +1,6 @@
 @media(min-width : 700px) {
     .HeroPart {
-        height: 90vh;
+        height: 100vh;
         background-image: url("../images/home/arrangement-black-friday-shopping-carts-with-copy-space.jpg");
         background-size: cover;
         background-position: center;
@@ -15,7 +15,7 @@
 }
 @media(max-width : 699px) {
     .HeroPart {
-        height: 80vh;
+        height: 100vh;
         background-image: url("../images/home/arrangement-black-friday-shopping-carts-with-copy-space.jpg");
         background-size: cover;
         background-position: center;
@@ -25,6 +25,6 @@
     }
 
     .HeroPart h1 {
-        font-size: 30px;
+        font-size: 35px;
     }
 }
