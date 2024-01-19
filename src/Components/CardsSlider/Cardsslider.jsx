@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import unchecked_star_icon from "../../assets/images/unchecked-star-icon.png";
 import checked_star_icon from "../../assets/images/checked-star-icon.png";
@@ -8,8 +8,28 @@ import axios from 'axios';
 import { useAuth } from '../../Hooks/useAuth';
 
 
-function Cardsslider ( { Products } )
+function Cardsslider ()
 {
+    const [ Products, setProducts ] = useState( [] );
+    const getData = async () =>
+    {
+        try
+        {
+            const res = await axios.get( "http://localhost:5011/products/" );
+            setProducts( res.data.data );
+        } catch ( error )
+        {
+            Fail( "Error: Unable to fetch data. Please try again later." );
+
+        }
+
+    };
+
+    useEffect( () =>
+    {
+        getData();
+    }, [] )
+
     const { user, user_token } = useAuth();
     const headers = {
         'Content-Type': 'application/json',
@@ -120,7 +140,7 @@ function Cardsslider ( { Products } )
                                         </svg>
                                     </button>
                                     <div className="d-flex justify-content-center product-swiper-img">
-                                        <img src={item.images[0]} className=' border-0 rounded-2 shadow' alt="Title" />
+                                        <img src={ JSON.parse( item.image_path )[ 0 ] } className=' border-0 rounded-2 shadow' alt="Title" />
                                     </div>
                                     <div className="overlay">
                                         <form className='text-center' action="" method='post' onSubmit={ handleFormSubmit }>
@@ -132,7 +152,7 @@ function Cardsslider ( { Products } )
                                 </div>
                                 <div className='mt-4 position-relative cardBody' style={{ height: 140 }}>
                                     <div className="d-flex justify-content-between">
-                                        <h5 className="card-title fw-bold text-start">{(item.title).slice(0,20)}</h5>
+                                        <h5 className="card-title fw-bold text-start">{(item.name).slice(0,20)}</h5>
                                         <div>
                                             <h5 className="card-text me-2  d-inline" style={{ color: "#DC4345" }}>${item.price}</h5>
                                         </div>

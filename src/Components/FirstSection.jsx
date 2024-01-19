@@ -1,6 +1,5 @@
 
 import React from 'react';
-import Products from "./Products.json"
 import Cardsslider from "./CardsSlider/Cardsslider"
 import Hero from './Hero';
 import "../assets/css/FirstSection.css";
@@ -12,8 +11,8 @@ function FirstSection() {
 	return (
 		<div>
 			<Hero />
-			<Cardsslider Products={ Products } />
-			<ProductsContainer Products={ Products } /> 
+			<Cardsslider/>
+			<ProductsContainer/> 
 		</div>
 
 	);
