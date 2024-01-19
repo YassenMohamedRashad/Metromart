@@ -12,8 +12,8 @@ function FirstSection() {
 	return (
 		<div>
 			<Hero />
-			{/* <Cardsslider Products={ Products } /> */}
-			<ProductsContainer Products={ Products } />
+			<Cardsslider Products={ Products } />
+			<ProductsContainer Products={ Products } /> 
 		</div>
 
 	);

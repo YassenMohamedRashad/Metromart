@@ -3,8 +3,19 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import unchecked_star_icon from "../../assets/images/unchecked-star-icon.png";
 import checked_star_icon from "../../assets/images/checked-star-icon.png";
 import "../../assets/css/Cardsslider.css"
+import { Success, Fail, InfoAC } from "../SweetAlert"
+import axios from 'axios';
+import { useAuth } from '../../Hooks/useAuth';
 
-function Cardsslider({Products}) {
+
+function Cardsslider ( { Products } )
+{
+    const { user, user_token } = useAuth();
+    const headers = {
+        'Content-Type': 'application/json',
+        "Authorization": `Bearer ${ user_token }`
+    };
+
     return (
         <div className="container mt-5 mb-5">
             <div className="row mt-5 mb-4 position-relative">
@@ -36,13 +47,57 @@ function Cardsslider({Products}) {
                 }}
             >
                 {
-                    Products && Products.map((item) => {
+                    Products && Products.map( ( item ) =>
+                    {
+                        
+                        const handleWishlist = () =>
+                        {
+                            const isWishlist = localStorage.getItem( 'wishlist' );
 
+                            if ( isWishlist )
+                            {
+                                let userWishlist = JSON.parse( localStorage.getItem( 'wishlist' ) );
+                                if ( item.id in userWishlist )
+                                {
+                                    return InfoAC( "<h2>product already in wishlist</h2>" );
+                                } else
+                                {
+                                    userWishlist.push( item.id );
+                                    localStorage.setItem( 'wishlist', JSON.stringify( userWishlist ) );
+                                    Success( "<h2>Product Added successfully</h2>" );
+                                }
+                            } else
+                            {
+                                localStorage.setItem( 'wishlist', [] );
+                                let userWishlist = [];
+                                userWishlist.push( item.id );
+                                localStorage.setItem( 'wishlist', JSON.stringify( userWishlist ) );
+                                console.log( JSON.parse( localStorage.getItem( 'wishlist' ) ) );
+                            }
+                        }
+
+                        const handleFormSubmit = ( e ) =>
+                        {
+                            e.preventDefault();
+                            let res = axios.post( "http://localhost:5011/Carts/addProductToCart", {
+                                "user_id": user.id,
+                                "product_id": item.id,
+                                "quantity": 1
+                            }, { headers } ).then( () =>
+                            {
+                                Success(
+                                    "<i>Product Added to Cart successfuly ✔</i>"
+                                );
+                            } ).catch( ( error ) =>
+                            {
+                                console.log( error );
+                            } );
+                        }
                         return (
                             <SwiperSlide >
                                 <div className="card border-0 rounded-2 shadow-sm position-relative " style={{ height: 250 }}	>
 
-                                    <button className="btn position-absolute translate-middle badge rounded-pill bg-white heart_icon_container " style={{ top: 30, right: -5 }}>
+                                    <button className="btn position-absolute translate-middle badge rounded-pill bg-white heart_icon_container " onClick={handleWishlist} style={{ top: 30, right: -5 }}>
                                         <svg width="22" height="18" viewBox="0 0 24 21" fill="none" className='heart_icon ' xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
@@ -68,8 +123,8 @@ function Cardsslider({Products}) {
                                         <img src={item.images[0]} className=' border-0 rounded-2 shadow' alt="Title" />
                                     </div>
                                     <div className="overlay">
-                                        <form>
-                                            <input type="submit" className='text-white bg-' />
+                                        <form className='text-center' action="" method='post' onSubmit={ handleFormSubmit }>
+                                            <input type="submit" className='btn text-white-50' value={ "Add to cart" } />
                                         </form>
                                     </div>
 
