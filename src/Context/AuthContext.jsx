@@ -1,6 +1,23 @@
 import { createContext, useReducer, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 
 export const AuthContext = createContext(null);
+
+// Add a function to parse the wishlist data
+const parseWishlist = (wishlistData) => {
+	try {
+		return JSON.parse(wishlistData) || [];
+	} catch (error) {
+		console.error("Error parsing wishlist data:", error);
+		return [];
+	}
+};
+
+let initState = {
+	user: JSON.parse(localStorage.getItem("user")) || null,
+	user_token: localStorage.getItem("user_token") || null,
+	wishlist: parseWishlist(localStorage.getItem("wishlist")) || [],
+};
 
 export const authReducer = (state, action) => {
 	switch (action.type) {
@@ -26,8 +43,10 @@ export const authReducer = (state, action) => {
 				// wishlist
 			};
 		case "Logout":
-			localStorage.clear();
-			return null;
+			localStorage.setItem("user", null);
+			localStorage.setItem("user_token", null);
+			localStorage.setItem("wishlist", parseWishlist([]));
+			return { ...initState, redirectTo: "/Metromart/" };
 		default:
 			return state;
 	}
@@ -38,22 +57,6 @@ function isObjectEmpty(obj) {
 }
 
 export const AuthContextProvider = ({ children }) => {
-	// Add a function to parse the wishlist data
-	const parseWishlist = (wishlistData) => {
-		try {
-			return JSON.parse(wishlistData) || [];
-		} catch (error) {
-			console.error("Error parsing wishlist data:", error);
-			return [];
-		}
-	};
-
-	const initState = {
-		user: JSON.parse(localStorage.getItem("user")) || null,
-		user_token: localStorage.getItem("user_token") || null,
-		wishlist: parseWishlist(localStorage.getItem("wishlist")) || [],
-	};
-
 	const [state, dispatch] = useReducer(
 		authReducer,
 		isObjectEmpty(initState) ? null : initState
@@ -65,6 +68,20 @@ export const AuthContextProvider = ({ children }) => {
 			localStorage.setItem("wishlist", JSON.stringify(state.wishlist));
 		} else localStorage.clear();
 	}, [state]);
+	if (state.redirectTo) {
+		window.location.reload();
+		return (
+			<AuthContext.Provider value={{ ...state, dispatch }}>
+				{children}
+			</AuthContext.Provider>
+		);
+	} else {
+		return (
+			<AuthContext.Provider value={{ ...state, dispatch }}>
+				{children}
+			</AuthContext.Provider>
+		);
+	}
 	// console.table(state);
 	return (
 		<AuthContext.Provider value={{ ...state, dispatch }}>

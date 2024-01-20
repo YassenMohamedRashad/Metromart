@@ -6,17 +6,22 @@ import { useNavigate } from "react-router-dom";
 
 function AccountDetails ()
 {
-    const [ name, setName ] = useState( '' );
-    const changeName = event =>
-    {
-        setName( event.target.value );
-    };
+    const [formData, setFormData] = useState({
+		name: "",
+		email: "",
+		phoneNumber: "",
+		address1: "",
+		address2: "",
+		currentPassword: "",
+		newPassword: "",
+		confirmNewPassword: "",
+	});
     const navigate = useNavigate();
     const { dispatch } = useAuth();
 
     const handleLogout = () =>
     {
-        dispatch( { type: "logout" } )
+        dispatch( { type: "Logout" } )
         navigate('/Metromart/')
     }
 
@@ -30,7 +35,7 @@ function AccountDetails ()
                             <a href="/Metromart/AccountDetails" className='text-black text-decoration-none'>My Account</a>
                         </div>
                         <div>
-                            <p>Welcome! <span className='text-danger'>{name}</span></p>
+                            <p>Welcome! <span className='text-danger'>name</span></p>
                         </div>
                     </div>
                 </div>
@@ -41,12 +46,12 @@ function AccountDetails ()
                         <form method='post' className="shadow rounded p-5">
                             <div className='d-flex justify-content-between'>
                                 <h3 className=' text-danger '>Edit Your Profile</h3>
-                                <a className='btn btn-danger'>Logout</a>
+                                <button onClick={handleLogout} className='btn btn-danger'>Logout</button>
                             </div>
                             <div className="d-flex justify-content-between mt-5">
                                 <div>
                                     <label htmlFor="Name" className='fw-bold'>Name</label>
-                                    <input type="text" name="name" className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2  account-inputs ' placeholder='Name' onChange={ changeName } />
+                                    <input type="text" name="name"  className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2  account-inputs ' placeholder='Name' />
                                 </div>
                                 <div>
                                     <label htmlFor="Email" className='fw-bold'>Email</label>
@@ -56,7 +61,7 @@ function AccountDetails ()
                             <div className="d-flex justify-content-between mt-3">
                                 <div>
                                     <label htmlFor="PhoneNumber" className='fw-bold'>Phone Number</label>
-                                    <input type="text" name="phonenumber" className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2 account-inputs' placeholder='Phone Number' />
+                                    <input type="text" name="phoneNumber" className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2 account-inputs' placeholder='Phone Number' />
                                 </div>
                                 <div>
                                     <label htmlFor="Address1" className='fw-bold'>Address One</label>
