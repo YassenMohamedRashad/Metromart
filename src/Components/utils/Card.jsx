@@ -101,7 +101,7 @@ function Card({ item }) {
 					/>
 				</div>
 
-				<div className="overlay" style={{ top: 270	 }}>
+				<div className="overlay" style={{ bottom: 115 }}>
 					<form
 						className="text-center"
 						action=""
