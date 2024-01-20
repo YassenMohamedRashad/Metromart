@@ -1,11 +1,11 @@
 /* dependencies */
-import axios from 'axios';
+import axios from "axios";
 import { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ProductsContext } from "../Context/ProductsContext.jsx";
 import { useAuth } from "../Hooks/useAuth.jsx";
 import useWishlist from "../Hooks/useWishlist.jsx";
-import { Success, Loader } from "./SweetAlert.jsx";
+import { Success, Loader, Close } from "./SweetAlert.jsx";
 /* components */
 import { Roadmap } from "./Roadmap";
 import { StarRating } from "./productDetailsComponents/StarRating";
@@ -24,22 +24,16 @@ const ProductDetails = () => {
 	const [data, setData] = useState(null);
 	const { inWishlist, handleWishlistToggle } = useWishlist(id);
 
-	// function filterProductsByIds(products, id) {
-	// 	let result = products.filter((product) => {
-	// 		if (id.includes(product.id)) {
-	// 			return product;
-	// 		}
-	// 	});
-	// 	// console.log();
-	// 	setData(result);
-	// }
 	function filterProductsByIds(products, id) {
 		const result = products.find((product) => product.id === +id);
-		if (result) setData(result);
-		else console.error(`Product with ID ${id} not found.`);
+		if (result) {
+			setData(result);
+			Close();
+		} else console.error(`Product with ID ${id} not found.`);
 	}
 
 	useEffect(() => {
+		Loader();
 		filterProductsByIds(Products, [+id]);
 		console.log(data);
 	}, [Products]);
@@ -69,11 +63,12 @@ const ProductDetails = () => {
 				console.log(error);
 			});
 	};
-	const handleClick = (e) => {};
 	return (
 		<>
 			<div className="container-fluid">
-				<Roadmap />
+				{data && (
+					<Roadmap name={data.name} category_id={data.category_id} />
+				)}
 				<div className="row flex-nowrap">
 					<div className="col">
 						<div className="slider-Container mb-5">
