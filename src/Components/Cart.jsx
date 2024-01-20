@@ -88,7 +88,7 @@ function Cart() {
                                     </div>
                                     <StarRating rate={product.product_data.rate} /> 
                                     <div className='d-flex mt-3'>
-                                        <Link className='btn btn-success' to={`http://localhost:3000/Metromart/productDetails/{product.product_data.id}`}>See product details</Link>
+                                    <Link className='btn btn-success' to={`http://localhost:3000/Metromart/productDetails/${product.product_data.id}`}>See product details</Link>
                                         <button className='btn btn-danger ms-3'
                                             onClick={(e) => deleteProductFromCart(e, product.product_data.id)}>
                                             Remove from Cart
