@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import RedirectToLogin from './RedirectToLogin';
+import "../assets/css/Cart.css";
 
 function Cart ()
 {
@@ -25,7 +26,7 @@ function Cart ()
             }
         } );
 
-        console.log( res );
+        setProducts( res.data.data );
     };
 
 
@@ -35,24 +36,34 @@ function Cart ()
     }, [] );
 
     return (
-        <div className='container'>
-            <table className='table'>
-
-                    <tr>
-                        <th>image</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Subtotal</th>
-                    </tr>
-
-                    <tr>
-                        <td>image</td>
-                        <td>Price</td>
-                        <td>Quantity</td>
-                        <td>Subtotal</td>
-                    </tr>
-
-            </table>
+        <div className='container p-5'>
+            <div>
+                {
+                    Products && Products.map( ( product ) =>
+                    {
+                        return (
+                            <div>
+                                <div className='row'>
+                                    <div className='col-6'>
+                                        <img className='w-100' src={ JSON.parse( product.product_data.image_path )[ 0 ] } alt="" />
+                                    </div>
+                                    <div className='col-6'>
+                                        <h3 className='fw-bold'>{ product.product_data.name }</h3>
+                                        <p className='text-black-50'>{ product.product_data.description }</p>
+                                        <p>{ product.product_data.rate }</p>
+                                        <p><span className='text-danger'>{ product.product_data.stock }</span> leave in stock</p>
+                                        <h4 >Price : <span className='text-danger'>{ product.product_data.price }$</span></h4>
+                                        <div className='d-flex'>
+                                            <button className='btn btn-success'>See product details</button>
+                                            <button className='btn btn-danger ms-3'>Remove from Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    } )
+                }
+            </div>
         </div>
 
     );
