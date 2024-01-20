@@ -37,7 +37,7 @@ function Aboutus() {
 								<br />
 
 								<div className="team-info">
-									<p>
+									<p className="text-start">
 										Lorem ipsum dolor, sit amet consectetur
 										adipisicing elit. Quia nesciunt iure
 										esse culpa suscipit minus earum neque,
@@ -59,7 +59,7 @@ function Aboutus() {
 								<h6>Team Leader</h6>
 
 								<div className="team-info">
-									<p>
+									<p className="text-start">
 										Lorem ipsum dolor, sit amet consectetur
 										adipisicing elit. Quia nesciunt iure
 										esse culpa suscipit minus earum neque,
@@ -81,7 +81,7 @@ function Aboutus() {
 								<br />
 
 								<div className="team-info">
-									<p>
+									<p className="text-start">
 										Lorem ipsum dolor, sit amet consectetur
 										adipisicing elit. Quia nesciunt iure
 										esse culpa suscipit minus earum neque,
@@ -107,7 +107,7 @@ function Aboutus() {
 								<br />
 
 								<div className="team-info">
-									<p>
+									<p className="text-start">
 										Lorem ipsum dolor, sit amet consectetur
 										adipisicing elit. Quia nesciunt iure
 										esse culpa suscipit minus earum neque,
@@ -130,10 +130,10 @@ function Aboutus() {
 								/>
 
 								<h3>Basmala</h3>
-								<br />
+								<br /> 
 
 								<div className="team-info">
-									<p>
+									<p className="text-start">
 										Lorem ipsum dolor, sit amet consectetur
 										adipisicing elit. Quia nesciunt iure
 										esse culpa suscipit minus earum neque,
