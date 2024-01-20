@@ -103,7 +103,7 @@ function Cardsslider({ Products }) {
 									</button>
 									<div className="d-flex justify-content-center product-swiper-img">
 										<img
-											src={item.images[0]}
+											src={item.image_path[0]}
 											className=" border-0 rounded-2 shadow"
 											alt="Title"
 										/>
