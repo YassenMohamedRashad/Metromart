@@ -3,28 +3,14 @@ import { useContext } from "react";
 import "../../assets/css/Cardsslider.css";
 import { ProductsContext } from "../../Context/ProductsContext";
 import  Card  from "../utils/Card";
+import SliderTitle from "../utils/SliderTitle";
 
-function Cardsslider({ title }) {
+function Cardsslider({title1,title2}) {
 	const Products = useContext(ProductsContext);
 
 	return (
 		<div className="container mt-5 mb-5">
-			<div className="row mt-5 mb-4 position-relative">
-				<div className="rounded today"></div>
-				<h5 className="text-danger position-absolute mt-3 ms-4 fw-bold today-text">
-					{title || "This Month"}
-				</h5>
-			</div>
-			<div className="d-flex justify-content-between align-items-center mb-5">
-				<h2 className="text-black mb-4 fw-bold">{title ? "Exclusive offers" : "New Products"}</h2>
-				<a
-					href="#"
-					className="btn text-white pt-3 pb-3 ps-5 pe-5 view-all-product"
-					style={{ backgroundColor: "#DC4345" }}
-				>
-					View All
-				</a>
-			</div>
+			<SliderTitle title={ title1 } subTitle={ title2 } />
 
 			<Swiper
 				spaceBetween={40}

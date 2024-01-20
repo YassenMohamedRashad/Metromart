@@ -66,7 +66,7 @@ function WishList() {
 				</div>
 
 				{/* Slider */}
-				<Cardsslider title={"Just For You"} />
+				
 			</div>
 		</>
 	);
