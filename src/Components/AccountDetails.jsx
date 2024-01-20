@@ -1,11 +1,9 @@
-import { React, useState } from 'react';
+import { React, useState } from "react";
 import "../assets/css/AccountDetails.css";
 import { useAuth } from "../Hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
-
-function AccountDetails ()
-{
+function AccountDetails() {
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -19,15 +17,19 @@ function AccountDetails ()
 	const navigate = useNavigate();
 	/* setting the states of the app */
 	const [formErrors, setFormErrors] = useState({});
-	const [loading, setLoading] = useState(true);
 	const { dispatch, user, user_token } = useAuth();
 
 	const handleLogout = () => {
-		localStorage.clear()
-		navigate("/Metromart/")
-		window.location.reload()
+		localStorage.clear();
+		navigate("/Metromart/");
+		window.location.reload();
 	};
-
+	/* handling changes */
+	const handleChange = (e) => {
+		/* Updates the formData based on the user's input in the form fields. */
+		const { name, value } = e.target;
+		setFormData((prevState) => ({ ...prevState, [name]: value }));
+	};
 	return (
 		<>
 			<div className="container mt-5 mb-5" style={{ marginTop: 75 }}>
