@@ -56,26 +56,26 @@ function NavbarComponent({ isLogin }) {
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="m-auto">
 							<Nav.Link
-								to="/Metromart/"
+								href="/Metromart/"
 								className="me-4 fw-bold"
 							>
 								Home
 							</Nav.Link>
 							<Nav.Link
-								to="/Metromart/contactUs/"
+								href="/Metromart/contactUs/"
 								className="me-4 fw-bold"
 							>
 								Contact
 							</Nav.Link>
 							<Nav.Link
-								to="/Metromart/aboutUs/"
+								href="/Metromart/aboutUs/"
 								className="me-4 fw-bold"
 							>
 								About us
 							</Nav.Link>
 							{!isLogin && (
 								<Nav.Link
-									to="/Metromart/signUp/"
+									href="/Metromart/signUp/"
 									className="me-4 fw-bold"
 								>
 									Sign Up
