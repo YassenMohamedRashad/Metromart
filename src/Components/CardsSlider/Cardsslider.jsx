@@ -4,18 +4,18 @@ import "../../assets/css/Cardsslider.css";
 import { ProductsContext } from "../../Context/ProductsContext";
 import { useContext } from "react";
 
-function Cardsslider() {
+function Cardsslider({title}) {
 	const Products = useContext(ProductsContext);
 	return (
 		<div className="container mt-5 mb-5">
 			<div className="row mt-5 mb-4 position-relative">
 				<div className="rounded	today"></div>
 				<h5 className="text-danger position-absolute mt-3 ms-4 fw-bold today-text">
-					This Month
+					{title || "This Month"}
 				</h5>
 			</div>
 			<div className="d-flex justify-content-between align-items-center mb-5">
-				<h2 className="text-black mb-4 fw-bold">New Products</h2>
+				<h2 className="text-black mb-4 fw-bold">{title ? "Exclusive offers" : "New Products"}</h2>
 				<a
 					href="#"
 					className="btn text-white pt-3 pb-3 ps-5 pe-5 view-all-product"

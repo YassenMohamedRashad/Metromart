@@ -3,10 +3,9 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ProductsContext } from "../Context/ProductsContext.jsx";
 import { useAuth } from "../Hooks/useAuth.jsx";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import Card from "./utils/Card.jsx";
 import { InfoAC } from "./SweetAlert.jsx";
+import Cardsslider from "./CardsSlider/Cardsslider.jsx";
+import Card from "./utils/Card.jsx";
 
 // Responsiveness settings for the slider
 const responsive = {
@@ -25,18 +24,19 @@ function WishList() {
 	const navigate = useNavigate();
 
 	function filterUsersByIds(users, ids) {
-		return users.filter((user) => ids.includes(user.id));
+		setWishlistProducts(users.filter((user) => ids.includes(user.id)));
 	}
 
 	useEffect(() => {
-		const updatedWishlistProducts = filterUsersByIds(Products, wishlist);
-		setWishlistProducts(updatedWishlistProducts);
-
-		// Check if updatedWishlistProducts has length > 0 and navigate accordingly
-		if (updatedWishlistProducts.length === 0) {
-			InfoAC("Your Wishlist Is Now Empty\nLet's Go To The Homepage", 3000)
+		filterUsersByIds(Products, wishlist);
+		if (wishlist?.length === 0) {
+			InfoAC(
+				"Your Wishlist Is Now Empty\nLet's Go To The Homepage",
+				3000 //duration of the message
+			);
 			navigate("/Metromart/");
-		};
+		}
+		// Check if updatedWishlistProducts has length > 0 and navigate accordingly
 	}, [wishlist, Products]);
 
 	return (
@@ -45,7 +45,8 @@ function WishList() {
 			<div className="container my-container">
 				<div className="row wishlist-row">
 					<h4 className="col-xxl-10 col-xl-10 col-lg-9 col-md-8 col my-h4">
-						Wishlist( )
+						Wishlist ( {wishlistProducts && wishlistProducts.length}{" "}
+						)
 					</h4>
 					<button className="col btn btn-outline-dark btn-lg">
 						Move All To Cart
@@ -61,25 +62,8 @@ function WishList() {
 						))}
 				</div>
 
-				{/* For You row */}
-				<div className="row foryou-row">
-					<h4 className="col-xxl-10 col-xl-10 col-lg-9 col-md-8 col my-h4">
-						<span className="bg-danger space">&nbsp;&nbsp;</span>{" "}
-						Just For You
-					</h4>
-					<button className="col btn btn-outline-dark btn-lg">
-						See All
-					</button>
-				</div>
-
 				{/* Slider */}
-				<Carousel responsive={responsive}>
-					{/* Dynamic cards from API */}
-					{Products &&
-						Products.map((item) => (
-							<Card key={item.id} item={item} />
-						))}
-				</Carousel>
+				<Cardsslider title={"Just For You"} />
 			</div>
 		</>
 	);

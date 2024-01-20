@@ -124,7 +124,7 @@ function Homesec2 ()
                 
             </div>
 
-            {/* Brows By Category word and view button  */ }
+            {/* Browse By Category word and view button  */ }
             <Cardsslider />
         </div>
 
