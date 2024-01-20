@@ -26,9 +26,9 @@
 
 .Navbar-background-color {
 	background-color: #181818 !important;
-	transition: background-color 0.5s ease; 
+	transition:  0.5s ease; 
 }
 .Navbar-background-transparent{
 	background-color: transparent !important;
-	transition: background-color 0.5s ease;
+	transition:  0.5s ease;
 }

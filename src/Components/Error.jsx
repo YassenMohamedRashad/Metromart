@@ -1,30 +1,21 @@
 import { Link } from "react-router-dom";
 import "../assets/css/Error.css";
+import error from "../assets/images/404_error_page.png"
 
 function Error() {
-	const ErrorStyle = {
-		height: "80vh",
-		display: "grid",
-		"place-items": "center",
-	};
-	const heading = {
-		fontSize: "4.375rem",
-	};
-	return (
-		<div className="container" style={ErrorStyle}>
-			<div className="text-center">
-				<h1 className="" style={heading}>
-					404 Page Not Found
-				</h1>
-				<p className="text-capitalize">
-					your visited page not found, you may go to the home page.
-				</p>
-				<Link to="/Metromart/" className="btn-danger btn">
+    return (
+        
+        <div className="text-center mb-5 mt-5">
+            <img src={error} className="error-image" alt="" />
+            <h5 className="fw-bold">your visited page not found, you may go home page.</h5>
+            <Link to="/Metromart/" className="btn-danger btn mt-3 pt-3 pb-2 pe-5 ps-5">
+                <h6>
 					Back to home page
-				</Link>
-			</div>
-		</div>
-	);
+                </h6>
+			</Link>
+        </div>
+
+    );
 }
 
 export default Error;
