@@ -80,7 +80,7 @@
     height: 200px;
 }
 
-.team-description{
-    color: #444444 !important   ;
-    font-weight: bold;
+.a{
+    text-decoration: none;
+    color: #000;
 }
