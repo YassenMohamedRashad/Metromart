@@ -39,7 +39,7 @@ export const Close = () => {
 	MySwal.close();
 };
 
-export const InfoAC = (msg, duration=2500) => {
+export const InfoAC = (msg, duration = 2500) => {
 	return MySwal.fire({
 		title: msg,
 		icon: "info",
@@ -48,3 +48,49 @@ export const InfoAC = (msg, duration=2500) => {
 		showConfirmButton: false,
 	});
 };
+
+// const UpdatingUser = () => {
+// 	Swal.fire({
+// 		title: "Confirm Checkout",
+// 		text: `Are you sure you want to update your account?\nPlease note that this action is irreversible.`,
+// 		icon: "question",
+// 		showCancelButton: true,
+// 		confirmButtonText: "Yes, I'm Sure!",
+// 		cancelButtonText: "Cancel",
+// 	}).then((result) => {
+// 		if (result.isConfirmed) {
+// 			Close();
+// 			try {
+// 				const response = axios.put(
+// 					"http://localhost:5011/user/updateAccount", // Update this URL to the correct endpoint
+// 					updatedUserData,
+// 					{
+// 						headers: {
+// 							Authorization: `Bearer ${user_token}`,
+// 							"Content-Type": "application/json",
+// 						},
+// 					}
+// 				);
+// 				// Assuming the response data has a status property indicating success
+// 				if (response.data.status === "success") {
+// 					setFormErrors({});
+// 					Success(
+// 						"User data updated successfully",
+// 						"/Metromart/",
+// 						navigate
+// 					);
+// 					// Handle any additional logic after successful update
+// 				} else {
+// 					Fail("Failed to update user data");
+// 					// Handle errors or show appropriate messages
+// 				}
+// 			} catch (error) {
+// 				Fail("Error updating user data: ", error);
+// 				// Handle network errors or other issues
+// 			} finally {
+// 				setLoading((prev) => !prev);
+// 				Close();
+// 			}
+// 		}
+// 	});
+// };
