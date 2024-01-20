@@ -79,7 +79,7 @@ function NavbarComponent ( { isLogin } )
 								Home
 							</Nav.Link>
 							<Nav.Link
-								href="/Metromart/contactUs/"
+								href="/Metromart/contact/"
 								className="me-4 fw-bold"
 							>
 								Contact
