@@ -114,7 +114,15 @@ function NavbarComponent ( { isLogin } )
 						</Form>
 						<div className="text-dark fs-4">
 							<NavLink onClick={ handleClick } to="/Metromart/wishlist/">
-								<i className="bi bi-heart text-white me-2 ms-2"></i>
+								<i className="bi bi-heart text-white me-2 ms-2 position-relative">
+									<span
+										className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+										style={ CartIconStyle }
+									>
+										{ JSON.parse( localStorage.getItem( 'wishlist' ) ).length > 0 && JSON.parse( localStorage.getItem( 'wishlist' ) ).length }
+										<span className="visually-hidden"></span>
+									</span>
+								</i>
 							</NavLink>
 							<NavLink to="/Metromart/cart/">
 								<i className="bi bi-cart text-white me-2 ms-2 position-relative">
