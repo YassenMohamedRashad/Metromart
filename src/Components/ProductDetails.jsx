@@ -206,6 +206,7 @@ const ProductDetails = () => {
 						</div>
 					</div>
 				</div>
+				
 				<div className="row my-5">
 					<div className="col RelatedItems-col mb-5">
 						{/* <RelatedItems /> */}

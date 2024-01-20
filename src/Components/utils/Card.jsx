@@ -3,6 +3,7 @@ import { useAuth } from "../../Hooks/useAuth";
 import { Success } from "../SweetAlert";
 import useWishlist from "../../Hooks/useWishlist";
 import { StarRating } from "../productDetailsComponents/StarRating";
+import { Link } from "react-router-dom";
 
 function Card({ item }) {
 	const { user, user_token } = useAuth();
@@ -12,6 +13,7 @@ function Card({ item }) {
 		Authorization: `Bearer ${user_token}`,
 	};
 
+	let productIdUrl = `/Metromart/ProductDetails/${item.id}`; 
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
 		let res = axios
@@ -68,6 +70,8 @@ function Card({ item }) {
 					className="btn position-absolute translate-middle badge rounded-pill bg-white eye_icon_container "
 					style={{ top: 70, right: -5 }}
 				>
+					
+					<Link to={ productIdUrl }>
 					<svg
 						fill="#000000"
 						className="eye_icon"
@@ -92,10 +96,12 @@ function Card({ item }) {
 							</g>
 						</g>
 					</svg>
+					</Link>
+
 				</button>
 				<div className="d-flex justify-content-center product-img">
 					<img
-						src={item.images[0]}
+						src={JSON.parse(item.image_path)[0]}
 						className=" border-0 rounded-2 shadow"
 						alt="Title"
 					/>

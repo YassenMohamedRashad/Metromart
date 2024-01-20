@@ -15,6 +15,7 @@ import Error from "./Components/Error";
 import SearchForProducts from "./Components/SearchForProducts";
 import AboutUs from "./Components/Aboutus";
 import RedirectToLogin from "./Components/RedirectToLogin";
+import Cart from "./Components/Cart";
 
 function App() {
 	const { user } = useAuth();
@@ -71,6 +72,10 @@ function App() {
 				<Route
 					path="/Metromart/SearchForProducts/:key"
 					element={<SearchForProducts />}
+				></Route>
+				<Route
+					path="/Metromart/Cart"
+					element={<Cart />}
 				></Route>
 
 				<Route path="/Metromart/*" element={<Error />} />
