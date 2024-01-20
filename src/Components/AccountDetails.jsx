@@ -22,10 +22,10 @@ function AccountDetails ()
 	const [loading, setLoading] = useState(true);
 	const { dispatch, user, user_token } = useAuth();
 
-	const handleLogout = (e) => {
-        e.preventDefault();
-		dispatch({ type: "Logout" });
-		navigate("/Metromart/");
+	const handleLogout = () => {
+		localStorage.clear()
+		navigate("/Metromart/")
+		window.location.reload()
 	};
 
 	return (
