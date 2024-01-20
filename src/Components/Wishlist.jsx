@@ -1,13 +1,12 @@
 // Importing dependencies
-import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Loader, Close } from "./SweetAlert.jsx";
 import { ProductsContext } from "../Context/ProductsContext.jsx";
 import { useAuth } from "../Hooks/useAuth.jsx";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Card from "./utils/Card.jsx";
+import { InfoAC } from "./SweetAlert.jsx";
 
 // Responsiveness settings for the slider
 const responsive = {
@@ -20,27 +19,25 @@ const responsive = {
 
 // Wishlist component
 function WishList() {
-	const { wishlist, dispatch } = useAuth();
+	const { wishlist } = useAuth();
 	const Products = useContext(ProductsContext);
-	const [loading, setLoading] = useState(true);
 	const [wishlistProducts, setWishlistProducts] = useState();
 	const navigate = useNavigate();
-	const handleDeletion = (id) => {
-		dispatch({ type: "removeFromWishlist", payload: id });
-		if (wishlist.length === 1) navigate("/Metromart/");
-	};
 
 	function filterUsersByIds(users, ids) {
 		return users.filter((user) => ids.includes(user.id));
 	}
 
 	useEffect(() => {
-		let wishlistProducts = filterUsersByIds(Products, wishlist);
-		setWishlistProducts(wishlistProducts);
-		return () => {
-			setLoading(false);
+		const updatedWishlistProducts = filterUsersByIds(Products, wishlist);
+		setWishlistProducts(updatedWishlistProducts);
+
+		// Check if updatedWishlistProducts has length > 0 and navigate accordingly
+		if (updatedWishlistProducts.length === 0) {
+			InfoAC("Your Wishlist Is Now Empty\nLet's Go To The Homepage", 3000)
+			navigate("/Metromart/");
 		};
-	}, [wishlist, loading]);
+	}, [wishlist, Products]);
 
 	return (
 		<>
@@ -48,8 +45,7 @@ function WishList() {
 			<div className="container my-container">
 				<div className="row wishlist-row">
 					<h4 className="col-xxl-10 col-xl-10 col-lg-9 col-md-8 col my-h4">
-						Wishlist ({wishlistProducts && wishlistProducts?.length}
-						)
+						Wishlist( )
 					</h4>
 					<button className="col btn btn-outline-dark btn-lg">
 						Move All To Cart
@@ -61,11 +57,7 @@ function WishList() {
 					{/* Dynamic cards from API */}
 					{wishlistProducts &&
 						wishlistProducts.map((item) => (
-							<Card
-								key={item.id}
-								item={item}
-								handleDeletion={handleDeletion}
-							/>
+							<Card key={item.id} item={item} />
 						))}
 				</div>
 

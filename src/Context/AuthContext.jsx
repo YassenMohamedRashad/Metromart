@@ -65,7 +65,7 @@ export const AuthContextProvider = ({ children }) => {
 			localStorage.setItem("wishlist", JSON.stringify(state.wishlist));
 		} else localStorage.clear();
 	}, [state]);
-	console.table(state);
+	// console.table(state);
 	return (
 		<AuthContext.Provider value={{ ...state, dispatch }}>
 			{children}

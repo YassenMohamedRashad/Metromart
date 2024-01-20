@@ -24,7 +24,7 @@ export const ProductsContextProvider = ({ children }) => {
 			.then((res) => {
 				const modifiedProducts = parseImagePath(res.data.data);
 				setProducts(modifiedProducts);
-				console.table(modifiedProducts);
+				// console.table(modifiedProducts);
 			})
 			.catch((error) => {
 				throw new Error(error);

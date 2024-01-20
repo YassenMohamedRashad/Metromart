@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "./useAuth";
 
 const useWishlist = (itemId) => {
-    itemId = +itemId;
+	itemId = +itemId;
 	const { wishlist, dispatch } = useAuth();
 	const [inWishlist, setInWishlist] = useState(false);
 

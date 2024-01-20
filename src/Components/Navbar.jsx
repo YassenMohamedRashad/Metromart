@@ -17,9 +17,9 @@ function NavbarComponent({ isLogin }) {
 
 	const handleClick = (e) => {
 		e.preventDefault();
-		wishlist.length === 0
-			? InfoAC("Your Wishlist Is Empty\nLet's Fill It with some Items 😊")
-			: navigate("/Metromart/wishlist");
+		wishlist.length != 0
+			? navigate("/Metromart/wishlist")
+			: InfoAC("Your Wishlist Is Empty\nLet's Fill It with some Items 😊", 2000);
 	};
 
 	useEffect(() => {

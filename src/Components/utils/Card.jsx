@@ -5,7 +5,7 @@ import useWishlist from "../../Hooks/useWishlist";
 import { StarRating } from "../productDetailsComponents/StarRating";
 
 function Card({ item }) {
-	const { user, user_token, wishlist, dispatch } = useAuth();
+	const { user, user_token } = useAuth();
 	const { inWishlist, handleWishlistToggle } = useWishlist(item.id);
 	const headers = {
 		"Content-Type": "application/json",

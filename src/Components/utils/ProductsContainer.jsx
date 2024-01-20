@@ -9,7 +9,7 @@ function ProductsContainer() {
 			<div className="row justify-content-center  ">
 				{Products &&
 					Products.map((item) => {
-						return <Card item={item} />;
+						return <Card key={item.id} item={item} />;
 					})}
 			</div>
 		</div>
