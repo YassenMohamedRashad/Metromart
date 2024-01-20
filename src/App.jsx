@@ -15,6 +15,9 @@ import Error from "./Components/Error";
 import SearchForProducts from "./Components/SearchForProducts";
 import AboutUs from "./Components/Aboutus";
 import RedirectToLogin from "./Components/RedirectToLogin";
+import Contact from "./Components/Contact";
+
+import Card from "./Components/utils/Card";
 import Cart from "./Components/Cart";
 
 function App() {
@@ -79,6 +82,8 @@ function App() {
 				></Route>
 
 				<Route path="/Metromart/*" element={<Error />} />
+				<Route path="/Metromart/contact" element={<Contact />} />
+				<Route path="/Metromart/card" element={<Card />} />
 			</Routes>
 			<Footer />
 		</>

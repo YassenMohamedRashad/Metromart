@@ -12,6 +12,7 @@
   width: 380px;
   outline: none;
 }
+
 .login-form .email-label {
   position: absolute;
   top: 70px;
@@ -20,9 +21,10 @@
   pointer-events: none;
   transition: all 0.3s ease;
 }
+
 .login-form .email-input:focus ~ .email-label,
 .login-form .email-input:valid ~ .email-label {
-  transform: translateY(-20px);
+  transform: translateY(-15px);
   font-size: 15px;
   color: #4158d0;
 }
