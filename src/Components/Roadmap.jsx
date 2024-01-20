@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../assets/css/Roadmap.css";
 export const Roadmap = ({ category_id, name }) => {
 	const categories = {
@@ -7,11 +8,12 @@ export const Roadmap = ({ category_id, name }) => {
 		4: "Shoes",
 		5: "Miscellaneous",
 	};
+	const URL = `/Metromart/SearchForProducts/${category_id}`;
 	return (
 		<>
 			<h6 className="tabs mb-1 mt-3 mx-5">
-				<a className="tab">{categories[category_id]}</a> /
-				<a className="tab">{name.split(" ").slice(0, 2).join(" ")}</a>
+				<Link to={URL} className="tab">{categories[category_id]}</Link> /
+				<Link className="tab">{name.split(" ").slice(0, 2).join(" ")}</Link>
 			</h6>
 		</>
 	);
