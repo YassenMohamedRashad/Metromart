@@ -10,14 +10,14 @@ function Cart() {
     const isLogin = localStorage.getItem('user') ? true : false;
     let user = '';
     let user_token = '';
-    
+
     if (isLogin) {
         user = JSON.parse(localStorage.getItem('user'));
         user_token = localStorage.getItem('user_token');
     } else {
         <RedirectToLogin />;
     }
-    
+
     const getUserCart = async () => {
         try {
             const res = await axios.get(`http://localhost:5011/Carts/getSingleCart/${user.id}`, {
@@ -30,11 +30,11 @@ function Cart() {
             console.log(error);
         }
     };
-    
+
     useEffect(() => {
         getUserCart();
     }, []);
-    
+
     const deleteProductFromCart = async (e, ProductID) => {
         e.preventDefault();
 
@@ -59,6 +59,14 @@ function Cart() {
         }
     };
 
+    const calculateTotalPrice = () => {
+        let totalPrice = 0;
+        Products.forEach((product) => {
+            totalPrice += product.product_data.price * product.quantity;
+        });
+        return totalPrice;
+    };
+
     return (
         <div className='container p-5'>
             <div>
@@ -73,7 +81,7 @@ function Cart() {
                                     <h3 className='fw-bold'>{product.product_data.name}</h3>
                                     <p className='text-black-50'>{product.product_data.description}</p>
                                     <h6>Quantity: {product.quantity}</h6>
-                                    <h5><span className='text-danger'>{product.product_data.price}$</span></h5>
+                                    <h5><span className='text-danger'>{product.product_data.price * product.quantity}$</span></h5>
                                     <StarRating rate={product.product_data.rate} />
                                     <div className='d-flex mt-3'>
                                         <button className='btn btn-success'>See product details</button>
@@ -87,13 +95,27 @@ function Cart() {
                             <hr />
                         </div>
                     ))
-                ) : (
-                    <div className='text-center'>
-                            <img src={emptyCart} alt="z" className='h-50 w-50' />
-                            <h1>There are no products in the cart.</h1>
+
+                    ) : (
+                        <div className='text-center'>
+                        <img src={emptyCart} alt="z" className='h-50 w-50' />
+                        <h1>There are no products in the cart.</h1>
                     </div>
                 )}
+
+                {Products.length != 0 ? (
+                    <div className="mt-5">
+                        <h4>Total Price: <span className='text-danger'>{calculateTotalPrice()}$</span></h4>
+                    </div>
+                ) : (
+                    <div className='text-center'>
+                    </div>
+                )}
+
+
             </div>
+
+
         </div>
     );
 }
