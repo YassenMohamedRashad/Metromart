@@ -69,11 +69,10 @@ const ProductDetails = () => {
 				console.log(error);
 			});
 	};
-	const handleClick = (e) => {};
 	return (
 		<>
 			<div className="container-fluid">
-				<Roadmap />
+				{data && <Roadmap name={data.name} category_id={data.category_id} />}
 				<div className="row flex-nowrap">
 					<div className="col">
 						<div className="slider-Container mb-5">
