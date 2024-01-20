@@ -81,11 +81,14 @@ function Cart() {
                                 <div className='col-8'>
                                     <h3 className='fw-bold'>{product.product_data.name}</h3>
                                     <p className='text-black-50'>{product.product_data.description}</p>
-                                    <h6>Quantity: {product.quantity}</h6>
-                                    <h5><span className='text-danger'>{product.product_data.price * product.quantity}$</span></h5>
-                                    <StarRating rate={product.product_data.rate} />
+                                    <h5><span className='text-danger'>{product.product_data.price }$</span></h5>
+                                    <div className="d-flex">
+                                        <h5>Quantity: {product.quantity}</h5>
+                                        <h5 className='ms-4'><span className='text-black'>Total Price: {product.product_data.price * product.quantity}$</span></h5>
+                                    </div>
+                                    <StarRating rate={product.product_data.rate} /> 
                                     <div className='d-flex mt-3'>
-                                        <Link className='btn btn-success'>See product details</Link>
+                                        <Link className='btn btn-success' to={`http://localhost:3000/Metromart/productDetails/{product.product_data.id}`}>See product details</Link>
                                         <button className='btn btn-danger ms-3'
                                             onClick={(e) => deleteProductFromCart(e, product.product_data.id)}>
                                             Remove from Cart
