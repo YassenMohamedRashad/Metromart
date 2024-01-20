@@ -120,7 +120,9 @@ function Homesec2 ()
             </div>
 
             {/* Browse By Category word and view button  */ }
-            <Cardsslider />
+            <Cardsslider title1={ "Last added products" } title2={ "New products" } />
+            
+            <Cardsslider title1={"People love this"} title2={"Most purchased"}/>
         </div>
 
     );

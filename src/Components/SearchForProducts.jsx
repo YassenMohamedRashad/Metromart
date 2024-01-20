@@ -62,9 +62,13 @@ function SearchForProducts ()
         <div style={ { overflowX: "hidden" } }>
             <div className='row p-5'>
                 {
-                    products && products.map( ( product ) =>
+                    products && products.map( ( item ) =>
                     {
-                        return <Card item={ product } />;
+                        return ( 
+                            <div className="col-8 col-sm-6 col-md-4 col-lg-3 .col-xl-2">
+                                <Card key={ item.id } item={ item } />
+                            </div>
+                        )
                     } )
                 }
             </div>
