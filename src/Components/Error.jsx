@@ -1,30 +1,20 @@
 import { Link } from "react-router-dom";
 import "../assets/css/Error.css";
-import { useNavigate } from "react-router-dom";
+import error from "../assets/images/404_error_page.png"
 
-function Error ()
-{
-    const ErrorStyle = {
-        height: "80vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-    }
-    const heading = {
-        fontSize:"70px"
-    }
+function Error() {
     return (
-        <div className="container" style={ErrorStyle}>
-                <div className="text-center">
-                <h1 className="" style={ heading }>404 Not Found</h1>
-                    <p className="">
-                        your visited page not found, you may go home page.
-                    </p>
-                    <a href="/Metromart/" className="btn-danger btn">
-                        Back to home page
-                    </a>
-                </div>
+        
+        <div className="text-center mb-5 mt-5">
+            <img src={error} className="error-image" alt="" />
+            <h5 className="fw-bold">your visited page not found, you may go home page.</h5>
+            <Link to="/Metromart/" className="btn-danger btn mt-3 pt-3 pb-2 pe-5 ps-5">
+                <h6>
+					Back to home page
+                </h6>
+			</Link>
         </div>
+
     );
 }
 
