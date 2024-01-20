@@ -31,12 +31,17 @@
 .heart_icon_container,
 .heart_icon {
   transition: 0.5s ease;
-}.heart_icon_container:hover {
-  background-color: #DC4345 !important;
+  cursor: pointer;
+}
 
+.heart_icon_container:hover {
   .heart_icon {
     fill: #db7274;
   }
+}
+
+.heart_icon.hover {
+  fill: #db7274;
 }
 
 .swiper-slide img {

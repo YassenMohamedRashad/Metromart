@@ -16,15 +16,13 @@ import SearchForProducts from "./Components/SearchForProducts";
 import AboutUs from "./Components/Aboutus";
 import RedirectToLogin from "./Components/RedirectToLogin";
 
-
-
 function App() {
-	const { user, user_token, wishList } = useAuth();
-	const userIsFound = user ? true : false;
+	const { user } = useAuth();
+	const userIsFound = user ?? false;
 
 	return (
 		<>
-			<NavbarComponent />
+			<NavbarComponent isLogin={userIsFound} />
 			<Routes>
 				<Route path="/Metromart/aboutUs/" element={<AboutUs />} />
 				<Route path={"/Metromart/"} element={<Home />} />

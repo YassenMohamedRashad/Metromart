@@ -132,9 +132,10 @@ function SignUp() {
 						payload: [
 							JSON.parse(localStorage.getItem("user")),
 							localStorage.getItem("user_token"),
-							[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+							null, // Change this line to pass an empty array instead of [null]
 						],
 					});
+
 					Success(
 						"<i>Your account is all set up 👌</i>",
 						`/Metromart/`,
