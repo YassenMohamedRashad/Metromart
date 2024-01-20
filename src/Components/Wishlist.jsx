@@ -23,12 +23,12 @@ function WishList() {
 	const [wishlistProducts, setWishlistProducts] = useState();
 	const navigate = useNavigate();
 
-	function filterUsersByIds(users, ids) {
-		setWishlistProducts(users.filter((user) => ids.includes(user.id)));
+	function filterProductsByIds(products, ids) {
+		setWishlistProducts(products.filter((product) => ids.includes(product.id)));
 	}
 
 	useEffect(() => {
-		filterUsersByIds(Products, wishlist);
+		filterProductsByIds(Products, wishlist);
 		if (wishlist?.length === 0) {
 			InfoAC(
 				"Your Wishlist Is Now Empty\nLet's Go To The Homepage",
