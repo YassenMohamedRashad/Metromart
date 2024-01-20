@@ -1,31 +1,78 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+/* dependencies */
+import { Route, Routes, Navigate } from "react-router-dom";
+import { useAuth } from "./Hooks/useAuth";
+/* components */
+import Nav from "./Components/Navbar";
+import Footer from "./Components/Footer";
+import Login from "./Components/Login";
+import Signup from "./Components/SignUp";
+import AccountDetails from "./Components/AccountDetails";
+import WishList from "./Components/Wishlist";
+import BillingDetails from "./Components/BillingDetails";
+import ProductDetails from "./Components/ProductDetails";
+import { Home } from "./Components/Home";
+import Error from "./Components/Error"
+import Shop from "./Components/Shop"
+import LastSection from "./Components/LastSection"
 
-function App ()
-{
+function App() {
+	const { user, user_token } = useAuth();
+	const userIsFound = user ? true : false;
+	
+	return (
+		<>
+			<Nav />
+			<Routes>
+				<Route path="/Metromart/aboutUs/" element={<AboutUs />} />
+				<Route path={"/Metromart/"} element={<Home />} />
+				<Route
+					path="/Metromart/login/"
+					element={
+						!userIsFound ? (
+							<Login />
+						) : (
+							<Navigate to={"/Metromart/"} />
+						)
+					}
+				/>
+				<Route
+					path="/Metromart/signup/"
+					element={
+						!userIsFound ? (
+							<Signup />
+						) : (
+							<Navigate to={"/Metromart/"} />
+						)
+					}
+				/>
+				<Route
+					path="/Metromart/accountDetails/"
+					element={
+						userIsFound ? <AccountDetails /> : <RedirectToLogin />
+					}
+				/>
+				<Route
+					path="/Metromart/wishlist/"
+					element={userIsFound ? <WishList /> : <RedirectToLogin />}
+				/>
+				<Route
+					path="/Metromart/billingDetails/"
+					element={
+						userIsFound ? <BillingDetails /> : <RedirectToLogin />
+					}
+				/>
 
-    const [ data, setData ] = useState( [] );
-    const getData = async () =>
-    {
-      try {
-        const res = await axios.get( "http://localhost:5011" );
-        console.log( res.data );
-      } catch (error) {
-        console.log(error)
-      }
-    };
-
-
-  useEffect( () =>
-  {
-    getData();
-  }, [] )
-
-  return (
-    <>
-      New App
-    </>
-  )
+				<Route
+					path="/Metromart/productDetails/:id"
+					element={<ProductDetails />}
+				/>
+				<Route path="/Metromart/*" element={ <Error /> }></Route>
+				<Route path="/Metromart/last" element={ <LastSection /> }></Route>
+				
+			</Routes>
+			<Footer />
+		</>
+	);
 }
 
 export default App;

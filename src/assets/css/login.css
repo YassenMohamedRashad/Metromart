@@ -29,7 +29,7 @@
 
 .login-form .pass-label {
   position: absolute;
-  top: 145PX;
+  top: 120px;
   left: 0;
   color: grey;
   pointer-events: none;
@@ -38,7 +38,7 @@
 
 .login-form .pass-input:focus ~ .pass-label,
 .login-form .pass-input:valid ~ .pass-label {
-  transform: translateY(-20px);
+  transform: translateY(-15px);
   font-size: 15px;
   color: #4158d0;
 }
