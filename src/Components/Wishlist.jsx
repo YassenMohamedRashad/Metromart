@@ -56,9 +56,12 @@ function WishList() {
 				{/* Wishlist row */}
 				<div className="row">
 					{/* Dynamic cards from API */}
+
 					{wishlistProducts &&
 						wishlistProducts.map((item) => (
-							<Card key={item.id} item={item} />
+							<div className="col-8 col-sm-6 col-md-4 col-lg-3 .col-xl-2">
+								<Card key={item.id} item={item} />
+							</div>
 						))}
 				</div>
 
