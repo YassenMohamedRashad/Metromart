@@ -1,72 +1,94 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import RedirectToLogin from './RedirectToLogin';
-import "../assets/css/Cart.css";
-import { StarRating } from "./productDetailsComponents/StarRating";
+    import axios from 'axios';
+    import React, { useEffect, useState } from 'react';
+    import RedirectToLogin from './RedirectToLogin';
+    import "../assets/css/Cart.css";
+    import { StarRating } from "./productDetailsComponents/StarRating";
+    import emptyCart from "../assets/images/Empty-cuate.png"
 
+    function Cart() {
+        const [Products, setProducts] = useState([]);
+        const isLogin = localStorage.getItem('user') ? true : false;
+        let user = '';
+        let user_token = '';
 
-function Cart() {
-    const [Products, setProducts] = useState();
-    const isLogin = localStorage.getItem('user') ? true : false;
-    let user = '';
-    let user_token = '';
-    if (isLogin) {
-        user = JSON.parse(localStorage.getItem('user'));
-        user_token = localStorage.getItem('user_token');
-    } else {
-        <RedirectToLogin />;
-    }
+        if (isLogin) {
+            user = JSON.parse(localStorage.getItem('user'));
+            user_token = localStorage.getItem('user_token');
+        } else {
+            <RedirectToLogin />;
+        }
 
-    const getUserCart = async () => {
-        const res = await axios.get(`http://localhost:5011/Carts/getSingleCart/${user.id}`, {
-            headers: {
-                'Authorization': 'Bearer ' + user_token
-            }
-        });
+        const getUserCart = async () => {
+            try {
+                const res = await axios.get(`http://localhost:5011/Carts/getSingleCart/${user.id}`, {
+                    headers: {
+                        'Authorization': 'Bearer ' + user_token
+                    }
+                });
 
-        setProducts(res.data.data);
-    };
+                const cartProducts = res.data.data;
+                const updatedProducts = Products.slice();
 
-    useEffect(() => {
-        getUserCart();
-    }, []);
+                cartProducts.forEach((cartProduct) => {
+                    const existingProduct = updatedProducts.find((p) => p.product_data.id === cartProduct.product_data.id);
 
-    const headers = {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${user_token}`,
-    };
+                    if (existingProduct) {
+                        existingProduct.quantity += 1;
+                    } else {
+                        updatedProducts.push({ ...cartProduct, quantity: 1 });
+                    }
+                });
 
-    const deleteProductFromCart = (e, ProductID) => {
-        e.preventDefault();
-        let res = axios.post("http://localhost:5011/carts/removeProductFromCart",
-            {
-                user_id: user.id,
-                product_id: ProductID
-
-            },
-            { headers }
-        )
-            .catch((error) => {
+                setProducts(updatedProducts);
+            } catch (error) {
                 console.log(error);
-            });
-    };
+            }
+        };
 
-    return (
-        <div className='container p-5'>
-            <div>
-                {
-                    Products && Products.map((product) => {
-                        return (
-                            <div style={{ marginTop: 50 }}>
+        useEffect(() => {
+            getUserCart();
+        }, []);
+
+        const deleteProductFromCart = async (e, ProductID) => {
+            e.preventDefault();
+
+            const headers = {
+                'Authorization': 'Bearer ' + user_token,
+                'Content-Type': 'application/json',
+            };
+
+            const requestData = {
+                user_id: user.id,
+                product_id: ProductID,
+            };
+
+            try {
+                await axios.delete("http://localhost:5011/carts/removeProductFromCart", {
+                    headers: headers,
+                    data: requestData,
+                });
+            } catch (error) {
+                console.log(error);
+            }
+
+            getUserCart();  
+        };
+
+        return (
+            <div className='container p-5' >
+                <div>
+                    {Products.length > 0 ? (
+                        Products.map((product) => (
+                            <div style={{ marginTop: 50 }} key={product.product_data.id}>
                                 <div className='row'>
                                     <div className='col-2'>
                                         <img className='w-100 h-100' src={JSON.parse(product.product_data.image_path)[0]} alt="" />
                                     </div>
                                     <div className='col-10'>
-
                                         <h3 className='fw-bold'>{product.product_data.name}</h3>
                                         <p className='text-black-50'>{product.product_data.description}</p>
-                                        <h5 ><span className='text-danger'>{product.product_data.price}$</span></h5>
+                                        <h5><span className='text-danger'>{product.product_data.price}$</span></h5>
+                                        <p>Quantity: {product.quantity}</p>
                                         <StarRating rate={product.product_data.rate} />
                                         <div className='d-flex mt-3'>
                                             <button className='btn btn-success'>See product details</button>
@@ -79,13 +101,16 @@ function Cart() {
                                 </div>
                                 <hr />
                             </div>
-                        );
-                    })
-                }
+                        ))
+                    ) : (
+                        <div className='text-center'>
+                            <img src={emptyCart} alt="z" className='w-50' />
+                            <h1>There are no products in the cart.</h1>
+                        </div>
+                    )}
+                </div>
             </div>
-        </div>
+        );
+    }
 
-    );
-}
-
-export default Cart;
+    export default Cart;
