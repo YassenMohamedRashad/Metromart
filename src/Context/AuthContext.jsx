@@ -9,6 +9,13 @@ export const authReducer = (state, action) => {
 				...state,
 				wishlist: [...new Set([...state.wishlist, action.payload])],
 			};
+		case "removeFromWishlist":
+			return {
+				...state,
+				wishlist: state.wishlist.filter(
+					(item) => item !== action.payload
+				),
+			};
 
 		case "Login":
 			return {
