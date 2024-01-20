@@ -24,8 +24,8 @@ function AccountDetails ()
 
 	const handleLogout = () => {
 		localStorage.clear()
-		window.location.reload()
 		navigate("/Metromart/")
+		window.location.reload()
 	};
 
 	return (
