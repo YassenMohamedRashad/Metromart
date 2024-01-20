@@ -9,8 +9,8 @@ export const Roadmap = ({ category_id, name }) => {
 	};
 	return (
 		<>
-			<h6 className="tabs mb-5 mx-5">
-				<a className="tab">{categories.category_id}</a> /
+			<h6 className="tabs mb-1 mt-3 mx-5">
+				<a className="tab">{categories[category_id]}</a> /
 				<a className="tab">{name.split(" ").slice(0, 2).join(" ")}</a>
 			</h6>
 		</>
