@@ -5,6 +5,7 @@ import "../assets/css/Cart.css";
 import { StarRating } from "./productDetailsComponents/StarRating";
 import emptyCart from "../assets/images/Empty-cuate.png"
 import { Link } from 'react-router-dom';
+import { Close, Loader } from './SweetAlert';
 
 function Cart() {
     const [Products, setProducts] = useState([]);
@@ -20,6 +21,7 @@ function Cart() {
     }
 
     const getUserCart = async () => {
+        Loader();
         try {
             const res = await axios.get(`http://localhost:5011/Carts/getSingleCart/${user.id}`, {
                 headers: {
@@ -27,6 +29,7 @@ function Cart() {
                 }
             });
             setProducts(res.data.data);
+            Close()
         } catch (error) {
             console.log(error);
         }

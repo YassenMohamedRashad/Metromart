@@ -1,11 +1,9 @@
-import { React, useState } from 'react';
+import { React, useState } from "react";
 import "../assets/css/AccountDetails.css";
 import { useAuth } from "../Hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
-
-function AccountDetails ()
-{
+function AccountDetails() {
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -19,7 +17,6 @@ function AccountDetails ()
 	const navigate = useNavigate();
 	/* setting the states of the app */
 	const [formErrors, setFormErrors] = useState({});
-	const [loading, setLoading] = useState(true);
 	const { dispatch, user, user_token } = useAuth();
 
 	const handleLogout = () => {
@@ -27,7 +24,6 @@ function AccountDetails ()
 		navigate("/Metromart/")
 		window.location.reload()
 	};
-
 	return (
 		<>
 			<div className="container mt-5 mb-5" style={{ marginTop: 75 }}>
