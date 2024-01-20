@@ -1,10 +1,8 @@
-import unchecked_star_icon from "../../assets/images/unchecked-star-icon.png";
-import checked_star_icon from "../../assets/images/checked-star-icon.png";
 import axios from "axios";
 import { useAuth } from "../../Hooks/useAuth"
-import { Success, Fail, InfoAC } from "../SweetAlert";
-import { useState } from "react";
+import { Success } from "../SweetAlert";
 import useWishlist from "../../Hooks/useWishlist";
+import { StarRating } from "../productDetailsComponents/StarRating";
 
 function Card({ item }) {
 	const { user, user_token, wishlist, dispatch } = useAuth();
@@ -122,7 +120,7 @@ function Card({ item }) {
 				<div class="card-body ps-0">
 					<div className="d-flex justify-content-between">
 						<h5 className="card-title fw-bold text-start product-card-title">
-							{item.title.slice(0, 25)}{" "}
+							{item.name.slice(0, 25)}{" "}
 						</h5>
 						<div>
 							<h6
@@ -136,31 +134,7 @@ function Card({ item }) {
 
 					{/* Starts Rating */}
 					<div className="d-flex rating-starts">
-						<img
-							style={{ width: 20 }}
-							src={checked_star_icon}
-							alt="alt"
-						/>
-						<img
-							style={{ width: 20 }}
-							src={checked_star_icon}
-							alt="alt"
-						/>
-						<img
-							style={{ width: 20 }}
-							src={unchecked_star_icon}
-							alt="alt"
-						/>
-						<img
-							style={{ width: 20 }}
-							src={unchecked_star_icon}
-							alt="alt"
-						/>
-						<img
-							style={{ width: 20 }}
-							src={unchecked_star_icon}
-							alt="alt"
-						/>
+						<StarRating rate={item.rate}/>
 						<h6 className="text-secondary ms-2 product-card-reviews">
 							({item.stock})
 						</h6>

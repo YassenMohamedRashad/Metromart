@@ -1,7 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import unchecked_star_icon from "../../assets/images/unchecked-star-icon.png";
-import checked_star_icon from "../../assets/images/checked-star-icon.png";
+import {StarRating} from "../productDetailsComponents/StarRating"
 import "../../assets/css/Cardsslider.css"
 
 function Cardsslider({Products}) {
@@ -77,19 +76,12 @@ function Cardsslider({Products}) {
                                 </div>
                                 <div className='mt-4 position-relative cardBody' style={{ height: 140 }}>
                                     <div className="d-flex justify-content-between">
-                                        <h5 className="card-title fw-bold text-start">{(item.title).slice(0,20)}</h5>
+                                        <h5 className="card-title fw-bold text-start">{(item.name).slice(0,20)}</h5>
                                         <div>
                                             <h5 className="card-text me-2  d-inline" style={{ color: "#DC4345" }}>${item.price}</h5>
                                         </div>
                                     </div>
-                                    <div className='d-flex position-absolute top-50'>
-                                        <img style={{ width: 20 }} src={checked_star_icon} alt="alt" />
-                                        <img style={{ width: 20 }} src={checked_star_icon} alt="alt" />
-                                        <img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
-                                        <img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
-                                        <img style={{ width: 20 }} src={unchecked_star_icon} alt="alt" />
-                                        <h6 className='text-secondary ms-2'>({item.stock})</h6>
-                                    </div>
+                                    <StarRating/>
                                 </div>
                             </SwiperSlide>
                         );

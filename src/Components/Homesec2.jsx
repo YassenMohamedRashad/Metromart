@@ -1,12 +1,6 @@
-import React from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Products from "./Products.json";
 import "../assets/css/Homesec2.css";
-import unchecked_star_icon from "../assets/images/unchecked-star-icon.png";
-import checked_star_icon from "../assets/images/checked-star-icon.png";
-import heart_icon from "../assets/images/heart_icon.svg";
-import eye_icon from "../assets/images/eye-icon.svg";
 import Cardsslider from "./CardsSlider/Cardsslider";
 
 function Homesec2 ()
@@ -133,7 +127,6 @@ function Homesec2 ()
 
             {/* Brows By Category word and view button  */ }
             <Cardsslider Products={Products}/>
-            
         </div>
 
     );

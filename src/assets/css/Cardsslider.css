@@ -31,6 +31,7 @@
 .heart_icon_container,
 .heart_icon {
   transition: 0.5s ease;
+  cursor: pointer;
 }
 
 .heart_icon_container:hover {
