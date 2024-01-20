@@ -4,6 +4,7 @@ import RedirectToLogin from './RedirectToLogin';
 import "../assets/css/Cart.css";
 import { StarRating } from "./productDetailsComponents/StarRating";
 import emptyCart from "../assets/images/Empty-cuate.png"
+import { Link } from 'react-router-dom';
 
 function Cart() {
     const [Products, setProducts] = useState([]);
@@ -74,17 +75,17 @@ function Cart() {
                     Products.map((product) => (
                         <div style={{ marginTop: 50 }} key={product.product_data.id}>
                             <div className='row'>
-                                <div className='col-2'>
+                                <div className='col-4'>
                                     <img className='w-100 h-100' src={JSON.parse(product.product_data.image_path)[0]} alt="" />
                                 </div>
-                                <div className='col-10'>
+                                <div className='col-8'>
                                     <h3 className='fw-bold'>{product.product_data.name}</h3>
                                     <p className='text-black-50'>{product.product_data.description}</p>
                                     <h6>Quantity: {product.quantity}</h6>
                                     <h5><span className='text-danger'>{product.product_data.price * product.quantity}$</span></h5>
                                     <StarRating rate={product.product_data.rate} />
                                     <div className='d-flex mt-3'>
-                                        <button className='btn btn-success'>See product details</button>
+                                        <Link className='btn btn-success'>See product details</Link>
                                         <button className='btn btn-danger ms-3'
                                             onClick={(e) => deleteProductFromCart(e, product.product_data.id)}>
                                             Remove from Cart
