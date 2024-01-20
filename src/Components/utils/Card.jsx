@@ -94,7 +94,7 @@ function Card({ item }) {
 				</button>
 				<div className="d-flex justify-content-center product-img">
 					<img
-						src={JSON.parse(item.image_path)[0]}
+						src={item.images[0]}
 						className=" border-0 rounded-2 shadow"
 						alt="Title"
 					/>
