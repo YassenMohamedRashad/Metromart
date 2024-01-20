@@ -2,7 +2,7 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import { useAuth } from "./Hooks/useAuth";
 /* components */
-import Nav from "./Components/Navbar";
+import NavbarComponent from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Login from "./Components/Login";
 import Signup from "./Components/SignUp";
@@ -11,21 +11,30 @@ import WishList from "./Components/Wishlist";
 import BillingDetails from "./Components/BillingDetails";
 import ProductDetails from "./Components/ProductDetails";
 import { Home } from "./Components/Home";
-import Error from "./Components/Error"
-import SearchForProducts from "./Components/SearchForProducts"
+import Error from "./Components/Error";
+import SearchForProducts from "./Components/SearchForProducts";
 import AboutUs from "./Components/Aboutus";
 import RedirectToLogin from "./Components/RedirectToLogin";
+import Contact from "./Components/Contact";
+
+import Card from "./Components/utils/Card";
+import Cart from "./Components/Cart";
 
 function App() {
-	const { user, user_token } = useAuth();
-	const userIsFound = user ? true : false;
-	
+	const { user } = useAuth();
+	const userIsFound = user ?? false;
+
 	return (
 		<>
-			<Nav />
+			<NavbarComponent isLogin={userIsFound} />
 			<Routes>
-				<Route path="/Metromart/aboutUs/" element={<AboutUs />} />
 				<Route path={"/Metromart/"} element={<Home />} />
+				<Route
+					path="/Metromart/wishlist/"
+					element={userIsFound ? <WishList /> : <RedirectToLogin />}
+				/>
+
+				<Route path="/Metromart/aboutUs/" element={<AboutUs />} />
 				<Route
 					path="/Metromart/login/"
 					element={
@@ -53,10 +62,6 @@ function App() {
 					}
 				/>
 				<Route
-					path="/Metromart/wishlist/"
-					element={userIsFound ? <WishList /> : <RedirectToLogin />}
-				/>
-				<Route
 					path="/Metromart/billingDetails/"
 					element={
 						userIsFound ? <BillingDetails /> : <RedirectToLogin />
@@ -67,9 +72,18 @@ function App() {
 					path="/Metromart/productDetails/:id"
 					element={<ProductDetails />}
 				/>
-				<Route path="/Metromart/SearchForProducts/:key" element={ <SearchForProducts /> }></Route>
-				
+				<Route
+					path="/Metromart/SearchForProducts/:key"
+					element={<SearchForProducts />}
+				></Route>
+				<Route
+					path="/Metromart/Cart"
+					element={userIsFound ? <Cart /> : <RedirectToLogin />}
+				></Route>
+
 				<Route path="/Metromart/*" element={<Error />} />
+				<Route path="/Metromart/contact" element={<Contact />} />
+				<Route path="/Metromart/card" element={<Card />} />
 			</Routes>
 			<Footer />
 		</>

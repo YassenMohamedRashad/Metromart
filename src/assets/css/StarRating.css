@@ -1,13 +1,12 @@
 /***** ratingFrame *****/
-
-.ratingFrame .five-star {
+.five-star {
 	flex: 0 0 auto;
 	display: flex;
 	align-items: center;
 	cursor: pointer;
 }
-.ratingFrame .five-star label {
+.five-star label {
 	display: flex;
-    cursor: pointer;
+	cursor: pointer;
 }
 /***** End ratingFrame *****/

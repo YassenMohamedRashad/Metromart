@@ -1,6 +1,6 @@
 .product {
 	display: flex;
-	gap: 0.8rem;
+	gap: 2rem;
 	padding: 0.5rem 2.25rem 0 3rem;
 	width: 100%;
 	max-height: 450px;
@@ -37,7 +37,7 @@
 }
 
 .big-img-container img {
-	width: 500px;
+	width: 29rem;
 	height: auto;
 	object-fit: scale-down;
 }

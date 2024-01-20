@@ -61,6 +61,7 @@ function Login() {
 						payload: [
 							JSON.parse(localStorage.getItem("user")),
 							localStorage.getItem("user_token"),
+							null, // Change this line to pass an empty array instead of [null]
 						],
 					});
 				})
@@ -87,16 +88,15 @@ function Login() {
 						>
 							<h6>Enter your details below</h6>
 							<input
-								type="email"
+								type="text"
 								name="email"
 								value={email}
 								className="mt-5 email-input"
 								onChange={handleChange}
 								required
 							/>
-							<label className="email-label">Email</label>
 							<br />
-
+							<label className="email-label">Email</label>
 							<input
 								type="password"
 								name="password"
