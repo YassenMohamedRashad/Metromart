@@ -91,10 +91,15 @@ function Cart() {
             'Authorization': 'Bearer ' + user_token,
             'Content-Type': 'application/json',
         };
+        const requestData = {
+            user_id: user.id,
+        };
+
 
         try {
-            await axios.delete("http://localhost:5011/carts/removeAllProductFromCar", {
-                headers: headers
+            await axios.delete("http://localhost:5011/carts/removeAllProductsFromCart", {
+                headers: headers,
+                data: requestData,
             });
             getUserCart();
         } catch (error) {
