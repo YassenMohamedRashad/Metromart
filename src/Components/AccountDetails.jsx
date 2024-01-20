@@ -22,7 +22,8 @@ function AccountDetails ()
 	const [loading, setLoading] = useState(true);
 	const { dispatch, user, user_token } = useAuth();
 
-	const handleLogout = () => {
+	const handleLogout = (e) => {
+        e.preventDefault();
 		dispatch({ type: "Logout" });
 		navigate("/Metromart/");
 	};
@@ -66,12 +67,12 @@ function AccountDetails ()
 								<h3 className=" text-danger ">
 									Edit Your Profile
 								</h3>
-								<button
+								<a
 									onClick={handleLogout}
 									className="btn btn-danger"
 								>
 									Logout
-								</button>
+								</a>
 							</div>
 							<div className="d-flex justify-content-between mt-5">
 								<div>

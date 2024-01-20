@@ -39,14 +39,7 @@ export const authReducer = (state, action) => {
 				user: action.payload[0],
 				user_token: action.payload[1],
 				wishlist: action.payload[2] ? [...action.payload[2]] : [],
-				// checks if action.payload[2] is not null before updating the
-				// wishlist
 			};
-		case "Logout":
-			localStorage.setItem("user", null);
-			localStorage.setItem("user_token", null);
-			localStorage.setItem("wishlist", parseWishlist([]));
-			return { ...initState, redirectTo: "/Metromart/" };
 		default:
 			return state;
 	}
@@ -68,21 +61,7 @@ export const AuthContextProvider = ({ children }) => {
 			localStorage.setItem("wishlist", JSON.stringify(state.wishlist));
 		} else localStorage.clear();
 	}, [state]);
-	if (state.redirectTo) {
-		window.location.reload();
-		return (
-			<AuthContext.Provider value={{ ...state, dispatch }}>
-				{children}
-			</AuthContext.Provider>
-		);
-	} else {
-		return (
-			<AuthContext.Provider value={{ ...state, dispatch }}>
-				{children}
-			</AuthContext.Provider>
-		);
-	}
-	// console.table(state);
+
 	return (
 		<AuthContext.Provider value={{ ...state, dispatch }}>
 			{children}
