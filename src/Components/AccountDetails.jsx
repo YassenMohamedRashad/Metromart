@@ -1,16 +1,28 @@
 import { React, useState } from 'react';
 import "../assets/css/AccountDetails.css";
+import { useAuth } from "../Hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 
-function AccountDetails() {
-    const [name, setName] = useState('');
-    const changeName = event => {
-        setName(event.target.value);
-    };  
-    
+function AccountDetails ()
+{
+    const [ name, setName ] = useState( '' );
+    const changeName = event =>
+    {
+        setName( event.target.value );
+    };
+    const navigate = useNavigate();
+    const { dispatch } = useAuth();
+
+    const handleLogout = () =>
+    {
+        dispatch( { type: "logout" } )
+        navigate('/Metromart/')
+    }
+
     return (
         <>
-            <div className="container mt-5 mb-5" style={{ marginTop: 75 }}>
+            <div className="container mt-5 mb-5" style={ { marginTop: 75 } }>
                 <div className="row">
                     <div className="d-flex justify-content-between">
                         <div>
@@ -25,27 +37,16 @@ function AccountDetails() {
 
 
                 <div className="row">
-                    <div className="col-4 mt-5 d-none d-md-block">
-                        <div>
-                            <h5 className='fw-bold mt-3'>Manage My Account</h5>
-                            <h6 className='mt-4'><a href="#" className='ms-5 text-danger text-decoration-none ' >My Profile</a></h6>
-                            <h6 className='mt-3'><a href="#" className='ms-5 text-secondary text-decoration-none ' >Address Book</a></h6>
-                            <h6 className='mt-3'><a href="#" className='ms-5 text-secondary text-decoration-none ' >My payment Options</a></h6>
-                            <h5 className='fw-bold mt-3'>My orders</h5>
-                            <h6 className='mt-4'><a href="#" className='ms-5 text-secondary text-decoration-none ' >My Returns</a></h6>
-                            <h6 className='mt-3'><a href="#" className='ms-5 text-secondary text-decoration-none ' >My Cancellations</a></h6>
-                            <h5 className='fw-bold mt-3'>My Wishlist</h5>
-                        </div>
-
-                    </div>
-
-                    <div className='col-8 manage-my-account mt-5 '>
+                    <div className='col-8 manage-my-account m-auto mt-5 '>
                         <form method='post' className="shadow rounded p-5">
-                            <h3 className=' text-danger '>Edit Your Profile</h3>
+                            <div className='d-flex justify-content-between'>
+                                <h3 className=' text-danger '>Edit Your Profile</h3>
+                                <a className='btn btn-danger'>Logout</a>
+                            </div>
                             <div className="d-flex justify-content-between mt-5">
                                 <div>
                                     <label htmlFor="Name" className='fw-bold'>Name</label>
-                                    <input type="text" name="name" className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2  account-inputs ' placeholder='Name' onChange={changeName} />
+                                    <input type="text" name="name" className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2  account-inputs ' placeholder='Name' onChange={ changeName } />
                                 </div>
                                 <div>
                                     <label htmlFor="Email" className='fw-bold'>Email</label>
@@ -67,13 +68,15 @@ function AccountDetails() {
                             <input type="text" placeholder='Address Two' name="address2" className='form-control shadow-sm text-black bg-light text-secondary border-0 mt-2 address2-input' />
 
                             <label htmlFor="PasswordChanges" className='fw-bold mt-4'>Password Changes</label>
-                            <input type="password" name="currentPassword" placeholder='Current Password' className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2' style={{ height: 50 }} />
-                            <input type="password" name="newPassword" placeholder='New Password' className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2' style={{ height: 50 }} />
-                            <input type="password" name="confirmNewPassword" placeholder='Confirm New Password' className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2' style={{ height: 50 }} />
+                            <input type="password" name="currentPassword" placeholder='Current Password' className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2' style={ { height: 50 } } />
+                            <input type="password" name="newPassword" placeholder='New Password' className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2' style={ { height: 50 } } />
+                            <input type="password" name="confirmNewPassword" placeholder='Confirm New Password' className='form-control text-black shadow-sm bg-light text-secondary border-0 mt-2' style={ { height: 50 } } />
 
                             <div className="d-flex justify-content-end mt-5">
-                                <button className='btn shadow-sm btn-light text-black me-3'>Cancel</button>
-                                <button className='btn btn-danger p-3' type='submit'>Save Changes</button>
+                                <div>
+                                    <a className='btn me-3'>Cancel</a>
+                                    <button className='btn btn-danger' type='submit'>Save Changes</button>
+                                </div>
                             </div>
                         </form>
                     </div>
