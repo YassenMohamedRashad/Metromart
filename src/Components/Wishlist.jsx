@@ -6,7 +6,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import axios from "axios";
 import { useAuth } from "../Hooks/useAuth.jsx";
-import Card from "./utils/Card.jsx"; 
+import Card from "./utils/Card.jsx";
 // Responsiveness settings for the slider
 const responsive = {
 	hugeScreens: { breakpoint: { max: 5000, min: 3000 }, items: 6 },
@@ -53,7 +53,7 @@ function WishList() {
 					item.images = JSON.parse(item.image_path);
 					return item;
 				});
-				console.table(formattedProducts)
+				console.table(formattedProducts);
 				setProducts(formattedProducts);
 			} catch (error) {
 				console.log(error);
