@@ -119,7 +119,10 @@ function NavbarComponent ( { isLogin } )
 										className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
 										style={ CartIconStyle }
 									>
-										{ JSON.parse( localStorage.getItem( 'wishlist' ) ).length > 0 && JSON.parse( localStorage.getItem( 'wishlist' ) ).length }
+										
+											
+										
+										{ localStorage.getItem('wishlist')&& JSON.parse( localStorage.getItem( 'wishlist' ) ).length > 0 && JSON.parse( localStorage.getItem( 'wishlist' ) ).length }
 										<span className="visually-hidden"></span>
 									</span>
 								</i>
