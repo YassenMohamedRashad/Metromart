@@ -11,26 +11,40 @@ function SearchForProducts ()
         
     }
 
-    if ( searchKey != "allProducts") {
-        getProducts = async () =>
-        {
-            try
-            {
-                const res = await axios.get( `http://localhost:5011/products/search/${ searchKey }` );
-                setProducts(res.data.data);
-            } catch ( error )
-            {
-                console.error( "Error fetching products:", error );
-            }
-        }
-    } else
-    {
+    if ( searchKey == "allProducts") {
         getProducts = async () =>
         {
             try
             {
                 const res = await axios.get( `http://localhost:5011/products/` );
-                setProducts(res.data.data);
+                setProducts( res.data.data );
+            } catch ( error )
+            {
+                console.error( "Error fetching products:", error );
+            }
+        }
+    } else if (parseInt(searchKey))
+    {
+        getProducts = async () =>
+        {
+            try
+            {
+                const res = await axios.get( `http://localhost:5011/products/getProductsByCategory/${searchKey}` );
+                setProducts( res.data.data );
+            } catch ( error )
+            {
+                console.error( "Error fetching products:", error );
+            }
+        }
+    }
+    else
+    {
+        getProducts = async () =>
+        {
+            try
+            {
+                const res = await axios.get( `http://localhost:5011/products/search/${ searchKey }` );
+                setProducts( res.data.data );
             } catch ( error )
             {
                 console.error( "Error fetching products:", error );

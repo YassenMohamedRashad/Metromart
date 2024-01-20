@@ -1,6 +1,11 @@
 /* dependencies */
-import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from 'axios';
+import { useState, useContext, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { ProductsContext } from "../Context/ProductsContext.jsx";
+import { useAuth } from "../Hooks/useAuth.jsx";
+import useWishlist from "../Hooks/useWishlist.jsx";
+import { Success, Loader } from "./SweetAlert.jsx";
 /* components */
 import { Roadmap } from "./Roadmap";
 import { StarRating } from "./productDetailsComponents/StarRating";
@@ -10,43 +15,61 @@ import { Delivery } from "./productDetailsComponents/Delivery";
 import MinusIcon from "../assets/images/icon-minus.svg";
 import PlusIcon from "../assets/images/icon-plus.svg";
 import "../assets/css/ProductDetails.css";
-import { RelatedItems } from "./productDetailsComponents/RelatedItems";
 
 const ProductDetails = () => {
-	const [data, setData] = useState(null);
+	const { id } = useParams();
 	const [quantity, setQuantity] = useState(1);
-	const [fav, setFav] = useState(false);
-	const handleClick = () => setFav(!fav);
+	const { user, user_token } = useAuth();
+	const Products = useContext(ProductsContext);
+	const [data, setData] = useState(null);
+	const { inWishlist, handleWishlistToggle } = useWishlist(id);
 
-	/* Request to the Actual Database
-		axios
-			.get("http://localhost:5011/products/5")
-			.then((res) => {
-				setData([res.data.data]);
-				console.log([res.data.data]); // Store the data in the state variable
-			})
-			.catch((error) => console.log(error)); 
-			*/
+	// function filterProductsByIds(products, id) {
+	// 	let result = products.filter((product) => {
+	// 		if (id.includes(product.id)) {
+	// 			return product;
+	// 		}
+	// 	});
+	// 	// console.log();
+	// 	setData(result);
+	// }
+	function filterProductsByIds(products, id) {
+		const result = products.find((product) => product.id === +id);
+		if (result) setData(result);
+		else console.error(`Product with ID ${id} not found.`);
+	}
+
+	useEffect(() => {
+		filterProductsByIds(Products, [+id]);
+		console.log(data);
+	}, [Products]);
 
 	/* add to cart request */
 	const handleBuying = async (quantity) => {
-		/* data = {
-					userId, userId,
-					productId: productId
-					quantity: quantity
-				};
-				await axios.post("http://localhost:5011/carts/addProductToCart", data)
-		*/
+		Loader();
+		const headers = {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${user_token}`,
+		};
+
+		await axios
+			.post(
+				"http://localhost:5011/Carts/addProductToCart",
+				{
+					user_id: user.id,
+					product_id: id,
+					quantity: quantity,
+				},
+				{ headers }
+			)
+			.then(() => {
+				Success("<i>Product Added to Cart successfully ✔</i>");
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	};
-
-	/* Request for testing */
-	useEffect(() => {
-		axios
-			.get("https://dummyjson.com/products/8")
-			.then((res) => setData(res.data))
-			.catch((error) => alert(error));
-	}, []);
-
+	const handleClick = (e) => {};
 	return (
 		<>
 			<div className="container-fluid">
@@ -62,16 +85,16 @@ const ProductDetails = () => {
 						<div className="details-container w-75">
 							<div className="label">
 								<div className="text-wrapper">
-									{data && data.title}
+									{data && data.name}
 								</div>
 							</div>
 							{/* ratingFrame start */}
 							<div className="frame ratingFrame">
 								{/* ratings stars */}
-								<StarRating />
+								{data && <StarRating rate={data.rate} />}
 								<div className="frame stockFrame">
 									<div className="text-wrapper">
-										(150 Reviews)
+										({data && data.stock} items)
 									</div>
 									<div className="text-wrapper text-success">
 										<span className="text-success pe-1">
@@ -82,7 +105,9 @@ const ProductDetails = () => {
 								</div>
 							</div>
 							<div className="label">
-								<div className="text-wrapper">$192.00</div>
+								<div className="text-wrapper">
+									${data && data.price}
+								</div>
 							</div>
 							{/* ratingFrame end */}
 
@@ -155,9 +180,9 @@ const ProductDetails = () => {
 									{/* favFrame start */}
 									<div className="frame favFrame">
 										<button
-											onClick={handleClick}
+											onClick={handleWishlistToggle}
 											className={
-												fav
+												inWishlist
 													? "btn btn-light favoriteBtn fav"
 													: "btn btn-light favoriteBtn"
 											}
@@ -193,9 +218,10 @@ const ProductDetails = () => {
 						</div>
 					</div>
 				</div>
+
 				<div className="row my-5">
 					<div className="col RelatedItems-col mb-5">
-						<RelatedItems />
+						{/* <RelatedItems /> */}
 					</div>
 				</div>
 			</div>
