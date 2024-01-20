@@ -3,6 +3,7 @@ import { useAuth } from "../../Hooks/useAuth";
 import { Success } from "../SweetAlert";
 import useWishlist from "../../Hooks/useWishlist";
 import { StarRating } from "../productDetailsComponents/StarRating";
+import { Link } from "react-router-dom";
 
 function Card({ item }) {
 	const { user, user_token } = useAuth();
@@ -68,6 +69,7 @@ function Card({ item }) {
 					className="btn position-absolute translate-middle badge rounded-pill bg-white eye_icon_container "
 					style={{ top: 70, right: -5 }}
 				>
+					<Link to="/Metromart/ProductDetails/">
 					<svg
 						fill="#000000"
 						className="eye_icon"
@@ -92,6 +94,8 @@ function Card({ item }) {
 							</g>
 						</g>
 					</svg>
+					</Link>
+
 				</button>
 				<div className="d-flex justify-content-center product-img">
 					<img
