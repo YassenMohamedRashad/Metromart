@@ -13,7 +13,6 @@ function Card({ item }) {
 		Authorization: `Bearer ${user_token}`,
 	};
 
-	let productIdUrl = `/Metromart/ProductDetails/${item.id}`; 
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
 		let res = axios
@@ -35,7 +34,6 @@ function Card({ item }) {
 	};
 
 	return (
-		<div className="col-8 col-sm-6 col-md-4 col-lg-3 .col-xl-2">
 			<div class="card border-0 ">
 				{/* Heart Icon */}
 				<button
@@ -66,12 +64,11 @@ function Card({ item }) {
 				</button>
 
 				{/* Eye Icon */}
-				<button
+				<Link
+					to={`/Metromart/productDetails/${item.id}`}
 					className="btn position-absolute translate-middle badge rounded-pill bg-white eye_icon_container "
 					style={{ top: 70, right: -5 }}
 				>
-					
-					<Link to={ productIdUrl }>
 					<svg
 						fill="#000000"
 						className="eye_icon"
@@ -96,12 +93,10 @@ function Card({ item }) {
 							</g>
 						</g>
 					</svg>
-					</Link>
-
-				</button>
+				</Link>
 				<div className="d-flex justify-content-center product-img">
 					<img
-						src={JSON.parse(item.image_path)[0]}
+						src={item.images[0]}
 						className=" border-0 rounded-2 shadow"
 						alt="Title"
 					/>
@@ -147,7 +142,7 @@ function Card({ item }) {
 					</div>
 				</div>
 			</div>
-		</div>
+
 	);
 }
 

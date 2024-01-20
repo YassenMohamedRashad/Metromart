@@ -78,7 +78,7 @@ function App() {
 				></Route>
 				<Route
 					path="/Metromart/Cart"
-					element={<Cart />}
+					element={userIsFound ? <Cart /> : <RedirectToLogin />}
 				></Route>
 
 				<Route path="/Metromart/*" element={<Error />} />
