@@ -1,34 +1,42 @@
 import { Navbar, Nav, Container, Form, FormControl } from "react-bootstrap";
 import searchIcon from "../assets/images/Search_icon.png";
-import Cart from "../assets/images/cart-icon.svg";
-import Favourite from "../assets/images/love.png";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useAuth } from "../Hooks/useAuth";
+import { InfoAC } from "./SweetAlert";
 
-function NavbarComponent() {
-	const CartIconStyle = {
-		fontSize: "12px"
-	}
-	const isLogin = localStorage.getItem('user') ? true : false;
+const CartIconStyle = {
+	fontSize: "12px",
+};
 
+function NavbarComponent({ isLogin }) {
+	const { wishlist } = useAuth();
 	const [navBackground, setNavBackground] = useState(false);
 	const location = useLocation();
+	const navigate = useNavigate();
+
+	const handleClick = (e) => {
+		e.preventDefault();
+		wishlist.length != 0
+			? navigate("/Metromart/wishlist")
+			: InfoAC("Your Wishlist Is Empty\nLet's Fill It with some Items 😊", 2000);
+	};
 
 	useEffect(() => {
 		const onScroll = () => {
-		  if (window.scrollY >= 0.9 * window.innerHeight) {
-			setNavBackground(true);
-		  } else {
-			setNavBackground(false);
-		  }
+			if (window.scrollY >= 0.9 * window.innerHeight) {
+				setNavBackground(true);
+			} else {
+				setNavBackground(false);
+			}
 		};
-	  
+
 		window.addEventListener("scroll", onScroll);
-	  
+
 		return () => {
-		  window.removeEventListener("scroll", onScroll);
+			window.removeEventListener("scroll", onScroll);
 		};
-	  }, []);
+	}, []);
 
 	return (
 		<>
@@ -39,7 +47,7 @@ function NavbarComponent() {
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="m-auto">
 						<Nav.Link href="/Metromart/" className="me-4 fw-bold" >Home</Nav.Link>
-						<Nav.Link href="/Metromart/contact" className="me-4 fw-bold" >Contact</Nav.Link>
+						<Nav.Link href="/Metromart" className="me-4 fw-bold" >Contact</Nav.Link>
 						<Nav.Link href="/Metromart/aboutUs" className="me-4 fw-bold" >About us</Nav.Link>
 						{!isLogin && <Nav.Link href="/Metromart/signUp" className="me-4 fw-bold" >Sign Up</Nav.Link>}
 					</Nav>

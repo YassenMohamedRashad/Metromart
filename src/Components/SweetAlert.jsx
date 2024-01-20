@@ -39,12 +39,11 @@ export const Close = () => {
 	MySwal.close();
 };
 
-export const InfoAC = (msg) => {
+export const InfoAC = (msg, duration=2500) => {
 	return MySwal.fire({
 		title: msg,
 		icon: "info",
-		timer: 2500,
-		allowOutsideClick: false,
+		timer: duration,
 		allowEscapeKey: false,
 		showConfirmButton: false,
 	});

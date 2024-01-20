@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import Card from './utils/Card';
 
 function SearchForProducts ()
 {
@@ -33,7 +32,7 @@ function SearchForProducts ()
                     {
                         return(
                         <>
-                                <Card  item={item} key={item.id} />
+                            <div>Fix me</div>
                         </>)
                     })}
                 </div>
