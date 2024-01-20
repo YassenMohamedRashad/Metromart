@@ -1,23 +1,43 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import Card from './utils/Card';
 
 function SearchForProducts ()
 {
     let [ products, setProducts ] = useState( [] );
     const searchKey = useParams().key
+    let getProducts = () => {
+        
+    }
 
-    const getProducts = async () =>
+    if ( searchKey != "allProducts") {
+        getProducts = async () =>
+        {
+            try
+            {
+                const res = await axios.get( `http://localhost:5011/products/search/${ searchKey }` );
+                setProducts(res.data.data);
+            } catch ( error )
+            {
+                console.error( "Error fetching products:", error );
+            }
+        }
+    } else
     {
-        try
+        getProducts = async () =>
         {
-            const res = await axios.get( `http://localhost:5011/products/search/${ searchKey }` );
-            setProducts( res.data.data );
-        } catch ( error )
-        {
-            console.error( "Error fetching products:", error );
+            try
+            {
+                const res = await axios.get( `http://localhost:5011/products/` );
+                setProducts(res.data.data);
+            } catch ( error )
+            {
+                console.error( "Error fetching products:", error );
+            }
         }
     }
+
 
     useEffect( () =>
     {
@@ -25,19 +45,17 @@ function SearchForProducts ()
     },[])
 
     return (
-        <>
-            <div className='container'>
-                <div className='row row-cols-2 row-cols-md-4'>
-                    { products.map( ( item ) =>
+        <div style={ { overflowX: "hidden" } }>
+            <div className='row p-5'>
+                {
+                    products && products.map( ( product ) =>
                     {
-                        return(
-                        <>
-                            <div>Fix me</div>
-                        </>)
-                    })}
-                </div>
+                        return <Card item={ product } />;
+                    } )
+                }
             </div>
-        </>
+            
+        </div>
     );
 }
 
