@@ -44,7 +44,6 @@ export const InfoAC = (msg, duration=2500) => {
 		title: msg,
 		icon: "info",
 		timer: duration,
-		allowOutsideClick: false,
 		allowEscapeKey: false,
 		showConfirmButton: false,
 	});
