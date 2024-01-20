@@ -1,11 +1,9 @@
-import { React, useState } from 'react';
+import { React, useState } from "react";
 import "../assets/css/AccountDetails.css";
 import { useAuth } from "../Hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
-
-function AccountDetails ()
-{
+function AccountDetails() {
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -19,14 +17,13 @@ function AccountDetails ()
 	const navigate = useNavigate();
 	/* setting the states of the app */
 	const [formErrors, setFormErrors] = useState({});
-	const [loading, setLoading] = useState(true);
 	const { dispatch, user, user_token } = useAuth();
 
 	const handleLogout = () => {
-		dispatch({ type: "Logout" });
-		navigate("/Metromart/");
+		localStorage.clear()
+		navigate("/Metromart/")
+		window.location.reload()
 	};
-
 	return (
 		<>
 			<div className="container mt-5 mb-5" style={{ marginTop: 75 }}>
@@ -66,12 +63,12 @@ function AccountDetails ()
 								<h3 className=" text-danger ">
 									Edit Your Profile
 								</h3>
-								<button
+								<a
 									onClick={handleLogout}
 									className="btn btn-danger"
 								>
 									Logout
-								</button>
+								</a>
 							</div>
 							<div className="d-flex justify-content-between mt-5">
 								<div>

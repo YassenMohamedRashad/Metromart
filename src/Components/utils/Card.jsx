@@ -66,10 +66,11 @@ function Card({ item }) {
 				</button>
 
 				{/* Eye Icon */}
-				<button
+				<Link
+					to={`/Metromart/productDetails/${item.id}`}
 					className="btn position-absolute translate-middle badge rounded-pill bg-white eye_icon_container "
 					style={{ top: 70, right: -5 }}
-				>
+				/>
 					
 					<Link to={ productIdUrl }>
 					<svg
@@ -96,12 +97,10 @@ function Card({ item }) {
 							</g>
 						</g>
 					</svg>
-					</Link>
-
-				</button>
+				</Link>
 				<div className="d-flex justify-content-center product-img">
 					<img
-						src={JSON.parse(item.image_path)[0]}
+						src={JSON.parse((item.image_path))[0]}
 						className=" border-0 rounded-2 shadow"
 						alt="Title"
 					/>
