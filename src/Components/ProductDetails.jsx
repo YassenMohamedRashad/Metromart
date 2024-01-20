@@ -1,10 +1,11 @@
 /* dependencies */
+import axios from 'axios';
 import { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ProductsContext } from "../Context/ProductsContext.jsx";
 import { useAuth } from "../Hooks/useAuth.jsx";
 import useWishlist from "../Hooks/useWishlist.jsx";
-import { InfoAC, Success, Fail, Loader, Close } from "./SweetAlert.jsx";
+import { Success, Loader } from "./SweetAlert.jsx";
 /* components */
 import { Roadmap } from "./Roadmap";
 import { StarRating } from "./productDetailsComponents/StarRating";
@@ -18,7 +19,7 @@ import "../assets/css/ProductDetails.css";
 const ProductDetails = () => {
 	const { id } = useParams();
 	const [quantity, setQuantity] = useState(1);
-	const { wishlist } = useAuth();
+	const { user, user_token } = useAuth();
 	const Products = useContext(ProductsContext);
 	const [data, setData] = useState(null);
 	const { inWishlist, handleWishlistToggle } = useWishlist(id);
@@ -39,23 +40,34 @@ const ProductDetails = () => {
 	}
 
 	useEffect(() => {
-		filterProductsByIds(Products, id);
-	}, [Products, id]);
-
-	useEffect(() => {
 		filterProductsByIds(Products, [+id]);
 		console.log(data);
 	}, [Products]);
 
 	/* add to cart request */
-	const handleBuying = async (userId, productId, quantity) => {
-		/* data = {
-					userId, userId,
-					productId: productId
-					quantity: quantity
-				};
-				await axios.post("http://localhost:5011/carts/addProductToCart", data)
-		*/
+	const handleBuying = async (quantity) => {
+		Loader();
+		const headers = {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${user_token}`,
+		};
+
+		await axios
+			.post(
+				"http://localhost:5011/Carts/addProductToCart",
+				{
+					user_id: user.id,
+					product_id: id,
+					quantity: quantity,
+				},
+				{ headers }
+			)
+			.then(() => {
+				Success("<i>Product Added to Cart successfully ✔</i>");
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	};
 	const handleClick = (e) => {};
 	return (
@@ -206,7 +218,7 @@ const ProductDetails = () => {
 						</div>
 					</div>
 				</div>
-				
+
 				<div className="row my-5">
 					<div className="col RelatedItems-col mb-5">
 						{/* <RelatedItems /> */}
