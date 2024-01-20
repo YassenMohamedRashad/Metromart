@@ -7,7 +7,8 @@ const useWishlist = (itemId) => {
 	const [inWishlist, setInWishlist] = useState(false);
 
 	useEffect(() => {
-		setInWishlist(wishlist.includes(itemId));
+		if (wishlist && wishlist.length != 0)
+			setInWishlist(wishlist.includes(itemId));
 	}, [wishlist, itemId]);
 
 	const handleWishlistToggle = () => {
