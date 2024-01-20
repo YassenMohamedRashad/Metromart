@@ -13,6 +13,7 @@ function Card({ item }) {
 		Authorization: `Bearer ${user_token}`,
 	};
 
+	let productIdUrl = `/Metromart/ProductDetails/${item.id}`; 
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
 		let res = axios
@@ -69,7 +70,8 @@ function Card({ item }) {
 					className="btn position-absolute translate-middle badge rounded-pill bg-white eye_icon_container "
 					style={{ top: 70, right: -5 }}
 				>
-					<Link to="/Metromart/ProductDetails/">
+					
+					<Link to={ productIdUrl }>
 					<svg
 						fill="#000000"
 						className="eye_icon"
