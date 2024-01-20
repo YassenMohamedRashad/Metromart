@@ -1,12 +1,12 @@
 import axios from "axios";
-import { useAuth } from "../../Hooks/useAuth"
+import { useAuth } from "../../Hooks/useAuth";
 import { Success } from "../SweetAlert";
 import useWishlist from "../../Hooks/useWishlist";
 import { StarRating } from "../productDetailsComponents/StarRating";
 
 function Card({ item }) {
-	const { user, user_token } = useAuth();
-    const { inWishlist, handleWishlistToggle } = useWishlist(item.id);
+	const { user, user_token, wishlist, dispatch } = useAuth();
+	const { inWishlist, handleWishlistToggle } = useWishlist(item.id);
 	const headers = {
 		"Content-Type": "application/json",
 		Authorization: `Bearer ${user_token}`,
@@ -95,7 +95,7 @@ function Card({ item }) {
 				</button>
 				<div className="d-flex justify-content-center product-img">
 					<img
-						src={item.image_path[0]}
+						src={item.images[0]}
 						className=" border-0 rounded-2 shadow"
 						alt="Title"
 					/>
@@ -134,7 +134,7 @@ function Card({ item }) {
 
 					{/* Starts Rating */}
 					<div className="d-flex rating-starts">
-						<StarRating rate={item.rate}/>
+						<StarRating rate={item.rate} />
 						<h6 className="text-secondary ms-2 product-card-reviews">
 							({item.stock})
 						</h6>

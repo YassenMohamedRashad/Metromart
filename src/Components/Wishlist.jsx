@@ -1,12 +1,14 @@
-// Importing useEffect, useState, and other dependencies
-import { useEffect, useState } from "react";
+// Importing dependencies
+import axios from "axios";
+import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Loader, Close } from "./SweetAlert.jsx";
+import { ProductsContext } from "../Context/ProductsContext.jsx";
+import { useAuth } from "../Hooks/useAuth.jsx";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import axios from "axios";
-import { useAuth } from "../Hooks/useAuth.jsx";
 import Card from "./utils/Card.jsx";
+
 // Responsiveness settings for the slider
 const responsive = {
 	hugeScreens: { breakpoint: { max: 5000, min: 3000 }, items: 6 },
@@ -19,49 +21,25 @@ const responsive = {
 // Wishlist component
 function WishList() {
 	const { wishlist, dispatch } = useAuth();
-	const [Products, setProducts] = useState([]);
+	const Products = useContext(ProductsContext);
 	const [loading, setLoading] = useState(true);
+	const [wishlistProducts, setWishlistProducts] = useState();
 	const navigate = useNavigate();
-
 	const handleDeletion = (id) => {
 		dispatch({ type: "removeFromWishlist", payload: id });
 		if (wishlist.length === 1) navigate("/Metromart/");
 	};
 
-	async function getProducts(ids = []) {
-		try {
-			const requests = ids.map((id) =>
-				axios.get(`http://localhost:5011/products/${id}`)
-			);
-			const responses = await Promise.all(requests);
-			const productsData = responses.map((res) => res.data.data);
-			console.log(productsData);
-			setLoading((prev) => false);
-			Close();
-			return productsData;
-		} catch (error) {
-			console.warn(error);
-		}
+	function filterUsersByIds(users, ids) {
+		return users.filter((user) => ids.includes(user.id));
 	}
 
 	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				if (loading) Loader();
-				const wishlistProducts = await getProducts(wishlist);
-				const formattedProducts = wishlistProducts.map((item) => {
-					item.images = JSON.parse(item.image_path);
-					return item;
-				});
-				console.table(formattedProducts);
-				setProducts(formattedProducts);
-			} catch (error) {
-				console.log(error);
-			}
+		let wishlistProducts = filterUsersByIds(Products, wishlist);
+		setWishlistProducts(wishlistProducts);
+		return () => {
+			setLoading(false);
 		};
-
-		if (wishlist.length > 0) fetchData();
-		else setProducts([]);
 	}, [wishlist, loading]);
 
 	return (
@@ -70,7 +48,8 @@ function WishList() {
 			<div className="container my-container">
 				<div className="row wishlist-row">
 					<h4 className="col-xxl-10 col-xl-10 col-lg-9 col-md-8 col my-h4">
-						Wishlist ({Products && Products?.length})
+						Wishlist ({wishlistProducts && wishlistProducts?.length}
+						)
 					</h4>
 					<button className="col btn btn-outline-dark btn-lg">
 						Move All To Cart
@@ -80,8 +59,8 @@ function WishList() {
 				{/* Wishlist row */}
 				<div className="row">
 					{/* Dynamic cards from API */}
-					{Products &&
-						Products.map((item) => (
+					{wishlistProducts &&
+						wishlistProducts.map((item) => (
 							<Card
 								key={item.id}
 								item={item}
@@ -102,15 +81,13 @@ function WishList() {
 				</div>
 
 				{/* Slider */}
-				{Products && Products.length > 0 && (
-					<Carousel responsive={responsive}>
-						{/* Dynamic cards from API */}
-						{Products &&
-							Products.map((item) => (
-								<Card key={item.id} item={item} />
-							))}
-					</Carousel>
-				)}
+				<Carousel responsive={responsive}>
+					{/* Dynamic cards from API */}
+					{Products &&
+						Products.map((item) => (
+							<Card key={item.id} item={item} />
+						))}
+				</Carousel>
 			</div>
 		</>
 	);

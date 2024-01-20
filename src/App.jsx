@@ -24,8 +24,13 @@ function App() {
 		<>
 			<NavbarComponent isLogin={userIsFound} />
 			<Routes>
-				<Route path="/Metromart/aboutUs/" element={<AboutUs />} />
 				<Route path={"/Metromart/"} element={<Home />} />
+				<Route
+					path="/Metromart/wishlist/"
+					element={userIsFound ? <WishList /> : <RedirectToLogin />}
+				/>
+
+				<Route path="/Metromart/aboutUs/" element={<AboutUs />} />
 				<Route
 					path="/Metromart/login/"
 					element={
@@ -51,10 +56,6 @@ function App() {
 					element={
 						userIsFound ? <AccountDetails /> : <RedirectToLogin />
 					}
-				/>
-				<Route
-					path="/Metromart/wishlist/"
-					element={userIsFound ? <WishList /> : <RedirectToLogin />}
 				/>
 				<Route
 					path="/Metromart/billingDetails/"

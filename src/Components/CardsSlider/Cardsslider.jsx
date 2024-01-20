@@ -1,8 +1,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { StarRating } from "../productDetailsComponents/StarRating";
 import "../../assets/css/Cardsslider.css";
+import { ProductsContext } from "../../Context/ProductsContext";
+import { useContext } from "react";
 
-function Cardsslider({ Products }) {
+function Cardsslider() {
+	const Products = useContext(ProductsContext);
 	return (
 		<div className="container mt-5 mb-5">
 			<div className="row mt-5 mb-4 position-relative">
@@ -57,7 +60,7 @@ function Cardsslider({ Products }) {
 											height="18"
 											viewBox="0 0 24 21"
 											fill="none"
-											className="heart_icon "
+											className="heart_icon"
 											xmlns="http://www.w3.org/2000/svg"
 										>
 											<path
@@ -103,7 +106,7 @@ function Cardsslider({ Products }) {
 									</button>
 									<div className="d-flex justify-content-center product-swiper-img">
 										<img
-											src={item.image_path[0]}
+											src={item.images[0]}
 											className=" border-0 rounded-2 shadow"
 											alt="Title"
 										/>
@@ -112,7 +115,7 @@ function Cardsslider({ Products }) {
 										<form>
 											<input
 												type="submit"
-												className="text-white bg-"
+												className="text-white"
 											/>
 										</form>
 									</div>
@@ -134,7 +137,7 @@ function Cardsslider({ Products }) {
 											</h5>
 										</div>
 									</div>
-									<StarRating />
+									<StarRating rate={item.rate}/>
 								</div>
 							</SwiperSlide>
 						);

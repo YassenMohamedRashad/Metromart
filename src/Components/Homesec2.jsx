@@ -1,5 +1,4 @@
 import 'swiper/css';
-import Products from "./Products.json";
 import "../assets/css/Homesec2.css";
 import Cardsslider from "./CardsSlider/Cardsslider";
 
@@ -126,7 +125,7 @@ function Homesec2 ()
             </div>
 
             {/* Brows By Category word and view button  */ }
-            <Cardsslider Products={Products}/>
+            <Cardsslider />
         </div>
 
     );
