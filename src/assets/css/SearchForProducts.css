@@ -1,0 +1,23 @@
+.SearchProductsitem{
+    background-color: transparent !important;
+}
+.SearchProductsButton{
+    background-color: #212529 !important;
+    color: white !important;
+    border: none !important;
+}
+
+.SearchProductsBody{
+    background-color: transparent !important;
+}
+
+.SearchProductsPriceInput{
+    width: 30%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    border-bottom: 1px solid white;
+}
+.SearchProductsPriceInput:focus{
+    width: 100%;
+}
