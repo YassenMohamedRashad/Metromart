@@ -41,7 +41,7 @@ function App() {
 						!userIsFound ? (
 							<Login />
 						) : (
-							<Navigate to={"/Metromart/"} />
+							<Navigate to={"/Metromart/"} replace/>
 						)
 					}
 				/>
@@ -51,7 +51,7 @@ function App() {
 						!userIsFound ? (
 							<Signup />
 						) : (
-							<Navigate to={"/Metromart/"} />
+							<Navigate to={"/Metromart/"} replace/>
 						)
 					}
 				/>
@@ -83,7 +83,6 @@ function App() {
 
 				<Route path="/Metromart/*" element={<Error />} />
 				<Route path="/Metromart/contact" element={<Contact />} />
-				<Route path="/Metromart/card" element={<Card />} />
 			</Routes>
 			<Footer />
 		</>

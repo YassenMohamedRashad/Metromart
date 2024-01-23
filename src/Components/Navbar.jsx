@@ -1,72 +1,69 @@
-import React, { useState, useEffect } from 'react';
-import { Navbar, Nav, Container, Form, FormControl } from 'react-bootstrap';
-import searchIcon from '../assets/images/Search_icon.png';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { useAuth } from '../Hooks/useAuth';
-import { InfoAC } from './SweetAlert';
+import React, { useState, useEffect } from "react";
+import { Navbar, Nav, Container, Form, FormControl } from "react-bootstrap";
+import searchIcon from "../assets/images/Search_icon.png";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../Hooks/useAuth";
+import { InfoAC } from "./SweetAlert";
+import RedirectToLogin from "./RedirectToLogin";
 
 const CartIconStyle = {
-	fontSize: '12px',
+	fontSize: "12px",
 };
 
-function NavbarComponent ( { isLogin } )
-{
-	const { wishlist } = useAuth();
-	const [ navBackground, setNavBackground ] = useState( false );
+function NavbarComponent({ isLogin }) {
+	const { wishlist, user } = useAuth();
+	const [navBackground, setNavBackground] = useState(false);
 	const location = useLocation();
 	const navigate = useNavigate();
-	const [ searchInput, setSearchInput ] = useState( '' );
+	const [searchInput, setSearchInput] = useState("");
 
-	const handleClick = ( e ) =>
-	{
+	const handleClick = (e) => {
 		e.preventDefault();
-		wishlist.length !== 0
-			? navigate( '/Metromart/wishlist' )
-			: InfoAC(
+		if (user && wishlist.length === 0) {
+			InfoAC(
 				"Your Wishlist Is Empty\nLet's Fill It with some Items 😊",
 				2000
 			);
+		} else navigate("/Metromart/wishlist");
 	};
 
-	const handleSearchSubmit = ( e ) =>
-	{
+	const handleSearchSubmit = (e) => {
 		e.preventDefault();
-		if ( searchInput.trim() !== '' )
-		{
+		if (searchInput.trim() !== "") {
 			// Redirect to the search results page with the input value
-			navigate( `/Metromart/SearchForProducts/${ encodeURIComponent( searchInput ) }` );
+			navigate(
+				`/Metromart/SearchForProducts/${encodeURIComponent(
+					searchInput
+				)}`
+			);
 		}
 	};
 
-	useEffect( () =>
-	{
-		const onScroll = () =>
-		{
-			if ( window.scrollY >= 0.9 * window.innerHeight )
-			{
-				setNavBackground( true );
-			} else
-			{
-				setNavBackground( false );
+	useEffect(() => {
+		const onScroll = () => {
+			if (window.scrollY >= 0.9 * window.innerHeight) {
+				setNavBackground(true);
+			} else {
+				setNavBackground(false);
 			}
 		};
 
-		window.addEventListener( 'scroll', onScroll );
+		window.addEventListener("scroll", onScroll);
 
-		return () =>
-		{
-			window.removeEventListener( 'scroll', onScroll );
+		return () => {
+			window.removeEventListener("scroll", onScroll);
 		};
-	}, [] );
+	}, []);
 
 	return (
 		<>
 			<Navbar
 				expand="lg"
-				className={ `bg-black navbar-dark  ${ navBackground || location.pathname !== '/Metromart/'
-						? 'Navbar-background-color sticky-top'
-						: 'Navbar-background-transparent fixed-top'
-					} p-3` }
+				className={`bg-black navbar-dark  ${
+					navBackground || location.pathname !== "/Metromart/"
+						? "Navbar-background-color sticky-top"
+						: "Navbar-background-transparent fixed-top"
+				} p-3`}
 			>
 				<Container>
 					<Navbar.Brand href="/Metromart/" className="fw-bolder">
@@ -75,7 +72,10 @@ function NavbarComponent ( { isLogin } )
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="m-auto">
-							<Nav.Link href="/Metromart/" className="me-4 fw-bold">
+							<Nav.Link
+								href="/Metromart/"
+								className="me-4 fw-bold"
+							>
 								Home
 							</Nav.Link>
 							<Nav.Link
@@ -84,46 +84,52 @@ function NavbarComponent ( { isLogin } )
 							>
 								Contact
 							</Nav.Link>
-							<Nav.Link href="/Metromart/aboutUs/" className="me-4 fw-bold">
+							<Nav.Link
+								href="/Metromart/aboutUs/"
+								className="me-4 fw-bold"
+							>
 								About us
 							</Nav.Link>
-							{ !isLogin && (
+							{!isLogin && (
 								<Nav.Link
 									href="/Metromart/signUp/"
 									className="me-4 fw-bold"
 								>
 									Sign Up
 								</Nav.Link>
-							) }
+							)}
 						</Nav>
 						<Form
 							className="d-flex search-form mb-3 mb-lg-0 me-lg-3"
-							onSubmit={ handleSearchSubmit }
+							onSubmit={handleSearchSubmit}
 						>
 							<FormControl
 								type="search"
 								placeholder="search for products"
 								aria-label="Search"
 								name="key"
-								value={ searchInput }
-								onChange={ ( e ) => setSearchInput( e.target.value ) }
+								value={searchInput}
+								onChange={(e) => setSearchInput(e.target.value)}
 							/>
 							<button type="submit">
-								<img src={ searchIcon } alt="Search" />
+								<img src={searchIcon} alt="Search" />
 							</button>
 						</Form>
 						<div className="text-dark fs-4">
-							<NavLink onClick={ handleClick } to="/Metromart/wishlist/">
+							<NavLink
+								onClick={handleClick}
+								to="/Metromart/wishlist/"
+							>
 								<i className="bi bi-heart text-white me-2 ms-2 position-relative"></i>
 							</NavLink>
 							<NavLink to="/Metromart/cart/">
 								<i className="bi bi-cart text-white me-2 ms-2 position-relative"></i>
 							</NavLink>
-							{ isLogin && (
+							{isLogin && (
 								<NavLink to="/Metromart/accountdetails/">
 									<i className="bi bi-person-circle text-danger me-2 ms-2"></i>
 								</NavLink>
-							) }
+							)}
 						</div>
 					</Navbar.Collapse>
 				</Container>
