@@ -1,6 +1,7 @@
 /* dependencies */
 import axios from "axios";
-import { useState } from "react";
+import { isEmpty } from "lodash";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Loader, Fail, Success } from "./SweetAlert";
 import { useAuth } from "../Hooks/useAuth";
@@ -9,44 +10,28 @@ import loginImage from "../assets/images/login.svg";
 import "../assets/css/login.css";
 
 function Login() {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [loading, setLoading] = useState(true);
-	const navigate = useNavigate();
+	const emailRef = useRef();
+	const passwordRef = useRef();
 	const { dispatch } = useAuth();
-
-	/* handling changes */
-	const handleChange = (e) => {
-		/* Updates the state variables based on the user's input in the form fields. */
-		const { name, value } = e.target;
-		const updateStateVariable = (setter) => setter(value);
-		const stateVariableMap = {
-			email: setEmail,
-			password: setPassword,
-		};
-		const setter = stateVariableMap[name];
-		if (setter) updateStateVariable(setter);
-	};
+	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (loading) Loader();
-		let errors = {};
-
+		Loader();
+		const data = {
+			email: emailRef.current.value,
+			password: passwordRef.current.value,
+		};
+		console.log(data);
 		// email validation
 		const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-		if (!emailRegex.test(email)) errors.email = "Enter a Valid Email";
-		else delete errors.email;
-
-		if (Object.keys(errors).length === 0) {
-			const data = {
-				email: email,
-				password: password,
-			};
+		if (isEmpty(data.email) || !emailRegex.test(data.email)) {
+			Fail("Valid Email is Required");
+		} else if (isEmpty(data.password)) Fail("Password is Required");
+		else {
 			axios
 				.post("http://localhost:5011/user/login", data)
 				.then((response) => {
-					setLoading((prev) => !prev);
 					Success(
 						"<i>You Have Logged In Successfully. 👌</i>",
 						`/Metromart/`,
@@ -66,9 +51,7 @@ function Login() {
 					});
 				})
 				.catch((error) => {
-					setLoading((prev) => !prev);
 					Fail("Wrong Email Or Password!");
-					console.log(error);
 				});
 		}
 	};
@@ -85,14 +68,14 @@ function Login() {
 							method="post"
 							className="form login-form"
 							onSubmit={handleSubmit}
+							noValidate
 						>
 							<h6>Enter your details below</h6>
 							<input
 								type="text"
 								name="email"
-								value={email}
+								ref={emailRef}
 								className="mt-5 email-input"
-								onChange={handleChange}
 								required
 							/>
 							<br />
@@ -100,9 +83,8 @@ function Login() {
 							<input
 								type="password"
 								name="password"
-								value={password}
+								ref={passwordRef}
 								className="mt-4 pass-input"
-								onChange={handleChange}
 								required
 							/>
 							<label className="pass-label">Password</label>

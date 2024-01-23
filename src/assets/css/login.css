@@ -22,8 +22,8 @@
   transition: all 0.3s ease;
 }
 
-.login-form .email-input:focus ~ .email-label,
-.login-form .email-input:valid ~ .email-label {
+.login-form .email-input:focus~.email-label,
+.login-form .email-input:valid~.email-label {
   transform: translateY(-15px);
   font-size: 15px;
   color: #4158d0;
@@ -38,8 +38,8 @@
   transition: all 0.3s ease;
 }
 
-.login-form .pass-input:focus ~ .pass-label,
-.login-form .pass-input:valid ~ .pass-label {
+.login-form .pass-input:focus~.pass-label,
+.login-form .pass-input:valid~.pass-label {
   transform: translateY(-15px);
   font-size: 15px;
   color: #4158d0;
