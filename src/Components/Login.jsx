@@ -68,7 +68,6 @@ function Login() {
 							method="post"
 							className="form login-form"
 							onSubmit={handleSubmit}
-							noValidate
 						>
 							<h6>Enter your details below</h6>
 							<input
