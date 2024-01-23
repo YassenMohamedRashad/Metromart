@@ -130,5 +130,4 @@ dist
 .pnp.*
 
 # for othman
-terminals.ps1
 .fig
