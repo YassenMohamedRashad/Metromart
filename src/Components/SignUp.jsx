@@ -120,7 +120,6 @@ function SignUp() {
 							className="form signup-form"
 							method="post"
 							onSubmit={handleSubmit}
-							noValidate
 						>
 							<h5>Enter your Details Below</h5>
 							{/* Name input */}
