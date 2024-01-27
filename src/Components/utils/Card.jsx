@@ -146,12 +146,14 @@ function Card({ item }) {
                 {/* Overlay */}
                 <div className="overlay" style={{ bottom: 110 }}>
                     <form
+                        style={{ cursor: "pointer" }}
                         className="text-center"
                         method="post"
-                        onSubmit={handleFormSubmit}>
+                        onSubmit={handleFormSubmit}
+                        onClick={handleFormSubmit}>
                         <input
                             type="submit"
-                            className="btn text-white"
+                            className="btn text-white no-outline"
                             value={"Add to cart"}
                         />
                     </form>
