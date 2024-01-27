@@ -5,7 +5,7 @@ const strongPassRegex =
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const phoneNumberRegex = /^01[0125]\d{8}$/g;
 
-export const Validator = (data) => {
+export const useValidation = (data) => {
     let Errors = {};
     for (const key in data) {
         if (data.hasOwnProperty(key)) {

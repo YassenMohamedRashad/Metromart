@@ -4,7 +4,7 @@ import { isEmpty } from "lodash";
 import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import { useAuth } from "../Hooks/useAuth";
-import { Validator } from "../Hooks/useValidation";
+import { useValidation } from "../Hooks/useValidation";
 import { Loader, Fail, Success } from "./SweetAlert";
 
 /* assets */
@@ -51,7 +51,7 @@ function SignUp() {
 			age: age.current.value,
 		};
 		// Handle the validation errors here
-		const [validationErrors, Data] = Validator(data);
+		const [validationErrors, Data] = useValidation(data);
 		setErrors(validationErrors); // Update the state with validation errors
 		if (isEmpty(validationErrors)) {
 			console.log("entered");
