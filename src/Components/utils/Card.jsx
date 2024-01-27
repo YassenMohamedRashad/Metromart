@@ -16,15 +16,16 @@ function Card({ item }) {
     };
 
     function formatItemName(item) {
-        const maxLength = 20;
+        const maxLength = 19;
 
         if (item.name.length > maxLength) {
             // If item.name is longer than 20 characters, slice it
-            return item.name.slice(0, maxLength);
+            let name = item.name.slice(0, maxLength);
+            return name + "...";
         } else {
             // If item.name is shorter than 20 characters, add characters to make it 20
             const remainingChars = maxLength - item.name.length;
-            const padding = "_".repeat(remainingChars);
+            const padding = "\u00A0".repeat(remainingChars);
             return item.name + padding;
         }
     }
@@ -106,7 +107,7 @@ function Card({ item }) {
                 </div>
 
                 {/* Overlay */}
-                <div className="overlay" style={{ bottom: 113 }}>
+                <div className="overlay" style={{ bottom: 110 }}>
                     <form
                         className="text-center"
                         method="post"

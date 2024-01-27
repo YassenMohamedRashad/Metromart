@@ -1,70 +1,72 @@
 .swiper {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-
 .swiper-slide .product-swiper-img {
-  width: 100% !important;
-  height: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .eye_icon_container,
 .eye_icon {
-  transition: 0.5s ease;
-}.eye_icon_container:hover {
-  background-color: rgb(113, 113, 212) !important;
+    transition: 0.5s ease;
+}
+.eye_icon_container:hover {
+    background-color: rgb(113, 113, 212) !important;
 
-  .eye_icon {
-    fill: white;
-  }
+    .eye_icon {
+        fill: white;
+    }
 }
 
 .heart_icon_container,
 .heart_icon {
-  transition: 0.5s ease;
-  cursor: pointer;
+    transition: 0.5s ease;
+    cursor: pointer;
 }
 
 .heart_icon_container:hover {
-  .heart_icon {
-    fill: #db7274;
-  }
+    .heart_icon {
+        fill: #db7274;
+    }
 }
 
 .heart_icon.hover {
-  fill: #db7274;
+    fill: #db7274;
 }
 
 .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .overlay {
-  position: absolute;
-  bottom: 0px;
-  background-color: rgb(52, 52, 52);
-  color: white;
-  overflow: hidden;
-  width: 100%;
-  height: 0;
-  border-radius: 5px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  transition: 0.5s ease;
+    position: absolute;
+    bottom: 0px;
+    background-color: rgb(52, 52, 52);
+    color: white;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    transition: 0.5s ease;
 }
 
 .card:hover .overlay {
-  height: 35px !important;
+    height: 35px !important;
 }
+
+
