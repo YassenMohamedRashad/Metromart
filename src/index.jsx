@@ -12,13 +12,13 @@ import "./assets/css/Loader.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-	<React.StrictMode>
-		<BrowserRouter>
-			<AuthContextProvider>
-				<ProductsContextProvider>
-					<App />
-				</ProductsContextProvider>
-			</AuthContextProvider>
-		</BrowserRouter>
-	</React.StrictMode>
+    <React.StrictMode>
+        <BrowserRouter>
+            <AuthContextProvider>
+                <ProductsContextProvider>
+                    <App />
+                </ProductsContextProvider>
+            </AuthContextProvider>
+        </BrowserRouter>
+    </React.StrictMode>,
 );
