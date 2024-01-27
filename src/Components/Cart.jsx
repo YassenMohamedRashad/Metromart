@@ -5,7 +5,7 @@ import "../assets/css/Cart.css";
 import { StarRating } from "./productDetailsComponents/StarRating";
 import emptyCart from "../assets/images/Empty-cuate.png"
 import { Link } from 'react-router-dom';
-import { Close, Loader } from './SweetAlert';
+import Swal from 'sweetalert2';
 
 function Cart() {
     const [Products, setProducts] = useState([]);
@@ -21,7 +21,6 @@ function Cart() {
     }
 
     const getUserCart = async () => {
-        Loader();
         try {
             const res = await axios.get(`http://localhost:5011/Carts/getSingleCart/${user.id}`, {
                 headers: {
@@ -29,7 +28,6 @@ function Cart() {
                 }
             });
             setProducts(res.data.data);
-            Close()
         } catch (error) {
             console.log(error);
         }
@@ -71,6 +69,51 @@ function Cart() {
         return totalPrice;
     };
 
+
+    const checkoutHandler = () => {
+        Swal.fire({
+            title: 'Confirm Checkout',
+            text: `Are you sure you want to checkout? Your total price is ${calculateTotalPrice()}$.`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, checkout!',
+            cancelButtonText: 'Cancel',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                emptyCartAndRedirect();
+            }
+        });
+    };
+
+    const emptyCartAndRedirect = async () => {
+
+        const headers = {
+            'Authorization': 'Bearer ' + user_token,
+            'Content-Type': 'application/json',
+        };
+        const requestData = {
+            user_id: user.id,
+        };
+
+
+        try {
+            await axios.delete("http://localhost:5011/carts/removeAllProductsFromCart", {
+                headers: headers,
+                data: requestData,
+            });
+            getUserCart();
+        } catch (error) {
+            console.log(error);
+        }
+        Swal.fire({
+            title: 'Checkout Successful!',
+            text: 'Thank you for your purchase.',
+            icon: 'success',
+        }).then(() => {
+            window.location.href = '/Metromart/'
+        });
+    };
+
     return (
         <div className='container p-5'>
             <div>
@@ -84,15 +127,15 @@ function Cart() {
                                 <div className='col-8'>
                                     <h3 className='fw-bold'>{product.product_data.name}</h3>
                                     <p className='text-black-50'>{product.product_data.description}</p>
-                                    <h5><span className='text-danger'>{product.product_data.price }$</span></h5>
+                                    <h5><span className='text-danger'>{product.product_data.price}$</span></h5>
                                     <div className="d-flex">
                                         <h5>Quantity: {product.quantity}</h5>
                                         <h5 className='ms-4'><span className='text-black'>Total Price: {product.product_data.price * product.quantity}$</span></h5>
                                     </div>
-                                    <StarRating rate={product.product_data.rate} /> 
+                                    <StarRating rate={product.product_data.rate} />
                                     <div className='d-flex mt-3'>
-                                    <Link className='btn btn-success' to={`http://localhost:3000/Metromart/productDetails/${product.product_data.id}`}>See product details</Link>
-                                            <button className='btn btn-danger ms-3'
+                                        <Link className='btn btn-success' to={`http://localhost:3000/Metromart/productDetails/${product.product_data.id}`}>See product details</Link>
+                                        <button className='btn btn-danger ms-3'
                                             onClick={(e) => deleteProductFromCart(e, product.product_data.id)}>
                                             Remove from Cart
                                         </button>
@@ -103,8 +146,8 @@ function Cart() {
                         </div>
                     ))
 
-                    ) : (
-                        <div className='text-center'>
+                ) : (
+                    <div className='text-center'>
                         <img src={emptyCart} alt="z" className='h-50 w-50' />
                         <h1>There are no products in the cart.</h1>
                     </div>
@@ -112,7 +155,12 @@ function Cart() {
 
                 {Products.length != 0 ? (
                     <div className="mt-5">
-                        <h4>Total Price: <span className='text-danger'>{calculateTotalPrice()}$</span></h4>
+                        <div className="d-flex justify-content-between">
+                            <h4>Total Price: <span className='text-danger'>{calculateTotalPrice()}$</span></h4>
+                            <button className='btn btn-primary' onClick={checkoutHandler}>
+                                Checkout
+                            </button>
+                        </div>
                     </div>
                 ) : (
                     <div className='text-center'>

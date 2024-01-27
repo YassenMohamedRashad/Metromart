@@ -34,11 +34,11 @@ function footer() {
 						<div className="col-lg-3 col-md-6 col-sm-12 mt-5">
 							<h4>Account</h4>
 							<ul className="list-unstyled pt-2">
-								<li className="py-1"><h6><a href="#" className="text-decoration-none text-light">My Account</a></h6></li>
+								<li className="py-1"><h6><a href="/Metromart/accountdetails/" className="text-decoration-none text-light">My Account</a></h6></li>
 								<li className="py-1"><h6><a href="#" className="text-decoration-none text-light">Login / Register</a></h6></li>
-								<li className="py-1"><h6><a href="#" className="text-decoration-none text-light">Cart</a></h6></li>
-								<li className="py-1"><h6><a href="#" className="text-decoration-none text-light">Wishlist</a></h6></li>
-								<li className="py-1"><h6><a href="#" className="text-decoration-none text-light">Shop</a></h6></li>
+								<li className="py-1"><h6><a href="/Metromart/cart/" className="text-decoration-none text-light">Cart</a></h6></li>
+								<li className="py-1"><h6><a href="/Metromart/wishlist/" className="text-decoration-none text-light">Wishlist</a></h6></li>
+								<li className="py-1"><h6><a href="/Metromart/" className="text-decoration-none text-light">Shop</a></h6></li>
 							</ul>
 						</div>
 						<div className="col-lg-3 col-md-6 col-sm-12 mt-5">
@@ -47,7 +47,7 @@ function footer() {
 								<li className="py-1"><h6><a href="#" className="text-decoration-none text-light">Privacy Policy</a></h6></li>
 								<li className="py-1"><h6><a href="#" className="text-decoration-none text-light">Terms of Use</a></h6></li>
 								<li className="py-1"><h6><a href="#" className="text-decoration-none text-light">FAQ</a></h6></li>
-								<li className="py-1"><h6><a href="#" className="text-decoration-none text-light">Contact</a></h6></li>							</ul>
+								<li className="py-1"><h6><a href="/Metromart/contact/" className="text-decoration-none text-light">Contact</a></h6></li>							</ul>
 						</div>
 
 					</div>
