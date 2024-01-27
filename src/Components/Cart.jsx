@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import RedirectToLogin from "./RedirectToLogin";
 import "../assets/css/Cart.css";
 import { StarRating } from "./productDetailsComponents/StarRating";
-import emptyCart from "../assets/images/Empty-cuate.png"
-import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2';
+import emptyCart from "../assets/images/Empty-cuate.png";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { Close, Loader } from "./SweetAlert";
 
 function Cart() {
@@ -22,18 +22,18 @@ function Cart() {
     }
 
     const getUserCart = async () => {
-Loader();
+        Loader();
         try {
             const res = await axios.get(
                 `http://localhost:5011/Carts/getSingleCart/${user.id}`,
                 {
-                headers: {
-                    Authorization: "Bearer " + user_token,
+                    headers: {
+                        Authorization: "Bearer " + user_token,
                     },
                 },
             );
             setProducts(res.data.data);
-Close();
+            Close();
         } catch (error) {
             console.log(error);
         }
@@ -60,9 +60,9 @@ Close();
             await axios.delete(
                 "http://localhost:5011/carts/removeProductFromCart",
                 {
-                headers: headers,
-                data: requestData,
-            },
+                    headers: headers,
+                    data: requestData,
+                },
             );
             getUserCart();
         } catch (error) {
@@ -78,15 +78,14 @@ Close();
         return totalPrice;
     };
 
-
     const checkoutHandler = () => {
         Swal.fire({
-            title: 'Confirm Checkout',
+            title: "Confirm Checkout",
             text: `Are you sure you want to checkout? Your total price is ${calculateTotalPrice()}$.`,
-            icon: 'question',
+            icon: "question",
             showCancelButton: true,
-            confirmButtonText: 'Yes, checkout!',
-            cancelButtonText: 'Cancel',
+            confirmButtonText: "Yes, checkout!",
+            cancelButtonText: "Cancel",
         }).then((result) => {
             if (result.isConfirmed) {
                 emptyCartAndRedirect();
@@ -95,31 +94,32 @@ Close();
     };
 
     const emptyCartAndRedirect = async () => {
-
         const headers = {
-            'Authorization': 'Bearer ' + user_token,
-            'Content-Type': 'application/json',
+            Authorization: "Bearer " + user_token,
+            "Content-Type": "application/json",
         };
         const requestData = {
             user_id: user.id,
         };
 
-
         try {
-            await axios.delete("http://localhost:5011/carts/removeAllProductsFromCart", {
-                headers: headers,
-                data: requestData,
-            });
+            await axios.delete(
+                "http://localhost:5011/carts/removeAllProductsFromCart",
+                {
+                    headers: headers,
+                    data: requestData,
+                },
+            );
             getUserCart();
         } catch (error) {
             console.log(error);
         }
         Swal.fire({
-            title: 'Checkout Successful!',
-            text: 'Thank you for your purchase.',
-            icon: 'success',
+            title: "Checkout Successful!",
+            text: "Thank you for your purchase.",
+            icon: "success",
         }).then(() => {
-            window.location.href = '/Metromart/'
+            window.location.href = "/Metromart/";
         });
     };
 
@@ -166,11 +166,23 @@ Close();
                                             </span>
                                         </h5>
                                     </div>
-                                    <StarRating rate={product.product_data.rate} />
-                                    <div className='d-flex mt-3'>
-                                        <Link className='btn btn-success' to={`/productDetails/${product.product_data.id}`}>See product details</Link>
-                                        <button className='btn btn-danger ms-3'
-                                            onClick={(e) => deleteProductFromCart(e, product.product_data.id)}>
+                                    <StarRating
+                                        rate={product.product_data.rate}
+                                    />
+                                    <div className="d-flex mt-3">
+                                        <Link
+                                            className="btn btn-success"
+                                            to={`/productDetails/${product.product_data.id}`}>
+                                            See product details
+                                        </Link>
+                                        <button
+                                            className="btn btn-danger ms-3"
+                                            onClick={(e) =>
+                                                deleteProductFromCart(
+                                                    e,
+                                                    product.product_data.id,
+                                                )
+                                            }>
                                             Remove from Cart
                                         </button>
                                     </div>
@@ -189,8 +201,15 @@ Close();
                 {Products.length != 0 ? (
                     <div className="mt-5">
                         <div className="d-flex justify-content-between">
-                            <h4>Total Price: <span className='text-danger'>{calculateTotalPrice()}$</span></h4>
-                            <button className='btn btn-primary' onClick={checkoutHandler}>
+                            <h4>
+                                Total Price:{" "}
+                                <span className="text-danger">
+                                    {calculateTotalPrice()}$
+                                </span>
+                            </h4>
+                            <button
+                                className="btn btn-primary"
+                                onClick={checkoutHandler}>
                                 Checkout
                             </button>
                         </div>
