@@ -34,39 +34,39 @@ function App() {
                     element={userIsFound ? <WishList /> : <RedirectToLogin />}
                 />
 
-                <Route path="/Metromart/aboutUs/" element={<AboutUs />} />
-                <Route
-                    path="/Metromart/login/"
-                    element={
-                        !userIsFound ? (
-                            <Login />
-                        ) : (
-                            <Navigate to={"/Metromart/"} />
-                        )
-                    }
-                />
-                <Route
-                    path="/Metromart/signup/"
-                    element={
-                        !userIsFound ? (
-                            <Signup />
-                        ) : (
-                            <Navigate to={"/Metromart/"} />
-                        )
-                    }
-                />
-                <Route
-                    path="/Metromart/accountDetails/"
-                    element={
-                        userIsFound ? <AccountDetails /> : <RedirectToLogin />
-                    }
-                />
-                <Route
-                    path="/Metromart/billingDetails/"
-                    element={
-                        userIsFound ? <BillingDetails /> : <RedirectToLogin />
-                    }
-                />
+				<Route path="/Metromart/aboutUs/" element={<AboutUs />} />
+				<Route
+					path="/Metromart/login/"
+					element={
+						!userIsFound ? (
+							<Login />
+						) : (
+							<Navigate to={"/Metromart/"} replace/>
+						)
+					}
+				/>
+				<Route
+					path="/Metromart/signup/"
+					element={
+						!userIsFound ? (
+							<Signup />
+						) : (
+							<Navigate to={"/Metromart/"} replace/>
+						)
+					}
+				/>
+				<Route
+					path="/Metromart/accountDetails/"
+					element={
+						userIsFound ? <AccountDetails /> : <RedirectToLogin />
+					}
+				/>
+				<Route
+					path="/Metromart/billingDetails/"
+					element={
+						userIsFound ? <BillingDetails /> : <RedirectToLogin />
+					}
+				/>
 
                 <Route
                     path="/Metromart/productDetails/:id"
@@ -81,13 +81,12 @@ function App() {
                         userIsFound ? <Cart /> : <RedirectToLogin />
                     }></Route>
 
-                <Route path="/Metromart/*" element={<Error />} />
-                <Route path="/Metromart/contact" element={<Contact />} />
-                <Route path="/Metromart/card" element={<Card />} />
-            </Routes>
-            <Footer />
-        </>
-    );
+				<Route path="/Metromart/*" element={<Error />} />
+				<Route path="/Metromart/contact" element={<Contact />} />
+			</Routes>
+			<Footer />
+		</>
+	);
 }
 
 export default App;
