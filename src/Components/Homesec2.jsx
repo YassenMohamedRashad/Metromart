@@ -20,14 +20,14 @@ function Homesec2() {
                         </h5>
                     </div>
 
-                    {/* Brows By Category word */}
+                    {/* Browse By Category */}
                     <div className="row">
                         <h2 className="text-white mb-4 mt-4 fw-bold">
                             Browse By Category
                         </h2>
                     </div>
 
-                    {/* cards of category */}
+{/* cards of category */}
                     <div className="row row-cols-2 row-cols-sm-3 row-cols-lg-5 mb-5 justify-content-center">
                         {/* phone category */}
                         <div className="col">
@@ -136,7 +136,7 @@ function Homesec2() {
                 title1={"Last added products"}
                 title2={"New products"}
             />
-
+            
             <Cardsslider
                 title1={"People love this"}
                 title2={"Most purchased"}
