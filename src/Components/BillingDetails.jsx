@@ -1,14 +1,14 @@
-import React from "react";
 import "../assets/css/Billing.css";
+import { Link } from "react-router-dom";
 
 function BillingDetails() {
     return (
         <div className="container">
             <div className="row">
                 <h6>
-                    <a href="#1">Account</a> / <a href="#2">My Account</a> /{" "}
-                    <a href="#3">Product</a> / <a href="#4">View Cart</a> /{" "}
-                    <a href="#5">ChechOut</a>
+                    <Link to="/">Account</Link> / <Link to="/">My Account</Link>{" "}
+                    / <Link to="/">Product</Link> /{" "}
+                    <Link to="/">View Cart</Link> / <Link to="/">CheckOut</Link>
                 </h6>
                 <br />
                 <br />

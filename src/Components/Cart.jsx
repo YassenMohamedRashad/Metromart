@@ -126,7 +126,7 @@ function Cart() {
                                     <div className="d-flex mt-3">
                                         <Link
                                             className="btn btn-success"
-                                            to={`http://localhost:3000/Metromart/productDetails/${product.product_data.id}`}>
+                                            to={`http://localhost:3000/productDetails/${product.product_data.id}`}>
                                             See product details
                                         </Link>
                                         <button

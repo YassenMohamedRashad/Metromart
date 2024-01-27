@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Hooks/useAuth";
 import { Loader, Fail, Success, Close } from "./SweetAlert";
 import Swal from "sweetalert2";
@@ -27,7 +27,7 @@ function AccountDetails() {
 
     const handleLogout = () => {
         localStorage.clear();
-        navigate("/Metromart/");
+        navigate("/");
         window.location.reload();
     };
 
@@ -102,7 +102,7 @@ function AccountDetails() {
                     setFormErrors({});
                     Success(
                         "User data updated successfully",
-                        "/Metromart/",
+                        "/",
                         navigate,
                     );
                 } else {
@@ -125,20 +125,20 @@ function AccountDetails() {
                 <div className="row">
                     <div className="d-flex justify-content-between">
                         <div>
-                            <a
-                                href="/Metromart/"
+                            <Link
+                                to="/"
                                 className="text-secondary text-decoration-none">
                                 Home
-                            </a>
+                            </Link>
                             <span className="text-secondary me-2 ms-2">
                                 {" "}
                                 /{" "}
                             </span>
-                            <a
-                                href="/Metromart/AccountDetails"
+                            <Link
+                                to="/AccountDetails"
                                 className="text-black text-decoration-none">
                                 My Account
-                            </a>
+                            </Link>
                         </div>
                         <div>
                             <p>
@@ -159,11 +159,11 @@ function AccountDetails() {
                                 <h3 className=" text-danger ">
                                     Edit Your Profile
                                 </h3>
-                                <a
+                                <Link
                                     onClick={handleLogout}
                                     className="btn btn-danger">
                                     Logout
-                                </a>
+                                </Link>
                             </div>
                             <div className="d-flex justify-content-between mt-5">
                                 <div>
@@ -281,7 +281,7 @@ function AccountDetails() {
                             </small>
                             <div className="d-flex justify-content-end mt-5">
                                 <div>
-                                    <a className="btn me-3">Cancel</a>
+                                    <Link className="btn me-3">Cancel</Link>
                                     <button
                                         className="btn btn-danger"
                                         type="submit">

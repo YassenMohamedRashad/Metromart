@@ -16,8 +16,6 @@ import SearchForProducts from "./Components/SearchForProducts";
 import AboutUs from "./Components/Aboutus";
 import RedirectToLogin from "./Components/RedirectToLogin";
 import Contact from "./Components/Contact";
-
-import Card from "./Components/utils/Card";
 import Cart from "./Components/Cart";
 
 function App() {
@@ -28,65 +26,61 @@ function App() {
         <>
             <NavbarComponent isLogin={userIsFound} />
             <Routes>
-                <Route path={"/Metromart/"} element={<Home />} />
+                <Route path={"/"} element={<Home />} />
                 <Route
-                    path="/Metromart/wishlist/"
+                    path="/wishlist/"
                     element={userIsFound ? <WishList /> : <RedirectToLogin />}
                 />
 
-				<Route path="/Metromart/aboutUs/" element={<AboutUs />} />
-				<Route
-					path="/Metromart/login/"
-					element={
-						!userIsFound ? (
-							<Login />
-						) : (
-							<Navigate to={"/Metromart/"} replace/>
-						)
-					}
-				/>
-				<Route
-					path="/Metromart/signup/"
-					element={
-						!userIsFound ? (
-							<Signup />
-						) : (
-							<Navigate to={"/Metromart/"} replace/>
-						)
-					}
-				/>
-				<Route
-					path="/Metromart/accountDetails/"
-					element={
-						userIsFound ? <AccountDetails /> : <RedirectToLogin />
-					}
-				/>
-				<Route
-					path="/Metromart/billingDetails/"
-					element={
-						userIsFound ? <BillingDetails /> : <RedirectToLogin />
-					}
-				/>
+                <Route path="/aboutUs/" element={<AboutUs />} />
+                <Route
+                    path="/login/"
+                    element={
+                        !userIsFound ? <Login /> : <Navigate to={"/"} replace />
+                    }
+                />
+                <Route
+                    path="/signup/"
+                    element={
+                        !userIsFound ? (
+                            <Signup />
+                        ) : (
+                            <Navigate to={"/"} replace />
+                        )
+                    }
+                />
+                <Route
+                    path="/accountDetails/"
+                    element={
+                        userIsFound ? <AccountDetails /> : <RedirectToLogin />
+                    }
+                />
+                <Route
+                    path="/billingDetails/"
+                    element={
+                        userIsFound ? <BillingDetails /> : <RedirectToLogin />
+                    }
+                />
 
                 <Route
-                    path="/Metromart/productDetails/:id"
+                    path="/productDetails/:id"
                     element={<ProductDetails />}
                 />
                 <Route
-                    path="/Metromart/SearchForProducts/:key"
+                    path="/SearchForProducts/:key"
                     element={<SearchForProducts />}></Route>
                 <Route
-                    path="/Metromart/Cart"
+                    path="/Cart"
                     element={
                         userIsFound ? <Cart /> : <RedirectToLogin />
                     }></Route>
 
-				<Route path="/Metromart/*" element={<Error />} />
-				<Route path="/Metromart/contact" element={<Contact />} />
-			</Routes>
-			<Footer />
-		</>
-	);
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/*" element={<Error />} />
+            </Routes>
+            <Footer />
+        </>
+    );
 }
 
 export default App;

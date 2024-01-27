@@ -36,7 +36,7 @@ function WishList() {
                 "Your Wishlist Is Now Empty\nLet's Go To The Homepage",
                 3000, //duration of the message
             );
-            navigate("/Metromart/");
+            navigate("/");
         }
         // Check if updatedWishlistProducts has length > 0 and navigate accordingly
     }, [wishlist, Products]);

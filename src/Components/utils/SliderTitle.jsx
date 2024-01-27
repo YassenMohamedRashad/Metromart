@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function SliderTitle({ title, subTitle }) {
     return (
@@ -13,12 +14,12 @@ function SliderTitle({ title, subTitle }) {
                 <h2 className="text-black mb-4 fw-bold">
                     {title || "Exclusive offers"}
                 </h2>
-                <a
-                    href="/Metromart/SearchForProducts/allProducts"
+                <Link
+                    to="/SearchForProducts/allProducts"
                     className="btn text-white pt-3 pb-3 ps-5 pe-5 view-all-product"
                     style={{ backgroundColor: "#DC4345" }}>
                     View All
-                </a>
+                </Link>
             </div>
         </div>
     );

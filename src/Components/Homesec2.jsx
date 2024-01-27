@@ -5,6 +5,7 @@ import { IoShirtSharp } from "react-icons/io5";
 import { GiRunningShoe } from "react-icons/gi";
 import { FiHeadphones } from "react-icons/fi";
 import { MdOutlineChair } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 function Homesec2() {
     return (
@@ -31,8 +32,8 @@ function Homesec2() {
                         {/* phone category */}
                         <div className="col">
                             <div className="card-category card m-1">
-                                <a
-                                    href="/Metromart/SearchForProducts/1"
+                                <Link
+                                    to="/SearchForProducts/1"
                                     className="text-white">
                                     <div className="mt-4">
                                         <div className="card-img-top">
@@ -46,15 +47,15 @@ function Homesec2() {
                                         <div>Electronics</div>
                                         <br />
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                         </div>
 
                         {/* computer category */}
                         <div className="col">
                             <div className="card-category card m-1">
-                                <a
-                                    href="/Metromart/SearchForProducts/2"
+                                <Link
+                                    to="/SearchForProducts/2"
                                     className="text-white">
                                     <div className="mt-4">
                                         <div className="card-img-top">
@@ -65,15 +66,15 @@ function Homesec2() {
                                         <div>Clothes</div>
                                         <br />
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                         </div>
 
                         {/* smartwatch category */}
                         <div className="col">
                             <div className="card-category card m-1">
-                                <a
-                                    href="/Metromart/SearchForProducts/3"
+                                <Link
+                                    to="/SearchForProducts/3"
                                     className="text-white">
                                     <div className="mt-4">
                                         <div className="card-img-top">
@@ -84,15 +85,15 @@ function Homesec2() {
                                         <div>Furniture</div>
                                         <br />
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                         </div>
 
                         {/* camera category */}
                         <div className="col">
                             <div className="card-category card m-1">
-                                <a
-                                    href="/Metromart/SearchForProducts/4"
+                                <Link
+                                    to="/SearchForProducts/4"
                                     className="text-white">
                                     <div className="mt-4">
                                         <div className="card-img-top">
@@ -103,15 +104,15 @@ function Homesec2() {
                                         <div>Shoes</div>
                                         <br />
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                         </div>
 
                         {/* headphones category */}
                         <div className="col">
                             <div className="card-category card m-1">
-                                <a
-                                    href="/Metromart/SearchForProducts/5"
+                                <Link
+                                    to="/SearchForProducts/5"
                                     className="text-white">
                                     <div className="mt-4">
                                         <div className="card-img-top">
@@ -122,7 +123,7 @@ function Homesec2() {
                                         <div>Miscellaneous</div>
                                         <br />
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

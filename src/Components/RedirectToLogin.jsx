@@ -7,7 +7,7 @@ const RedirectToLogin = () => {
         InfoAC("You Have To Login To Access This Page");
     }, []);
 
-	return <Navigate to="/Metromart/login" replace />;
+    return <Navigate to="/login/" replace />;
 };
 
 export default RedirectToLogin;

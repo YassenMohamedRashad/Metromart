@@ -2,7 +2,7 @@
 import axios from "axios";
 import { isEmpty } from "lodash";
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Loader, Fail, Success } from "./SweetAlert";
 import { useAuth } from "../Hooks/useAuth";
 /* assets */
@@ -34,7 +34,7 @@ function Login() {
 				.then((response) => {
 					Success(
 						"<i>You Have Logged In Successfully. 👌</i>",
-						`/Metromart/`,
+						`/`,
 						navigate
 					);
 					const { data, token } = response.data;
@@ -95,20 +95,20 @@ function Login() {
 								Login
 							</button>
 							<br />
-							<a
-								href="#"
+							<Link
+								to="/"
 								className="text-danger text-decoration-none mt-5 "
 							>
-								Forget Password?
-							</a>
-							<h6 className="text-danger mt-2">
-								Don't have account?
-								<a
-									href="/Metromart/signup"
+								Forgot Password?
+							</Link>
+							<h6 className="text-secondary mt-2">
+								Doesn't have an account?
+								<Link
+									to="/signup"
 									className="text-danger p-1"
 								>
-									Create account
-								</a>
+									Create an account
+								</Link>
 							</h6>
 						</form>
 					</div>

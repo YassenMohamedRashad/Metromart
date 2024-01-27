@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { ProductsContext } from "../Context/ProductsContext.jsx";
 import { useAuth } from "../Hooks/useAuth.jsx";
 import useWishlist from "../Hooks/useWishlist.jsx";
-import { Success, Loader, Close } from "./SweetAlert.jsx";
+import { Success, Loader, Close, InfoAC } from "./SweetAlert.jsx";
 /* components */
 import { Roadmap } from "./Roadmap";
 import { StarRating } from "./productDetailsComponents/StarRating";
@@ -40,6 +40,11 @@ const ProductDetails = () => {
 
     /* add to cart request */
     const handleBuying = async (quantity) => {
+        if (!user)
+            return InfoAC(
+                "You Have To Login To Add Items Into Your Wishlist!",
+                5500,
+            );
         Loader();
         const headers = {
             "Content-Type": "application/json",

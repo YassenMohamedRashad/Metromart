@@ -1,14 +1,10 @@
+import { Link } from "react-router-dom";
 import "../assets/css/footer.css";
 import sendIcon from "../assets/images/Send-icon.png";
+
 function footer() {
     return (
         <>
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" />
-            <link
-                href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,500;0,800;1,600&display=swap"
-                rel="stylesheet"
-            />
             <footer className="text-light pt-3">
                 <div className="container-fluid px-5 ">
                     <div className="row">
@@ -37,9 +33,8 @@ function footer() {
                             <ul className="list-unstyled pt-2">
                                 <li className="py-1">
                                     <h6>
-                                        Zakir Hussein st., Nasr
-                                        <br />
-                                        city, cairo, Egypt
+                                        Egypt, Cairo, Nasr City,
+                                        <br /> Zakir Hussain st.
                                     </h6>
                                 </li>
                                 <li className="py-1">
@@ -55,47 +50,47 @@ function footer() {
                             <ul className="list-unstyled pt-2">
                                 <li className="py-1">
                                     <h6>
-                                        <a
-                                            href="#"
+                                        <Link
+                                            to="/"
                                             className="text-decoration-none text-light">
                                             My Account
-                                        </a>
+                                        </Link>
                                     </h6>
                                 </li>
                                 <li className="py-1">
                                     <h6>
-                                        <a
-                                            href="#"
+                                        <Link
+                                            to="/"
                                             className="text-decoration-none text-light">
                                             Login / Register
-                                        </a>
+                                        </Link>
                                     </h6>
                                 </li>
                                 <li className="py-1">
                                     <h6>
-                                        <a
-                                            href="#"
+                                        <Link
+                                            to="/"
                                             className="text-decoration-none text-light">
                                             Cart
-                                        </a>
+                                        </Link>
                                     </h6>
                                 </li>
                                 <li className="py-1">
                                     <h6>
-                                        <a
-                                            href="#"
+                                        <Link
+                                            to="/"
                                             className="text-decoration-none text-light">
                                             Wishlist
-                                        </a>
+                                        </Link>
                                     </h6>
                                 </li>
                                 <li className="py-1">
                                     <h6>
-                                        <a
-                                            href="#"
+                                        <Link
+                                            to="/"
                                             className="text-decoration-none text-light">
                                             Shop
-                                        </a>
+                                        </Link>
                                     </h6>
                                 </li>
                             </ul>
@@ -105,38 +100,38 @@ function footer() {
                             <ul className="list-unstyled pt-2">
                                 <li className="py-1">
                                     <h6>
-                                        <a
-                                            href="#"
+                                        <Link
+                                            to="/"
                                             className="text-decoration-none text-light">
                                             Privacy Policy
-                                        </a>
+                                        </Link>
                                     </h6>
                                 </li>
                                 <li className="py-1">
                                     <h6>
-                                        <a
-                                            href="#"
+                                        <Link
+                                            to="/"
                                             className="text-decoration-none text-light">
                                             Terms of Use
-                                        </a>
+                                        </Link>
                                     </h6>
                                 </li>
                                 <li className="py-1">
                                     <h6>
-                                        <a
-                                            href="#"
+                                        <Link
+                                            to="/"
                                             className="text-decoration-none text-light">
                                             FAQ
-                                        </a>
+                                        </Link>
                                     </h6>
                                 </li>
                                 <li className="py-1">
                                     <h6>
-                                        <a
-                                            href="#"
+                                        <Link
+                                            to="/"
                                             className="text-decoration-none text-light">
                                             Contact
-                                        </a>
+                                        </Link>
                                     </h6>
                                 </li>{" "}
                             </ul>

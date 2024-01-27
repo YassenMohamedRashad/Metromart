@@ -8,7 +8,17 @@ export const Roadmap = ({ category_id, name }) => {
         4: "Shoes",
         5: "Miscellaneous",
     };
-    const URL = `/Metromart/SearchForProducts/${category_id}`;
+    const URL = `/SearchForProducts/${category_id}`;
+
+    // Get the current URL
+    // const currentURL = window.location.href;
+
+    // Split the URL by "/"
+    // const urlParts = currentURL.split('/');
+
+    // Get the last two parts
+    // const lastTwoParts = urlParts.slice(-2);
+
     return (
         <>
             <h6 className="tabs mb-1 mt-3 mx-5">

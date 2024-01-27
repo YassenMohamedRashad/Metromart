@@ -10,7 +10,7 @@ function Error() {
                 your visited page not found, you may go home page.
             </h5>
             <Link
-                to="/Metromart/"
+                to="/"
                 className="btn-danger btn mt-3 pt-3 pb-2 pe-5 ps-5">
                 <h6>Back to home page</h6>
             </Link>
