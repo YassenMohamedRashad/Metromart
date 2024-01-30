@@ -3,13 +3,9 @@ import { useAuth } from "../../Hooks/useAuth";
 import { Success } from "../SweetAlert";
 import useWishlist from "../../Hooks/useWishlist";
 import { StarRating } from "../productDetailsComponents/StarRating";
-import { Link, useNavigate } from "react-router-dom";
-import { InfoAC } from '../SweetAlert';
+import { Link } from "react-router-dom";
 
-
-function Card ( { item } )
-{
-	const navigate = useNavigate()
+function Card({ item }) {
 	const { user, user_token } = useAuth();
 	const { inWishlist, handleWishlistToggle } = useWishlist(item.id);
 	const headers = {
@@ -17,58 +13,27 @@ function Card ( { item } )
 		Authorization: `Bearer ${user_token}`,
 	};
 
-	function formatItemName ( item )
-	{
-		const maxLength = 20;
-
-		if ( item.name.length > maxLength )
-		{
-			// If item.name is longer than 20 characters, slice it
-			return item.name.slice( 0, maxLength );
-		} else
-		{
-			// If item.name is shorter than 20 characters, add characters to make it 20
-			const remainingChars = maxLength - item.name.length;
-			const padding = "_".repeat( remainingChars );
-			return item.name + padding;
-		}
-	}
-
-	const handleFormSubmit = ( e ) =>
-	{
-		if (user) {
-			e.preventDefault();
-			let res = axios
-				.post(
-					"http://localhost:5011/Carts/addProductToCart",
-					{
-						user_id: user.id,
-						product_id: item.id,
-						quantity: 1,
-					},
-					{ headers }
-				)
-				.then( () =>
+	const handleFormSubmit = (e) => {
+		e.preventDefault();
+		let res = axios
+			.post(
+				"http://localhost:5011/Carts/addProductToCart",
 				{
-					Success( "<i>Product Added to Cart successfully ✔</i>" );
-				} )
-				.catch( ( error ) =>
-				{
-					console.log( error );
-				} );
-		} else
-		{
-			navigate( '/Metromart/login' )
-			InfoAC(
-					"You have to login to buy products",
-					2000
-			);
-		}
-		
+					user_id: user.id,
+					product_id: item.id,
+					quantity: 1,
+				},
+				{ headers }
+			)
+			.then(() => {
+				Success("<i>Product Added to Cart successfully ✔</i>");
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	};
 
 	return (
-
 			<div class="card border-0 ">
 				{/* Heart Icon */}
 				<button
@@ -103,9 +68,7 @@ function Card ( { item } )
 					to={`/Metromart/productDetails/${item.id}`}
 					className="btn position-absolute translate-middle badge rounded-pill bg-white eye_icon_container "
 					style={{ top: 70, right: -5 }}
-				/>
-					
-					<Link to={ productIdUrl }>
+				>
 					<svg
 						fill="#000000"
 						className="eye_icon"
@@ -158,7 +121,7 @@ function Card ( { item } )
 				<div class="card-body ps-0">
 					<div className="d-flex justify-content-between">
 						<h5 className="card-title fw-bold text-start product-card-title">
-							{formatItemName(item)}
+							{item.name.slice(0, 25)}{" "}
 						</h5>
 						<div>
 							<h6
