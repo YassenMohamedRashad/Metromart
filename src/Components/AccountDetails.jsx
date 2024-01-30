@@ -32,8 +32,8 @@ function AccountDetails() {
 	};
 
 	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setFormData((prevState) => ({ ...prevState, [name]: value }));
+		const { name, defaultValue } = e.target;
+		setFormData((prevState) => ({ ...prevState, [name]: defaultValue }));
 	};
 
 	const handleSubmit = async (e) => {
@@ -120,10 +120,6 @@ function AccountDetails() {
 		}
 	};
 
-// Some of Hyman's magic touches ✨✨
-	const userDataJSON = localStorage.getItem('user');
-	const userData = JSON.parse(userDataJSON);
-
 
 	return (
 		<>
@@ -185,6 +181,7 @@ function AccountDetails() {
 										name="name"
 										className="form-control text-black shadow-sm bg-light text-secondary border-0 mt-2  account-inputs "
 										placeholder="Name"
+										defaultValue={formData.name}
 									/>
 								</div>
 								<div>
@@ -199,9 +196,8 @@ function AccountDetails() {
 										placeholder="Email"
 										onChange={handleChange}
 										name="email"
-										value={formData.email}
+										defaultValue={formData.email}
 										className="form-control shadow-sm text-black bg-light text-secondary border-0 mt-2 account-inputs"
-										defaultValue={userData['email']}
 									/>
 								</div>
 							</div>
@@ -221,6 +217,7 @@ function AccountDetails() {
 										name="phoneNumber"
 										className="form-control text-black shadow-sm bg-light text-secondary border-0 mt-2 account-inputs"
 										placeholder="Phone Number"
+										defaultValue={formData.phoneNumber}
 									/>
 								</div>
 								<div>
@@ -234,10 +231,10 @@ function AccountDetails() {
 										type="text"
 										placeholder="Address One"
 										onChange={handleChange}
-										value={formData.address1}
+										defaultValue={formData.address1}
 										name="address1"
 										className="form-control shadow-sm text-black bg-light text-secondary border-0 mt-2 account-inputs"
-										defaultValue={userData['address1']}
+
 									/>
 								</div>
 							</div>
@@ -249,14 +246,14 @@ function AccountDetails() {
 								type="text"
 								placeholder="Address Two"
 								onChange={handleChange}
-								value={formData.address2}
+								defaultValue={formData.address2}
 								name="address2"
 								className="form-control shadow-sm text-black bg-light text-secondary border-0 mt-2 address2-input"
-								defaultValue={userData['address2']}
+
 							/>
 
 							<label
-								htmlFor="PasswordChanges"
+								htmlFor="PasswordChanges"	
 								className="fw-bold mt-4"
 							>
 								Password Changes
@@ -266,7 +263,7 @@ function AccountDetails() {
 								name="currentPassword"
 								placeholder="Current Password"
 								onChange={handleChange}
-								value={formData.currentPassword}
+								defaultValue={formData.currentPassword}
 								className="form-control text-black shadow-sm bg-light text-secondary border-0 mt-2"
 								style={{ height: 50 }}
 							/>
@@ -275,7 +272,7 @@ function AccountDetails() {
 								name="newPassword"
 								placeholder="New Password"
 								onChange={handleChange}
-								value={formData.newPassword}
+								defaultValue={formData.newPassword}
 								className="form-control text-black shadow-sm bg-light text-secondary border-0 mt-2"
 								style={{ height: 50 }}
 							/>
@@ -284,7 +281,7 @@ function AccountDetails() {
 								name="confirmNewPassword"
 								placeholder="Confirm New Password"
 								onChange={handleChange}
-								value={formData.confirmNewPassword}
+								defaultValue={formData.confirmNewPassword}
 								className="form-control text-black shadow-sm bg-light text-secondary border-0 mt-2"
 								style={{ height: 50 }}
 							/>
