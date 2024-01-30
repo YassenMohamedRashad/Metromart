@@ -191,12 +191,12 @@ function SignUp() {
               {/* Confirm Password input */}
               <input type="password" name="confirmPassword" className="mt-5 confirmpass-input inputs" required value={formData.confirmPassword} onChange={handleChange} />
               <label className="confirmpass-label">Confirm Password</label>
+
 			  <br />
-			  <div className="password-error">
+			  <div className={formErrors.password==="Passwords don't match" ? 'password-match-error' : 'password-error'}>
               	<small className="text-danger mt-2">{formErrors.password}</small>
 			  </div>
 			  <br />
-
 
               {/* Address one input */}
               <input type="text" name="address1" className="mt-4 address1-input inputs" required value={formData.address1} onChange={handleChange} />
@@ -205,10 +205,7 @@ function SignUp() {
 
               {/* Address two input */}
               <input type="text" name="address2" className="mt-4 address2-input inputs" value={formData.address2} onChange={handleChange} />
-              <label
-                className={`address2-label ${
-                  formData.address2 ? "active" : ""
-                }`} >
+              <label className={`address2-label ${formData.address2 ? "active" : ""}`} >
                 Address Two
               </label>
               <br />
