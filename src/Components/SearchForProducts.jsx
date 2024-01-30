@@ -87,10 +87,10 @@ function SearchForProducts ()
 
     switch (SortBy) {
         case "MTL":
-            filteredProducts = filteredProducts.sort( ( a, b ) => a.price - b.price );
+            filteredProducts = filteredProducts.sort( ( a, b ) => b.price - a.price );
             break;
         case "LTM":
-            filteredProducts = filteredProducts.sort( ( a, b ) => b.price - a.price );
+            filteredProducts = filteredProducts.sort( ( a, b ) => a.price - b.price );
             break;
         case "HR":
             filteredProducts = filteredProducts.sort( ( a, b ) => b.rate - a.rate );
