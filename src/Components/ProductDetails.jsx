@@ -1,11 +1,11 @@
 /* dependencies */
 import axios from "axios";
 import { useState, useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ProductsContext } from "../Context/ProductsContext.jsx";
 import { useAuth } from "../Hooks/useAuth.jsx";
 import useWishlist from "../Hooks/useWishlist.jsx";
-import { Success, Loader, Close } from "./SweetAlert.jsx";
+import { Success, Loader, Close, InfoAC } from "./SweetAlert.jsx";
 /* components */
 import { Roadmap } from "./Roadmap";
 import { StarRating } from "./productDetailsComponents/StarRating";
@@ -16,7 +16,9 @@ import MinusIcon from "../assets/images/icon-minus.svg";
 import PlusIcon from "../assets/images/icon-plus.svg";
 import "../assets/css/ProductDetails.css";
 
-const ProductDetails = () => {
+const ProductDetails = () =>
+{
+	const navigate = useNavigate()
 	const { id } = useParams();
 	const [quantity, setQuantity] = useState(1);
 	const { user, user_token } = useAuth();
@@ -39,29 +41,42 @@ const ProductDetails = () => {
 	}, [Products]);
 
 	/* add to cart request */
-	const handleBuying = async (quantity) => {
-		Loader();
-		const headers = {
-			"Content-Type": "application/json",
-			Authorization: `Bearer ${user_token}`,
-		};
+	const handleBuying = async ( quantity ) =>
+	{
+		if (user) {
+			Loader();
+			const headers = {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${ user_token }`,
+			};
 
-		await axios
-			.post(
-				"http://localhost:5011/Carts/addProductToCart",
+			await axios
+				.post(
+					"http://localhost:5011/Carts/addProductToCart",
+					{
+						user_id: user.id,
+						product_id: id,
+						quantity: quantity,
+					},
+					{ headers }
+				)
+				.then( () =>
 				{
-					user_id: user.id,
-					product_id: id,
-					quantity: quantity,
-				},
-				{ headers }
-			)
-			.then(() => {
-				Success("<i>Product Added to Cart successfully ✔</i>");
-			})
-			.catch((error) => {
-				console.log(error);
-			});
+					Success( "<i>Product Added to Cart successfully ✔</i>" );
+				} )
+				.catch( ( error ) =>
+				{
+					console.log( error );
+				} );
+		} else
+		{
+			navigate( '/Metromart/login' );
+			InfoAC(
+				"login to can buy products",
+				2000
+			);
+		}
+		
 	};
 	return (
 		<>
