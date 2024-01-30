@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import "../assets/css/AccountDetails.css";
 import { useAuth } from "../Hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useHistory  } from "react-router-dom";
 
 function AccountDetails() {
 	const [formData, setFormData] = useState({
@@ -24,6 +24,12 @@ function AccountDetails() {
 		navigate("/Metromart/")
 		window.location.reload()
 	};
+
+// Some of Hyman's magic touches ✨✨
+	const userDataJSON = localStorage.getItem('user');
+	const userData = JSON.parse(userDataJSON);
+
+
 	return (
 		<>
 			<div className="container mt-5 mb-5" style={{ marginTop: 75 }}>
@@ -80,6 +86,7 @@ function AccountDetails() {
 										name="name"
 										className="form-control text-black shadow-sm bg-light text-secondary border-0 mt-2  account-inputs "
 										placeholder="Name"
+										defaultValue={userData['name']}
 									/>
 								</div>
 								<div>
@@ -91,6 +98,7 @@ function AccountDetails() {
 										placeholder="Email"
 										name="email"
 										className="form-control shadow-sm text-black bg-light text-secondary border-0 mt-2 account-inputs"
+										defaultValue={userData['email']}
 									/>
 								</div>
 							</div>
@@ -107,6 +115,7 @@ function AccountDetails() {
 										name="phoneNumber"
 										className="form-control text-black shadow-sm bg-light text-secondary border-0 mt-2 account-inputs"
 										placeholder="Phone Number"
+										defaultValue={userData['phone_number']}
 									/>
 								</div>
 								<div>
@@ -121,6 +130,7 @@ function AccountDetails() {
 										placeholder="Address One"
 										name="address1"
 										className="form-control shadow-sm text-black bg-light text-secondary border-0 mt-2 account-inputs"
+										defaultValue={userData['address1']}
 									/>
 								</div>
 							</div>
@@ -133,6 +143,7 @@ function AccountDetails() {
 								placeholder="Address Two"
 								name="address2"
 								className="form-control shadow-sm text-black bg-light text-secondary border-0 mt-2 address2-input"
+								defaultValue={userData['address2']}
 							/>
 
 							<label
@@ -165,11 +176,11 @@ function AccountDetails() {
 
 							<div className="d-flex justify-content-end mt-5">
 								<div>
-									<a className="btn me-3">Cancel</a>
-									<button
+								<a className="btn me-3" onClick={() => navigate(-1)}>Cancel</a>
+								<button
 										className="btn btn-danger"
 										type="submit"
-									>
+>
 										Save Changes
 									</button>
 								</div>
