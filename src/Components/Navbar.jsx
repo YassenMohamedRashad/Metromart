@@ -22,7 +22,7 @@ function NavbarComponent({ isLogin }) {
 		wishlist.length !== 0
 			? navigate("/Metromart/wishlist")
 			: InfoAC(
-				"Your Wishlist Is Empty\nLet's Fill It with some Items 😊",
+				"Your Wishlist Is Empty\nLet's Fill It with some Items ",
 				2000
 			);
 	};
