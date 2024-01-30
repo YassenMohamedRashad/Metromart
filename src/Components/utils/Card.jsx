@@ -3,9 +3,13 @@ import { useAuth } from "../../Hooks/useAuth";
 import { Success } from "../SweetAlert";
 import useWishlist from "../../Hooks/useWishlist";
 import { StarRating } from "../productDetailsComponents/StarRating";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { InfoAC } from '../SweetAlert';
 
-function Card({ item }) {
+
+function Card ( { item } )
+{
+	const navigate = useNavigate()
 	const { user, user_token } = useAuth();
 	const { inWishlist, handleWishlistToggle } = useWishlist(item.id);
 	const headers = {
@@ -13,7 +17,6 @@ function Card({ item }) {
 		Authorization: `Bearer ${user_token}`,
 	};
 
-	let productIdUrl = `/Metromart/ProductDetails/${item.id}`; 
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
 		let res = axios
@@ -125,7 +128,7 @@ function Card({ item }) {
 				<div class="card-body ps-0">
 					<div className="d-flex justify-content-between">
 						<h5 className="card-title fw-bold text-start product-card-title">
-							{item.name.slice(0, 25)}{" "}
+							{formatItemName(item)}
 						</h5>
 						<div>
 							<h6

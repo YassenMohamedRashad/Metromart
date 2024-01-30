@@ -5,6 +5,7 @@ import { AuthContextProvider } from "./Context/AuthContext";
 import { ProductsContextProvider } from "./Context/ProductsContext";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import "./assets/css/nav.css";
 import "./assets/css/variables.css";
 import "./assets/css/Loader.css";
