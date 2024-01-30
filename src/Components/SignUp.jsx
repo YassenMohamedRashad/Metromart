@@ -9,6 +9,8 @@ import signupImage from "../assets/images/signup.svg";
 import googleLogo from "../assets/images/google-icon.svg";
 import { useAuth } from "../Hooks/useAuth";
 
+
+
 function SignUp() {
 	const navigate = useNavigate();
 	const { dispatch } = useAuth();
@@ -163,7 +165,7 @@ function SignUp() {
 	};
 
 	return (
-		<div className="container mb-5">
+		<div className="container mb-5" >
 			<div className="row signup align-items-center justify-content-center d-flex">
 				<div className="col d-xl-block d-none ">
 					<img
