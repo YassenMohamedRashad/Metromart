@@ -17,24 +17,54 @@ function Card ( { item } )
 		Authorization: `Bearer ${user_token}`,
 	};
 
-	const handleFormSubmit = (e) => {
-		e.preventDefault();
-		let res = axios
-			.post(
-				"http://localhost:5011/Carts/addProductToCart",
+	function formatItemName ( item )
+	{
+		const maxLength = 20;
+
+		if ( item.name.length > maxLength )
+		{
+			// If item.name is longer than 20 characters, slice it
+			return item.name.slice( 0, maxLength );
+		} else
+		{
+			// If item.name is shorter than 20 characters, add characters to make it 20
+			const remainingChars = maxLength - item.name.length;
+			const padding = "_".repeat( remainingChars );
+			return item.name + padding;
+		}
+	}
+
+	const handleFormSubmit = ( e ) =>
+	{
+		if (user) {
+			e.preventDefault();
+			let res = axios
+				.post(
+					"http://localhost:5011/Carts/addProductToCart",
+					{
+						user_id: user.id,
+						product_id: item.id,
+						quantity: 1,
+					},
+					{ headers }
+				)
+				.then( () =>
 				{
-					user_id: user.id,
-					product_id: item.id,
-					quantity: 1,
-				},
-				{ headers }
-			)
-			.then(() => {
-				Success("<i>Product Added to Cart successfully ✔</i>");
-			})
-			.catch((error) => {
-				console.log(error);
-			});
+					Success( "<i>Product Added to Cart successfully ✔</i>" );
+				} )
+				.catch( ( error ) =>
+				{
+					console.log( error );
+				} );
+		} else
+		{
+			navigate( '/Metromart/login' )
+			InfoAC(
+					"You have to login to buy products",
+					2000
+			);
+		}
+		
 	};
 
 	return (
