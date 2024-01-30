@@ -8,6 +8,10 @@ import "../assets/css/signup.css";
 import signupImage from "../assets/images/signup.svg";
 import googleLogo from "../assets/images/google-icon.svg";
 import { useAuth } from "../Hooks/useAuth";
+// gooogle
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -249,9 +253,19 @@ function SignUp() {
               </button>
               <br />
             </form>
-            <button className="btn btn-light border mt-2 w-100 ">
-              <img src={googleLogo} alt=""/> Sign Up with Google
-            </button>
+            
+			<GoogleOAuthProvider clientId="1004557642508-7su72opgj482gdd32cevijjr9o03vce2.apps.googleusercontent.com">
+				<GoogleLogin
+					onSuccess={credentialResponse => {
+						var data = jwtDecode(credentialResponse.credential);
+						console.log(data);
+					}}
+					onError={() => {
+						console.log('Login Failed');
+					}}
+					useOneTap
+				/>
+			</GoogleOAuthProvider>
             <h6 className="text-secondary mt-4">
               Already have account?{" "}
               <a href="/Metromart/login" className="text-secondary">
@@ -263,6 +277,7 @@ function SignUp() {
         </div>
       </div>
     </div>
+	
   );
 }
 export default SignUp;
