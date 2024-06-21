@@ -13,6 +13,7 @@
 	outline: none;
 }
 
+
 /* Name input styling */
 .signup-form .name-label {
 	position: absolute;
@@ -47,6 +48,14 @@
 	color: #81accd;
 }
 
+.email-error{
+	position: absolute;
+	top: 19%;
+	right: 0;
+	pointer-events: none;
+	transition: all 0.3s ease;
+}
+
 /* Password input styling */
 .signup-form .pass-label {
 	position: absolute;
@@ -63,6 +72,14 @@
 	font-size: 15px;
 	color: #81accd;
 }
+.password-error{
+	position: absolute;
+	top: 28%;
+	right: 0;
+	pointer-events: none;
+	transition: all 0.3s ease;
+}
+
 
 /* Confirm password input styling */
 .signup-form .confirmpass-label {
@@ -79,6 +96,13 @@
 	transform: translateY(-20px);
 	font-size: 15px;
 	color: #81accd;
+}
+.password-match-error{
+	position: absolute;
+	top: 37%;
+	right: 0;
+	pointer-events: none;
+	transition: all 0.3s ease;
 }
 
 /* address one input styling */
@@ -110,7 +134,7 @@
 
 .signup-form .address2-input:focus ~ .address2-label,
 .signup-form .address2-input:valid ~ .address2-label.active {
-	transform: translateY(-20px);
+	transform: translateY(-30px);
 	font-size: 15px;
 	color: #81accd;
 }
@@ -131,6 +155,14 @@
 	font-size: 15px;
 	color: #81accd;
 }
+.phoneNumber-error{
+	position: absolute;
+	top: 66%;
+	right: 0;
+	pointer-events: none;
+	transition: all 0.3s ease;
+}
+
 
 /* Age input styling */
 .signup-form .age-label {
@@ -147,6 +179,13 @@
 	transform: translateY(-20px);
 	font-size: 15px;
 	color: #81accd;
+}
+.age-error{
+	position: absolute;
+	top: 75%;
+	right: 0;
+	pointer-events: none;
+	transition: all 0.3s ease;
 }
 
 /* Gender selection styling */
@@ -167,3 +206,4 @@
 .signup-form .female-input:focus ~ .female-label {
 	color: #81accd;
 }
+

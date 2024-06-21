@@ -42,7 +42,7 @@ function WishList() {
 	return (
 		<>
 			{/* Wishlist and For You list content */}
-			<div className="container my-container">
+			<div className="container my-container mt-5 mb-5">
 				<div className="row wishlist-row">
 					<h4 className="col-xxl-10 col-xl-10 col-lg-9 col-md-8 col my-h4">
 						Wishlist ( {wishlistProducts && wishlistProducts.length}{" "}
