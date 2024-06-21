@@ -1,0 +1,60 @@
+### to use install this vs code extension
+### REST Client
+
+### get all users
+GET http://localhost:5011/user/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImV4YW1wbGVAZ21haWwuY29tIiwiaWF0IjoxNzA1NDM0Mzc2LCJleHAiOjE3MDU1MjA3NzZ9.V4Iso84Fkzk90187XYHH6U3sAao9V7YzVoEbtzRrubM
+
+
+
+
+### Login
+POST http://localhost:5011/user/login
+Content-Type: application/json
+
+{
+    "email": "example@gmail.com",
+    "password": "jD7R)$)$?Q,bQ8g"
+}
+
+
+### SignUp
+POST http://localhost:5011/user/signup
+Content-Type: application/json
+
+{
+    "name": "ahmad",
+    "email": "example123123az2a3@gmail.com",
+    "password": "AmE*X-Ln7b}FE^wa",
+    "address1": "123 fake st.",
+    "address2": "123 fake st.",
+    "phone_number": "01069210742",
+    "gender": "male",
+    "age": 18
+}
+
+
+### update user's data
+PUT http://localhost:5011/user/updateAccount
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImV4YW1wbGVAZ21haWwuY29tIiwiaWF0IjoxNzA1NjY5ODI3LCJleHAiOjE3MDY1MzM4Mjd9.hy8eHpgAuRRzNp-S7JEHIZ9XGN35IuFH9k9xZVlr-gw
+
+{
+    "name": "ahmad",
+    "email": "example@gmail.com",
+    "password": "JD7R)$)$?Q,bQ8g",
+    "new_password": "JD7R)$)$?Q,bQ8ga",
+    "address1": "123 fake st.",
+    "address2": "updated address",
+    "phone_number": "01069210742",
+    "gender": "male"
+}
+
+### get all products
+
+GET http://localhost:5011/products/1
+
+### search for products
+
+GET http://localhost:5011/products/search/sm
+
