@@ -99,7 +99,7 @@ function Aboutus() {
 					<div className="col-2"></div>
 
 					<div className="col-sm-6 col-md-4">
-						<a className="a" href="http://www.linkedin.com/in/zeyad-hyman-227746297">
+						<a className="a" href="www.linkedin.com/in/zeyad-hyman-7a5968347">
 							<div className="team-item ho">
 								<img className="team-img" src={Zeyad} alt="" />
 
